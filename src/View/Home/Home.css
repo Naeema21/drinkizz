@@ -13,3 +13,26 @@
 .banner-home .card-for-bg{
     background-color: #fbe9e78a;
 }
+.Home-Banner-Caroucel-Text {
+    text-align: left;
+    padding-left: 80px !important;
+}
+.Home-Banner-Caroucel-Text .Banner-Carousel-Heading{
+    font-size: 32px;
+    line-height: 55px;
+}
+.Home-Banner-Caroucel-Text .Banner-Carousel-Bold{
+    font-size: 50px;
+}
+.Home-Banner-Caroucel-Text .Banner-Caroucel-text{
+    font-size: 22px;
+    font-weight: 300;
+}
+.Home-Banner-Caroucel-Text button{
+    border: none;
+    margin-top: 20px;
+    background-color: #fe3638;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 7px;
+}
