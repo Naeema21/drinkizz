@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+
+.bg-faded-orange{
+  background-color: #fe696a17 !important;
+}
+.bg-faded-indigo{
+  background-color: #4e54c817 !important;
+}
+.text-orange{
+  color: #ff5722;
+}
+.text-indigo{
+  color: #4e54c8 !important;
+}
