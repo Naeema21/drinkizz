@@ -1,0 +1,15 @@
+.banner-home{
+    background-color: #f4f9fb;
+}
+.banner-home .card{
+    margin-top: 25px;
+    border: none;
+    padding: 3px;
+    background-color: #0089ff0d;
+}
+.banner-home .card .card-align-pro{
+    text-align: left !important;
+}
+.banner-home .card-for-bg{
+    background-color: #fbe9e78a;
+}
