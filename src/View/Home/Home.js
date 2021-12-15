@@ -11,7 +11,7 @@ import HomeBannerCaroucel1 from '../../assets/images/Home/Caroucel-1.jpg'
 import HomeBannerCaroucel2 from '../../assets/images/Home/caroucel-2.jpg'
 import HomeBannerCaroucel3 from '../../assets/images/Home/caroucel-3.jpg'
 import OfferBanneripad from '../../assets/images/Home/offer-banner-1.jpg'
-import { product } from '../../assets/Data/product';
+import { products } from '../../assets/Data/product';
 import { clientCaroucel } from "../../assets/Data/data";
 
 const Home = () => {
@@ -112,8 +112,24 @@ const Home = () => {
                 </div>
             </section>
             {/* Banner Completed */}
-            <Card />
-
+             {/* Product cards start */} 
+             <section>
+                <div className="container pt-5">
+                    <div className="row">
+                        <div className="col-lg-12 col-md-12 col-sm-12 d-flex flex-wrap justify-content-between align-items-center pt-1 border-bottom pb-4 mb-4">
+                            <h2>Trending products</h2>
+                            <button className='cards-moreproduct-btn btn btn-sm'>More Products<i className="fa fa-angle-right" style={{fontSize:'15px', paddingLeft:'3px'}}></i></button>
+                        </div> 
+                        {/* Using Map Function to access the data & send to card */}
+                        {products.slice(0,8).map((productdata) => (
+                            <div className='col-lg-3 col-md-3 col-sm-6'>
+                                <Card category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.imgsrc} star={productdata.star} />
+                            </div>
+                         ))}                       
+                    </div>
+                </div>
+            </section>  
+            {/* Product cards start */} 
             {/* Banner Offer Start */}
             <section className='Offers-Banner'>
                 <div className='container'>
@@ -162,7 +178,7 @@ const Home = () => {
                             <div className='BS-Product'>
                                 <h3 className='BS-Heading'>BestSellers</h3>
                                 {
-                                    product.slice(0, 4).map((value, index) => {
+                                    products.slice(0, 4).map((value, index) => {
                                         return (
                                             <div className='BS-Product-item d-flex align-items-center ' key={index}>
                                                 <div className=''>
@@ -187,7 +203,7 @@ const Home = () => {
                             <div className='BS-Product'>
                                 <h3 className='BS-Heading'>New Arrivals</h3>
                                 {
-                                    product.slice(4, 8).map((value, index) => {
+                                    products.slice(4, 8).map((value, index) => {
                                         return (
                                             <div className='BS-Product-item d-flex align-items-center ' key={index}>
                                                 <div className=''>
@@ -212,7 +228,7 @@ const Home = () => {
                             <div className='BS-Product'>
                                 <h3 className='BS-Heading'>Top Rated</h3>
                                 {
-                                    product.slice(8, 12).map((value, index) => {
+                                    products.slice(8, 12).map((value, index) => {
                                         return (
                                             <div className='BS-Product-item d-flex align-items-center' key={index}>
                                                 <div className=''>
@@ -237,6 +253,9 @@ const Home = () => {
                 </div>
             </section>
             {/* Best Sellers Products End */}
+            {/* Banner end */}
+           
+            
         </div>
     )
 }
