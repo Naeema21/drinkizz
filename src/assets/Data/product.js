@@ -13,7 +13,7 @@ import product11 from '../images/Product/product11.jpg'
 import product12 from '../images/Product/product12.jpg'
 
 
-export const product=[
+ export const products=[
     {
         category:"Headphone",
         name:"Wireless Bluetooth Headphones",
