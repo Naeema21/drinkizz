@@ -1,17 +1,19 @@
 /* Banner CSS Start */
-.home{
-    overflow: hidden;
-}
 .banner-home{
     background-color: #f4f9fb;
 }
-
+.cardbox{
+    background-color: #0089ff0d;
+}
 .banner-home .card-align-pro{
     text-align: left !important;
 }
+.banner-home .cardbox-for-bg{
+    background-color: #fbe9e78a;
+}
 .Home-Banner-Caroucel-Text {
     text-align: left;
-    padding-left: 50px !important;
+    padding-left: 40px !important;
 }
 .Home-Banner-Caroucel-Text .Banner-Carousel-Heading{
     font-size: 32px;
@@ -43,15 +45,6 @@
     width: 6px !important;
     height: 6px !important;
 }
-@media(max-width:992px){
-    .banner-home .cardbox{
-        min-width: 16rem;
-    }
-    .scroll-card{
-        overflow:scroll;
-    }
-}
-
 /* Banner CSS Completed */
 .Offers-Banner .Limited-Offer-tag{
     display: inline-block;
@@ -81,8 +74,8 @@
     font-weight: 500;
 }
 .BS-Heading{
-    font-size: 1.0625rem;
-    font-weight: 600 !important;
+    font-size: 25px;
+    font-weight: 600;
 }
 .best-seller-product-price{
     font-size: .875rem;
@@ -99,4 +92,11 @@
 }
 .BS-Product:last-child{
     border-bottom: none;
+}
+/* Client Caroucel */
+.client-caroucel .owl-carousel .owl-item img {
+    width: 65%;
+}
+.owl-carousel .owl-item img {
+    width: 100%;
 }

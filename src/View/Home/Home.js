@@ -12,14 +12,21 @@ import HomeBannerCaroucel2 from '../../assets/images/Home/caroucel-2.jpg'
 import HomeBannerCaroucel3 from '../../assets/images/Home/caroucel-3.jpg'
 import OfferBanneripad from '../../assets/images/Home/offer-banner-1.jpg'
 import { product } from '../../assets/Data/product';
+import { clientCaroucel } from "../../assets/Data/data";
 
-
-const Home =()=> {
-    const Card = React.lazy(()=>import('../../Components/Cards/Cards'))
+const Home = () => {
+    const Card = React.lazy(() => import('../../Components/Cards/Cards'))
     const options = {
         items: 1,
         rewind: true,
         autoplay: false
+    };
+    const options2 = {
+        items: 4,
+        rewind: true,
+        // autoplay: true,
+        nav: false,
+        dots: false
     };
     return (
         <div className='home'>
@@ -130,6 +137,23 @@ const Home =()=> {
                 </div>
             </section>
             {/* Banner Offer end */}
+            {/* Client Section Start */}
+            <section className="client-caroucel mt-4">
+                <div className="container">
+                    <OwlCarousel options={options2}>
+                        {
+                            clientCaroucel.map((value, index) => {
+                                return (
+                                    <div className="border py-4" key={index}>
+                                        <img src={value.img} alt="client" width="40%" className="d-block mx-auto"></img>
+                                    </div>
+                                );
+                            })
+                        }
+                    </OwlCarousel>
+                </div>
+            </section>
+            {/* Client Section End */}
             {/* Best Sellers Products Start */}
             <section className='best-sellers-products pt-5'>
                 <div className='container pb-4'>
@@ -138,50 +162,49 @@ const Home =()=> {
                             <div className='BS-Product'>
                                 <h3 className='BS-Heading'>BestSellers</h3>
                                 {
-                                    product.slice(0,4).map((value, index) => {
-                                        return(
+                                    product.slice(0, 4).map((value, index) => {
+                                        return (
                                             <div className='BS-Product-item d-flex align-items-center ' key={index}>
-                                            <div className=''>
-                                                <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
-                                            </div>
-                                            <div className='d-flex align-items-center'>
-                                                <div className='mt-4'>
-                                                    <h6 className='best-seller-product-title'>{value.name}</h6>
-                                                    <p className='best-seller-product-price'>{value.price}</p>
+                                                <div className=''>
+                                                    <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
+                                                </div>
+                                                <div className='d-flex align-items-center'>
+                                                    <div className='mt-4'>
+                                                        <h6 className='best-seller-product-title'>{value.name}</h6>
+                                                        <p className='best-seller-product-price'>{value.price}</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        
                                         );
                                     })
-                                }  
-                                 <div className='mt-4'>
-                                <a>View More <i className="fa fa-angle-right"></i></a>
+                                }
+                                <div className='mt-4'>
+                                    <a>View More <i className="fa fa-angle-right"></i></a>
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                         <div className='col-md-4 col-sm-6'>
                             <div className='BS-Product'>
                                 <h3 className='BS-Heading'>New Arrivals</h3>
                                 {
-                                    product.slice(4,8).map((value, index) => {
-                                        return(
+                                    product.slice(4, 8).map((value, index) => {
+                                        return (
                                             <div className='BS-Product-item d-flex align-items-center ' key={index}>
-                                            <div className=''>
-                                                <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
-                                            </div>
-                                            <div className='d-flex align-items-center'>
-                                                <div className='mt-4'>
-                                                    <h6 className='best-seller-product-title'>{value.name}</h6>
-                                                    <p className='best-seller-product-price'>{value.price}</p>
+                                                <div className=''>
+                                                    <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
+                                                </div>
+                                                <div className='d-flex align-items-center'>
+                                                    <div className='mt-4'>
+                                                        <h6 className='best-seller-product-title'>{value.name}</h6>
+                                                        <p className='best-seller-product-price'>{value.price}</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         );
                                     })
-                                }  
-                                 <div className='mt-4'>
-                                <a>View More <i className="fa fa-angle-right"></i></a>
+                                }
+                                <div className='mt-4'>
+                                    <a>View More <i className="fa fa-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -189,27 +212,26 @@ const Home =()=> {
                             <div className='BS-Product'>
                                 <h3 className='BS-Heading'>Top Rated</h3>
                                 {
-                                    product.slice(8,12).map((value, index) => {
-                                        return(
+                                    product.slice(8, 12).map((value, index) => {
+                                        return (
                                             <div className='BS-Product-item d-flex align-items-center' key={index}>
-                                            <div className=''>
-                                                <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
-                                            </div>
-                                            <div className='d-flex align-items-center'>
-                                                <div className='mt-4'>
-                                                    <h6 className='best-seller-product-title'>{value.name}</h6>
-                                                    <p className='best-seller-product-price'>{value.price}</p>
+                                                <div className=''>
+                                                    <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
+                                                </div>
+                                                <div className='d-flex align-items-center'>
+                                                    <div className='mt-4'>
+                                                        <h6 className='best-seller-product-title'>{value.name}</h6>
+                                                        <p className='best-seller-product-price'>{value.price}</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         );
                                     })
-                                }  
+                                }
                                 <div className='mt-4'>
-                                <a>View More <i className="fa fa-angle-right"></i></a>
+                                    <a>View More <i className="fa fa-angle-right"></i></a>
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
