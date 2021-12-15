@@ -36,3 +36,14 @@
     padding: 10px 25px;
     border-radius: 7px;
 }
+
+.banner-home .owl-theme .owl-dots .owl-dot.active span {
+    background: #ff5722 !important;
+    width: 15px !important;
+    height: 4px !important;
+}
+
+.banner-home .owl-theme .owl-dots .owl-dot span {
+    width: 6px !important;
+    height: 6px !important;
+}
