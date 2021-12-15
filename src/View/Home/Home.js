@@ -1,15 +1,19 @@
 import React from 'react'
 import './Home.css'
-import ProductCamera from '../../assets/images/Home/banner-sm01.png'
-import ProductGadget from '../../assets/images/Home/banner-sm02.png'
-import ProductEarbuds from '../../assets/images/Home/banner-sm03.png'
 import OwlCarousel from 'react-owl-carousel2';
 import 'react-owl-carousel2/lib/styles.css';
 import 'react-owl-carousel2/src/owl.theme.default.css';
+import './Home.css'
+import ProductCamera from '../../assets/images/Home/banner-sm01.png'
+import ProductGadget from '../../assets/images/Home/banner-sm02.png'
+import ProductEarbuds from '../../assets/images/Home/banner-sm03.png'
 import HomeBannerCaroucel1 from '../../assets/images/Home/Caroucel-1.jpg'
 import HomeBannerCaroucel2 from '../../assets/images/Home/caroucel-2.jpg'
 import HomeBannerCaroucel3 from '../../assets/images/Home/caroucel-3.jpg'
-function Home() {
+
+
+const Home =()=> {
+    const Card = React.lazy(()=>import('../Components/Cards/Cards'))
     const options = {
         items: 1,
         rewind: true,
@@ -99,6 +103,9 @@ function Home() {
                 </div>
             </section>
             {/* Banner Completed */}
+            <Card />
+
+            {/* Banner Offer Start */}
             <section className='Offers-Banner'>
                 <div className='container'>
                     <div className='row cardbox rounded-3 align-items-center'>
@@ -109,9 +116,9 @@ function Home() {
                         </div>
                         <div className='col-md-7'></div>
                     </div>
-                </div>
-
+                </div>          
             </section>
+            {/* Banner Offer end */}
         </div>
     )
 }
