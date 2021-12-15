@@ -1,21 +1,19 @@
+/* Banner CSS Start */
 .banner-home{
     background-color: #f4f9fb;
 }
-.banner-home .card{
-    margin-top: 25px;
-    border: none;
-    padding: 3px;
+.cardbox{
     background-color: #0089ff0d;
 }
-.banner-home .card .card-align-pro{
+.banner-home .card-align-pro{
     text-align: left !important;
 }
-.banner-home .card-for-bg{
+.banner-home .cardbox-for-bg{
     background-color: #fbe9e78a;
 }
 .Home-Banner-Caroucel-Text {
     text-align: left;
-    padding-left: 80px !important;
+    padding-left: 40px !important;
 }
 .Home-Banner-Caroucel-Text .Banner-Carousel-Heading{
     font-size: 32px;
@@ -35,4 +33,84 @@
     color: white;
     padding: 10px 25px;
     border-radius: 7px;
+}
+
+.banner-home .owl-theme .owl-dots .owl-dot.active span {
+    background: #ff5722 !important;
+    width: 15px !important;
+    height: 4px !important;
+}
+
+.banner-home .owl-theme .owl-dots .owl-dot span {
+    width: 6px !important;
+    height: 6px !important;
+}
+/* Banner CSS Completed */
+.Offers-Banner .Limited-Offer-tag{
+    display: inline-block;
+    padding: 0.25em 0.625em;
+    font-size: 0.75em;
+    font-weight: normal;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.175rem;
+}
+.Offers-Banner button{
+    color: #fff;
+    background-color: #4e54c8;
+    border-color: #4e54c8;
+    box-shadow: unset;
+}
+.Offers-Banner .fa {
+    font-size: 23px;
+}
+/* Best Seller */
+.best-seller-product-title{
+    margin-bottom: 0.25rem;
+    font-size: .875rem;
+    font-weight: 500;
+}
+.BS-Heading{
+    font-size: 25px;
+    font-weight: 600;
+}
+.best-seller-product-price{
+    font-size: .875rem;
+    color: #4e54c8 !important;
+}
+.best-sellers-products a{
+    cursor: pointer;
+    color: #ff5722 !important;
+    font-size: 15px;
+}
+
+.BS-Product-item{
+    border-bottom: 1px solid #dbd9d9;
+}
+.BS-Product:last-child{
+    border-bottom: none;
+}
+/* Client Caroucel */
+.client-caroucel .owl-carousel .owl-item img {
+    width: 65%;
+}
+.owl-carousel .owl-item img {
+    width: 100%;
+}
+/* Product cards heading button css */
+.cards-moreproduct-btn{
+    border-color: rgba(78,84,200,.35);
+    color: #4e54c8;
+    font-size: 0.8125rem;
+    padding: 0.425rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: 400;
+}
+.cards-moreproduct-btn:hover{
+    color: #fff;
+    background-color: #4e54c8;
+    border-color: #4e54c8;
 }
