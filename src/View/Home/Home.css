@@ -1,16 +1,14 @@
+/* Banner CSS Start */
 .banner-home{
     background-color: #f4f9fb;
 }
-.banner-home .card{
-    margin-top: 25px;
-    border: none;
-    padding: 3px;
+.cardbox{
     background-color: #0089ff0d;
 }
-.banner-home .card .card-align-pro{
+.banner-home .card-align-pro{
     text-align: left !important;
 }
-.banner-home .card-for-bg{
+.banner-home .cardbox-for-bg{
     background-color: #fbe9e78a;
 }
 .Home-Banner-Caroucel-Text {
@@ -46,4 +44,17 @@
 .banner-home .owl-theme .owl-dots .owl-dot span {
     width: 6px !important;
     height: 6px !important;
+}
+/* Banner CSS Completed */
+.Offers-Banner .Limited-Offer-tag{
+    display: inline-block;
+    padding: 0.25em 0.625em;
+    font-size: 0.75em;
+    font-weight: normal;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.175rem;
 }
