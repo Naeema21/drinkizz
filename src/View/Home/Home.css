@@ -1,16 +1,13 @@
 .banner-home{
     background-color: #f4f9fb;
 }
-.banner-home .card{
-    margin-top: 25px;
-    border: none;
-    padding: 3px;
+.banner-home .cardbox{
     background-color: #0089ff0d;
 }
-.banner-home .card .card-align-pro{
+.banner-home .card-align-pro{
     text-align: left !important;
 }
-.banner-home .card-for-bg{
+.banner-home .cardbox-for-bg{
     background-color: #fbe9e78a;
 }
 .Home-Banner-Caroucel-Text {
@@ -35,4 +32,15 @@
     color: white;
     padding: 10px 25px;
     border-radius: 7px;
+}
+
+.banner-home .owl-theme .owl-dots .owl-dot.active span {
+    background: #ff5722 !important;
+    width: 15px !important;
+    height: 4px !important;
+}
+
+.banner-home .owl-theme .owl-dots .owl-dot span {
+    width: 6px !important;
+    height: 6px !important;
 }
