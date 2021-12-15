@@ -3,15 +3,16 @@ import OwlCarousel from 'react-owl-carousel2';
 import 'react-owl-carousel2/lib/styles.css';
 import 'react-owl-carousel2/src/owl.theme.default.css';
 import './Home.css'
-import ProductCamera from '../../assets/images/HomePage/banner-sm01.png'
-import ProductGadget from '../../assets/images/HomePage/banner-sm02.png'
-import ProductEarbuds from '../../assets/images/HomePage/banner-sm03.png'
-import HomeBannerCaroucel1 from '../../assets/images/HomePage/Caroucel-1.jpg'
-import HomeBannerCaroucel2 from '../../assets/images/HomePage/caroucel-2.jpg'
-import HomeBannerCaroucel3 from '../../assets/images/HomePage/caroucel-3.jpg'
+import ProductCamera from '../../assets/images/Home/banner-sm01.png'
+import ProductGadget from '../../assets/images/Home/banner-sm02.png'
+import ProductEarbuds from '../../assets/images/Home/banner-sm03.png'
+import HomeBannerCaroucel1 from '../../assets/images/Home/Caroucel-1.jpg'
+import HomeBannerCaroucel2 from '../../assets/images/Home/caroucel-2.jpg'
+import HomeBannerCaroucel3 from '../../assets/images/Home/caroucel-3.jpg'
 
 
 const Home =()=> {
+    const Card = React.lazy(()=>import('../Components/Cards/Cards'))
     const options = {
         items: 1,
         rewind: true,
@@ -101,7 +102,7 @@ const Home =()=> {
                 </div>
             </section>
             {/* Banner end */}
-    
+            <Card />
 
         </div>
     )
