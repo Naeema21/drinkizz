@@ -1,17 +1,19 @@
 /* Banner CSS Start */
-.home{
-    overflow: hidden;
-}
 .banner-home{
     background-color: #f4f9fb;
 }
-
+.cardbox{
+    background-color: #0089ff0d;
+}
 .banner-home .card-align-pro{
     text-align: left !important;
 }
+.banner-home .cardbox-for-bg{
+    background-color: #fbe9e78a;
+}
 .Home-Banner-Caroucel-Text {
     text-align: left;
-    padding-left: 80px !important;
+    padding-left: 40px !important;
 }
 .Home-Banner-Caroucel-Text .Banner-Carousel-Heading{
     font-size: 32px;
@@ -43,15 +45,6 @@
     width: 6px !important;
     height: 6px !important;
 }
-@media(max-width:992px){
-    .banner-home .cardbox{
-        min-width: 16rem;
-    }
-    .scroll-card{
-        overflow:scroll;
-    }
-}
-
 /* Banner CSS Completed */
 .Offers-Banner .Limited-Offer-tag{
     display: inline-block;
@@ -64,4 +57,60 @@
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: 0.175rem;
+}
+.Offers-Banner button{
+    color: #fff;
+    background-color: #4e54c8;
+    border-color: #4e54c8;
+    box-shadow: unset;
+}
+.Offers-Banner .fa {
+    font-size: 23px;
+}
+/* Best Seller */
+.best-seller-product-title{
+    margin-bottom: 0.25rem;
+    font-size: .875rem;
+    font-weight: 500;
+}
+.BS-Heading{
+    font-size: 25px;
+    font-weight: 600;
+}
+.best-seller-product-price{
+    font-size: .875rem;
+    color: #4e54c8 !important;
+}
+.best-sellers-products a{
+    cursor: pointer;
+    color: #ff5722 !important;
+    font-size: 15px;
+}
+
+.BS-Product-item{
+    border-bottom: 1px solid #dbd9d9;
+}
+.BS-Product:last-child{
+    border-bottom: none;
+}
+/* Client Caroucel */
+.client-caroucel .owl-carousel .owl-item img {
+    width: 65%;
+}
+.owl-carousel .owl-item img {
+    width: 100%;
+}
+/* Product cards heading button css */
+.cards-moreproduct-btn{
+    border-color: rgba(78,84,200,.35);
+    color: #4e54c8;
+    font-size: 0.8125rem;
+    padding: 0.425rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: 400;
+}
+.cards-moreproduct-btn:hover{
+    color: #fff;
+    background-color: #4e54c8;
+    border-color: #4e54c8;
 }
