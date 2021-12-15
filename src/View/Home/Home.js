@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 import './Home.css'
 import OwlCarousel from 'react-owl-carousel2';
 import 'react-owl-carousel2/lib/styles.css';
@@ -13,44 +13,44 @@ import HomeBannerCaroucel3 from '../../assets/images/Home/caroucel-3.jpg'
 
 
 const Home =()=> {
-    const Card = React.lazy(()=>import('../Components/Cards/Cards'))
+    const Card = React.lazy(()=>import('../../Components/Cards/Cards'))
     const options = {
         items: 1,
         rewind: true,
         autoplay: false
     };
     return (
-        <div>
+        <div className='home'>
             {/* banner */}
             <section className="banner-home py-4">
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-3 order-xl-1 pt-4 mt-3 mt-xl-0 pt-xl-0 order-2">
-                            <div className="d-flex d-xl-block">
-                                <div className="d-flex align-items-center bg-faded-info rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
+                            <div className="d-flex d-xl-block scroll-card">
+                                <div className="d-flex align-items-center bg-faded-indigo rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
                                     <img src={ProductCamera} className='img-fluid' width="125" alt='Camera'></img>
                                     <div className="py-4 px-2">
                                         <div className='card-align-pro'>
                                             <h5>Next Gen <br /><b>Video</b> with <b>360 Cam</b></h5>
-                                            <h6>Shop Now <i className="fa fa-angle-right"></i></h6>
+                                            <h6 className="text-indigo">Shop Now <i className="fa fa-angle-right"></i></h6>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="d-flex align-items-center bg-faded-info rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox-for-bg" >
+                                <div className="d-flex align-items-center bg-faded-orange rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
                                     <img src={ProductGadget} className='img-fluid' width="125" alt='Gadget'></img>
                                     <div className="py-4 px-2">
                                         <div className='card-align-pro'>
                                             <h5>Next Gen <br /><b>Video</b> with <b>360 Cam</b></h5>
-                                            <h6>Shop Now <i className="fa fa-angle-right"></i></h6>
+                                            <h6 className="text-orange">Shop Now <i className="fa fa-angle-right"></i></h6>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="d-flex align-items-center bg-faded-info rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
-                                    <img src={ProductEarbuds} className='img-fluid' width="125" alt='EarBuds'></img>
+                                <div className="d-flex align-items-center bg-faded-green rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
+                                    <img src={ProductEarbuds} className="img-fluid" width="125" alt="EarBuds"></img>
                                     <div className="py-4 px-2">
-                                        <div className='card-align-pro'>
+                                        <div className="card-align-pro">
                                             <h5>Next Gen <br /><b>Video</b> with <b>360 Cam</b></h5>
-                                            <h6>Shop Now <i className="fa fa-angle-right"></i></h6>
+                                            <h6 className="text-green">Shop Now <i className="fa fa-angle-right"></i></h6>
                                         </div>
                                     </div>
                                 </div>
@@ -58,43 +58,43 @@ const Home =()=> {
                         </div>
                         <div className="col-lg-9 order-xl-2 order-1">
                             <OwlCarousel options={options}>
-                                <div className='row display-flex align-items-center'>
-                                    <div className='col-lg-6 Home-Banner-Caroucel-Text'>
+                                <div className="row display-flex align-items-center">
+                                    <div className="col-lg-6 Home-Banner-Caroucel-Text">
                                         <span className="Banner-Carousel-Heading">World of music with</span><br />
                                         <span className="Banner-Carousel-Bold">
                                             <b>Headphones</b>
                                         </span><br />
-                                        <span className='Banner-Caroucel-text'>Choose between top brands</span><br />
+                                        <span className="Banner-Caroucel-text">Choose between top brands</span><br />
                                         <button>Shop Now <i className="fa fa-angle-right"></i></button>
                                     </div>
-                                    <div className='col-lg-6'>
-                                        <img src={HomeBannerCaroucel1} className='img-fluid' alt='HeadSet'></img>
+                                    <div className="col-lg-6">
+                                        <img src={HomeBannerCaroucel1} className="img-fluid" alt="HeadSet"></img>
                                     </div>
                                 </div>
-                                <div className='row display-flex align-items-center'>
-                                    <div className='col-lg-6 Home-Banner-Caroucel-Text'>
+                                <div className="row display-flex align-items-center">
+                                    <div className="col-lg-6 Home-Banner-Caroucel-Text">
                                         <span className="Banner-Carousel-Heading">World of music with</span><br />
                                         <span className="Banner-Carousel-Bold">
                                             <b>Headphones</b>
                                         </span><br />
-                                        <span className='Banner-Caroucel-text'>Choose between top brands</span><br />
+                                        <span className="Banner-Caroucel-text">Choose between top brands</span><br />
                                         <button>Shop Now <i className="fa fa-angle-right"></i></button>
                                     </div>
-                                    <div className='col-lg-6'>
-                                        <img src={HomeBannerCaroucel2} className='img-fluid' alt='VR Box'></img>
+                                    <div className="col-lg-6">
+                                        <img src={HomeBannerCaroucel2} className="img-fluid" alt="VR Box"></img>
                                     </div>
                                 </div>
-                                <div className='row display-flex align-items-center'>
-                                    <div className='col-lg-6 Home-Banner-Caroucel-Text'>
+                                <div className="row display-flex align-items-center">
+                                    <div className="col-lg-6 Home-Banner-Caroucel-Text">
                                         <span className="Banner-Carousel-Heading">World of music with</span><br />
                                         <span className="Banner-Carousel-Bold">
                                             <b>Headphones</b>
                                         </span><br />
-                                        <span className='Banner-Caroucel-text'>Choose between top brands</span><br />
+                                        <span className="Banner-Caroucel-text">Choose between top brands</span><br />
                                         <button>Shop Now <i className="fa fa-angle-right"></i></button>
                                     </div>
-                                    <div className='col-lg-6'>
-                                        <img src={HomeBannerCaroucel3} className='img-fluid' alt='Mobile Phone'></img>
+                                    <div className="col-lg-6">
+                                        <img src={HomeBannerCaroucel3} className="img-fluid" alt="Mobile Phone"></img>
                                     </div>
                                 </div>
                             </OwlCarousel>
@@ -106,15 +106,15 @@ const Home =()=> {
             <Card />
 
             {/* Banner Offer Start */}
-            <section className='Offers-Banner'>
-                <div className='container'>
-                    <div className='row cardbox rounded-3 align-items-center'>
-                        <div className='col-md-5'>
-                            <div className='px-4'>
-                            <span className='Limited-Offer-tag bg-danger'>Limited Offer</span>
+            <section className="Offers-Banner">
+                <div className="container">
+                    <div className="row cardbox rounded-3 align-items-center">
+                        <div className="col-md-5">
+                            <div className="px-4">
+                            <span className="Limited-Offer-tag bg-danger">Limited Offer</span>
                             </div>
                         </div>
-                        <div className='col-md-7'></div>
+                        <div className="col-md-7"></div>
                     </div>
                 </div>          
             </section>

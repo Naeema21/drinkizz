@@ -15,8 +15,9 @@ function App() {
       <BrowserRouter>
         <Suspense fallback={"loader"}>
           <Switch>
-            <Route exact path="/" component={Home}></Route>
             <Route exact path="/account" component={Account}></Route>
+            <Route exact path="/" component={Home}></Route>
+            <Route exact  component={Home}></Route>
           </Switch>
           <Footer />
         </Suspense>
