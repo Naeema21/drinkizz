@@ -1,25 +1,23 @@
 import React from 'react'
+import './Home.css'
+import ProductCamera from '../../assets/images/Home/banner-sm01.png'
+import ProductGadget from '../../assets/images/Home/banner-sm02.png'
+import ProductEarbuds from '../../assets/images/Home/banner-sm03.png'
 import OwlCarousel from 'react-owl-carousel2';
 import 'react-owl-carousel2/lib/styles.css';
 import 'react-owl-carousel2/src/owl.theme.default.css';
-import './Home.css'
-import ProductCamera from '../../assets/images/HomePage/banner-sm01.png'
-import ProductGadget from '../../assets/images/HomePage/banner-sm02.png'
-import ProductEarbuds from '../../assets/images/HomePage/banner-sm03.png'
-import HomeBannerCaroucel1 from '../../assets/images/HomePage/Caroucel-1.jpg'
-import HomeBannerCaroucel2 from '../../assets/images/HomePage/caroucel-2.jpg'
-import HomeBannerCaroucel3 from '../../assets/images/HomePage/caroucel-3.jpg'
-
-
-const Home =()=> {
+import HomeBannerCaroucel1 from '../../assets/images/Home/Caroucel-1.jpg'
+import HomeBannerCaroucel2 from '../../assets/images/Home/caroucel-2.jpg'
+import HomeBannerCaroucel3 from '../../assets/images/Home/caroucel-3.jpg'
+function Home() {
     const options = {
         items: 1,
         rewind: true,
         autoplay: false
     };
     return (
-        <div className='home'>
-            {/* Banner start */}
+        <div>
+            {/* banner */}
             <section className="banner-home py-4">
                 <div className="container">
                     <div className="row">
@@ -100,9 +98,20 @@ const Home =()=> {
                     </div>
                 </div>
             </section>
-            {/* Banner end */}
-    
+            {/* Banner Completed */}
+            <section className='Offers-Banner'>
+                <div className='container'>
+                    <div className='row cardbox rounded-3 align-items-center'>
+                        <div className='col-md-5'>
+                            <div className='px-4'>
+                            <span className='Limited-Offer-tag bg-danger'>Limited Offer</span>
+                            </div>
+                        </div>
+                        <div className='col-md-7'></div>
+                    </div>
+                </div>
 
+            </section>
         </div>
     )
 }

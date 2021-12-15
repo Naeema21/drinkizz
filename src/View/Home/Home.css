@@ -1,7 +1,8 @@
+/* Banner CSS Start */
 .banner-home{
     background-color: #f4f9fb;
 }
-.banner-home .cardbox{
+.cardbox{
     background-color: #0089ff0d;
 }
 .banner-home .card-align-pro{
@@ -43,4 +44,17 @@
 .banner-home .owl-theme .owl-dots .owl-dot span {
     width: 6px !important;
     height: 6px !important;
+}
+/* Banner CSS Completed */
+.Offers-Banner .Limited-Offer-tag{
+    display: inline-block;
+    padding: 0.25em 0.625em;
+    font-size: 0.75em;
+    font-weight: normal;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.175rem;
 }
