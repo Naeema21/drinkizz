@@ -13,7 +13,7 @@
 }
 .Home-Banner-Caroucel-Text {
     text-align: left;
-    padding-left: 80px !important;
+    padding-left: 50px !important;
 }
 .Home-Banner-Caroucel-Text .Banner-Carousel-Heading{
     font-size: 32px;
@@ -57,4 +57,39 @@
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: 0.175rem;
+}
+.Offers-Banner button{
+    color: #fff;
+    background-color: #4e54c8;
+    border-color: #4e54c8;
+    box-shadow: unset;
+}
+.Offers-Banner .fa {
+    font-size: 23px;
+}
+/* Best Seller */
+.best-seller-product-title{
+    margin-bottom: 0.25rem;
+    font-size: .875rem;
+    font-weight: 500;
+}
+.BS-Heading{
+    font-size: 1.0625rem;
+    font-weight: 600 !important;
+}
+.best-seller-product-price{
+    font-size: .875rem;
+    color: #4e54c8 !important;
+}
+.best-sellers-products a{
+    cursor: pointer;
+    color: #ff5722 !important;
+    font-size: 15px;
+}
+
+.BS-Product-item{
+    border-bottom: 1px solid #dbd9d9;
+}
+.BS-Product:last-child{
+    border-bottom: none;
 }
