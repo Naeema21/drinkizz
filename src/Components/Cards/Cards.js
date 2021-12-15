@@ -1,9 +1,9 @@
 import React from 'react'
 import './Cards.css'
-import headphone1 from '../../../assets/images/Cards/headphone.jpg'
+import headphone1 from '../../assets/images/Cards/headphone.jpg'
 
 
-function Cards(){
+const Cards =()=>{
     return(
         <>
         <section>
