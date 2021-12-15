@@ -1,22 +1,25 @@
 import React from 'react'
+import OwlCarousel from 'react-owl-carousel2';
+import 'react-owl-carousel2/lib/styles.css';
+import 'react-owl-carousel2/src/owl.theme.default.css';
 import './Home.css'
 import ProductCamera from '../../assets/images/HomePage/banner-sm01.png'
 import ProductGadget from '../../assets/images/HomePage/banner-sm02.png'
 import ProductEarbuds from '../../assets/images/HomePage/banner-sm03.png'
-import OwlCarousel from 'react-owl-carousel2';
-import 'react-owl-carousel2/lib/styles.css';
-import 'react-owl-carousel2/src/owl.theme.default.css';
 import HomeBannerCaroucel1 from '../../assets/images/HomePage/Caroucel-1.jpg'
 import HomeBannerCaroucel2 from '../../assets/images/HomePage/caroucel-2.jpg'
 import HomeBannerCaroucel3 from '../../assets/images/HomePage/caroucel-3.jpg'
-function Home() {
+
+
+const Home =()=> {
     const options = {
         items: 1,
         rewind: true,
         autoplay: false
     };
     return (
-        <div>
+        <div className='home'>
+            {/* Banner start */}
             <section className="banner-home py-4">
                 <div className="container">
                     <div className="row">
@@ -97,6 +100,8 @@ function Home() {
                     </div>
                 </div>
             </section>
+            {/* Banner end */}
+    
 
         </div>
     )
