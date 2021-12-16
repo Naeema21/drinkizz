@@ -77,10 +77,6 @@
   transition: all .5s;
 }
 
-.search-bar input[type=search]:focus {
-  width: 130px;
-  background-color: #fff;
-}
 
 
 
