@@ -15,6 +15,7 @@ body{
 
 .text-orange{
   color: #ff5722;
+  text-decoration: none;
 }
 .text-indigo{
   color: #4e54c8 !important;
