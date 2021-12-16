@@ -35,7 +35,7 @@
 .product-card:hover .product-actionadd {
     display: block;
 }
-.procard-sec .row {
+.productcard-sec .row {
     --bs-gutter-x: 0;
     --bs-gutter-y: 0;}
 /* Hover text css End */

@@ -3,7 +3,6 @@ import './Home.css'
 import OwlCarousel from 'react-owl-carousel2';
 import 'react-owl-carousel2/lib/styles.css';
 import 'react-owl-carousel2/src/owl.theme.default.css';
-import './Home.css'
 import ProductCamera from '../../assets/images/Home/banner-sm01.png'
 import ProductGadget from '../../assets/images/Home/banner-sm02.png'
 import ProductEarbuds from '../../assets/images/Home/banner-sm03.png'
@@ -113,7 +112,7 @@ const Home = () => {
             </section>
             {/* Banner Completed */}
              {/* Product cards start */} 
-             <section className="product-list">
+             <section className="productcard-sec">
                 <div className="container pt-5">
                     <div className="row">
                         <div className="col-lg-12 col-md-12 col-sm-12 d-flex flex-wrap justify-content-between align-items-center pt-1 border-bottom pb-4 mb-4">
