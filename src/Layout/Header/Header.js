@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 import { Navbar, Nav } from 'react-bootstrap'
 import '../layout.css'
 
+
 const Header = () => {
+    const SignIn = React.lazy(() => import('../../Components/SignIn/SignIn'))
     return (
         <div className='header'>
             <div className='topbar py-2'>
@@ -41,29 +43,25 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="#shop">Shop</Nav.Link>
-                            <Nav.Link href="#account">Account</Nav.Link>
-                            <Nav.Link href="/product">Product</Nav.Link>
-
-
+                            <Link to="/" className='nav-link'>Home</Link>
+                            <Link to="#shop" className='nav-link'>Shop</Link>
+                            <Link to="#account" className='nav-link'>Account</Link>
+                            <Link to="/product" className='nav-link'>Product</Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#serch">
+                            <span>
                                 <form className="search-bar">
                                     <input type="search" placeholder="Search" />
                                 </form>
-                            </Nav.Link>
-                            <Nav.Link href="#deets">
-                                <span>
-                                    <i className='fa fa-user-o'> </i>&nbsp;Hello, sign In
-                                </span>
-                            </Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
+                            </span>
+                            <span style={{cursor:'pointer'}}>
+                                <SignIn />
+                            </span>
+                            <Link eventkey={2} to="#memes" className='nav-link'>
                                 <span>
                                     <i className='fa fa-shopping-cart'> </i>&nbsp;My Cart
                                 </span>
-                            </Nav.Link>
+                            </Link>
                         </Nav>
                     </Navbar.Collapse>
                 </div>
