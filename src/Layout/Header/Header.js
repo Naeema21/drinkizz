@@ -20,7 +20,7 @@ const Header = () => {
                                     </Link>
                                 </span> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                                 <span>
-                                    <Link to="/">
+                                    <Link to="/compare">
                                         <i className='fa fa-refresh text-danger me-2'></i>Compare(3)
                                     </Link>
                                 </span> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -41,9 +41,11 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
+                            <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="#shop">Shop</Nav.Link>
-                            <Nav.Link href="#shop">Account</Nav.Link>
+                            <Nav.Link href="#account">Account</Nav.Link>
+                            <Nav.Link href="/product">Product</Nav.Link>
+
 
                         </Nav>
                         <Nav>

@@ -8,10 +8,10 @@
     background-color: #fff;
     background-clip: border-box;
     border-radius: 0.4375rem;}
+
 .product-card:hover{
     border-color: #fff !important;
     box-shadow: 0 0.3rem 1.525rem -0.375rem #0000002e;
-    z-index: 10;
 }
 .addto-cardbtn{
     padding: 8px;
@@ -35,20 +35,16 @@
 .product-card:hover .product-actionadd {
     display: block;
 }
+.procard-sec .row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;}
 /* Hover text css End */
-.pro-card-txt{
-    position: relative;
-    background-color: #fff;
-    z-index: 2;
-}
 .product-name {
-    transition: color .25s ease-in-out;
     color: #7d879c;
     text-decoration: none !important;}
 .product-name:hover { color: #4b566b;}
 .product-title>a {
     font-size: 0.875rem !important;
-    transition: color .25s ease-in-out;
     color: #373f50;
     text-decoration: none !important;
 }
@@ -82,8 +78,8 @@
     display: block;
 }
 .btn-wishlist {
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 1.75rem;
+    height: 1.75rem;
     padding: 0 !important;
     transition: color .25s ease-in-out,background-color .25s ease-in-out,border-color .25s ease-in-out,box-shadow .2s ease-in-out;
     border: 0;
