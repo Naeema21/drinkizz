@@ -49,6 +49,15 @@
     width: 6px !important;
     height: 6px !important;
 }
+
+@media(max-width:992px){
+    .banner-home  .cardbox{
+        min-width: 18em;
+    }
+    .banner-home  .scroll-card{
+        overflow: scroll;
+    }
+}
 /* Banner CSS Completed */
 .Offers-Banner .Limited-Offer-tag{
     display: inline-block;

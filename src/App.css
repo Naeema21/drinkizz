@@ -1,6 +1,7 @@
 body{
  margin: 0;
  padding: 0;
+ font-family: "Rubik", sans-serif;
 }
 .bg-faded-orange{
   background-color: #fe696a17 !important;
@@ -11,14 +12,13 @@ body{
 .bg-faded-green {
   background-color: #42d69717 !important;
 }
-
 .text-orange{
   color: #ff5722;
+  text-decoration: none;
 }
 .text-indigo{
   color: #4e54c8 !important;
 }
-
 .text-green{
   color: #42d697;
 }
