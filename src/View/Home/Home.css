@@ -22,8 +22,12 @@
 .Home-Banner-Caroucel-Text .Banner-Carousel-Bold{
     font-size: 50px;
 }
-.Home-Banner-Caroucel-Text .Banner-Caroucel-text{
-    font-size: 22px;
+.Banner-Caroucel-text{
+    font-size: 20px;
+    font-weight: 300;
+}
+.Banner-Caroucel-subHead{
+    font-size: 18px;
     font-weight: 300;
 }
 .Home-Banner-Caroucel-Text button{
