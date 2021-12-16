@@ -113,7 +113,7 @@ const Home = () => {
             </section>
             {/* Banner Completed */}
              {/* Product cards start */} 
-             <section>
+             <section className="procard-sec">
                 <div className="container pt-5">
                     <div className="row">
                         <div className="col-lg-12 col-md-12 col-sm-12 d-flex flex-wrap justify-content-between align-items-center pt-1 border-bottom pb-4 mb-4">
@@ -121,8 +121,8 @@ const Home = () => {
                             <button className='cards-moreproduct-btn btn btn-sm'>More Products<i className="fa fa-angle-right" style={{fontSize:'15px', paddingLeft:'3px'}}></i></button>
                         </div> 
                         {/* Using Map Function to access the data & send to card */}
-                        {products.slice(0,8).map((productdata) => (
-                            <div className='col-lg-3 col-md-3 col-sm-6'>
+                        {products.slice(0,8).map((productdata,i) => (
+                            <div className='col-lg-3 col-md-3 col-sm-3' key={i}>
                                 <Card category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.imgsrc} star={productdata.star} />
                             </div>
                          ))}                       
