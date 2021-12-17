@@ -3,7 +3,6 @@ import './Home.css'
 import OwlCarousel from 'react-owl-carousel2';
 import 'react-owl-carousel2/lib/styles.css';
 import 'react-owl-carousel2/src/owl.theme.default.css';
-import './Home.css'
 import ProductCamera from '../../assets/images/Home/banner-sm01.png'
 import ProductGadget from '../../assets/images/Home/banner-sm02.png'
 import ProductEarbuds from '../../assets/images/Home/banner-sm03.png'
@@ -24,7 +23,7 @@ const Home = () => {
     const options2 = {
         items: 4,
         rewind: true,
-        // autoplay: true,
+        autoplay: true,
         nav: false,
         dots: false
     };
@@ -40,7 +39,7 @@ const Home = () => {
                                     <img src={ProductCamera} className='img-fluid' width="125" alt='Camera'></img>
                                     <div className="py-4 px-2">
                                         <div className='card-align-pro'>
-                                            <h5>Next Gen <br /><b>Video</b> with <b>360 Cam</b></h5>
+                                            <span className="Banner-Caroucel-subHead">Next Gen <br /><b>Video</b> with <b>360 Cam</b></span>
                                             <h6 className="text-indigo">Shop Now <i className="fa fa-angle-right"></i></h6>
                                         </div>
                                     </div>
@@ -49,7 +48,7 @@ const Home = () => {
                                     <img src={ProductGadget} className='img-fluid' width="125" alt='Gadget'></img>
                                     <div className="py-4 px-2">
                                         <div className='card-align-pro'>
-                                            <h5>Next Gen <br /><b>Video</b> with <b>360 Cam</b></h5>
+                                            <span className="Banner-Caroucel-subHead">Next Gen <br /><b>Video</b> with <b>360 Cam</b></span>
                                             <h6 className="text-orange">Shop Now <i className="fa fa-angle-right"></i></h6>
                                         </div>
                                     </div>
@@ -58,7 +57,7 @@ const Home = () => {
                                     <img src={ProductEarbuds} className="img-fluid" width="125" alt="EarBuds"></img>
                                     <div className="py-4 px-2">
                                         <div className="card-align-pro">
-                                            <h5>Next Gen <br /><b>Video</b> with <b>360 Cam</b></h5>
+                                            <span className="Banner-Caroucel-subHead">Next Gen <br /><b>Video</b> with <b>360 Cam</b></span>
                                             <h6 className="text-green">Shop Now <i className="fa fa-angle-right"></i></h6>
                                         </div>
                                     </div>
@@ -113,7 +112,7 @@ const Home = () => {
             </section>
             {/* Banner Completed */}
              {/* Product cards start */} 
-             <section className="product-list">
+             <section className="productcard-sec">
                 <div className="container pt-5">
                     <div className="row">
                         <div className="col-lg-12 col-md-12 col-sm-12 d-flex flex-wrap justify-content-between align-items-center pt-1 border-bottom pb-4 mb-4">
