@@ -9,13 +9,13 @@ import RangeSlider from "react-bootstrap-range-slider";
 
 const Product =()=> {
     const Card = React.lazy(() => import('../../Components/Cards/Cards'))
-    const [ rangevalue, setRangevalue ] = useState(50); 
+    // const [ rangevalue, setRangevalue ] = useState(50); 
     return (
         <>
             <section>
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-lg-3 col-md-3 col-sm-3'>
+                        <div className='col-lg-4 col-md-4 col-sm-4'>
                             <div className='shadow py-4 px-3' style={{borderRadius:'0.4375rem'}}>
                                 <div className='mb-4'>
                                     <h4 className='shoplist1-catetxt'>Categories</h4>
@@ -118,11 +118,14 @@ const Product =()=> {
                                 <div className='mb-2 mt-3'>
                                     <h4 className='shoplist1-catetxt'>Price</h4>
                                 </div>
-                                <div className='border-bottom'>
-                                <RangeSlider
+                                <div className='border-bottom'>  
+                                    <div className='mb-2 shoplist-tooltip'>
+                                    <input type="range" min="1" max="100"  className='shoplist-slider'/>
+                                    </div> 
+                                    {/* <RangeSlider
                                     value={rangevalue}
                                     onChange={changeEvent => setRangevalue(changeEvent.target.value)}
-                                    />
+                                    /> */}
                                     <div className='d-flex pb-4 pt-2'>
                                         <div className='w-50 pe-2 me-2'>
                                             <div className='input-group input-group-sm'>
@@ -154,6 +157,8 @@ const Product =()=> {
                                             <li><Link to="#" className='shoplistitems d-flex justify-content-between align-items-center'><span>Ann Tylor</span></Link></li>
                                             <li><Link to="#" className='shoplistitems d-flex justify-content-between align-items-center'><span>Banana Repblic</span></Link></li>
                                             <li><Link to="#" className='shoplistitems d-flex justify-content-between align-items-center'><span>Bilabong</span></Link></li>
+                                            <li><Link to="#" className='shoplistitems d-flex justify-content-between align-items-center'><span>Alibong</span></Link></li>
+                                            <li><Link to="#" className='shoplistitems d-flex justify-content-between align-items-center'><span>Cello</span></Link></li>
                                         </ul>
                                     </div>
                                 </div>  
@@ -184,7 +189,13 @@ const Product =()=> {
                                 <div className='mb-2 mt-3'>
                                     <h4 className='shoplist1-catetxt'>Color</h4>
                                 </div>
-                                <div className='d-flex flex-wrap'>
+                                <div className='d-flex flex-wrap px-3'>
+                                    <div className='form-check form-option text-center mb-2 mx-1'>
+                                        <input className='form-check-input' type='checkbox' />
+                                        <label className='shopform-option-label rounded-circle'>
+                                            <span className='shopform-option-color rounded-circle' style={{backgroundColor:'#b3c8db'}}></span>
+                                        </label>
+                                    </div>
                                     <div className='form-check form-option text-center mb-2 mx-1'>
                                         <input className='form-check-input' type='checkbox' />
                                         <label className='shopform-option-label rounded-circle'>
@@ -205,11 +216,17 @@ const Product =()=> {
                                     </div>
                                     
                                 </div>
-                                <div className='d-flex flex-wrap'>
+                                <div className='d-flex flex-wrap px-3'>
                                     <div className='form-check form-option text-center mb-2 mx-1'>
                                         <input className='form-check-input' type='checkbox' style={{color:'blue grey'}}/>
                                         <label className='shopform-option-label rounded-circle'>
                                             <span className='shopform-option-color rounded-circle' style={{backgroundColor:'#ff7072'}}></span>
+                                        </label>
+                                    </div>
+                                    <div className='form-check form-option text-center mb-2 mx-1'>
+                                        <input className='form-check-input' type='checkbox' />
+                                        <label className='shopform-option-label rounded-circle'>
+                                            <span className='shopform-option-color rounded-circle' style={{backgroundColor:'#b3c8db'}}></span>
                                         </label>
                                     </div>
                                     <div className='form-check form-option text-center mb-2 mx-1'>
@@ -229,17 +246,17 @@ const Product =()=> {
 
                             </div>                                                                
                         </div>
-                        <div className='col-lg-9 col-md-9 col-sm-9 shoplist-leftside1'>
+                        <div className='col-lg-8 col-md-8 col-sm-8 shoplist-leftside1'>
                             <div className='row'>
                                 {/* Using Map Function to access the data & send to card */}
                                 {products.slice(0,6).map((productdata,i) => (
-                                    <div className='col-lg-4 col-md-4 col-sm-4' key={i}>
+                                    <div className='col-lg-4 col-md-6 col-sm-12' key={i}>
                                         <Card category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.imgsrc} star={productdata.star} />
                                     </div>
                                 ))}                              
                             </div>
                             <div className='row mb-5 mt-5'>
-                                <div className='col-lg-6 col-md-6 col-sm-6 py-4  py-5 px-4  text-center text-sm-start shoplist-box1'>
+                                <div className='col-lg-6 col-md-6 col-sm-6 py-4  px-4  text-center text-sm-start shoplist-box1'>
                                     <h4 className='fw-light mb-2' style={{color:'#373F53'}}>Converse All Star</h4>
                                     <h3 className='mb-4'>Make Your Day Comfortable</h3>
                                     <button className='btn btn btn-sm d-block mb-2 addto-cardbtn'>Shop Now <i className="fa fa-angle-right"></i></button>
