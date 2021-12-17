@@ -45,7 +45,7 @@ const Header = () => {
                         <Nav className="me-auto">
                             <Link to="/" className='nav-link'>Home</Link>
                             <Link to="/shop" className='nav-link'>Shop</Link>
-                            <Link to="#account" className='nav-link'>Account</Link>
+                            <Link to="/" className='nav-link'>Account</Link>
                             <Link to="/product" className='nav-link'>Product</Link>
                         </Nav>
                         <Nav>
@@ -57,7 +57,7 @@ const Header = () => {
                             <span style={{cursor:'pointer'}}>
                                 <SignIn />
                             </span>
-                            <Link eventkey={2} to="#memes" className='nav-link'>
+                            <Link eventkey={2} to="/cart" className='nav-link'>
                                 <span>
                                     <i className='fa fa-shopping-cart'> </i>&nbsp;My Cart
                                 </span>
