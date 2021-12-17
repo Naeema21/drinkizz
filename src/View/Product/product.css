@@ -12,17 +12,33 @@
     border-bottom-right-radius:0.4375rem;
 }
 .shoplist1-catetxt{
-    padding-left: 8%;
+    padding-left: 5%;
     margin-bottom: 1.125rem;
     font-size: 1.0625rem;
     font-weight: 500;}
 
+  .accordion-button {
+    color: #4b566b;
+    font-size: 0.900rem!important;
+    font-weight: normal!important;
+  }
  .accordion-button:hover {color: #fe3638;}
  .accordion-button:focus{
-    z-index: 3;
     background-color: white;
     border-color: #fe3638;
     box-shadow:none;
+}
+.accordion-button::after {
+  background-image: none;
+   content: "\f078"; 
+  font-family: 'FontAwesome';
+  top:0;
+  background-color: #f3f5f9;
+  border-radius: 50%;
+  padding: 3px;
+}
+.accordion-button:not(.collapsed)::after {
+    background-image: none;
 }
 /* ShopList Search button */
 .shoplistsearch-bar input[type=search] {
@@ -59,9 +75,21 @@
   }
   /* Sidebar Css */
   .shopsidebar-content{
-      height: 100%;
-      overflow: hidden scroll;}
-.shoplist-ul{padding-left: 0rem;}
+    height:10em;
+    position:relative;
+    overflow-y:auto;
+    scrollbar-width: thin;
+  }
+  .shopsidebar-content ul {
+      height:13em;
+      position:relative;   
+    }
+  .shopsidebar-content ul li {
+    list-style:none;
+    margin-left:0;
+    padding:6px;
+  }
+.shoplist-ul{padding-left: 1rem;}
   .shoplist-ul li{list-style: none;}
   .shoplistitems{
     color: #4b566b;
@@ -99,3 +127,31 @@
     background-position: top left;
     background-size: 1.5rem 1.5rem;
     background-repeat: no-repeat;}
+/* Shoplist Range slider */
+  .shoplist-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 3px;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;}
+.shoplist-slider:hover { opacity: 1;}
+ .shoplist-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #fe3638;
+      cursor: pointer;
+    }
+ .shoplist-slider::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #fe3638;
+      cursor: pointer;
+    }

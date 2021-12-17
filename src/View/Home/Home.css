@@ -1,4 +1,7 @@
 /* Banner CSS Start */
+.banner-home a{
+    text-decoration: none;
+}
 .banner-home{
     background-color: #f4f9fb;
 }
@@ -16,15 +19,19 @@
     padding-left: 40px !important;
 }
 .Home-Banner-Caroucel-Text .Banner-Carousel-Heading{
-    font-size: 32px;
-    line-height: 55px;
+    font-size: 32px !important;
+    line-height: 55px !important;
 }
 .Home-Banner-Caroucel-Text .Banner-Carousel-Bold{
     font-size: 50px;
 }
-.Home-Banner-Caroucel-Text .Banner-Caroucel-text{
-    font-size: 22px;
-    font-weight: 300;
+.Banner-Caroucel-text {
+    font-size: 20px !important;
+    font-weight: 300 !important;
+}
+.Banner-Caroucel-subHead{
+    font-size: 18px !important;
+    font-weight: 300 !important;
 }
 .Home-Banner-Caroucel-Text button{
     border: none;
@@ -81,6 +88,7 @@
     margin-bottom: 0.25rem;
     font-size: .875rem;
     font-weight: 500;
+    color: black !important;
 }
 .BS-Heading{
     font-size: 25px;
@@ -92,8 +100,11 @@
 }
 .best-sellers-products a{
     cursor: pointer;
-    color: #ff5722 !important;
+   text-decoration: none;
     font-size: 15px;
+}
+.best-seller-product-title:hover {
+    color: #ff5722 !important;
 }
 
 .BS-Product-item{
