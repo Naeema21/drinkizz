@@ -11,6 +11,9 @@ import client9 from '../images/client/9.jpg'
 import client11 from '../images/client/11.jpg'
 import client12 from '../images/client/12.jpg'
 import client13 from '../images/client/13.jpg'
+import ReviewProfileImg from '../../assets/images/Product/Product-Desc/Smart-watch/review-profile.jpg'
+import ReviewProfileImg2 from '../../assets/images/Product/Product-Desc/Smart-watch/review-profile2.jpg'
+import ReviewProfileImg3 from '../../assets/images/Product/Product-Desc/Smart-watch/review-profile3.jpg'
 export const clientCaroucel = [
     {
         img:client1
@@ -47,5 +50,40 @@ export const clientCaroucel = [
     },
     {
         img:client13
+    }
+]
+export const ReviewComments = [
+    {
+        profileimg:ReviewProfileImg,
+        Date: 'June 28, 2019',
+        UsefulReview:'83% of users found this review helpful',
+        Name:'Rafael Marquez',
+        Comment:'Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est...',
+        Pros:'Consequuntur magni, voluptatem sequi, tempora',
+        Cons:'Architecto beatae, quis autem',
+        Like:'15',
+        Dislike:'3'
+    },
+    {
+        profileimg:ReviewProfileImg2,
+        Date: 'May 17, 2019',
+        UsefulReview:'99% of users found this review helpful',
+        Name:'Barbara Palson',
+        Comment:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        Pros:'Consequuntur magni, voluptatem sequi, tempora',
+        Cons:'Architecto beatae, quis autem',
+        Like:'34',
+        Dislike:'1'
+    },
+    {
+        profileimg:ReviewProfileImg3,
+        Date: 'May 17, 2019',
+        UsefulReview:'99% of users found this review helpful',
+        Name:'Daniel Adams',
+        Comment:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        Pros:'Consequuntur magni, voluptatem sequi, tempora',
+        Cons:'Architecto beatae, quis autem',
+        Like:'34',
+        Dislike:'1'
     }
 ]
