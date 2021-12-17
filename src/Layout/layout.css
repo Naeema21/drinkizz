@@ -123,31 +123,27 @@
     font-weight: 100;
 }
 /* ======================================== */
- .widget-heading-footer{
+ .compare-heading-footer{
     margin-bottom: 1.125rem; 
     font-size: 1.0625rem;
     font-weight: 500; 
 } 
-.wiget-list-ul-footer{list-style: none;}
-.widget-list-link-footer{
+.compare-list-ul-footer{list-style: none;}
+.compare-list-link-footer{
     color: rgba(255,255,255,.65);
     text-decoration: none !important;
 }
-.widget-list-link-footer:hover{color:#fff;} 
+.compare-list-link-footer:hover{color:#fff;} 
 .btn-market:hover { background-color: #212835;}
-.a-href-footer:hover {
-    color: #fe3638;
-    text-decoration: none;
-}
-.input-group i{position: absolute;font-size:20px;padding: 10px;}
-.email-input-footer{position: relative;text-indent: 20px;}
-.widget-heading-footer-stay{
+.a-href-footer:hover {color: #fe3638;text-decoration: none;}
+.email-input-footer{position: relative;height:50px;}
+.compare-heading-footer-stay{
     float:left;
     margin-bottom: 1.125rem; 
     font-size: 1.0625rem;
     font-weight: 500; 
 }
-.widget-heading-footer-Download{
+.compare-heading-footer-Download{
     margin-bottom: 1.125rem; 
     font-size: 1.0625rem;
     font-weight: 500;
@@ -186,10 +182,10 @@
 .btn-download i{position: absolute;margin-left: -35px;color: white;}
 .sec-2-footer{--bs-bg-opacity: 1;background-color: #2b3445 !important;
 }
-.widget-list-footer{
+.compare-list-footer{
     margin-bottom: 0.5rem;
 }
-.widget-list-ul-footer{
+.compare-list-ul-footer{
     text-decoration: none !important;
     margin: 0;
     padding: 0;
