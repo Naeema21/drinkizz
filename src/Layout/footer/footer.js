@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import '../layout.css';
 import footer_logo_light from '../../assets/images/Footer/footer-logo-light.png';
 import en from '../../assets/images/Footer/en.png';
@@ -6,9 +6,9 @@ import fr from '../../assets/images/Footer/fr.png';
 import de from '../../assets/images/Footer/de.png';
 import it from '../../assets/images/Footer/it.png';
 import cards_alt from '../../assets/images/Footer/cards-alt.png';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const Footer = () => {
-  const [list, showList] = useState(false);
+    const [list, showList] = useState(false);
     return (
         <div className="footer">
             <div className="footer-top">
@@ -127,7 +127,7 @@ const Footer = () => {
                                     <form className="subscription-form-footer validate-footer" method="post">
                                         <div className="input-group flex-nowrap">
                                             <input className="form-control email-input-footer" type="email" name="EMAIL" placeholder="Your email" required="" />
-                                            <button className="btn btn-danger btn-subscribe-footer" type="submit" name="subscribe" style={{"backgroundcolor": "#fe3638" }}>Subscribe</button>
+                                            <button className="btn btn-danger btn-subscribe-footer" type="submit" name="subscribe" style={{ "backgroundcolor": "#fe3638" }}>Subscribe</button>
                                         </div>
                                         <div className="compare-list-link-footer text-light opacity-50 mt-4">Subscribe to our newsletter to receive early discount offers, updates and new products info.</div>
                                         <div className="subscription-status"></div>
@@ -193,7 +193,7 @@ const Footer = () => {
                                     </div>
                                 </div>
                             </div>
-                            <hr className="hr-light mb-5" style={{"color":"#d1d6e0"}} />
+                            <hr className="hr-light mb-5" style={{ "color": "#d1d6e0" }} />
                             <div className="row pb-2">
                                 <div className="col-md-6 text-center text-md-start mb-4">
                                     <div className="text-nowrap mb-4">
@@ -201,26 +201,26 @@ const Footer = () => {
                                             <img className="d-block" src={footer_logo_light} width="117" alt="Cartzilla" />
                                         </a>
                                         <div className="btn-group dropdown disable-autohide">
-                                            <button className="btn btn-outline-light border-light btn-sm dropdown-toggle px-2" type="button" data-bs-toggle="dropdown" onClick={() => {list ? showList(false) : showList(true)}}>
+                                            <button className="btn btn-outline-light border-light btn-sm dropdown-toggle px-2" type="button" data-bs-toggle="dropdown" onClick={() => { list ? showList(false) : showList(true) }}>
                                                 <img className="me-2" src={en} width="20" alt="English" />Eng / $
                                             </button>
-                                                <ul className="dropdown-menu my-1 show" data-popper-placement="top-start" style={{display:list ? "block":'none',"inset": "auto auto 0px 0px","transform": "translate(-1px, -38px)","padding":"10px"}}>
+                                            <ul className="dropdown-menu my-1 show" data-popper-placement="top-start" style={{ display: list ? "block" : 'none', "inset": "auto auto 0px 0px", "transform": "translate(-1px, -38px)", "padding": "10px" }}>
                                                 <li className="dropdown-item-footer">
-                                                <select className="form-select form-select-sm">
-                                                    <option value="usd">$ USD</option>
-                                                    <option value="eur">€ EUR</option>
-                                                    <option value="ukp">£ UKP</option>
-                                                    <option value="jpy">¥ JPY</option>
-                                                </select>
+                                                    <select className="form-select form-select-sm">
+                                                        <option value="usd">$ USD</option>
+                                                        <option value="eur">€ EUR</option>
+                                                        <option value="ukp">£ UKP</option>
+                                                        <option value="jpy">¥ JPY</option>
+                                                    </select>
                                                 </li>
                                                 <li><a className="dropdown-item-footer pb-1" href="#">
-                                                    <img className="me-2" src={fr} width="20" alt="Français"/>Français</a></li>
+                                                    <img className="me-2" src={fr} width="20" alt="Français" />Français</a></li>
                                                 <li><a className="dropdown-item-footer pb-1" href="#">
-                                                    <img className="me-2" src={de} width="20" alt="Deutsch"/>Deutsch</a></li>
+                                                    <img className="me-2" src={de} width="20" alt="Deutsch" />Deutsch</a></li>
                                                 <li><a className="dropdown-item-footer" href="#">
-                                                    <img className="me-2" src={it} width="20" alt="Italiano"/>Italiano</a></li>
-                                            </ul>                                             
-                                        </div>    
+                                                    <img className="me-2" src={it} width="20" alt="Italiano" />Italiano</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                     <div className="compare-sec-footer compare-links compare-light">
                                         <ul className="compare-list-ul-footer d-flex flex-wrap justify-content-center justify-content-md-start">

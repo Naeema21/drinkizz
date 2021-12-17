@@ -54,7 +54,7 @@ const Header = () => {
                                     <input type="search" placeholder="Search" />
                                 </form>
                             </span>
-                            <span style={{cursor:'pointer'}}>
+                            <span style={{ cursor: 'pointer' }}>
                                 <SignIn />
                             </span>
                             <Link eventkey={2} to="/cart" className='nav-link'>

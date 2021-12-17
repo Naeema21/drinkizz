@@ -26,11 +26,11 @@ import swal from 'sweetalert';
 function Shop() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = () => {
-         swal({
-             title: "Thank You!",
-             text: "Your Responce is Precious..",
-             icon: "success",
-         })
+        swal({
+            title: "Thank You!",
+            text: "Your Responce is Precious..",
+            icon: "success",
+        })
         reset();
     }
     const options = {
