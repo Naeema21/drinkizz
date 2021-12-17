@@ -35,33 +35,39 @@ const Home = () => {
                     <div className="row">
                         <div className="col-xl-3 order-xl-1 pt-4 mt-3 mt-xl-0 pt-xl-0 order-2">
                             <div className="d-flex d-xl-block scroll-card">
-                                <div className="d-flex align-items-center bg-faded-indigo rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
-                                    <img src={ProductCamera} className='img-fluid' width="125" alt='Camera'></img>
-                                    <div className="py-4 px-2">
-                                        <div className='card-align-pro'>
-                                            <span className="Banner-Caroucel-subHead">Next Gen <br /><b>Video</b> with <b>360 Cam</b></span>
-                                            <h6 className="text-indigo">Shop Now <i className="fa fa-angle-right"></i></h6>
+                                <a href="#">
+                                    <div className="d-flex align-items-center bg-faded-indigo rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
+                                        <img src={ProductCamera} className='img-fluid' width="125" alt='Camera'></img>
+                                        <div className="py-4 px-2">
+                                            <div className='card-align-pro'>
+                                                <span className="Banner-Caroucel-subHead">Next Gen <br /><b>Video</b> with <b>360 Cam</b></span>
+                                                <h6 className="text-indigo">Shop Now <i className="fa fa-angle-right"></i></h6>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="d-flex align-items-center bg-faded-orange rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
-                                    <img src={ProductGadget} className='img-fluid' width="125" alt='Gadget'></img>
-                                    <div className="py-4 px-2">
-                                        <div className='card-align-pro'>
-                                            <span className="Banner-Caroucel-subHead">Next Gen <br /><b>Video</b> with <b>360 Cam</b></span>
-                                            <h6 className="text-orange">Shop Now <i className="fa fa-angle-right"></i></h6>
+                                </a>
+                                <a href="#">
+                                    <div className="d-flex align-items-center bg-faded-orange rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
+                                        <img src={ProductGadget} className='img-fluid' width="125" alt='Gadget'></img>
+                                        <div className="py-4 px-2">
+                                            <div className='card-align-pro'>
+                                                <span className="Banner-Caroucel-subHead">Next Gen <br /><b>Video</b> with <b>360 Cam</b></span>
+                                                <h6 className="text-orange">Shop Now <i className="fa fa-angle-right"></i></h6>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="d-flex align-items-center bg-faded-green rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
-                                    <img src={ProductEarbuds} className="img-fluid" width="125" alt="EarBuds"></img>
-                                    <div className="py-4 px-2">
-                                        <div className="card-align-pro">
-                                            <span className="Banner-Caroucel-subHead">Next Gen <br /><b>Video</b> with <b>360 Cam</b></span>
-                                            <h6 className="text-green">Shop Now <i className="fa fa-angle-right"></i></h6>
+                                </a>
+                                <a href="#">
+                                    <div className="d-flex align-items-center bg-faded-green rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
+                                        <img src={ProductEarbuds} className="img-fluid" width="125" alt="EarBuds"></img>
+                                        <div className="py-4 px-2">
+                                            <div className="card-align-pro">
+                                                <span className="Banner-Caroucel-subHead">Next Gen <br /><b>Video</b> with <b>360 Cam</b></span>
+                                                <h6 className="text-green">Shop Now <i className="fa fa-angle-right"></i></h6>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                         <div className="col-lg-9 order-xl-2 order-1">
@@ -111,24 +117,24 @@ const Home = () => {
                 </div>
             </section>
             {/* Banner Completed */}
-             {/* Product cards start */} 
-             <section className="productcard-sec">
+            {/* Product cards start */}
+            <section className="productcard-sec">
                 <div className="container pt-5">
                     <div className="row">
                         <div className="col-lg-12 col-md-12 col-sm-12 d-flex flex-wrap justify-content-between align-items-center pt-1 border-bottom pb-4 mb-4">
                             <h2>Trending products</h2>
-                            <button className='cards-moreproduct-btn btn btn-sm'>More Products<i className="fa fa-angle-right" style={{fontSize:'15px', paddingLeft:'3px'}}></i></button>
-                        </div> 
+                            <button className='cards-moreproduct-btn btn btn-sm'>More Products<i className="fa fa-angle-right" style={{ fontSize: '15px', paddingLeft: '3px' }}></i></button>
+                        </div>
                         {/* Using Map Function to access the data & send to card */}
-                        {products.slice(0,8).map((productdata,i) => (
+                        {products.slice(0, 8).map((productdata, i) => (
                             <div className='col-lg-3 col-md-4 col-sm-6' key={i}>
                                 <Card category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.imgsrc} star={productdata.star} />
                             </div>
-                         ))}                       
+                        ))}
                     </div>
                 </div>
-            </section>  
-            {/* Product cards start */} 
+            </section>
+            {/* Product cards start */}
             {/* Banner Offer Start */}
             <section className='Offers-Banner'>
                 <div className='container'>
@@ -179,17 +185,19 @@ const Home = () => {
                                 {
                                     products.slice(0, 4).map((value, index) => {
                                         return (
-                                            <div className='BS-Product-item d-flex align-items-center ' key={index}>
-                                                <div className=''>
-                                                    <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
-                                                </div>
-                                                <div className='d-flex align-items-center'>
-                                                    <div className='mt-4'>
-                                                        <h6 className='best-seller-product-title'>{value.name}</h6>
-                                                        <p className='best-seller-product-price'>{value.price}</p>
+                                            <a href="#">
+                                                <div className='BS-Product-item d-flex align-items-center ' key={index}>
+                                                    <div className=''>
+                                                        <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
+                                                    </div>
+                                                    <div className='d-flex align-items-center'>
+                                                        <div className='mt-4'>
+                                                            <h6 className='best-seller-product-title'>{value.name}</h6>
+                                                            <p className='best-seller-product-price'>{value.price}</p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </a>
                                         );
                                     })
                                 }
@@ -204,17 +212,19 @@ const Home = () => {
                                 {
                                     products.slice(4, 8).map((value, index) => {
                                         return (
-                                            <div className='BS-Product-item d-flex align-items-center ' key={index}>
-                                                <div className=''>
-                                                    <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
-                                                </div>
-                                                <div className='d-flex align-items-center'>
-                                                    <div className='mt-4'>
-                                                        <h6 className='best-seller-product-title'>{value.name}</h6>
-                                                        <p className='best-seller-product-price'>{value.price}</p>
+                                            <a href="#">
+                                                <div className='BS-Product-item d-flex align-items-center ' key={index}>
+                                                    <div className=''>
+                                                        <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
+                                                    </div>
+                                                    <div className='d-flex align-items-center'>
+                                                        <div className='mt-4'>
+                                                            <h6 className='best-seller-product-title'>{value.name}</h6>
+                                                            <p className='best-seller-product-price'>{value.price}</p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </a>
                                         );
                                     })
                                 }
@@ -229,17 +239,19 @@ const Home = () => {
                                 {
                                     products.slice(8, 12).map((value, index) => {
                                         return (
-                                            <div className='BS-Product-item d-flex align-items-center' key={index}>
-                                                <div className=''>
-                                                    <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
-                                                </div>
-                                                <div className='d-flex align-items-center'>
-                                                    <div className='mt-4'>
-                                                        <h6 className='best-seller-product-title'>{value.name}</h6>
-                                                        <p className='best-seller-product-price'>{value.price}</p>
+                                            <a href="#">
+                                                <div className='BS-Product-item d-flex align-items-center' key={index}>
+                                                    <div className=''>
+                                                        <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
+                                                    </div>
+                                                    <div className='d-flex align-items-center'>
+                                                        <div className='mt-4'>
+                                                            <h6 className='best-seller-product-title'>{value.name}</h6>
+                                                            <p className='best-seller-product-price'>{value.price}</p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </a>
                                         );
                                     })
                                 }
@@ -253,8 +265,8 @@ const Home = () => {
             </section>
             {/* Best Sellers Products End */}
             {/* Banner end */}
-           
-            
+
+
         </div>
     )
 }
