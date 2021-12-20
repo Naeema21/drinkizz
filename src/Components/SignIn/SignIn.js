@@ -25,8 +25,8 @@ const SignIn = () => {
                 </Modal.Body> */}
                 <div class="modal-header">
                     <ul class="nav nav-tabs nav-header-sign-in" role="tablist">
-                    <li class="nav-item"><a class="nav-link fw-medium active text-orange" href="#" ><i class="fa fa-lock me-2 mt-n1"></i>Sign in</a></li>
-                    <li class="nav-item"><a class="nav-link fw-medium text-orange" href="#"><i class="fa fa-user me-2 mt-n1"></i>Sign up</a></li>
+                    <li class="nav-item signin-btn"><a class="nav-link fw-medium active" href="#" ><i class="fa fa-lock me-2 mt-n1"></i>Sign in</a></li>
+                    <li class="nav-item signup-btn"><a class="nav-link fw-medium text-orange" href="#"><i class="fa fa-user me-2 mt-n1"></i>Sign up</a></li>
                     </ul>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
