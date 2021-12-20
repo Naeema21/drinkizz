@@ -40,7 +40,7 @@ function Shop() {
         autoplay: true,
         dots: false,
         nav: true,
-        navText: ["<i className='fa fa-chevron-left'></i>", "<i className='fa fa-chevron-right'></i>"],
+        navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
         responsive : {
             0 : {
                items:1
@@ -238,12 +238,12 @@ function Shop() {
                                                 <option value="4">4</option>
                                                 <option value="5">5</option>
                                             </select>
-                                            <button className="btn btn-AddCart btn-shadow block w-100" ><i className="fa fa-shopping-cart"></i>Add to Cart</button>
+                                            <button className="btn btn-AddCart btn-shadow block w-100" ><i className="fa fa-shopping-cart me-2"></i>Add to Cart</button>
                                             <div className="me-2">
-                                                <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} ><i className="fa fa-heart" style={{ color: "gray" }}></i></button>
+                                                <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} ><i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
                                             </div>
                                             <div>
-                                                <button className="btn btn-small-desc"><i className="fa fa-heart" style={{ color: "gray" }}></i></button>
+                                                <button className="btn btn-small-desc"><i className="fa fa-refresh" style={{ color: "gray" }}></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -309,12 +309,12 @@ function Shop() {
                                             <option value="4">4</option>
                                             <option value="5">5</option>
                                         </select>
-                                        <button className="btn btn-AddCart btn-shadow block w-100" ><i className="fa fa-shopping-cart"></i>Add to Cart</button>
+                                        <button className="btn btn-AddCart btn-shadow block w-100" ><i className="fa fa-shopping-cart me-2"></i>Add to Cart</button>
                                         <div className="me-2">
-                                            <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} ><i className="fa fa-heart" style={{ color: "gray" }}></i></button>
+                                            <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} ><i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
                                         </div>
                                         <div>
-                                            <button className="btn btn-small-desc"><i className="fa fa-heart" style={{ color: "gray" }}></i></button>
+                                            <button className="btn btn-small-desc"><i className="fa fa-refresh me-2" style={{ color: "gray" }}></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -499,16 +499,11 @@ function Shop() {
                                                     </button>
                                                 </div>
                                             </form>
-
                                         </div>
-
                                     </div>
-
                                 </div>
                             </Tab>
                         </Tabs>
-
-
                     </div>
                 </div>
             </section>
