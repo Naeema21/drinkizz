@@ -13,16 +13,23 @@ const SignIn = () => {
             {/* modal */}
             <Modal show={show} onHide={handleClose}
                 aria-labelledby="contained-modal-title-vcenter" centered>
-                <Modal.Body>
+                {/* <Modal.Body>
                     <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3 flex-row">
                         <Tab eventkey="home" title="Sign In">
                            home
                         </Tab>
-                        <Tab eventkey="profile" title="Sign Up">
+                        <Tab eventkey="profile" title="Sign Up" id="uncontrolled-tab-example1">
                             profile
                         </Tab>
                     </Tabs>
-                </Modal.Body>
+                </Modal.Body> */}
+                <div class="modal-header">
+                    <ul class="nav nav-tabs nav-header-sign-in" role="tablist">
+                    <li class="nav-item"><a class="nav-link fw-medium active text-orange" href="#" ><i class="fa fa-lock me-2 mt-n1"></i>Sign in</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium text-orange" href="#"><i class="fa fa-user me-2 mt-n1"></i>Sign up</a></li>
+                    </ul>
+                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
                 <div className='Sign-in-modal'>
                     <div className="modal-body tab-content py-4">
                     <form className="needs-validation tab-pane fade active show" autocomplete="off" novalidate="" id="signin-tab">

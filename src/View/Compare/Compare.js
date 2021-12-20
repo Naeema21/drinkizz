@@ -7,9 +7,9 @@ import { compare } from '../../assets/Data/compare';
 const Compare =()=> {
     //Summary
  const [summary,setSummary] = useState(false);
- const [general, setGeneral]=useState(false); 
- const[multimedia,setMultimedia]=useState(false);
- const[performance,setPerformance]=useState(false);
+//  const [general, setGeneral]=useState(false); 
+//  const[multimedia,setMultimedia]=useState(false);
+//  const[performance,setPerformance]=useState(false);
     return (
         <>
         <div className='Compare'>
@@ -22,16 +22,10 @@ const Compare =()=> {
                                     <td className="align-middle">
                                         <select className="form-select compare-crite" id="compare-criteria" data-filter-trigger="">
                                             <option value="all">Comparison criteria</option>
-                                            <option value="summary">Summary</option>
-                                            <option value="general" onClick={() => {general ? setGeneral (true) :setGeneral (false)}}>General</option>
+                                           <option value="summary" >Summary</option>
+                                            {/* <option value="general" onClick={() => {general ? setGeneral (true) :setGeneral (false)}}>General</option>
                                             <option value="multimedia" onClick={() => {multimedia ? setMultimedia(true) : setMultimedia(false)}}>Multimedia</option>
-                                            <option value="performance" onClick={() => { performance? setPerformance(false) :setPerformance(true)}}>Performance</option>
-                                            {/*<option value="design" onClick={() => {design ? setDesign(false) : setDesign(true)}}>Design</option>
-                                            <option value="display" onClick={() => {display ? setDisplay(false) : setDisplay(true)}}>Display</option>
-                                            <option value="storage" onClick={() => {storage ? setStorage(false) : setStorage(true)}}>Storage</option>
-                                            <option value="camera" onClick={() => {camera ? setCamera(false) : setCamera(true)}}>Camera</option>
-                                            <option value="battery" onClick={() => {battery ? setBattery(false) : setBattery(true)}}>Battery</option>
-                                            <option value="price" onClick={() => {price ? setPrice(false) : setPrice(true)}}>Price &amp; rating</option> */}
+                                            <option value="performance" onClick={() => { performance? setPerformance(false) :setPerformance(true)}}>Performance</option> */}
                                         </select>
                                         <div className="form-text"> Choose criteria to filter table below.</div>
                                         <div className="pt-3">
@@ -118,7 +112,7 @@ const Compare =()=> {
                                 <td>4,100 mAh</td>
                             </tr>
                             </tbody>
-                            <tbody id="summary" className='showsummary' data-filter-target=""style={{display:summary ? "block":'none'}}>
+                            <tbody id="summary" className='showsummary' data-filter-target="" style={{display:summary ? 'block':'none'}}>
                                 <tr className="heading-table-compare">
                                     <th className="text-uppercase text-dark">Summary</th>
                                     <td><span className="text-dark fw-medium text-dark">Apple iPhone Xs Max</span></td>
@@ -156,7 +150,7 @@ const Compare =()=> {
                                     <td>4,100 mAh</td>
                                 </tr>
                                 </tbody>
-                                <tbody id="general" data-filter-target="" style={{display:general ? "block":'none'}}>
+                                <tbody id="general" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">General</th>
                                         <td><span className="text-dark fw-medium text-dark">Apple iPhone Xs Max</span></td>
