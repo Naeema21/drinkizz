@@ -1,9 +1,31 @@
-.b-Addtocart{
+.b-Addtocart {
     background-color: #fe696a;
     border-color: #fe696a;
     box-shadow: unset;
 }
-.heading-table-compare{
+
+.heading-table-compare {
     background-color: #e3e9ef;
 }
-.product-name{text-decoration: none;}
+
+.product-name {
+    text-decoration: none;
+}
+
+.Compare th {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.compare-crite {
+    width: 250px;
+    border-color: rgba(43, 52, 69, .5);
+}
+
+.compare-crite:hover {
+    border-color: #fe696a;
+}
+
+.Compare td {
+    width: 250px;
+}

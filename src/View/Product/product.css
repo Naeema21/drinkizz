@@ -1,157 +1,209 @@
-.shoplist-leftside1 .row{
-    --bs-gutter-x: 0;
-    --bs-gutter-y: 0;
+.shoplist-leftside1 .row {
+  --bs-gutter-x: 0;
+  --bs-gutter-y: 0;
 }
-.shoplist-box1{
-    border-top-left-radius:0.4375rem;
-    border-bottom-left-radius:0.4375rem;
-    background-color: #f6f9fc;
-}
-.shoplist-box1img{
-    border-top-right-radius:0.4375rem;
-    border-bottom-right-radius:0.4375rem;
-}
-.shoplist1-catetxt{
-    padding-left: 5%;
-    margin-bottom: 1.125rem;
-    font-size: 1.0625rem;
-    font-weight: 500;}
 
-  .accordion-button {
-    color: #4b566b;
-    font-size: 0.900rem!important;
-    font-weight: normal!important;
-  }
- .accordion-button:hover {color: #fe3638;}
- .accordion-button:focus{
-    background-color: white;
-    border-color: #fe3638;
-    box-shadow:none;
+.shoplist-box1 {
+  border-top-left-radius: 0.4375rem;
+  border-bottom-left-radius: 0.4375rem;
+  background-color: #f6f9fc;
 }
+
+.shoplist-box1img {
+  border-top-right-radius: 0.4375rem;
+  border-bottom-right-radius: 0.4375rem;
+}
+
+.shoplist1-catetxt {
+  padding-left: 5%;
+  margin-bottom: 1.125rem;
+  font-size: 1.0625rem;
+  font-weight: 500;
+}
+
+.accordion-button {
+  color: #4b566b;
+  font-size: 0.900rem !important;
+  font-weight: normal !important;
+}
+
+.accordion-button:hover {
+  color: #fe3638;
+}
+
+.accordion-button:focus {
+  background-color: white;
+  border-color: #fe3638;
+  box-shadow: none;
+}
+
 .accordion-button::after {
   background-image: none;
-   content: "\f078"; 
+  content: "\f078";
   font-family: 'FontAwesome';
-  top:0;
+  top: 0;
   background-color: #f3f5f9;
   border-radius: 50%;
   padding: 3px;
 }
+
 .accordion-button:not(.collapsed)::after {
-    background-image: none;
+  background-image: none;
 }
+
 /* ShopList Search button */
 .shoplistsearch-bar input[type=search] {
-    width: 100%!important;
-    padding-left: 10px;
-    color: transparent;
-    cursor: pointer;
-    background-color: #fff!important;
-  } 
-  .shoplistsearch-bar input[type=search]:hover {background-color: #fff;} 
-  .shoplistsearch-bar input[type=search]:focus {
-    color: #000;
-    background-color: #fff;
-    cursor: auto;
-    border: 1px solid #fe696a;
-  }
-  .shoplistsearch-bar input:-moz-placeholder { color: transparent;}
-  .shoplistsearch-bar input::-webkit-input-placeholder { color: transparent; }
-  .shoplistsearch-bar input { outline: none;}
-  .shoplistsearch-bar input[type=search] {
-    -webkit-appearance: textfield;
-    font-family: inherit;
-    font-size: 100%;
-  }
-  .shoplistsearch-bar input::-webkit-search-decoration,
-  .shoplistsearch-bar input::-webkit-search-cancel-button {display: none;}
-  .shoplistsearch-bar input[type=search] {
-    padding: 5px 10px 5px 32px;
-    width: 55px;
-    background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
-    border:1px solid #dae1e7;
-    border-radius: 5px;
-    transition: all .5s;
-  }
-  /* Sidebar Css */
-  .shopsidebar-content{
-    height:10em;
-    position:relative;
-    overflow-y:auto;
-    scrollbar-width: thin;
-  }
-  .shopsidebar-content ul {
-      height:13em;
-      position:relative;   
-    }
-  .shopsidebar-content ul li {
-    list-style:none;
-    margin-left:0;
-    padding:6px;
-  }
-.shoplist-ul{padding-left: 1rem;}
-  .shoplist-ul li{list-style: none;}
-  .shoplistitems{
-    color: #4b566b;
-    font-size: .875rem;
-    text-decoration: none;
-  }
-  .shoplistitems:hover{color: #fe3638;}
-  .shopform-option-label{
-    position: relative;
-    min-width: 2rem;
-    height: 2rem;
-    margin-bottom: 0;
-    padding-top: 0.0625rem;
-    padding-right: 0.375rem;
-    padding-left: 0.375rem;
-    transition: color .2s ease-in-out,border-color .2s ease-in-out;
-    border: 1px solid #e3e9ef;
-    border-radius: 0.25rem;
-    color: #4b566b;
-    font-size: .75rem;
-    font-weight: normal;
-    text-align: center;
-    line-height: 1.75rem;
-    cursor: pointer;
-  }
-  .shopform-option-color {
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-top: -0.75rem;
-    margin-left: -0.75rem;
-    background-position: top left;
-    background-size: 1.5rem 1.5rem;
-    background-repeat: no-repeat;}
+  width: 100% !important;
+  padding-left: 10px;
+  color: transparent;
+  cursor: pointer;
+  background-color: #fff !important;
+}
+
+.shoplistsearch-bar input[type=search]:hover {
+  background-color: #fff;
+}
+
+.shoplistsearch-bar input[type=search]:focus {
+  color: #000;
+  background-color: #fff;
+  cursor: auto;
+  border: 1px solid #fe696a;
+}
+
+.shoplistsearch-bar input:-moz-placeholder {
+  color: transparent;
+}
+
+.shoplistsearch-bar input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.shoplistsearch-bar input {
+  outline: none;
+}
+
+.shoplistsearch-bar input[type=search] {
+  -webkit-appearance: textfield;
+  font-family: inherit;
+  font-size: 100%;
+}
+
+.shoplistsearch-bar input::-webkit-search-decoration,
+.shoplistsearch-bar input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.shoplistsearch-bar input[type=search] {
+  padding: 5px 10px 5px 32px;
+  width: 55px;
+  background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+  border: 1px solid #dae1e7;
+  border-radius: 5px;
+  transition: all .5s;
+}
+
+/* Sidebar Css */
+.shopsidebar-content {
+  height: 10em;
+  position: relative;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.shopsidebar-content ul {
+  height: 13em;
+  position: relative;
+}
+
+.shopsidebar-content ul li {
+  list-style: none;
+  margin-left: 0;
+  padding: 6px;
+}
+
+.shoplist-ul {
+  padding-left: 1rem;
+}
+
+.shoplist-ul li {
+  list-style: none;
+}
+
+.shoplistitems {
+  color: #4b566b;
+  font-size: .875rem;
+  text-decoration: none;
+}
+
+.shoplistitems:hover {
+  color: #fe3638;
+}
+
+.shopform-option-label {
+  position: relative;
+  min-width: 2rem;
+  height: 2rem;
+  margin-bottom: 0;
+  padding-top: 0.0625rem;
+  padding-right: 0.375rem;
+  padding-left: 0.375rem;
+  transition: color .2s ease-in-out, border-color .2s ease-in-out;
+  border: 1px solid #e3e9ef;
+  border-radius: 0.25rem;
+  color: #4b566b;
+  font-size: .75rem;
+  font-weight: normal;
+  text-align: center;
+  line-height: 1.75rem;
+  cursor: pointer;
+}
+
+.shopform-option-color {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: -0.75rem;
+  margin-left: -0.75rem;
+  background-position: top left;
+  background-size: 1.5rem 1.5rem;
+  background-repeat: no-repeat;
+}
+
 /* Shoplist Range slider */
-  .shoplist-slider {
-      -webkit-appearance: none;
-      width: 100%;
-      height: 3px;
-      border-radius: 5px;
-      background: #d3d3d3;
-      outline: none;
-      opacity: 0.7;
-      -webkit-transition: .2s;
-      transition: opacity .2s;}
-.shoplist-slider:hover { opacity: 1;}
- .shoplist-slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      background: #fe3638;
-      cursor: pointer;
-    }
- .shoplist-slider::-moz-range-thumb {
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      background: #fe3638;
-      cursor: pointer;
-    }
+.shoplist-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 3px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.shoplist-slider:hover {
+  opacity: 1;
+}
+
+.shoplist-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #fe3638;
+  cursor: pointer;
+}
+
+.shoplist-slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #fe3638;
+  cursor: pointer;
+}

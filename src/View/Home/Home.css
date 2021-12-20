@@ -1,40 +1,51 @@
 /* Banner CSS Start */
-.banner-home a{
+.banner-home a {
     text-decoration: none;
 }
-.banner-home{
+
+.banner-home {
     background-color: #f4f9fb;
 }
-.cardbox{
+
+.cardbox {
     background-color: #0089ff0d;
 }
-.banner-home .card-align-pro{
+
+.banner-home .card-align-pro {
     text-align: left !important;
 }
-.banner-home .cardbox-for-bg{
+
+.banner-home .cardbox-for-bg {
     background-color: #fbe9e78a;
 }
+
 .Home-Banner-Caroucel-Text {
     text-align: left;
     padding-left: 40px !important;
 }
-.Home-Banner-Caroucel-Text .Banner-Carousel-Heading{
+
+.Home-Banner-Caroucel-Text .Banner-Carousel-Heading {
     font-size: 32px !important;
     line-height: 55px !important;
 }
-.Home-Banner-Caroucel-Text .Banner-Carousel-Bold{
+
+.Home-Banner-Caroucel-Text .Banner-Carousel-Bold {
     font-size: 50px;
 }
+
 .Banner-Caroucel-text {
     font-size: 20px !important;
     font-weight: 300 !important;
 }
 .Banner-Caroucel-subHead{
     color: black;
+}
+.Banner-Caroucel-subHead {
     font-size: 18px !important;
     font-weight: 300 !important;
 }
-.Home-Banner-Caroucel-Text button{
+
+.Home-Banner-Caroucel-Text button {
     border: none;
     margin-top: 20px;
     background-color: #fe3638;
@@ -54,16 +65,18 @@
     height: 6px !important;
 }
 
-@media(max-width:992px){
-    .banner-home  .cardbox{
+@media(max-width:992px) {
+    .banner-home .cardbox {
         min-width: 18em;
     }
-    .banner-home  .scroll-card{
+
+    .banner-home .scroll-card {
         overflow: scroll;
     }
 }
+
 /* Banner CSS Completed */
-.Offers-Banner .Limited-Offer-tag{
+.Offers-Banner .Limited-Offer-tag {
     display: inline-block;
     padding: 0.25em 0.625em;
     font-size: 0.75em;
@@ -75,62 +88,74 @@
     vertical-align: baseline;
     border-radius: 0.175rem;
 }
-.Offers-Banner button{
+
+.Offers-Banner button {
     color: #fff;
     background-color: #4e54c8;
     border-color: #4e54c8;
     box-shadow: unset;
 }
+
 .Offers-Banner .fa {
     font-size: 23px;
 }
+
 /* Best Seller */
-.best-seller-product-title{
+.best-seller-product-title {
     margin-bottom: 0.25rem;
     font-size: .875rem;
     font-weight: 500;
     color: black !important;
 }
-.BS-Heading{
+
+.BS-Heading {
     font-size: 25px;
     font-weight: 600;
 }
-.best-seller-product-price{
+
+.best-seller-product-price {
     font-size: .875rem;
     color: #4e54c8 !important;
 }
-.best-sellers-products a{
+
+.best-sellers-products a {
     cursor: pointer;
-   text-decoration: none;
+    text-decoration: none;
     font-size: 15px;
 }
+
 .best-seller-product-title:hover {
     color: #ff5722 !important;
 }
 
-.BS-Product-item{
+.BS-Product-item {
     border-bottom: 1px solid #dbd9d9;
 }
-.BS-Product:last-child{
+
+.BS-Product:last-child {
     border-bottom: none;
 }
+
 /* Client Caroucel */
 .client-caroucel .owl-carousel .owl-item img {
     width: 65%;
 }
+
 .owl-carousel .owl-item img {
     width: 100%;
 }
+
 /* Product cards heading button css */
-.cards-moreproduct-btn{
-    border-color: rgba(78,84,200,.35);
+.cards-moreproduct-btn {
+    border-color: rgba(78, 84, 200, .35);
     color: #4e54c8;
     font-size: 0.8125rem;
     padding: 0.425rem 1rem;
     border-radius: 0.25rem;
     font-weight: 400;
 }
-.cards-moreproduct-btn:hover{
+
+.cards-moreproduct-btn:hover {
     color: #fff;
     background-color: #4e54c8;
     border-color: #4e54c8;
