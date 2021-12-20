@@ -1,0 +1,16 @@
+.quanity-bar{
+    width: 100px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1.5px solid #80808052;
+}
+.cart .remove-link{
+    text-decoration: none;
+
+}
+.cart .remove-link i{
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 4px;
+    font-size: 9px;
+}
