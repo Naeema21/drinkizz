@@ -201,7 +201,7 @@ const Home = () => {
                                         );
                                     })
                                 }
-                                <div className='mt-4'>
+                                <div className='mt-4 text-orange'>
                                     <a>View More <i className="fa fa-angle-right"></i></a>
                                 </div>
                             </div>
@@ -228,7 +228,7 @@ const Home = () => {
                                         );
                                     })
                                 }
-                                <div className='mt-4'>
+                                <div className='mt-4 text-orange'>
                                     <a>View More <i className="fa fa-angle-right"></i></a>
                                 </div>
                             </div>
@@ -255,7 +255,7 @@ const Home = () => {
                                         );
                                     })
                                 }
-                                <div className='mt-4'>
+                                <div className='mt-4 text-orange'>
                                     <a>View More <i className="fa fa-angle-right"></i></a>
                                 </div>
                             </div>

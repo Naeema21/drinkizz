@@ -16,6 +16,7 @@ function App() {
   const Product = React.lazy(() => import('./View/Product/Product'))
   const Compare = React.lazy(() => import('./View/Compare/Compare'))
   const Shop = React.lazy(() => import('./View/Shop/Shop'))
+  const Cart = React.lazy(()=>import('./View/Cart/Cart'))
   return (
     <div className="App">
       <BrowserRouter>
@@ -26,6 +27,7 @@ function App() {
             <Route exact path="/compare" component={Compare}></Route>
             <Route exact path="/product" component={Product}></Route>
             <Route exact path="/account" component={Account}></Route>
+            <Route exact path="/cart" component={Cart}></Route>
             <Route exact path="/shop" component={Shop}></Route>
             <Route exact path="/" component={Home}></Route>
             <Route exact component={Home}></Route>

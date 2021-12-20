@@ -16,74 +16,74 @@ import ReviewProfileImg2 from '../../assets/images/Product/Product-Desc/Smart-wa
 import ReviewProfileImg3 from '../../assets/images/Product/Product-Desc/Smart-watch/review-profile3.jpg'
 export const clientCaroucel = [
     {
-        img:client1
+        img: client1
     },
     {
-        img:client2
+        img: client2
     },
     {
-        img:client3
+        img: client3
     },
     {
-        img:client4
+        img: client4
     },
     {
-        img:client5
+        img: client5
     },
     {
-        img:client6
+        img: client6
     },
     {
-        img:client7
+        img: client7
     },
     {
-        img:client8
+        img: client8
     },
     {
-        img:client9
+        img: client9
     },
     {
-        img:client11
+        img: client11
     },
     {
-        img:client12
+        img: client12
     },
     {
-        img:client13
+        img: client13
     }
 ]
 export const ReviewComments = [
     {
-        profileimg:ReviewProfileImg,
+        profileimg: ReviewProfileImg,
         Date: 'June 28, 2019',
-        UsefulReview:'83% of users found this review helpful',
-        Name:'Rafael Marquez',
-        Comment:'Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est...',
-        Pros:'Consequuntur magni, voluptatem sequi, tempora',
-        Cons:'Architecto beatae, quis autem',
-        Like:'15',
-        Dislike:'3'
+        UsefulReview: '83% of users found this review helpful',
+        Name: 'Rafael Marquez',
+        Comment: 'Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est...',
+        Pros: 'Consequuntur magni, voluptatem sequi, tempora',
+        Cons: 'Architecto beatae, quis autem',
+        Like: '15',
+        Dislike: '3'
     },
     {
-        profileimg:ReviewProfileImg2,
+        profileimg: ReviewProfileImg2,
         Date: 'May 17, 2019',
-        UsefulReview:'99% of users found this review helpful',
-        Name:'Barbara Palson',
-        Comment:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        Pros:'Consequuntur magni, voluptatem sequi, tempora',
-        Cons:'Architecto beatae, quis autem',
-        Like:'34',
-        Dislike:'1'
+        UsefulReview: '99% of users found this review helpful',
+        Name: 'Barbara Palson',
+        Comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        Pros: 'Consequuntur magni, voluptatem sequi, tempora',
+        Cons: 'Architecto beatae, quis autem',
+        Like: '34',
+        Dislike: '1'
     },
     {
-        profileimg:ReviewProfileImg3,
+        profileimg: ReviewProfileImg3,
         Date: 'May 17, 2019',
-        UsefulReview:'99% of users found this review helpful',
-        Name:'Daniel Adams',
-        Comment:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        Pros:'Consequuntur magni, voluptatem sequi, tempora',
-        Cons:'Architecto beatae, quis autem',
-        Like:'34',
-        Dislike:'1'
+        UsefulReview: '99% of users found this review helpful',
+        Name: 'Daniel Adams',
+        Comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        Pros: 'Consequuntur magni, voluptatem sequi, tempora',
+        Cons: 'Architecto beatae, quis autem',
+        Like: '34',
+        Dislike: '1'
     }
 ]

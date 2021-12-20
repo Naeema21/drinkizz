@@ -25,7 +25,8 @@ import swal from 'sweetalert';
 
 function Shop() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    const onSubmit = () => {
+    const onSubmit = (data) => {
+        console.log(data);
          swal({
              title: "Thank You!",
              text: "Your Responce is Precious..",
@@ -39,7 +40,22 @@ function Shop() {
         autoplay: true,
         dots: false,
         nav: true,
-        navText: ["<i className='fa fa-chevron-left'></i>", "<i className='fa fa-chevron-right'></i>"]
+        navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+        responsive : {
+            0 : {
+               items:1
+            },
+          
+            480 : {
+                items:2
+            },
+            768 : {
+               items:3
+            },
+            1024 : {
+                items: 4
+            }
+        }
     };
     const options3 = {
         items: 1,
@@ -139,14 +155,14 @@ function Shop() {
                                                         <option value="4">4</option>
                                                         <option value="5">5</option>
                                                     </select>
-                                                    <button className="btn btn-AddCart btn-shadow d-block w-100" type="button"><i className="fa fa-shopping-cart"></i>Add to Cart</button>
+                                                    <button className="btn btn-AddCart btn-shadow d-block w-100" type="button"><i className="fa fa-shopping-cart me-2"></i>Add to Cart</button>
                                                 </div>
                                                 <div className="d-flex mb-4">
                                                     <div className="w-100 me-3">
-                                                        <button className="btn btn-WishList d-block w-100" type="button"><i className="fa fa-heart" style={{ color: "gray" }}></i><span className="d-none d-sm-inline"> Add to </span>Wishlist</button>
+                                                        <button className="btn btn-WishList d-block w-100" type="button"><i className="fa fa-heart-o" style={{ color: "gray" }}></i><span className="d-none d-sm-inline"> Add to </span>Wishlist</button>
                                                     </div>
                                                     <div className="w-100">
-                                                        <button className="btn btn-WishList d-block w-100" type="button"><i className="fa fa-heart" style={{ color: "gray" }}></i>Compare</button>
+                                                        <button className="btn btn-WishList d-block w-100" type="button"><i className="fa fa-refresh me-2" style={{ color: "gray" }}></i>Compare</button>
                                                     </div>
                                                 </div>
                                                 <Accordion>
@@ -222,12 +238,12 @@ function Shop() {
                                                 <option value="4">4</option>
                                                 <option value="5">5</option>
                                             </select>
-                                            <button className="btn btn-AddCart btn-shadow block w-100" ><i className="fa fa-shopping-cart"></i>Add to Cart</button>
+                                            <button className="btn btn-AddCart btn-shadow block w-100" ><i className="fa fa-shopping-cart me-2"></i>Add to Cart</button>
                                             <div className="me-2">
-                                                <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} ><i className="fa fa-heart" style={{ color: "gray" }}></i></button>
+                                                <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} ><i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
                                             </div>
                                             <div>
-                                                <button className="btn btn-small-desc"><i className="fa fa-heart" style={{ color: "gray" }}></i></button>
+                                                <button className="btn btn-small-desc"><i className="fa fa-refresh" style={{ color: "gray" }}></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -238,13 +254,13 @@ function Shop() {
                                             <ul className="list-unstyled fs-sm pb-2">
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Model:</span><span>Amazfit Smartwatch</span></li>
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Gender:</span><span>Unisex</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Smartphone app:</span><span>Amazfit Watch</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Smartphone app:</span><span className='Specs-text-align'>Amazfit Watch</span></li>
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">OS campitibility:</span><span>Android / iOS</span></li>
                                             </ul>
                                             <h3 className="h6">Physical specs</h3>
                                             <ul className="list-unstyled fs-sm pb-2">
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Shape:</span><span>Rectangular</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Body material:</span><span>Plastics / Ceramics</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Body material:</span><span className='Specs-text-align'>Plastics / Ceramics</span></li>
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Band material:</span><span>Silicone</span></li>
                                             </ul>
                                             <h3 className="h6">Display</h3>
@@ -258,10 +274,10 @@ function Shop() {
                                         <div className="col-lg-5 col-sm-6 offset-lg-1">
                                             <h3 className="h6">Functions</h3>
                                             <ul className="list-unstyled fs-sm pb-2">
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Phone calls:</span><span>Incoming call notification</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Monitoring:</span><span>Heart rate / Physical activity</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Phone calls:</span><span className='Specs-text-align'>Incoming call notification</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Monitoring:</span><span className='Specs-text-align'>Heart rate / Physical activity</span></li>
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">GPS support:</span><span>Yes</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Sensors:</span><span>Heart rate, Gyroscope, Geomagnetic, Light sensor</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Sensors:</span><span className='Specs-text-align'>Heart rate, Gyroscope, Geomagnetic, Light sensor</span></li>
                                             </ul>
                                             <h3 className="h6">Battery</h3>
                                             <ul className="list-unstyled fs-sm pb-2">
@@ -293,12 +309,12 @@ function Shop() {
                                             <option value="4">4</option>
                                             <option value="5">5</option>
                                         </select>
-                                        <button className="btn btn-AddCart btn-shadow block w-100" ><i className="fa fa-shopping-cart"></i>Add to Cart</button>
+                                        <button className="btn btn-AddCart btn-shadow block w-100" ><i className="fa fa-shopping-cart me-2"></i>Add to Cart</button>
                                         <div className="me-2">
-                                            <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} ><i className="fa fa-heart" style={{ color: "gray" }}></i></button>
+                                            <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} ><i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
                                         </div>
                                         <div>
-                                            <button className="btn btn-small-desc"><i className="fa fa-heart" style={{ color: "gray" }}></i></button>
+                                            <button className="btn btn-small-desc"><i className="fa fa-refresh me-2" style={{ color: "gray" }}></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -404,7 +420,7 @@ function Shop() {
 
 
                                                 <div className="form-group mb-3">
-                                                    <label className='form-label'>Your Name</label>
+                                                    <label className='form-label'>Your Name<span style={{color:'red'}}>*</span></label>
                                                     <input type="text"
                                                         {...register("name", {
                                                             required: true,
@@ -415,46 +431,47 @@ function Shop() {
                                                             minLength: 3, maxLength: 60
                                                         })}
                                                         className="form-control" autoComplete="off" placeholder="" />
-                                                    &nbsp; &nbsp;<span className="error-msg" title="name required">{errors.name && "Will be displayed on the comment."}</span>
+                                                    <span className="error-msg" title="name required">{errors.name && "Please enter your name."}</span>
                                                 </div>
 
 
                                                 <div className="form-group mb-3">
-                                                    <label className='form-label'>Your Email</label>
+                                                    <label className='form-label'>Your Email<span style={{color:'red'}}>*</span></label>
                                                     <input
                                                         type="email"
                                                         autoComplete="off"
-                                                        placeholder=" Email Address"
                                                         {...register("email", {
                                                             required: true,
                                                         })}
                                                         className="form-control"
                                                     />
-                                                    &nbsp; &nbsp;<span className="error-msg" title="invalid email address">{errors.email && "Authentication only - we won't spam you."}</span>
+                                                    <span className="error-msg" title="invalid email address">{errors.email && "please provide valid e-mail address."}</span>
                                                 </div>
 
                                                 <div className="form-group mb-3">
-                                                    <label className='form-label'>Rating</label>
-                                                    <select className="form-select" required="" id="review-rating">
+                                                    <label className='form-label'>Rating<span style={{color:'red'}}>*</span></label>
+                                                    <select className="form-select" required="" id="review-rating" {...register("comment", {
+                                                            required: true,
+                                                        })}>
                                                         <option value="">Choose rating</option>
                                                         <option value="5">5 stars</option>
                                                         <option value="4">4 stars</option>
                                                         <option value="3">3 stars</option>
                                                         <option value="2">2 stars</option>
                                                         <option value="1">1 star</option>
-                                                    </select>
+                                                    </select><span className="error-msg" title="invlid subject">{errors.comment && "Please Choose Rating"}</span>
                                                 </div>
 
 
                                                 <div className="form-group mb-3">
-                                                    <label className='form-label'>Review</label>
+                                                    <label className='form-label'>Review<span style={{color:'red'}}>*</span></label>
                                                     <textarea autoComplete="off"
                                                         placeholder=""
                                                         {...register("comment", {
                                                             required: true,
                                                         })}
                                                         className="form-control" rows="4"  ></textarea>
-                                                    &nbsp; &nbsp;<span className="error-msg" title="invlid subject">{errors.comment && "Your review must be at least 50 characters."}</span>
+                                                    <span className="error-msg" title="invlid subject">{errors.comment && "Please write a review."}</span>
                                                 </div>
                                                 <div className="form-group mb-4">
                                                     <label className='form-label'>Pros</label>
@@ -462,7 +479,9 @@ function Shop() {
                                                         {...register("Pros", {
                                                             minLength: 3, maxLength: 60
                                                         })}
-                                                        className="form-control" autoComplete="off" placeholder="Seperated by comma" />
+                                                        className="form-control" autoComplete="off" 
+                                                        // placeholder="Seperated by comma" 
+                                                        />
                                                 </div>
                                                 <div className="form-group mb-4">
                                                     <label className='form-label'>Cons</label>
@@ -470,7 +489,9 @@ function Shop() {
                                                         {...register("cons", {
                                                             minLength: 3, maxLength: 60
                                                         })}
-                                                        className="form-control" autoComplete="off" placeholder="Seperated by comma" />
+                                                        className="form-control" autoComplete="off" 
+                                                        // placeholder="Seperated by comma" 
+                                                        />
                                                 </div>
                                                 <div className="form-group ">
                                                     <button className="btn btn-AddCart w-100" type="submit">
@@ -478,26 +499,21 @@ function Shop() {
                                                     </button>
                                                 </div>
                                             </form>
-
                                         </div>
-
                                     </div>
-
                                 </div>
                             </Tab>
                         </Tabs>
-
-
                     </div>
                 </div>
             </section>
             <section className='Choose-Your-Style'>
                 <div className="container pt-lg-3 pb-4 pb-sm-5">
                     <div className="row justify-content-center">
-                        <div className="col-lg-8">
+                        <div className="col-lg-8 ">
                             <h2 className="h3 pb-2">Choose your style</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-                            <img src={ProductDescImg} alt="Product description" />
+                            <img src={ProductDescImg} alt="Product description" className='img-fluid'/>
                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
                         </div>
                     </div>

@@ -1,23 +1,36 @@
-body{
- margin: 0;
- padding: 0;
- font-family: "Rubik", sans-serif;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik", sans-serif;
 }
-.bg-faded-orange{
+.bg-indigo{
+  background-color: indigo;
+}
+.bg-faded-orange {
   background-color: #fe696a17 !important;
 }
-.bg-faded-indigo{
+
+.bg-faded-indigo {
   background-color: #4e54c817 !important;
 }
+
 .bg-faded-green {
   background-color: #42d69717 !important;
 }
-.text-orange{
+
+.text-orange {
   color: #ff5722;
 }
-.text-indigo{
+
+.text-indigo {
   color: #4e54c8 !important;
 }
-.text-green{
+
+.text-green {
   color: #42d697;
+}
+
+hr{
+  background-color: grey !important;
+  height: 0.1px !important;
 }

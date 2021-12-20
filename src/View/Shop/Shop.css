@@ -326,5 +326,12 @@ color: #4e54c8 !important;
 }
 .error-msg{
     font-size: 12px;
-    color: #3f4042 !important;
+    color: red;
+}
+.Review-Comment-Form .form-control:focus {
+    border-color: red;
+    box-shadow: none;
+}
+.Specs-text-align{
+        text-align: end;
 }
