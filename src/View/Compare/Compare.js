@@ -156,7 +156,7 @@ const Compare = () => {
                                         <td>4,100 mAh</td>
                                     </tr>
                                 </tbody>
-                                <tbody id="general" data-filter-target="" style={{ display: general ? "block" : 'none' }}>
+                                <tbody id="general" data-filter-target="" style={{ display: general ? "block" : "none" }}>
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">General</th>
                                         <td><span className="text-dark fw-medium text-dark">Apple iPhone Xs Max</span></td>
