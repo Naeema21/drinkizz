@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar, Nav } from 'react-bootstrap'
 import '../layout.css'
@@ -65,7 +65,7 @@ const Header = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <Link to="/" className='nav-link'>Home</Link>
-                            <Link to="/shop" className='nav-link'>Shop</Link>
+                            <Link to="/product-details" className='nav-link'>Shop</Link>
                             <Link to="/" className='nav-link'>Account</Link>
                             <Link to="/product" className='nav-link'>Product</Link>
                         </Nav>

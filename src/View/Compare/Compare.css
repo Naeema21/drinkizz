@@ -1,28 +1,33 @@
-.b-Addtocart {
+.Compare .b-Addtocart {
     background-color: #fe696a;
     border-color: #fe696a;
     box-shadow: unset;
 }
 
-.heading-table-compare {
-    background-color: #e3e9ef;
+.Compare .heading-table-compare {
+    background-color: #f6f9fc !important;
 }
 
-.product-name {
+.Compare .product-name {
+    color: #000;
     text-decoration: none;
+}
+.Compare .product-name:hover{
+    color:#fe696a ;
 }
 
 .Compare th {
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 11px 10px;
 }
 
-.compare-crite {
+.Compare .compare-crite {
     width: 250px;
     border-color: rgba(43, 52, 69, .5);
 }
 
-.compare-crite:hover {
+.Compare .compare-crite:hover {
     border-color: #fe696a;
 }
 
