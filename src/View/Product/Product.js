@@ -1,18 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './product.css'
 import { Accordion } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { products } from '../../assets/Data/product'
 import shoplistproimg1 from '../../assets/images/Product/shoplist-proimg1.jpg'
-import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
-import RangeSlider from "react-bootstrap-range-slider";
 
 const Product = () => {
     const Card = React.lazy(() => import('../../Components/Cards/Cards'))
     // const [ rangevalue, setRangevalue ] = useState(50); 
     return (
         <>
-            <section>
+            <section className='mt-4'>
                 <div className='container'>
                     <div className='row'>
                         <div className='col-lg-4 col-md-4 col-sm-4'>
@@ -122,10 +120,6 @@ const Product = () => {
                                     <div className='mb-2 shoplist-tooltip'>
                                         <input type="range" min="1" max="100" className='shoplist-slider' />
                                     </div>
-                                    {/* <RangeSlider
-                                    value={rangevalue}
-                                    onChange={changeEvent => setRangevalue(changeEvent.target.value)}
-                                    /> */}
                                     <div className='d-flex pb-4 pt-2'>
                                         <div className='w-50 pe-2 me-2'>
                                             <div className='input-group input-group-sm'>

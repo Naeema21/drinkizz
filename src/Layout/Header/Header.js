@@ -1,10 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar, Nav } from 'react-bootstrap'
 import '../layout.css'
 
 
 const Header = () => {
+    const [Navigations, setNavbars] = useState(false);
+
+    // // on scroll set hooks true
+    // useEffect(() => {
+    //     window.addEventListener("scroll", () => {
+    //         if (window.scrollY >= 20) {
+    //             console.log("test")
+    //             setNavbars(true);
+    //         }else {
+    //             console.log("else")
+    //             setNavbars(false);
+    //         }
+    //     })
+    // });
+
+
     const SignIn = React.lazy(() => import('../../Components/SignIn/SignIn'))
     return (
         <div className='header'>
@@ -37,7 +53,12 @@ const Header = () => {
                 </div>
             </div>
             {/* top bar end */}
-            <Navbar collapseOnSelect expand="lg" >
+            <Navbar collapseOnSelect expand="lg" 
+            style={{
+                // top: show ? '30px' : '5px',
+                backgroundColor: Navigations ? 'white' : 'transparent',
+                boxShadow: Navigations ? '0px 0px 10px #000' : 'none',
+              }}>
                 <div className='container'>
                     <Navbar.Brand href="#home">Daruwale</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
