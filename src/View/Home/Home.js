@@ -73,40 +73,40 @@ const Home = () => {
                         </div>
                         <div className="col-lg-9 order-xl-2 order-1">
                             <OwlCarousel options={options}>
-                                <div className="row display-flex align-items-center">
+                                <div className="Home-banner-owl row display-flex align-items-center">
                                     <div className="col-lg-6 Home-Banner-Caroucel-Text">
                                         <span className="Banner-Carousel-Heading">World of music with</span><br />
                                         <span className="Banner-Carousel-Bold">
                                             <b>Headphones</b>
                                         </span><br />
-                                        <span className="Banner-Caroucel-text">Choose between top brands</span><br />
-                                        <button>Shop Now <i className="fa fa-angle-right"></i></button>
+                                        <span className="Banner-Caroucel-text">Choose between top brands</span><br /><br />
+                                        <a className="Button-C-2">Shop Now <i className="fa fa-angle-right"></i></a>
                                     </div>
                                     <div className="col-lg-6">
                                         <img src={HomeBannerCaroucel1} className="img-fluid" alt="HeadSet"></img>
                                     </div>
                                 </div>
-                                <div className="row display-flex align-items-center">
+                                <div className="Home-banner-owl row display-flex align-items-center">
                                     <div className="col-lg-6 Home-Banner-Caroucel-Text">
                                         <span className="Banner-Carousel-Heading">World of music with</span><br />
                                         <span className="Banner-Carousel-Bold">
                                             <b>Headphones</b>
                                         </span><br />
-                                        <span className="Banner-Caroucel-text">Choose between top brands</span><br />
-                                        <button>Shop Now <i className="fa fa-angle-right"></i></button>
+                                        <span className="Banner-Caroucel-text">Choose between top brands</span><br /><br />
+                                        <a className="Button-C-2">Shop Now <i className="fa fa-angle-right"></i></a>
                                     </div>
                                     <div className="col-lg-6">
                                         <img src={HomeBannerCaroucel2} className="img-fluid" alt="VR Box"></img>
                                     </div>
                                 </div>
-                                <div className="row display-flex align-items-center">
+                                <div className="Home-banner-owl row display-flex align-items-center">
                                     <div className="col-lg-6 Home-Banner-Caroucel-Text">
                                         <span className="Banner-Carousel-Heading">World of music with</span><br />
                                         <span className="Banner-Carousel-Bold">
                                             <b>Headphones</b>
                                         </span><br />
-                                        <span className="Banner-Caroucel-text">Choose between top brands</span><br />
-                                        <button>Shop Now <i className="fa fa-angle-right"></i></button>
+                                        <span className="Banner-Caroucel-text">Choose between top brands</span><br /><br />
+                                        <a className="Button-C-2">Shop Now <i className="fa fa-angle-right"></i></a>
                                     </div>
                                     <div className="col-lg-6">
                                         <img src={HomeBannerCaroucel3} className="img-fluid" alt="Mobile Phone"></img>

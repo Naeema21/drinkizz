@@ -44,16 +44,10 @@
     font-size: 18px !important;
     font-weight: 300 !important;
 }
-
-.Home-Banner-Caroucel-Text button {
-    border: none;
-    margin-top: 20px;
-    background-color: #fe3638;
-    color: white;
-    padding: 10px 25px;
-    border-radius: 7px;
+.Home-banner-owl a:hover {
+    color: white !important;
+    cursor: pointer;
 }
-
 .banner-home .owl-theme .owl-dots .owl-dot.active span {
     background: #ff5722 !important;
     width: 15px !important;
