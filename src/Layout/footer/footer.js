@@ -34,8 +34,8 @@ const Footer = () => {
                         </div>
                     </div>
                 </section>
-                <section>
-                    <div className='container-fluid' style={{ background: "#4b566b" }}>
+                <section style={{ background: "#4b566b" }}>
+                    <div className='container' >
                         <div className='row pb-2'>
                             <div className='col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4'>
                                 <div className='compare-sec-footer pb-2 pt-4'>

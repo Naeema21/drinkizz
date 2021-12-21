@@ -18,9 +18,10 @@ function App() {
   const Shop = React.lazy(() => import('./View/Shop/Shop'))
   const Cart = React.lazy(()=>import('./View/Cart/Cart'))
   return (
+ 
     <div className="App">
       <BrowserRouter>
-        <Suspense fallback={"loader"}>
+        <Suspense fallback={<div id="loader"></div>}>
           <ScrollToTop />
           <Header />
           <Switch>
@@ -28,7 +29,7 @@ function App() {
             <Route exact path="/product" component={Product}></Route>
             <Route exact path="/account" component={Account}></Route>
             <Route exact path="/cart" component={Cart}></Route>
-            <Route exact path="/shop" component={Shop}></Route>
+            <Route exact path="/product-details" component={Shop}></Route>
             <Route exact path="/" component={Home}></Route>
             <Route exact component={Home}></Route>
           </Switch>

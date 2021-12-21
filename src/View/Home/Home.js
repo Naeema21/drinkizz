@@ -12,6 +12,7 @@ import HomeBannerCaroucel3 from '../../assets/images/Home/caroucel-3.jpg'
 import OfferBanneripad from '../../assets/images/Home/offer-banner-1.jpg'
 import { products } from '../../assets/Data/product';
 import { clientCaroucel } from "../../assets/Data/data";
+import { Link } from "react-router-dom";
 
 const Home = () => {
     const Card = React.lazy(() => import('../../Components/Cards/Cards'))
@@ -35,7 +36,7 @@ const Home = () => {
                     <div className="row">
                         <div className="col-xl-3 order-xl-1 pt-4 mt-3 mt-xl-0 pt-xl-0 order-2">
                             <div className="d-flex d-xl-block scroll-card">
-                                <a href="#">
+                                <Link to="/product-details">
                                     <div className="d-flex align-items-center bg-faded-indigo rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
                                         <img src={ProductCamera} className='img-fluid' width="125" alt='Camera'></img>
                                         <div className="py-4 px-2">
@@ -45,8 +46,8 @@ const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </a>
-                                <a href="#">
+                                </Link>
+                                <Link to="/product-details">
                                     <div className="d-flex align-items-center bg-faded-orange rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
                                         <img src={ProductGadget} className='img-fluid' width="125" alt='Gadget'></img>
                                         <div className="py-4 px-2">
@@ -56,8 +57,8 @@ const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </a>
-                                <a href="#">
+                                </Link>
+                                <Link to="/product-details">
                                     <div className="d-flex align-items-center bg-faded-green rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
                                         <img src={ProductEarbuds} className="img-fluid" width="125" alt="EarBuds"></img>
                                         <div className="py-4 px-2">
@@ -67,7 +68,7 @@ const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                         <div className="col-lg-9 order-xl-2 order-1">
@@ -123,7 +124,9 @@ const Home = () => {
                     <div className="row">
                         <div className="col-lg-12 col-md-12 col-sm-12 d-flex flex-wrap justify-content-between align-items-center pt-1 border-bottom pb-4 mb-4">
                             <h2>Trending products</h2>
-                            <button className='cards-moreproduct-btn btn btn-sm'>More Products<i className="fa fa-angle-right" style={{ fontSize: '15px', paddingLeft: '3px' }}></i></button>
+                            <Link to="/product" className='cards-moreproduct-btn btn btn-sm'>More Products
+                                <i className="fa fa-angle-right" style={{ fontSize: '15px', paddingLeft: '3px' }}></i>
+                            </Link>
                         </div>
                         {/* Using Map Function to access the data & send to card */}
                         {products.slice(0, 8).map((productdata, i) => (
@@ -185,7 +188,7 @@ const Home = () => {
                                 {
                                     products.slice(0, 4).map((value, index) => {
                                         return (
-                                            <a href="#">
+                                            <Link to="/product-details">
                                                 <div className='BS-Product-item d-flex align-items-center ' key={index}>
                                                     <div className=''>
                                                         <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
@@ -197,12 +200,12 @@ const Home = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </a>
+                                            </Link>
                                         );
                                     })
                                 }
                                 <div className='mt-4 text-orange'>
-                                    <a>View More <i className="fa fa-angle-right"></i></a>
+                                    <Link to="/product" className="text-orange">View More <i className="fa fa-angle-right"></i></Link>
                                 </div>
                             </div>
                         </div>
@@ -212,7 +215,7 @@ const Home = () => {
                                 {
                                     products.slice(4, 8).map((value, index) => {
                                         return (
-                                            <a href="#">
+                                            <Link to="/product-details">
                                                 <div className='BS-Product-item d-flex align-items-center ' key={index}>
                                                     <div className=''>
                                                         <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
@@ -224,12 +227,12 @@ const Home = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </a>
+                                            </Link>
                                         );
                                     })
                                 }
                                 <div className='mt-4 text-orange'>
-                                    <a>View More <i className="fa fa-angle-right"></i></a>
+                                    <Link to="/product"  className="text-orange">View More <i className="fa fa-angle-right"></i></Link>
                                 </div>
                             </div>
                         </div>
@@ -239,7 +242,7 @@ const Home = () => {
                                 {
                                     products.slice(8, 12).map((value, index) => {
                                         return (
-                                            <a href="#">
+                                            <Link to="/product-details">
                                                 <div className='BS-Product-item d-flex align-items-center' key={index}>
                                                     <div className=''>
                                                         <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
@@ -251,12 +254,12 @@ const Home = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </a>
+                                            </Link>
                                         );
                                     })
                                 }
                                 <div className='mt-4 text-orange'>
-                                    <a>View More <i className="fa fa-angle-right"></i></a>
+                                    <Link to="/product"  className="text-orange">View More <i className="fa fa-angle-right"></i></Link>
                                 </div>
                             </div>
                         </div>
@@ -264,7 +267,6 @@ const Home = () => {
                 </div>
             </section>
             {/* Best Sellers Products End */}
-            {/* Banner end */}
 
 
         </div>
