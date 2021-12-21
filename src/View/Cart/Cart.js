@@ -12,6 +12,7 @@ const Cart = () => {
     }
     return (
         <div className='cart'>
+            {/* Header start*/}
             <div className='Heading-back-com text-white'>
                 <div className='container '>
                     <div className='row py-4'>
@@ -19,15 +20,6 @@ const Cart = () => {
                             <h2>Your Cart</h2>
                         </div>
                         <div className='col-6 d-flex justify-content-end'>
-                            {/* <div className='Cart-Path'>
-                            <span className='me-2'>Home</span>
-                            <span><i className="fa fa-angle-right me-2"></i></span>
-                            <span className='me-2'>Shop</span>
-                            <span><i className="fa fa-angle-right me-2"></i></span>
-                            <span className='me-2'>Cart</span>
-                            <span><i className="fa fa-angle-right me-2"></i></span>
-                        </div> */}
-
                             <nav aria-label="breadcrumb ">
                                 <ol className="breadcrumb">
                                     <li className="breadcrumb-item"><i class="fa fa-home me-2"></i><a href="/">Home</a></li>
@@ -42,12 +34,13 @@ const Cart = () => {
                             <h6>Products</h6>
                         </div>
                         <div className='col-6'>
-                            <button className='btn Button-C-1 btn-sm'> <i className="fa fa-angle-left me-2"></i> Continue Shopping</button>
+                            <a href='/product' className='btn Button-Red-Border btn-sm'> <i className="fa fa-angle-left me-2"></i> Continue Shopping</a>
                         </div>
                     </div>
                 </div>
             </div>
-
+            {/* Header End */}
+            {/* Cart list started */}
             <div className='container'>
                 <div className='row'>
                     <div className='col-lg-8'>
@@ -61,12 +54,12 @@ const Cart = () => {
                                                     <img src={v.imgsrc} className='img-fluid'
                                                         width="150px" height="150px" />
                                                 </div>
-                                                <div>
-                                                    <h6>{v.name}</h6>
-                                                    <span>Size: 8.5</span><br />
-                                                    <span>Color: Black</span>
-                                                    <p className='text-indigo'>{v.price}</p>
-                                                </div>
+                                                <div className='product-desc'><a href='/product-details'>
+                                                    <h6 className='title-text-color'>{v.name}</h6>
+                                                    <span className='text-muted'>Size: 8.5</span><br />
+                                                    <span className='text-muted'>Color: Black</span>
+                                                    <p className='text-indigo fs-lg'>{v.price}</p>
+                                                    </a></div>
                                             </div>
                                             <div>
                                                 <h6>Quantity</h6>
@@ -80,11 +73,12 @@ const Cart = () => {
                             })
                         }
                         <div className='row my-4'>
-                            <button className='btn btn-outline-primary'>
-                                <i className='fa fa-refresh'></i>&nbsp; &nbsp; Update Cart</button>
+                            <a href='/product' className='btn Button-Blue-Border d-block w-100'>
+                                <i className='fa fa-refresh'></i>&nbsp; &nbsp; Update Cart</a>
                         </div>
 
                     </div>
+                    {/* Additional Comments start */}
                     <div className='col-lg-4'>
                         <div className='card rounded-3 shadow-lg p-4'>
                             <div className='card-head text-center'>
@@ -97,7 +91,6 @@ const Cart = () => {
                                 <label>Additional Comments</label>
                                 <textarea className='form-control mt-2'
                                     rows="5"></textarea>
-
                             </div>
                             <Accordion>
                                 <div>
@@ -109,7 +102,7 @@ const Cart = () => {
                                                     <input type="text"
                                                         className="form-control" autoComplete="off" placeholder="promo code" />
                                                 </div>
-                                                <button className='btn Button-C-1 w-100'>Apply promo code</button>
+                                                <button className='btn Button-Red-Border w-100'>Apply promo code</button>
                                             </form>
                                         </Accordion.Body>
                                     </Accordion.Item>
@@ -153,18 +146,20 @@ const Cart = () => {
                                                             required: true,
                                                         })}/><span className="error-msg" title="invlid subject">{errors.code && "Please provide valid code"}</span>
                                                 </div>
-                                                <button className="btn Button-C-1 d-block w-100" type="submit">Calculate shipping</button>
+                                                <button className="btn Button-Red-Border d-block w-100" type="submit">Calculate shipping</button>
                                             </form>
                                         </Accordion.Body>
                                     </Accordion.Item>
                                 </div>
                             </Accordion>
-                            <button className='Button-C-2'>Proceed to Checkout</button>
+                            <button className='Button-Full-Red'>Proceed to Checkout</button>
 
                         </div>
                     </div>
                 </div>
+                {/* Additional Comments end */}
             </div>
+            {/* Cart List end */}
         </div>
     )
 }
