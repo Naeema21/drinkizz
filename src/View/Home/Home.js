@@ -73,40 +73,40 @@ const Home = () => {
                         </div>
                         <div className="col-lg-9 order-xl-2 order-1">
                             <OwlCarousel options={options}>
-                                <div className="row display-flex align-items-center">
+                                <div className="Home-banner-owl row display-flex align-items-center">
                                     <div className="col-lg-6 Home-Banner-Caroucel-Text">
                                         <span className="Banner-Carousel-Heading">World of music with</span><br />
                                         <span className="Banner-Carousel-Bold">
                                             <b>Headphones</b>
                                         </span><br />
-                                        <span className="Banner-Caroucel-text">Choose between top brands</span><br />
-                                        <button>Shop Now <i className="fa fa-angle-right"></i></button>
+                                        <span className="Banner-Caroucel-text">Choose between top brands</span><br /><br />
+                                        <a className="Button-Full-Red">Shop Now <i className="fa fa-angle-right"></i></a>
                                     </div>
                                     <div className="col-lg-6">
                                         <img src={HomeBannerCaroucel1} className="img-fluid" alt="HeadSet"></img>
                                     </div>
                                 </div>
-                                <div className="row display-flex align-items-center">
+                                <div className="Home-banner-owl row display-flex align-items-center">
                                     <div className="col-lg-6 Home-Banner-Caroucel-Text">
                                         <span className="Banner-Carousel-Heading">World of music with</span><br />
                                         <span className="Banner-Carousel-Bold">
                                             <b>Headphones</b>
                                         </span><br />
-                                        <span className="Banner-Caroucel-text">Choose between top brands</span><br />
-                                        <button>Shop Now <i className="fa fa-angle-right"></i></button>
+                                        <span className="Banner-Caroucel-text">Choose between top brands</span><br /><br />
+                                        <a className="Button-Full-Red">Shop Now <i className="fa fa-angle-right"></i></a>
                                     </div>
                                     <div className="col-lg-6">
                                         <img src={HomeBannerCaroucel2} className="img-fluid" alt="VR Box"></img>
                                     </div>
                                 </div>
-                                <div className="row display-flex align-items-center">
+                                <div className="Home-banner-owl row display-flex align-items-center">
                                     <div className="col-lg-6 Home-Banner-Caroucel-Text">
                                         <span className="Banner-Carousel-Heading">World of music with</span><br />
                                         <span className="Banner-Carousel-Bold">
                                             <b>Headphones</b>
                                         </span><br />
-                                        <span className="Banner-Caroucel-text">Choose between top brands</span><br />
-                                        <button>Shop Now <i className="fa fa-angle-right"></i></button>
+                                        <span className="Banner-Caroucel-text">Choose between top brands</span><br /><br />
+                                        <a className="Button-Full-Red">Shop Now <i className="fa fa-angle-right"></i></a>
                                     </div>
                                     <div className="col-lg-6">
                                         <img src={HomeBannerCaroucel3} className="img-fluid" alt="Mobile Phone"></img>
@@ -137,7 +137,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            {/* Product cards start */}
+            {/* Product cards end */}
             {/* Banner Offer Start */}
             <section className='Offers-Banner'>
                 <div className='container'>
@@ -188,8 +188,8 @@ const Home = () => {
                                 {
                                     products.slice(0, 4).map((value, index) => {
                                         return (
-                                            <Link to="/product-details">
-                                                <div className='BS-Product-item d-flex align-items-center ' key={index}>
+                                            <Link to="/product-details" key={index}>
+                                                <div className='BS-Product-item d-flex align-items-center '>
                                                     <div className=''>
                                                         <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
                                                     </div>
@@ -215,8 +215,8 @@ const Home = () => {
                                 {
                                     products.slice(4, 8).map((value, index) => {
                                         return (
-                                            <Link to="/product-details">
-                                                <div className='BS-Product-item d-flex align-items-center ' key={index}>
+                                            <Link to="/product-details" key={index}>
+                                                <div className='BS-Product-item d-flex align-items-center ' >
                                                     <div className=''>
                                                         <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
                                                     </div>
@@ -232,7 +232,7 @@ const Home = () => {
                                     })
                                 }
                                 <div className='mt-4 text-orange'>
-                                    <Link to="/product"  className="text-orange">View More <i className="fa fa-angle-right"></i></Link>
+                                    <Link to="/product" className="text-orange">View More <i className="fa fa-angle-right"></i></Link>
                                 </div>
                             </div>
                         </div>
@@ -242,8 +242,8 @@ const Home = () => {
                                 {
                                     products.slice(8, 12).map((value, index) => {
                                         return (
-                                            <Link to="/product-details">
-                                                <div className='BS-Product-item d-flex align-items-center' key={index}>
+                                            <Link to="/product-details" key={index}>
+                                                <div className='BS-Product-item d-flex align-items-center' >
                                                     <div className=''>
                                                         <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
                                                     </div>
@@ -259,7 +259,8 @@ const Home = () => {
                                     })
                                 }
                                 <div className='mt-4 text-orange'>
-                                    <Link to="/product"  className="text-orange">View More <i className="fa fa-angle-right"></i></Link>
+                                    <Link to="/product" className="text-orange">View More
+                                        <i className="fa fa-angle-right"></i></Link>
                                 </div>
                             </div>
                         </div>
@@ -267,8 +268,6 @@ const Home = () => {
                 </div>
             </section>
             {/* Best Sellers Products End */}
-
-
         </div>
     )
 }

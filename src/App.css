@@ -45,3 +45,47 @@ hr{
   background-color: grey !important;
   height: 0.1px !important;
 }
+/* Button1 */
+.btn-check:focus + .btn, .btn:focus { 
+  box-shadow: none !important;
+}
+.Button-Red-Border{
+  color: #fe696a !important;
+  border-color: #fe696a !important; 
+  font-weight: 400;
+}
+.Button-Red-Border:hover{
+  color: white !important;
+  border-color: #fe696a !important;
+  background-color: #fe696a !important;
+}
+/* Button2 */
+.Button-Full-Red {
+  border:none;
+  opacity: 0.9;
+  background-color: #fe3638;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 7px;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgb(254 105 106 / 90%);
+}
+.Button-Full-Red:hover{
+  opacity: 1;
+  box-shadow: none;
+}
+/* Button3 */
+.Button-Blue-Border{
+  color: #4e54c8 !important;
+    border-color: #4e54c8 !important;
+  font-weight: 400;
+}
+.Button-Blue-Border:hover{
+    color: #fff !important;
+    background-color: #4e54c8;
+    border-color: #4e54c8;
+}
+
+.form-select:focus , .form-check-input:focus {
+  outline: 0;
+  box-shadow: none !important;
+}
