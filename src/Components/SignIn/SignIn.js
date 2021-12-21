@@ -51,7 +51,6 @@ const SignIn = () => {
                                     <div className="mb-3">
                                         <label className="form-label signup-form-label" for="compare-email">Email address</label>
                                         <input className="form-control signup-input" type="email" id="compare-email" placeholder="johndoe@example.com" required="" />
-                                        <div className="compare-feedback">Please provide a valid email address.</div>
                                     </div>
                                     <div className="mb-3">
                                         <label className="form-label signup-form-label" for="compare-password">Password</label>

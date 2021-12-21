@@ -33,7 +33,7 @@
     box-shadow: none !important; 
     color: #fe696a !important;
 }
-.Modal-signin-up,#uncontrolled-tab-example-tab-Signin,#uncontrolled-tab-example-tab-Signup{
+#uncontrolled-tab-example-tab-Signin,#uncontrolled-tab-example-tab-Signup{
     padding:15px !important;
 }
 .Sign-up-modal,.Sign-in-modal{

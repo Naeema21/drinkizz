@@ -27,7 +27,7 @@ const Header = () => {
                                     </Link>
                                 </span> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                                 <span>
-                                    <Link to="/">
+                                    <Link to="/ordertracking">
                                         <i className='fa fa-map-marker text-danger me-2'></i>Order Tracking
                                     </Link>
                                 </span>
