@@ -20,7 +20,7 @@ const Compare = () => {
                                 <thead>
                                     <tr>
                                         <td className="align-middle">
-                                            <select className="form-select compare-crite" id="compare-criteria" data-filter-trigger="">
+                                            <select className="form-select compare-crite" id="compare-criteria">
                                                 <option value="all">Comparison criteria</option>
                                                 <option value="summary">Summary</option>
                                                 <option value="general" onClick={() => { general ? setGeneral(true) : setGeneral(false) }}>General</option>
@@ -45,7 +45,7 @@ const Compare = () => {
                                             <h6 className="product-title">
                                                 <Link className='product-name' to="product-details">Apple iPhone Xs Max</Link>
                                             </h6>
-                                            <button className="btn btn-danger b-Addtocart btn-sm" type="button">Add to Cart</button>
+                                            <button className="Button-Full-Red" type="button">Add to Cart</button>
                                         </td>
                                         <td className="text-center px-4 pb-4">
                                             <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
@@ -57,7 +57,7 @@ const Compare = () => {
                                             <h6 className="product-title">
                                                 <Link className='product-name' to="product-details">Google Pixel 3 XL</Link>
                                             </h6>
-                                            <button className="btn btn-danger b-Addtocart btn-sm" type="button">Add to Cart</button>
+                                            <button className="Button-Full-Red" type="button">Add to Cart</button>
                                         </td>
                                         <td className="text-center px-4 pb-4">
                                             <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
@@ -70,7 +70,7 @@ const Compare = () => {
                                                 <Link className='product-name' to="product-details">Samsung Galaxy S10+
                                                 </Link>
                                             </h6>
-                                            <button className="btn btn-danger b-Addtocart btn-sm" type="button">Add to Cart</button>
+                                            <button className="Button-Full-Red" type="button">Add to Cart</button>
                                         </td>
                                     </tr>
                                 </thead>
@@ -491,16 +491,16 @@ const Compare = () => {
                                         <td>4.5/5</td>
                                         <td>4.5/5</td>
                                     </tr>
-                                    <tr>
+                                    <tr className='text-center'>
                                         <th></th>
                                         <td>
-                                            <button className="btn btn-danger d-block w-100 b-Addtocart" type="button">Add to Cart</button>
+                                            <button className="Button-Full-Red " type="button">Add to Cart</button>
                                         </td>
                                         <td>
-                                            <button className="btn btn-danger d-block w-100 b-Addtocart" type="button">Add to Cart</button>
+                                            <button className="Button-Full-Red " type="button">Add to Cart</button>
                                         </td>
                                         <td>
-                                            <button className="btn btn-danger d-block w-100 b-Addtocart" type="button">Add to Cart</button>
+                                            <button className="Button-Full-Red " type="button">Add to Cart</button>
                                         </td>
                                     </tr>
                                 </tbody>
