@@ -62,9 +62,9 @@ const Cart = () => {
                                                     </a></div>
                                             </div>
                                             <div>
-                                                <h6>Quantity</h6>
+                                                <p className='text-quantity'>Quantity</p>
                                                 <input type="number" defaultValue="1" className='quanity-bar' /><br />
-                                                <a className='text-orange remove-link mt-2'><i className='fa fa-close'></i>&nbsp;Remove</a>
+                                                <a className='text-red remove-link mt-2'><i className='fa fa-close'></i>&nbsp;Remove</a>
                                             </div>
                                         </div>
                                         <hr />
@@ -87,7 +87,7 @@ const Cart = () => {
                                 <hr />
                             </div>
                             <div className="card-body">
-                                <span class="badge bg-indigo  me-2">Note</span>
+                                <span class="badge bg-info  me-2">Note</span>
                                 <label>Additional Comments</label>
                                 <textarea className='form-control mt-2'
                                     rows="5"></textarea>
@@ -153,7 +153,6 @@ const Cart = () => {
                                 </div>
                             </Accordion>
                             <button className='Button-Full-Red'>Proceed to Checkout</button>
-
                         </div>
                     </div>
                 </div>

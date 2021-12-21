@@ -188,8 +188,8 @@ const Home = () => {
                                 {
                                     products.slice(0, 4).map((value, index) => {
                                         return (
-                                            <Link to="/product-details">
-                                                <div className='BS-Product-item d-flex align-items-center ' key={index}>
+                                            <Link to="/product-details" key={index}>
+                                                <div className='BS-Product-item d-flex align-items-center ' >
                                                     <div className=''>
                                                         <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
                                                     </div>
@@ -215,8 +215,8 @@ const Home = () => {
                                 {
                                     products.slice(4, 8).map((value, index) => {
                                         return (
-                                            <Link to="/product-details">
-                                                <div className='BS-Product-item d-flex align-items-center ' key={index}>
+                                            <Link to="/product-details" key={index}>
+                                                <div className='BS-Product-item d-flex align-items-center ' >
                                                     <div className=''>
                                                         <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
                                                     </div>
@@ -242,8 +242,8 @@ const Home = () => {
                                 {
                                     products.slice(8, 12).map((value, index) => {
                                         return (
-                                            <Link to="/product-details">
-                                                <div className='BS-Product-item d-flex align-items-center' key={index}>
+                                            <Link to="/product-details" key={index}>
+                                                <div className='BS-Product-item d-flex align-items-center' >
                                                     <div className=''>
                                                         <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
                                                     </div>

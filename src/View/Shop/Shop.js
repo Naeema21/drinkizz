@@ -45,7 +45,6 @@ function Shop() {
             0 : {
                items:1
             },
-          
             480 : {
                 items:2
             },
@@ -69,6 +68,7 @@ function Shop() {
                 <div className='container'>
                     <div className='Product-desc-back rounded-3 '>
                         <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="" defaultActiveKey="general">
+                            {/* Tabfirst General Info start */}
                             <Tab eventKey="general" title=" General Info" className='py-4 px-sm-4'>
                                 <div className="tab-content px-lg-3 py-4">
                                     <div className="tab-pane fade active show" id="general" role="tabpanel">
@@ -159,7 +159,7 @@ function Shop() {
                                                 </div>
                                                 <div className="d-flex mb-4">
                                                     <div className="w-100 me-3">
-                                                        <button className="btn btn-WishList d-block w-100" type="button"><i className="fa fa-heart-o" style={{ color: "gray" }}></i><span className="d-none d-sm-inline"> Add to </span>Wishlist</button>
+                                                        <button className="btn btn-WishList d-block w-100" type="button"><i className="fa fa-heart-o me-2" style={{ color: "gray" }}></i><span className="d-none d-sm-inline">Add to </span>Wishlist</button>
                                                     </div>
                                                     <div className="w-100">
                                                         <button className="btn btn-WishList d-block w-100" type="button"><i className="fa fa-refresh me-2" style={{ color: "gray" }}></i>Compare</button>
@@ -217,10 +217,10 @@ function Shop() {
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </Tab>
+                            {/* Tab General Specs End */}
+                            {/* Tab Tech Specs start */}
                             <Tab eventKey="specs" title="Tech Specs" className='py-4 px-sm-4'>
                                 <div className="tab-pane fade active show" id="specs" role="tabpanel">
                                     <div className="row d-md-flex justify-content-between align-items-start pb-4 mb-4 border-bottom">
@@ -293,6 +293,8 @@ function Shop() {
                                     </div>
                                 </div>
                             </Tab>
+                            {/* Tab Tech Specs end */}
+                            {/* Tab Reviews Start */}
                             <Tab eventKey="reviews" title="Reviews" className='py-4 px-sm-4'>
                                 <div className="row d-md-flex justify-content-between align-items-start pb-4 mb-4 border-bottom">
                                     <div className="col-lg-4 col-sm-5 d-flex align-items-center me-md-3"><img src={Smwatch1} width="90" alt="Product thumb" />
@@ -384,7 +386,7 @@ function Shop() {
                                         {
                                             ReviewComments.map((value, index) => {
                                                 return (
-                                                    <div className="pb-4 mb-4 border-bottom">
+                                                    <div className="pb-4 mb-4 border-bottom" key={index}>
                                                         <div className="d-flex mb-3">
                                                             <div className="d-flex align-items-center me-4 pe-2"><img className="rounded-circle" src={value.profileimg} width="50" alt="Rafael Marquez" />
                                                                 <div className="ps-3">
@@ -407,18 +409,13 @@ function Shop() {
                                                         </div>
                                                     </div>
                                                 );
-
                                             })
                                         }
-
-
                                     </div>
                                     <div className='col-md-5 mt-2 pt-4 mt-md-0 pt-md-0 '>
                                         <div className='Review-Comment-Form rounded-3'>
                                             <h3 className="h4 pb-2">Write a review</h3>
                                             <form onSubmit={handleSubmit(onSubmit)} >
-
-
                                                 <div className="form-group mb-3">
                                                     <label className='form-label'>Your Name<span style={{color:'red'}}>*</span></label>
                                                     <input type="text"
@@ -433,8 +430,6 @@ function Shop() {
                                                         className="form-control" autoComplete="off" placeholder="" />
                                                     <span className="error-msg" title="name required">{errors.name && "Please enter your name."}</span>
                                                 </div>
-
-
                                                 <div className="form-group mb-3">
                                                     <label className='form-label'>Your Email<span style={{color:'red'}}>*</span></label>
                                                     <input
@@ -461,8 +456,6 @@ function Shop() {
                                                         <option value="1">1 star</option>
                                                     </select><span className="error-msg" title="invlid subject">{errors.comment && "Please Choose Rating"}</span>
                                                 </div>
-
-
                                                 <div className="form-group mb-3">
                                                     <label className='form-label'>Review<span style={{color:'red'}}>*</span></label>
                                                     <textarea autoComplete="off"
@@ -503,6 +496,7 @@ function Shop() {
                                     </div>
                                 </div>
                             </Tab>
+                            {/* Tab Reviews end */}
                         </Tabs>
                     </div>
                 </div>

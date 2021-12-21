@@ -6,6 +6,8 @@
 }
 .cart .remove-link{
     text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
 
 }
 .cart .remove-link i{
@@ -61,15 +63,19 @@ margin-top: -80px;
     box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
 }
 .cart .title-text-color{
-    color: #373f50;;
+    color: #373f50;
 }
 .cart .title-text-color:hover{
     color: #fe696a;
 }
 .fs-lg{
     font-size: 1.125rem !important;
-
 }
 .cart .product-desc a{
     text-decoration: none;
+}
+.text-quantity{
+    font-size: 14px;
+    font-weight: 500;
+    color: #373f50;
 }
