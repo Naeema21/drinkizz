@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import "./OrderTracking.css";
 import { products } from '../../assets/Data/product'
 import { Modal } from 'react-bootstrap';
+import Button from 'react-bootstrap';
 
 const OrderTracking = () => {
   // modal display functionality
@@ -104,7 +105,7 @@ const OrderTracking = () => {
               Notify me when order is delivered
             </label>
           </div>
-          <a class="btn btn-primary btn-sm mt-2 btn-view-order"
+          <a class="btn-sm mt-2 btn-view-order Button-Red-Border Button-Full-Red"
             data-bs-toggle="modal" onClick={() => setLgShow(true)}>
             View Order Details
           </a>
@@ -116,57 +117,51 @@ const OrderTracking = () => {
               </Modal.Header>
               <Modal.Body>
               {/* <span className="homemodalclosebtn"><i class="fa fa-times-circle" aria-hidden="true"></i></span> */}
-                <div className='container'>
+                <div className='container' style={{"height": "250px","overflow": "auto"}}>
                     {
                        products.map((productdata,i)=>{
                          return(
                               <div className='row'>
+                               
                                 <div className='col-4'>
-                                  <div className=''>
                                     <img className='product-img-ordertrack' src={productdata.imgsrc} alt=""></img>
-                                   </div>   
                                 </div>
                                 <div className='col-4'>
-                                  <div className=''>
                                   <h6>{productdata.category}</h6>
                                   <p>{productdata.name}</p>
                                   <h4>{productdata.price}</h4>
-                                  </div>
                                 </div>
                                 <div className='col-2'>
-                                  <div className=''>
                                     <h6>Quantity:</h6>
                                     <p>1</p>
-                                  </div>
                                 </div>
                                 <div className='col-2'>
-                                  <div className=''>
                                     <h6>Subtotal:</h6>
-                                    <p>$154.00</p>
-                                  </div>
+                                    <p>$154.00</p> 
                                 </div>
                                 <hr style={{"width":"100%","text-align":"left","margin-left":"0"}}></hr>
-                            </div>
+                            </div> 
                          )
                        })
                     }
+
                   </div>
               </Modal.Body>
               <Modal.Footer>
                 <div className='row'>
-                  <div className='col-sm-6 col-md-4 col-lg-4 col-xl-4'>
+                  <div className='col-sm-6 col-md-3 col-lg-3 col-xl-3'>
                     <p>Subtotal: $265.00</p>
                   </div>
-                  <div className='col-sm-6 col-md-4 col-lg-4 col-xl-4'>
+                  <div className='col-sm-6 col-md-3 col-lg-3 col-xl-3'>
                     <p>Shipping: $22.50</p>
                   </div>
-                  <div className='col-sm-6 col-md-4 col-lg-4 col-xl-4'>
+                  <div className='col-sm-6 col-md-3 col-lg-3 col-xl-3'>
                     <p>Tax: $9.50</p>
                   </div>
-                  <div className='col-sm-6 col-md-4 col-lg-4 col-xl-4'>
+                  <div className='col-sm-6 col-md-3 col-lg-3 col-xl-3'>
                     <p>Total: $297.00</p>
-                  </div>
-                </div>
+                  </div> 
+               </div>
               </Modal.Footer>
           </Modal>
           </div>   

@@ -27,12 +27,20 @@
     border-color: #fe3638;
     background-color: #fe3638;
 }
+.Modal-signin-up, .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
+    color:#fe696a;
+}
+.Modal-signin-up,.nav-link{
+    color:lightslategray;
+}
 /* tabs */
-.Modal-signin-up,#uncontrolled-tab-example-tab-Signin,#uncontrolled-tab-example-tab-Signup:active{
-    border-color: #fe3638 !important;
+/* .Modal-signin-up,#uncontrolled-tab-example-tab-Signin,#uncontrolled-tab-example-tab-Signup:active{
     box-shadow: none !important; 
     color: #fe696a !important;
 }
+#uncontrolled-tab-example-tab-Signup:active{
+    color: #fe696a !important;
+} */
 #uncontrolled-tab-example-tab-Signin,#uncontrolled-tab-example-tab-Signup{
     padding:15px !important;
 }

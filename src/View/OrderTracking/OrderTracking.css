@@ -34,13 +34,8 @@
     width: 100px;
     height: 100px;
 }
-/* .btn-view-order{
-    transition: color .25s ease-in-out;
-    background-color: #fe696a;
-    border-color: #fe3638;
+.btn-view-order{
+    text-decoration: none;
+    height:40px;
+    width:auto;
 }
-.btn-view-order:hover{
-    border-color: #fe3638;
-    background-color: #fe3638;
-    box-shadow: none !important;
-} */
