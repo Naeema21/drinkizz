@@ -9,10 +9,7 @@ import ScrollButton from './Layout/ScrollButton/ScrollButton'
 import ScrollToTop from './Layout/ScrollToTop/ScrollToTop'
 
 function App() {
-  //home
   const Home = React.lazy(() => import('./View/Home/Home'))
-  //Account
-  const Account = React.lazy(() => import('./View/Account/Account'))
   const Product = React.lazy(() => import('./View/Product/Product'))
   const Compare = React.lazy(() => import('./View/Compare/Compare'))
   const Shop = React.lazy(() => import('./View/Shop/Shop'))
@@ -32,7 +29,6 @@ function App() {
             <Route exact path="/order-tracking" component={OrderTracking}></Route>
             <Route exact path="/compare" component={Compare}></Route>
             <Route exact path="/product" component={Product}></Route>
-            <Route exact path="/account" component={Account}></Route>
             <Route exact path="/cart" component={Cart}></Route>
             <Route exact path="/product-details" component={Shop}></Route>
             <Route exact path="/checkout-details" component={CheckOutDetails}></Route>

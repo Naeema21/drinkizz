@@ -35,7 +35,7 @@ const Cards = React.memo((props) => {
                     <div className="product-actionadd px-3">
                         <button className='btn btn btn-sm d-block w-100 mb-2 addto-cardbtn'>
                             <i className="fa fa-shopping-cart px-1" aria-hidden="true"></i>
-                            Add to Card</button>
+                            Add to Cart</button>
                         <div className='text-center'>
                             <Link to='/product-details'>
                                 <i className="fa fa-eye px-1" aria-hidden="true"></i>
