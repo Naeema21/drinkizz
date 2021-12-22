@@ -70,7 +70,7 @@ function Shop() {
                         <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="" defaultActiveKey="general">
                             {/* Tabfirst General Info start */}
                             <Tab eventKey="general" title=" General Info" className='py-4 px-sm-4'>
-                                <div className="tab-content px-lg-3 py-4">
+                                <div className="tab-content px-lg-3 pt-4">
                                     <div className="tab-pane fade active show" id="general" role="tabpanel">
                                         <div className="row">
                                             <div className="col-lg-7 pe-lg-0" >
@@ -155,14 +155,14 @@ function Shop() {
                                                         <option value="4">4</option>
                                                         <option value="5">5</option>
                                                     </select>
-                                                    <button className="btn btn-AddCart btn-shadow d-block w-100" type="button"><i className="fa fa-shopping-cart me-2"></i>Add to Cart</button>
+                                                    <a className="Button-Full-Red d-block w-100" type="button" href='/cart'><i className="fa fa-shopping-cart me-2"></i>Add to Cart</a>
                                                 </div>
                                                 <div className="d-flex mb-4">
                                                     <div className="w-100 me-3">
-                                                        <button className="btn btn-WishList d-block w-100" type="button"><i className="fa fa-heart-o me-2" style={{ color: "gray" }}></i><span className="d-none d-sm-inline">Add to </span>Wishlist</button>
+                                                        <a className="btn btn-WishList d-block w-100" type="button"><i className="fa fa-heart-o me-2" style={{ color: "gray" }}></i><span className="d-none d-sm-inline">Add to </span>Wishlist</a>
                                                     </div>
                                                     <div className="w-100">
-                                                        <button className="btn btn-WishList d-block w-100" type="button"><i className="fa fa-refresh me-2" style={{ color: "gray" }}></i>Compare</button>
+                                                        <a className="btn btn-WishList d-block w-100" type="button" href='/compare'><i className="fa fa-refresh me-2" style={{ color: "gray" }}></i>Compare</a>
                                                     </div>
                                                 </div>
                                                 <Accordion>
@@ -238,12 +238,12 @@ function Shop() {
                                                 <option value="4">4</option>
                                                 <option value="5">5</option>
                                             </select>
-                                            <button className="btn btn-AddCart btn-shadow block w-100" ><i className="fa fa-shopping-cart me-2"></i>Add to Cart</button>
+                                            <a className="Button-Full-Red block w-100" href='/cart'><i className="fa fa-shopping-cart me-2"></i>Add to Cart</a>
                                             <div className="me-2">
                                                 <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} ><i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
                                             </div>
                                             <div>
-                                                <button className="btn btn-small-desc"><i className="fa fa-refresh" style={{ color: "gray" }}></i></button>
+                                                <a className="btn btn-small-desc" href='/compare'><i className="fa fa-refresh" style={{ color: "gray" }}></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -311,7 +311,7 @@ function Shop() {
                                             <option value="4">4</option>
                                             <option value="5">5</option>
                                         </select>
-                                        <button className="btn btn-AddCart btn-shadow block w-100" ><i className="fa fa-shopping-cart me-2"></i>Add to Cart</button>
+                                        <a className="Button-Full-Red block w-100" href='/cart'><i className="fa fa-shopping-cart me-2"></i>Add to Cart</a>
                                         <div className="me-2">
                                             <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} ><i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
                                         </div>
@@ -487,7 +487,7 @@ function Shop() {
                                                         />
                                                 </div>
                                                 <div className="form-group ">
-                                                    <button className="btn btn-AddCart w-100" type="submit">
+                                                    <button className="Button-Full-Red w-100" type="submit">
                                                         <span>Submit a Review</span>
                                                     </button>
                                                 </div>
@@ -565,7 +565,7 @@ function Shop() {
                                 <div className="col-md-4 pt-3">
                                     <div className="bg-CT-Box p-4 rounded-3 text-center mx-auto ">
                                         <div className="h3 product-price-CT-box mb-3 me-1">$183.<small>99</small></div>
-                                        <button className="btn btn-AddCart px-3" type="button">Purchase together</button>
+                                        <button className="Button-Full-Red px-3" type="button">Purchase together</button>
                                     </div>
                                 </div>
                             </div>
@@ -603,7 +603,7 @@ function Shop() {
                                 <div className="col-md-4 pt-3">
                                     <div className="bg-CT-Box p-4 rounded-3 text-center mx-auto ">
                                         <div className="h3 product-price-CT-box mb-3 me-1">$183.<small>99</small></div>
-                                        <button className="btn btn-AddCart px-3" type="button">Purchase together</button>
+                                        <button className="Button-Full-Red px-3" type="button">Purchase together</button>
                                     </div>
                                 </div>
                             </div>

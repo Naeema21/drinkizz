@@ -25,6 +25,7 @@ function App() {
         <Suspense fallback={<div id="loader"></div>}>
           <ScrollToTop />
           <Header />
+          <div id="main" style={{overflow:'hidden'}}>
           <Switch>
             <Route exact path="/ordertracking" component={OrderTracking}></Route>
             <Route exact path="/compare" component={Compare}></Route>
@@ -35,6 +36,7 @@ function App() {
             <Route exact path="/" component={Home}></Route>
             <Route exact component={Home}></Route>
           </Switch>
+          </div>
           <ScrollButton />
           <Footer />
         </Suspense>

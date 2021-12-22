@@ -16,16 +16,9 @@
     padding: 4px;
     font-size: 9px;
 }
-.Heading-back-com{
-    --bs-bg-opacity: 1;
-    background-color: #363e4e;
-}
-.breadcrumb a{
-    color: white;
-    text-decoration: none;
-}
-.cart .card{
-margin-top: -80px;
+
+.cart .Cart-list{
+    margin-top: -80px;
 }
 .cart .form-control:focus {
     border-color: #fe696a;
@@ -78,4 +71,12 @@ margin-top: -80px;
     font-size: 14px;
     font-weight: 500;
     color: #373f50;
+}
+@media (max-width:576px){
+    .Cart-list-item{
+        text-align: center;
+    }
+    .Cart-list-item-img{
+        justify-content: center;
+    }
 }

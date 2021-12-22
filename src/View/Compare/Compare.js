@@ -3,7 +3,7 @@ import './Compare.css';
 import i1 from '../../assets/images/Compare/01.jpg';
 import i2 from '../../assets/images/Compare/02.jpg';
 import i3 from '../../assets/images/Compare/03.jpg';
-import { compare } from '../../assets/Data/compare';
+import { Link } from 'react-router-dom';
 const Compare = () => {
     //Summary
     const [summary, setSummary] = useState(false);
@@ -20,18 +20,12 @@ const Compare = () => {
                                 <thead>
                                     <tr>
                                         <td className="align-middle">
-                                            <select className="form-select compare-crite" id="compare-criteria" data-filter-trigger="">
+                                            <select className="form-select compare-crite" id="compare-criteria">
                                                 <option value="all">Comparison criteria</option>
                                                 <option value="summary">Summary</option>
                                                 <option value="general" onClick={() => { general ? setGeneral(true) : setGeneral(false) }}>General</option>
                                                 <option value="multimedia" onClick={() => { multimedia ? setMultimedia(true) : setMultimedia(false) }}>Multimedia</option>
                                                 <option value="performance" onClick={() => { performance ? setPerformance(false) : setPerformance(true) }}>Performance</option>
-                                                {/*<option value="design" onClick={() => {design ? setDesign(false) : setDesign(true)}}>Design</option>
-                                            <option value="display" onClick={() => {display ? setDisplay(false) : setDisplay(true)}}>Display</option>
-                                            <option value="storage" onClick={() => {storage ? setStorage(false) : setStorage(true)}}>Storage</option>
-                                            <option value="camera" onClick={() => {camera ? setCamera(false) : setCamera(true)}}>Camera</option>
-                                            <option value="battery" onClick={() => {battery ? setBattery(false) : setBattery(true)}}>Battery</option>
-                                            <option value="price" onClick={() => {price ? setPrice(false) : setPrice(true)}}>Price &amp; rating</option> */}
                                             </select>
                                             <div className="form-text"> Choose criteria to filter table below.</div>
                                             <div className="pt-3">
@@ -42,50 +36,50 @@ const Compare = () => {
                                             </div>
                                         </td>
                                         <td className="text-center px-4 pb-4">
-                                            <a className="btn btn-sm d-block w-100 text-danger mb-2" href="#">
-                                                <i className="fa fa-trash me-1"></i>Remove
-                                            </a>
-                                            <a className="d-inline-block mb-3" href="#">
+                                            <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
+                                                <i className="fa fa-trash-o me-1"></i>Remove
+                                            </Link>
+                                            <Link className="d-inline-block mb-3" to="product-details">
                                                 <img src={i1} width="80" alt="Apple iPhone Xs Max" />
-                                            </a>
+                                            </Link>
                                             <h6 className="product-title">
-                                                <a className='product-name' href="#">Apple iPhone Xs Max</a>
+                                                <Link className='product-name' to="product-details">Apple iPhone Xs Max</Link>
                                             </h6>
-                                            <button className="btn btn-danger b-Addtocart btn-sm" type="button">Add to Cart</button>
+                                            <button className="Button-Full-Red" type="button">Add to Cart</button>
                                         </td>
                                         <td className="text-center px-4 pb-4">
-                                            <a className="btn btn-sm d-block w-100 text-danger mb-2" href="#">
-                                                <i className="fa fa-trash me-1"></i>Remove
-                                            </a>
-                                            <a className="d-inline-block mb-3" href="#">
+                                            <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
+                                                <i className="fa fa-trash-o me-1"></i>Remove
+                                            </Link>
+                                            <Link className="d-inline-block mb-3" to="product-details">
                                                 <img src={i2} width="80" alt="Google Pixel 3 XL" />
-                                            </a>
+                                            </Link>
                                             <h6 className="product-title">
-                                                <a className='product-name' href="#">Google Pixel 3 XL</a>
+                                                <Link className='product-name' to="product-details">Google Pixel 3 XL</Link>
                                             </h6>
-                                            <button className="btn btn-danger b-Addtocart btn-sm" type="button">Add to Cart</button>
+                                            <button className="Button-Full-Red" type="button">Add to Cart</button>
                                         </td>
                                         <td className="text-center px-4 pb-4">
-                                            <a className="btn btn-sm d-block w-100 text-danger mb-2" href="#">
-                                                <i className="fa fa-trash me-1"></i>Remove
-                                            </a>
-                                            <a className="d-inline-block mb-3" href="#">
+                                            <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
+                                                <i className="fa fa-trash-o me-1"></i>Remove
+                                            </Link>
+                                            <Link className="d-inline-block mb-3" to="product-details">
                                                 <img src={i3} width="80" alt="Samsung Galaxy S10+" />
-                                            </a>
+                                            </Link>
                                             <h6 className="product-title">
-                                                <a className='product-name' href="#">Samsung Galaxy S10+
-                                                </a>
+                                                <Link className='product-name' to="product-details">Samsung Galaxy S10+
+                                                </Link>
                                             </h6>
-                                            <button className="btn btn-danger b-Addtocart btn-sm" type="button">Add to Cart</button>
+                                            <button className="Button-Full-Red" type="button">Add to Cart</button>
                                         </td>
                                     </tr>
                                 </thead>
                                 <tbody id="table-data-summary" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Summary</th>
-                                        <td><span className="text-dark fw-medium text-dark">Apple iPhone Xs Max</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Google Pixel 3 XL</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Samsung Galaxy S10+</span></td>
+                                        <th>Apple iPhone Xs Max</th>
+                                        <th>Google Pixel 3 XL</th>
+                                        <th>Samsung Galaxy S10+</th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Performance</th>
@@ -121,9 +115,9 @@ const Compare = () => {
                                 <tbody id="summary" className='showsummary' data-filter-target="" style={{ display: summary ? "block" : 'none' }}>
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Summary</th>
-                                        <td><span className="text-dark fw-medium text-dark">Apple iPhone Xs Max</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Google Pixel 3 XL</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Samsung Galaxy S10+</span></td>
+                                        <th>Apple iPhone Xs Max</th>
+                                        <th>Google Pixel 3 XL</th>
+                                        <th>Samsung Galaxy S10+</th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Performance</th>
@@ -159,9 +153,9 @@ const Compare = () => {
                                 <tbody id="general" data-filter-target="" style={{ display: general ? "block" : "none" }}>
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">General</th>
-                                        <td><span className="text-dark fw-medium text-dark">Apple iPhone Xs Max</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Google Pixel 3 XL</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Samsung Galaxy S10+</span></td>
+                                        <th>Apple iPhone Xs Max</th>
+                                        <th>Google Pixel 3 XL</th>
+                                        <th>Samsung Galaxy S10+</th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Quick charging</th>
@@ -209,9 +203,9 @@ const Compare = () => {
                                 <tbody id="multimedia" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Multimedia</th>
-                                        <td><span className="text-dark fw-medium text-dark">Apple iPhone Xs Max</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Google Pixel 3 XL</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Samsung Galaxy S10+</span></td>
+                                        <th>Apple iPhone Xs Max</th>
+                                        <th>Google Pixel 3 XL</th>
+                                        <th>Samsung Galaxy S10+</th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Loudspeaker</th>
@@ -235,9 +229,9 @@ const Compare = () => {
                                 <tbody id="performance" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Performance</th>
-                                        <td><span className="text-dark fw-medium text-dark">Apple iPhone Xs Max</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Google Pixel 3 XL</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Samsung Galaxy S10+</span></td>
+                                        <th>Apple iPhone Xs Max</th>
+                                        <th>Google Pixel 3 XL</th>
+                                        <th>Samsung Galaxy S10+</th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Processor</th>
@@ -267,9 +261,9 @@ const Compare = () => {
                                 <tbody id="design" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Design</th>
-                                        <td><span className="text-dark fw-medium text-dark">Apple iPhone Xs Max</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Google Pixel 3 XL</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Samsung Galaxy S10+</span></td>
+                                        <th>Apple iPhone Xs Max</th>
+                                        <th>Google Pixel 3 XL</th>
+                                        <th>Samsung Galaxy S10+</th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Build material</th>
@@ -317,9 +311,9 @@ const Compare = () => {
                                 <tbody id="display" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Display</th>
-                                        <td><span className="text-dark fw-medium text-dark">Apple iPhone Xs Max</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Google Pixel 3 XL</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Samsung Galaxy S10+</span></td>
+                                        <th>Apple iPhone Xs Max</th>
+                                        <th>Google Pixel 3 XL</th>
+                                        <th>Samsung Galaxy S10+</th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Display type</th>
@@ -361,9 +355,9 @@ const Compare = () => {
                                 <tbody id="storage" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Storage</th>
-                                        <td><span className="text-dark fw-medium text-dark">Apple iPhone Xs Max</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Google Pixel 3 XL</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Samsung Galaxy S10+</span></td>
+                                        <th>Apple iPhone Xs Max</th>
+                                        <th>Google Pixel 3 XL</th>
+                                        <th>Samsung Galaxy S10+</th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Internal memory</th>
@@ -381,9 +375,9 @@ const Compare = () => {
                                 <tbody id="camera" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Camera</th>
-                                        <td><span className="text-dark fw-medium text-dark">Apple iPhone Xs Max</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Google Pixel 3 XL</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Samsung Galaxy S10+</span></td>
+                                        <th>Apple iPhone Xs Max</th>
+                                        <th>Google Pixel 3 XL</th>
+                                        <th>Samsung Galaxy S10+</th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Settings</th>
@@ -443,9 +437,9 @@ const Compare = () => {
                                 <tbody id="battery" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Battery</th>
-                                        <td><span className="text-dark fw-medium text-dark">Apple iPhone Xs Max</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Google Pixel 3 XL</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Samsung Galaxy S10+</span></td>
+                                        <th>Apple iPhone Xs Max</th>
+                                        <th>Google Pixel 3 XL</th>
+                                        <th>Samsung Galaxy S10+</th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Talktime</th>
@@ -481,9 +475,9 @@ const Compare = () => {
                                 <tbody id="price" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Price &amp; rating</th>
-                                        <td><span className="text-dark fw-medium text-dark">Apple iPhone Xs Max</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Google Pixel 3 XL</span></td>
-                                        <td><span className="text-dark fw-medium text-dark">Samsung Galaxy S10+</span></td>
+                                        <th>Apple iPhone Xs Max</th>
+                                        <th>Google Pixel 3 XL</th>
+                                        <th>Samsung Galaxy S10+</th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Price</th>
@@ -497,16 +491,16 @@ const Compare = () => {
                                         <td>4.5/5</td>
                                         <td>4.5/5</td>
                                     </tr>
-                                    <tr>
+                                    <tr className='text-center'>
                                         <th></th>
                                         <td>
-                                            <button className="btn btn-danger d-block w-100 b-Addtocart" type="button">Add to Cart</button>
+                                            <button className="Button-Full-Red " type="button">Add to Cart</button>
                                         </td>
                                         <td>
-                                            <button className="btn btn-danger d-block w-100 b-Addtocart" type="button">Add to Cart</button>
+                                            <button className="Button-Full-Red " type="button">Add to Cart</button>
                                         </td>
                                         <td>
-                                            <button className="btn btn-danger d-block w-100 b-Addtocart" type="button">Add to Cart</button>
+                                            <button className="Button-Full-Red " type="button">Add to Cart</button>
                                         </td>
                                     </tr>
                                 </tbody>

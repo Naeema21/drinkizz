@@ -3,6 +3,7 @@ import './Cart.css'
 import { products } from '../../assets/Data/product'
 import { Accordion } from 'react-bootstrap'
 import { useForm } from 'react-hook-form';
+import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 
 const Cart = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -13,55 +14,39 @@ const Cart = () => {
     return (
         <div className='cart'>
             {/* Header start*/}
-            <div className='Heading-back-com text-white'>
-                <div className='container '>
-                    <div className='row py-4'>
+            <BreadCrumb/>
+            {/* Header End */}
+            {/* Cart list started */}
+            <div className='container Cart-list'>
+                <div className='row'>
+                    <div className='col-lg-8'>
+                         <div className='row pt-4 pb-5'>
                         <div className='col-6'>
-                            <h2>Your Cart</h2>
+                            <h6 className='text-white'>Products</h6>
                         </div>
                         <div className='col-6 d-flex justify-content-end'>
-                            <nav aria-label="breadcrumb ">
-                                <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><i class="fa fa-home me-2"></i><a href="/">Home</a></li>
-                                    <li className="breadcrumb-item"><a href="/shop">Shop</a></li>
-                                    <li className="breadcrumb-item active" aria-current="page"><a href="/cart">Cart</a></li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                    <div className='row py-4'>
-                        <div className='col-6'>
-                            <h6>Products</h6>
-                        </div>
-                        <div className='col-6'>
                             <a href='/product' className='btn Button-Red-Border btn-sm'> <i className="fa fa-angle-left me-2"></i> Continue Shopping</a>
                         </div>
                     </div>
-                </div>
-            </div>
-            {/* Header End */}
-            {/* Cart list started */}
-            <div className='container'>
-                <div className='row'>
-                    <div className='col-lg-8'>
                         {
                             products.slice(0, 4).map((v, i) => {
                                 return (
                                     <div key={i}>
-                                        <div className='d-flex justify-content-between align-items-center'>
-                                            <div className='d-flex align-items-center'>
+                                        <div className='d-flex row Cart-list-item'>
+                                            <div className='d-flex align-items-center col-lg-3 col-md-3 col-sm-3 col-xs-3 Cart-list-item-img'>
                                                 <div className='p-3'>
                                                     <img src={v.imgsrc} className='img-fluid'
                                                         width="150px" height="150px" />
                                                 </div>
-                                                <div className='product-desc'><a href='/product-details'>
+                                            </div>
+                                                <div className='product-desc col-lg-7 col-md-7 col-sm-7 col-xs-6'><a href='/product-details'>
                                                     <h6 className='title-text-color'>{v.name}</h6>
                                                     <span className='text-muted'>Size: 8.5</span><br />
                                                     <span className='text-muted'>Color: Black</span>
                                                     <p className='text-indigo fs-lg'>{v.price}</p>
                                                     </a></div>
-                                            </div>
-                                            <div>
+                                            
+                                            <div className='col-lg-2 col-md-2 col-sm-2 col-xs-3'>
                                                 <p className='text-quantity'>Quantity</p>
                                                 <input type="number" defaultValue="1" className='quanity-bar' /><br />
                                                 <a className='text-red remove-link mt-2'><i className='fa fa-close'></i>&nbsp;Remove</a>

@@ -137,7 +137,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            {/* Product cards start */}
+            {/* Product cards end */}
             {/* Banner Offer Start */}
             <section className='Offers-Banner'>
                 <div className='container'>
@@ -189,7 +189,7 @@ const Home = () => {
                                     products.slice(0, 4).map((value, index) => {
                                         return (
                                             <Link to="/product-details" key={index}>
-                                                <div className='BS-Product-item d-flex align-items-center ' >
+                                                <div className='BS-Product-item d-flex align-items-center '>
                                                     <div className=''>
                                                         <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
                                                     </div>
@@ -232,7 +232,7 @@ const Home = () => {
                                     })
                                 }
                                 <div className='mt-4 text-orange'>
-                                    <Link to="/product"  className="text-orange">View More <i className="fa fa-angle-right"></i></Link>
+                                    <Link to="/product" className="text-orange">View More <i className="fa fa-angle-right"></i></Link>
                                 </div>
                             </div>
                         </div>
@@ -259,7 +259,8 @@ const Home = () => {
                                     })
                                 }
                                 <div className='mt-4 text-orange'>
-                                    <Link to="/product"  className="text-orange">View More <i className="fa fa-angle-right"></i></Link>
+                                    <Link to="/product" className="text-orange">View More
+                                        <i className="fa fa-angle-right"></i></Link>
                                 </div>
                             </div>
                         </div>
@@ -267,8 +268,6 @@ const Home = () => {
                 </div>
             </section>
             {/* Best Sellers Products End */}
-
-
         </div>
     )
 }

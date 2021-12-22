@@ -62,15 +62,16 @@ hr{
 /* Button2 */
 .Button-Full-Red {
   border:none;
-  margin-top: 20px;
   opacity: 0.9;
   background-color: #fe3638;
   color: white;
   padding: 10px 25px;
   border-radius: 7px;
   box-shadow: 0 0.5rem 1.125rem -0.5rem rgb(254 105 106 / 90%);
+  text-align: center;
 }
 .Button-Full-Red:hover{
+  color: white !important;
   opacity: 1;
   box-shadow: none;
 }
@@ -87,4 +88,20 @@ hr{
 }
 .text-red{
   color: #fe696a;
+}
+.form-select:focus , .form-check-input:focus {
+  outline: 0;
+  box-shadow: none !important;
+}
+
+/* Breadcrumb */
+.Heading-back-com{
+  --bs-bg-opacity: 1;
+  background-color: #363e4e;
+  padding-top: 2.5rem !important;
+  padding-bottom: 6.5rem !important;
+}
+.breadcrumb a{
+  color: white;
+  text-decoration: none;
 }
