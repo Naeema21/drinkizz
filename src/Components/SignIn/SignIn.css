@@ -33,19 +33,20 @@
 .Modal-signin-up,.nav-link{
     color:lightslategray;
 }
-/* tabs */
-/* .Modal-signin-up,#uncontrolled-tab-example-tab-Signin,#uncontrolled-tab-example-tab-Signup:active{
-    box-shadow: none !important; 
-    color: #fe696a !important;
+.Modal-signin-up,.nav-link:hover{
+    color:#000000;
 }
-#uncontrolled-tab-example-tab-Signup:active{
-    color: #fe696a !important;
-} */
+/* tabs */
 #uncontrolled-tab-example-tab-Signin,#uncontrolled-tab-example-tab-Signup{
     padding:15px !important;
+    font-weight: bold;
+    cursor: pointer;
 }
 .Sign-up-modal,.Sign-in-modal{
     margin-top:-10px !important;
+}
+.Sign-in-modal,.Sign-up-modal,.form-label{
+    font-weight: 500 !important;
 }
 
 

@@ -14,7 +14,11 @@ const Cart = () => {
     return (
         <div className='cart'>
             {/* Header start*/}
-            <BreadCrumb/>
+            <BreadCrumb heading="Your Cart" 
+            breadcrumb1="Home" BC1Link="/"
+            breadcrumb2="Shop" BC2Link="/shop"
+            breadcrumb3="cart" BC3Link="/cart"
+            />
             {/* Header End */}
             {/* Cart list started */}
             <div className='container Cart-list'>
