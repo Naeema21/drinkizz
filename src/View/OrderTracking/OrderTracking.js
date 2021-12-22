@@ -112,46 +112,51 @@ const OrderTracking = (props) => {
           </button>
           <Modal centered size="lg" show={lgShow} onHide={() => setLgShow(false)} className="order-details"
           aria-labelledby="example-modal-sizes-title-lg">
-             <Modal.Header closeButton>
-                <Modal.Title id="example-modal-sizes-title-lg">
+             <Modal.Header closeButton className='bg-light'>
+                <Modal.Title id="example-modal-sizes-title-lg" className='py-1 ml-4'>
                 Order No - 34VB5540K83
                 </Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <div className='container' style={{"height": "260px","overflow": "auto"}}>
+                <div className='container' style={{"height": "360px","overflow": "auto"}}>
                     {
                        products.map((productdata,i)=>{
                          return(
-                              <div className='row'>
+                           <>
+                              <div className='row' style={{"padding":"5px 10px 5px 10px"}}>
                                 <div className='col-lg-3'>
                                     <img className='product-img-ordertrack' src={productdata.imgsrc} alt=""></img>
                                 </div>
                                 <div className='col-lg-5 col-info-order'>
-                                  <h6 className='text-muted'></h6><h6>{productdata.category}</h6>
+                                  <h6 className='text-muted'></h6><h6 className='font-weight-bold'>{productdata.category}</h6>
                                   <div className='d-flex'>
-                                      <p className='text-muted'>Name: &nbsp;&nbsp;</p><p className='.text-dark'>{productdata.name}</p>
+                                      <p className='text-muted me-2 fw-bold'>Name:</p><p className='text-dark name-order mt-1'>{productdata.name}</p>
                                   </div>
+                                  <div class="fs-sm name-order"><span class="text-muted me-2 name-order">Size:</span>8.5</div>
+                                  <div class="fs-sm name-order"><span class="text-muted me-2 name-order">Color:</span>White & Blue</div>
                                   <p className='text-primary'>{productdata.price}</p>
                                 </div>
                                 <div className='col-lg-2'>
-                                    <h6 className='text-muted'>Quantity:</h6>
-                                    <div className='d-flex justify-content-center'>
+                                    <h6 className='text-muted'>Quantity</h6>
+                                    <div className='d-flex justify-content-center align-items-center'>
                                       <p>1</p>
                                     </div>
                                 </div>
                                 <div className='col-lg-2'>
-                                    <h6 className='text-muted'>Subtotal:</h6>
+                                    <h6 className='text-muted'>Subtotal</h6>
                                     <p>$154.00</p> 
                                 </div>
-                                <hr style={{"width":"100%","textalign":"left","marginleft":"0"}}></hr>
+                                
                             </div> 
+                            <hr style={{"width":"100%","textalign":"left","marginleft":"0"}}></hr>
+                            </>
                          )
                        })
-                    }
+                    } 
                   </div>
               </Modal.Body>
               <Modal.Footer> 
-                  <div className='row bg-light'>
+                  <div className='row bg-light py-4'>
                     <div className='col-lg-3'>
                       <p className='foot-text'>Subtotal: $265.00</p>
                     </div>
