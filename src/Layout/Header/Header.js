@@ -66,7 +66,7 @@ const Header = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className='justify-content-end align-items-center' >
                             <Link to="/" className='nav-link'>Home</Link>
-                            <Link to="/" className='nav-link'>Account</Link>
+                            <Link to="/account-orders-history" className='nav-link'>Account</Link>
                             <Link to="/product" className='nav-link'>Product</Link>
 
                             <Link to="/cart" className='nav-link'>

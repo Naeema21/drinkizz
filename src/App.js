@@ -25,7 +25,7 @@ function App() {
           <Header />
           <div id="main" style={{overflow:'hidden'}}>
           <Switch>
-            <Route exact path="/Account_Orders_History" component={Account_Orders_History}></Route>
+            <Route exact path="/account-orders-history" component={Account_Orders_History}></Route>
             <Route exact path="/order-tracking" component={OrderTracking}></Route>
             <Route exact path="/compare" component={Compare}></Route>
             <Route exact path="/product" component={Product}></Route>
