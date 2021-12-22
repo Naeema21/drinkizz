@@ -4,6 +4,7 @@ import i1 from '../../assets/images/Compare/01.jpg';
 import i2 from '../../assets/images/Compare/02.jpg';
 import i3 from '../../assets/images/Compare/03.jpg';
 import { Link } from 'react-router-dom';
+import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 const Compare = () => {
     //Summary
     const [summary, setSummary] = useState(false);
@@ -12,6 +13,7 @@ const Compare = () => {
     const [performance, setPerformance] = useState(false);
     return (
         <>
+        <BreadCrumb heading='Product comparison' BC1Link='/' breadcrumb1='Home' BC2Link='/' breadcrumb2='Comparison'/>
             <div className='Compare'>
                 <div className='container  py-5 mb-2'>
                     <div className='row'>

@@ -26,7 +26,7 @@ function App() {
         <Suspense fallback={<div id="loader"></div>}>
           <ScrollToTop />
           <Header />
-          <div id="main" style={{overflow:'hidden', marginTop:"115px"}}>
+          <div id="main" style={{overflow:'hidden'}}>
           <Switch>
             <Route exact path="/order-tracking" component={OrderTracking}></Route>
             <Route exact path="/compare" component={Compare}></Route>
