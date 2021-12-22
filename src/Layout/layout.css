@@ -21,8 +21,24 @@
   color: #fff;
 }
 
-.navbar-light .navbar-nav .show>.nav-link, .navbar-light .navbar-nav .nav-link.active {
-  color: rgba(241, 44, 44, 0.9);
+.header .navbar-light .navbar-nav .nav-link {
+  color: #000;
+  font-weight: 500;
+}
+
+.header .navbar-brand {
+  letter-spacing: 1.5px;
+  color: #fe4a4c;
+  font-weight: 800;
+  font-size: 30px;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    /* flex-basis: auto; */
+    justify-content: space-around;
+  }
 }
 
 .search-bar input[type=search] {

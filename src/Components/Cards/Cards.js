@@ -7,8 +7,8 @@ const Cards = React.memo((props) => {
         <>
             <div className='card product-card'>
                 <div className='pro-compare d-flex align-items-center'>
-                    <Link to='/compare' className='btn-compare me-2'><i class="fa fa-refresh px-1"></i>Compare</Link>
-                    <button data-toggle="tooltip" data-placement="top" title="Hooray!" className='btn-wishlist btn-sm'><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                    <Link to='/compare' className='btn-compare me-2'><i className="fa fa-refresh px-1"></i>Compare</Link>
+                    <button data-toggle="tooltip" data-placement="top" title="Hooray!" className='btn-wishlist btn-sm'><i className="fa fa-heart-o" aria-hidden="true"></i></button>
                 </div>
                 <div className='product-img'>
                     <Link to='/product-details' className='card-img-top d-block overflow-hidden'>

@@ -49,19 +49,18 @@ const SignIn = () => {
                                     </div>
                                     <div className="mb-3">
                                         <label className="form-label signup-form-label" htmlFor="compare-email">Email address</label>
-                                        <input className="form-control signup-input" type="email"  placeholder="johndoe@example.com" required="" />
-                                        <div className="compare-feedback">Please provide a valid email address.</div>
+                                        <input className="form-control signup-input" type="email"  placeholder="johndoe@example.com" required=""/>
                                     </div>
                                     <div className="mb-3">
                                         <label className="form-label signup-form-label" htmlFor="compare-password">Password</label>
                                         <div className="password-toggle">
-                                            <input className="form-control signup-input" type="password"  required="" />
+                                            <input className="form-control signup-input" type="password"  required=""/>
                                         </div>
                                     </div>
                                     <div className="mb-3">
                                         <label className="form-label signup-form-label" htmlFor="compare-password">Confirm Password</label>
                                         <div className="password-toggle">
-                                            <input className="form-control signup-input" type="password"  required="" />
+                                            <input className="form-control signup-input" type="password"  required=""/>
                                         </div>
                                     </div>
                                     <button className="btn btn-primary btn-shadow d-block w-100 compare-btn-signup" type="submit">Sign Up</button>
@@ -75,5 +74,4 @@ const SignIn = () => {
         </div>
     )
 }
-
 export default SignIn
