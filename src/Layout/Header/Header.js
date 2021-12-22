@@ -59,12 +59,11 @@ const Header = () => {
                     boxShadow: Navigations ? '0px 0px 10px #000' : 'none',
                 }}>
                 <div className='container'>
-                    <Navbar.Brand href="#home">Daruwale</Navbar.Brand>
+                    <Navbar.Brand href="#home"><span className='text-dark'>&#127867;</span>Daruwale</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className='justify-content-end align-items-center' >
                             <Link to="/" className='nav-link'>Home</Link>
-                            <Link to="/product-details" className='nav-link'>Shop</Link>
                             <Link to="/" className='nav-link'>Account</Link>
                             <Link to="/product" className='nav-link'>Product</Link>
 
