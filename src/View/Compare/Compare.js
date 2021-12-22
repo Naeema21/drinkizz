@@ -13,7 +13,7 @@ const Compare = () => {
     const [performance, setPerformance] = useState(false);
     return (
         <>
-        <BreadCrumb heading='Product comparison' BC1Link='/' breadcrumb1='Home' BC2Link='/' breadcrumb2='Comparison'/>
+        <BreadCrumb heading='Product comparison' BC1Link='/' breadcrumb1='Home' BC3Link='/compare' breadcrumb3='Comparison'/>
             <div className='Compare'>
                 <div className='container  py-5 mb-2'>
                     <div className='row'>
