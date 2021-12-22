@@ -1,3 +1,47 @@
 .checkout-details-body{
     margin-top: -80px;
 }
+.bg-details-profile{
+    background-color: #f4f9fb;
+}
+.bg-orange{
+background-color: rgb(255, 115, 0);
+}
+.checkout-profile-name{
+    font-size: 1rem;
+}
+.btn-edit{
+    background-color: white;
+    border-color: white;
+}
+.form-check-input:checked {
+    background-color: #fe696a;
+    border-color: #fe696a;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+.Button-Full-Red .fa{
+    font-size: 20px;
+}
+.btn-Gray .fa{
+    font-size: 20px;
+}
+.form-control:focus {
+    border-color: red;
+    box-shadow: none;
+}
+.error-msg{
+    font-size: 12px;
+    color: red;
+}
+.Check-out-product-title{
+    color: black;
+}
+.Check-out-product-body{
+    text-align: left;
+}
+.fs-text-COD{
+font-size: 15px;
+}

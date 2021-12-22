@@ -22,16 +22,17 @@ import Smwatch4Large from '../../assets/images/Product/Product-Desc/Smart-watch/
 import { ReviewComments } from '../../assets/Data/data'
 import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
+import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb'
 
 function Shop() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data);
-         swal({
-             title: "Thank You!",
-             text: "Your Responce is Precious..",
-             icon: "success",
-         })
+        swal({
+            title: "Thank You!",
+            text: "Your Responce is Precious..",
+            icon: "success",
+        })
         reset();
     }
     const options = {
@@ -41,17 +42,17 @@ function Shop() {
         dots: false,
         nav: true,
         navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
-        responsive : {
-            0 : {
-               items:1
+        responsive: {
+            0: {
+                items: 1
             },
-            480 : {
-                items:2
+            480: {
+                items: 2
             },
-            768 : {
-               items:3
+            768: {
+                items: 3
             },
-            1024 : {
+            1024: {
                 items: 4
             }
         }
@@ -64,6 +65,14 @@ function Shop() {
     }
     return (
         <div>
+            {/* Header */}
+            <BreadCrumb
+                heading="Smartwatch Youth Edition"
+                breadcrumb1="Home" BC1Link="/"
+                breadcrumb2="Shop" BC2Link="/shop"
+                breadcrumb3="Product Descripton" BC3Link=""
+            />
+            <div className='Heading-back-com2'> </div>
             <section className='Product-Description my-4'>
                 <div className='container'>
                     <div className='Product-desc-back rounded-3 '>
@@ -159,10 +168,10 @@ function Shop() {
                                                 </div>
                                                 <div className="d-flex mb-4">
                                                     <div className="w-100 me-3">
-                                                        <a className="btn btn-WishList d-block w-100" type="button"><i className="fa fa-heart-o me-2" style={{ color: "gray" }}></i><span className="d-none d-sm-inline">Add to </span>Wishlist</a>
+                                                        <a className="btn-Gray d-block w-100" type="button"><i className="fa fa-heart-o me-2" style={{ color: "gray" }}></i><span className="d-none d-sm-inline">Add to </span>Wishlist</a>
                                                     </div>
                                                     <div className="w-100">
-                                                        <a className="btn btn-WishList d-block w-100" type="button" href='/compare'><i className="fa fa-refresh me-2" style={{ color: "gray" }}></i>Compare</a>
+                                                        <a className="btn-Gray d-block w-100" type="button" href='/compare'><i className="fa fa-refresh me-2" style={{ color: "gray" }}></i>Compare</a>
                                                     </div>
                                                 </div>
                                                 <Accordion>
@@ -417,7 +426,7 @@ function Shop() {
                                             <h3 className="h4 pb-2">Write a review</h3>
                                             <form onSubmit={handleSubmit(onSubmit)} >
                                                 <div className="form-group mb-3">
-                                                    <label className='form-label'>Your Name<span style={{color:'red'}}>*</span></label>
+                                                    <label className='form-label'>Your Name<span style={{ color: 'red' }}>*</span></label>
                                                     <input type="text"
                                                         {...register("name", {
                                                             required: true,
@@ -431,7 +440,7 @@ function Shop() {
                                                     <span className="error-msg" title="name required">{errors.name && "Please enter your name."}</span>
                                                 </div>
                                                 <div className="form-group mb-3">
-                                                    <label className='form-label'>Your Email<span style={{color:'red'}}>*</span></label>
+                                                    <label className='form-label'>Your Email<span style={{ color: 'red' }}>*</span></label>
                                                     <input
                                                         type="email"
                                                         autoComplete="off"
@@ -444,10 +453,10 @@ function Shop() {
                                                 </div>
 
                                                 <div className="form-group mb-3">
-                                                    <label className='form-label'>Rating<span style={{color:'red'}}>*</span></label>
+                                                    <label className='form-label'>Rating<span style={{ color: 'red' }}>*</span></label>
                                                     <select className="form-select" required="" id="review-rating" {...register("comment", {
-                                                            required: true,
-                                                        })}>
+                                                        required: true,
+                                                    })}>
                                                         <option value="">Choose rating</option>
                                                         <option value="5">5 stars</option>
                                                         <option value="4">4 stars</option>
@@ -457,7 +466,7 @@ function Shop() {
                                                     </select><span className="error-msg" title="invlid subject">{errors.comment && "Please Choose Rating"}</span>
                                                 </div>
                                                 <div className="form-group mb-3">
-                                                    <label className='form-label'>Review<span style={{color:'red'}}>*</span></label>
+                                                    <label className='form-label'>Review<span style={{ color: 'red' }}>*</span></label>
                                                     <textarea autoComplete="off"
                                                         placeholder=""
                                                         {...register("comment", {
@@ -472,9 +481,9 @@ function Shop() {
                                                         {...register("Pros", {
                                                             minLength: 3, maxLength: 60
                                                         })}
-                                                        className="form-control" autoComplete="off" 
-                                                        // placeholder="Seperated by comma" 
-                                                        />
+                                                        className="form-control" autoComplete="off"
+                                                    // placeholder="Seperated by comma" 
+                                                    />
                                                 </div>
                                                 <div className="form-group mb-4">
                                                     <label className='form-label'>Cons</label>
@@ -482,9 +491,9 @@ function Shop() {
                                                         {...register("cons", {
                                                             minLength: 3, maxLength: 60
                                                         })}
-                                                        className="form-control" autoComplete="off" 
-                                                        // placeholder="Seperated by comma" 
-                                                        />
+                                                        className="form-control" autoComplete="off"
+                                                    // placeholder="Seperated by comma" 
+                                                    />
                                                 </div>
                                                 <div className="form-group ">
                                                     <button className="Button-Full-Red w-100" type="submit">
@@ -507,7 +516,7 @@ function Shop() {
                         <div className="col-lg-8 ">
                             <h2 className="h3 pb-2">Choose your style</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-                            <img src={ProductDescImg} alt="Product description" className='img-fluid'/>
+                            <img src={ProductDescImg} alt="Product description" className='img-fluid' />
                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
                         </div>
                     </div>

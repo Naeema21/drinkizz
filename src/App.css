@@ -95,6 +95,21 @@ hr{
     background-color: #4e54c8;
     border-color: #4e54c8;
 }
+/* Button gray */
+.btn-Gray{
+  text-align: center;
+  color: #000;
+  padding: 10px 25px;
+  background-color: #f3f5f9;
+  box-shadow: unset;
+  border-color: #e3e9ef !important;
+  border-radius: 5px;
+  border: 1px;
+}
+.btn-Gray:hover{
+color: #000 !important;
+}
+
 .text-red{
   color: #fe696a;
 }
@@ -117,4 +132,9 @@ hr{
 }
 .breadcrumb a{
   text-decoration: none;
+}
+@media (max-width:768px){
+  .Heading-back-com ol{
+    display: block;
+  }
 }
