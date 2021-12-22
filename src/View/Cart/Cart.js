@@ -19,6 +19,7 @@ const Cart = () => {
             breadcrumb2="Shop" BC2Link="/shop"
             breadcrumb3="cart" BC3Link="/cart"
             />
+            <div className='Heading-back-com2'> </div>
             {/* Header End */}
             {/* Cart list started */}
             <div className='container Cart-list'>
@@ -141,7 +142,7 @@ const Cart = () => {
                                     </Accordion.Item>
                                 </div>
                             </Accordion>
-                            <button className='Button-Full-Red'>Proceed to Checkout</button>
+                            <a className='Button-Full-Red' href='/checkout-details'>Proceed to Checkout</a>
                         </div>
                     </div>
                 </div>
