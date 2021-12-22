@@ -2,13 +2,14 @@ import React,{useState} from 'react';
 import "./OrderTracking.css";
 import { products } from '../../assets/Data/product'
 import { Modal } from 'react-bootstrap';
-import Button from 'react-bootstrap';
+import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 
-const OrderTracking = () => {
+const OrderTracking = (props) => {
   // modal display functionality
   const [lgShow, setLgShow] = useState(false);
   return (
     <>
+    <BreadCrumb heading='Tracking order: 34VB5540K83' BC1Link='/' breadcrumb1='Home' BC2Link='/' breadcrumb2='Shop' BC3Link='/' breadcrumb3='Order tracking'/>
       <div className="orderTrack">
         <div class="container py-5 mb-2 mb-md-3">
           {/* -- Details-- */}
@@ -31,7 +32,7 @@ const OrderTracking = () => {
             </div>
           </div>
           {/* -- Progress-- */}
-          <ul className="row">
+          <ul className="row ulrow">
             <div className="col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-2 mt-2">
               <li class="card-order">
                 <div class="d-flex align-items-center">
@@ -105,64 +106,66 @@ const OrderTracking = () => {
               Notify me when order is delivered
             </label>
           </div>
-          <a class="btn-sm mt-2 btn-view-order Button-Red-Border Button-Full-Red"
+          <button class="mt-2 btn-view-order Button-Red-Border Button-Full-Red text-light"
             data-bs-toggle="modal" onClick={() => setLgShow(true)}>
             View Order Details
-          </a>
-          <Modal centered size="lg" show={lgShow} onHide={() => setLgShow(false)} aria-labelledby="example-modal-sizes-title-lg">
+          </button>
+          <Modal centered size="lg" show={lgShow} onHide={() => setLgShow(false)} className="order-details"
+          aria-labelledby="example-modal-sizes-title-lg">
              <Modal.Header closeButton>
                 <Modal.Title id="example-modal-sizes-title-lg">
                 Order No - 34VB5540K83
                 </Modal.Title>
               </Modal.Header>
               <Modal.Body>
-              {/* <span className="homemodalclosebtn"><i class="fa fa-times-circle" aria-hidden="true"></i></span> */}
-                <div className='container' style={{"height": "250px","overflow": "auto"}}>
+                <div className='container' style={{"height": "260px","overflow": "auto"}}>
                     {
                        products.map((productdata,i)=>{
                          return(
                               <div className='row'>
-                               
-                                <div className='col-4'>
+                                <div className='col-lg-3'>
                                     <img className='product-img-ordertrack' src={productdata.imgsrc} alt=""></img>
                                 </div>
-                                <div className='col-4'>
-                                  <h6>{productdata.category}</h6>
-                                  <p>{productdata.name}</p>
-                                  <h4>{productdata.price}</h4>
+                                <div className='col-lg-5 col-info-order'>
+                                  <h6 className='text-muted'></h6><h6>{productdata.category}</h6>
+                                  <div className='d-flex'>
+                                      <p className='text-muted'>Name: &nbsp;&nbsp;</p><p className='.text-dark'>{productdata.name}</p>
+                                  </div>
+                                  <p className='text-primary'>{productdata.price}</p>
                                 </div>
-                                <div className='col-2'>
-                                    <h6>Quantity:</h6>
-                                    <p>1</p>
+                                <div className='col-lg-2'>
+                                    <h6 className='text-muted'>Quantity:</h6>
+                                    <div className='d-flex justify-content-center'>
+                                      <p>1</p>
+                                    </div>
                                 </div>
-                                <div className='col-2'>
-                                    <h6>Subtotal:</h6>
+                                <div className='col-lg-2'>
+                                    <h6 className='text-muted'>Subtotal:</h6>
                                     <p>$154.00</p> 
                                 </div>
-                                <hr style={{"width":"100%","text-align":"left","margin-left":"0"}}></hr>
+                                <hr style={{"width":"100%","textalign":"left","marginleft":"0"}}></hr>
                             </div> 
                          )
                        })
                     }
-
                   </div>
               </Modal.Body>
-              <Modal.Footer>
-                <div className='row'>
-                  <div className='col-sm-6 col-md-3 col-lg-3 col-xl-3'>
-                    <p>Subtotal: $265.00</p>
-                  </div>
-                  <div className='col-sm-6 col-md-3 col-lg-3 col-xl-3'>
-                    <p>Shipping: $22.50</p>
-                  </div>
-                  <div className='col-sm-6 col-md-3 col-lg-3 col-xl-3'>
-                    <p>Tax: $9.50</p>
-                  </div>
-                  <div className='col-sm-6 col-md-3 col-lg-3 col-xl-3'>
-                    <p>Total: $297.00</p>
-                  </div> 
-               </div>
-              </Modal.Footer>
+              <Modal.Footer> 
+                  <div className='row bg-light'>
+                    <div className='col-lg-3'>
+                      <p className='foot-text'>Subtotal: $265.00</p>
+                    </div>
+                    <div className='col-lg-3'>
+                      <p className='foot-text'>Shipping: $22.50</p>
+                    </div>
+                    <div className='col-lg-3'>
+                      <p className='foot-text'>Tax: $9.50</p>
+                    </div>
+                    <div className='col-lg-3'>
+                      <p className='foot-text'>Total: $297.00</p>
+                    </div> 
+                </div>
+                </Modal.Footer>
           </Modal>
           </div>   
         </div>     
