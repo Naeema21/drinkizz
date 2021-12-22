@@ -1,7 +1,6 @@
 import React from 'react';
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 import './Account_Orders_History.css';
-import ReactTooltip from "react-tooltip";
 import profile from '../../assets/images/AccountHistory/profile.png';
 const Account_Orders_History =()=>{
  return(
@@ -13,8 +12,8 @@ const Account_Orders_History =()=>{
                     {/* sidebar */}
                     <div className="col-lg-4 pt-4 profile-col-sidebar">
                         <div class="bg-white rounded-3 shadow-lg pt-1 mb-5">
-                            <div class="d-md-flex justify-content-between align-items-center text-center text-md-start p-4">
-                                <div class="d-md-flex align-items-center">
+                            <div class="d-flex justify-content-between align-items-center text-center text-md-start p-4">
+                                <div class="d-flex align-items-center">
                                     <div className='img-thumbnail rounded-circle position-relative'>
                                     <span class="ToolTip-img bg-warning position-absolute">384</span>
                                           <img className='profile-orderhistory' src={profile} alt=""></img>
