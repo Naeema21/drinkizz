@@ -5,6 +5,8 @@ import '../layout.css'
 
 
 const Header = () => {
+    const SignIn = React.lazy(() => import('../../Components/SignIn/SignIn'))
+
     const [Navigations, setNavbars] = useState(false);
 
     // // on scroll set hooks true
@@ -17,7 +19,6 @@ const Header = () => {
     });
 
 
-    const SignIn = React.lazy(() => import('../../Components/SignIn/SignIn'))
     return (
         <div className='header fixed-top'>
             <div className='topbar py-2'>
@@ -61,6 +62,7 @@ const Header = () => {
                 <div className='container'>
                     <Navbar.Brand href="#home"><span className='text-dark'>&#127867;</span>Daruwale</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className='justify-content-end align-items-center' >
                             <Link to="/" className='nav-link'>Home</Link>
@@ -79,6 +81,7 @@ const Header = () => {
                     </Navbar.Collapse>
                 </div>
             </Navbar>
+           
         </div>
     )
 }
