@@ -27,7 +27,7 @@ function App() {
           <Header />
           <div id="main" style={{overflow:'hidden'}}>
           <Switch>
-            <Route exact path="/ordertracking" component={OrderTracking}></Route>
+            <Route exact path="/order-tracking" component={OrderTracking}></Route>
             <Route exact path="/compare" component={Compare}></Route>
             <Route exact path="/product" component={Product}></Route>
             <Route exact path="/account" component={Account}></Route>

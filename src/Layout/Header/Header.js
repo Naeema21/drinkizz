@@ -1,4 +1,4 @@
-import React, {useState } from 'react'
+import React, {useState ,useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar, Nav } from 'react-bootstrap'
 import '../layout.css'
@@ -8,22 +8,18 @@ const Header = () => {
     const [Navigations, setNavbars] = useState(false);
 
     // // on scroll set hooks true
-    // useEffect(() => {
-    //     window.addEventListener("scroll", () => {
-    //         if (window.scrollY >= 20) {
-    //             console.log("test")
-    //             setNavbars(true);
-    //         }else {
-    //             console.log("else")
-    //             setNavbars(false);
-    //         }
-    //     })
-    // });
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY >= 20) {
+                setNavbars(true);
+            }
+        })
+    });
 
 
     const SignIn = React.lazy(() => import('../../Components/SignIn/SignIn'))
     return (
-        <div className='header'>
+        <div className='header fixed-top'>
             <div className='topbar py-2'>
                 <div className='container'>
                     <div className='row align-items-center'>
@@ -43,7 +39,7 @@ const Header = () => {
                                     </Link>
                                 </span> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                                 <span>
-                                    <Link to="/">
+                                    <Link to="/order-tracking">
                                         <i className='fa fa-map-marker text-danger me-2'></i>Order Tracking
                                     </Link>
                                 </span>
@@ -56,29 +52,29 @@ const Header = () => {
             <Navbar collapseOnSelect expand="lg" 
             style={{
                 // top: show ? '30px' : '5px',
-                backgroundColor: Navigations ? 'white' : 'transparent',
+                backgroundColor: Navigations ? '#fbefef' : 'transparent',
                 boxShadow: Navigations ? '0px 0px 10px #000' : 'none',
               }}>
                 <div className='container'>
                     <Navbar.Brand href="#home">Daruwale</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto">
+                        <Nav >
                             <Link to="/" className='nav-link'>Home</Link>
                             <Link to="/product-details" className='nav-link'>Shop</Link>
                             <Link to="/" className='nav-link'>Account</Link>
                             <Link to="/product" className='nav-link'>Product</Link>
                         </Nav>
                         <Nav>
-                            <span>
+                            <span className='nav-link'>
                                 <form className="search-bar">
                                     <input type="search" placeholder="Search" />
                                 </form>
                             </span>
-                            <span style={{ cursor: 'pointer' }}>
+                            <span style={{ cursor: 'pointer' }} className='nav-link'>
                                 <SignIn />
                             </span>
-                            <Link eventkey={2} to="/cart" className='nav-link'>
+                            <Link  to="/cart" className='nav-link'>
                                 <span>
                                     <i className='fa fa-shopping-cart'> </i>&nbsp;My Cart
                                 </span>
