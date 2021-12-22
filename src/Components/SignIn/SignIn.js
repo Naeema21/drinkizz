@@ -6,9 +6,10 @@ const SignIn = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
-        <div>
-            <span onClick={handleShow} className="nav-link">
-                <span><i className='fa fa-user-o'></i>&nbsp; Hello,sign In</span>
+        <>
+            <span >
+                <span onClick={handleShow}>
+                    <i className='fa fa-user-o text-danger'></i>&nbsp; Hello,sign In</span>
             </span>
             {/* modal for signin signup */}
             <div className='Modal-signin-up'>
@@ -71,7 +72,7 @@ const SignIn = () => {
                 </Tabs>
             </Modal>
             </div>
-        </div>
+        </>
     )
 }
 export default SignIn

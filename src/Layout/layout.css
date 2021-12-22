@@ -12,12 +12,12 @@
   font-weight: 600;
 }
 
-.header .topbar p a {
+.header .topbar p a ,  .header .topbar span span {
   color: #c1c3c7;
   text-decoration: none;
 }
 
-.header .topbar p a:hover {
+.header .topbar p a:hover , .header .topbar span span:hover{
   color: #fff;
 }
 
@@ -37,7 +37,8 @@
   .navbar-expand-lg .navbar-collapse {
     display: flex !important;
     /* flex-basis: auto; */
-    justify-content: space-around;
+    justify-content:end;
+    align-items: center;
   }
 }
 
