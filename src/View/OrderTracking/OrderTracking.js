@@ -9,6 +9,7 @@ const OrderTracking = (props) => {
   const [lgShow, setLgShow] = useState(false);
   return (
     <>
+    {/* breadcrumb for OrderTracking */}
     <BreadCrumb heading='Tracking order: 34VB5540K83' BC1Link='/' breadcrumb1='Home' BC2Link='/' breadcrumb2='Shop' BC3Link='/' breadcrumb3='Order tracking'/>
       <div className="orderTrack">
         <div class="container py-5 mb-2 mb-md-3">
@@ -50,6 +51,7 @@ const OrderTracking = (props) => {
                 </div>
               </li>
             </div>
+            {/* active card */}
             <div className="col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-2 mt-2">
               <li class="card-order">
                 <div class="d-flex align-items-center">
@@ -106,10 +108,12 @@ const OrderTracking = (props) => {
               Notify me when order is delivered
             </label>
           </div>
+          {/* button for open modal */}
           <button class="mt-2 btn-view-order Button-Red-Border Button-Full-Red text-light"
             data-bs-toggle="modal" onClick={() => setLgShow(true)}>
             View Order Details
           </button>
+          {/* modal for order Tracking Product */}
           <Modal centered size="lg" show={lgShow} onHide={() => setLgShow(false)} className="order-details"
           aria-labelledby="example-modal-sizes-title-lg">
              <Modal.Header closeButton className='bg-light'>
@@ -156,7 +160,7 @@ const OrderTracking = (props) => {
                   </div>
               </Modal.Body>
               <Modal.Footer> 
-                  <div className='row bg-light py-4'>
+                  <div className='row bg-light py-3'>
                     <div className='col-lg-3'>
                       <p className='foot-text'>Subtotal: $265.00</p>
                     </div>
@@ -172,6 +176,7 @@ const OrderTracking = (props) => {
                 </div>
                 </Modal.Footer>
           </Modal>
+          {/* Modal End */}
           </div>   
         </div>     
       </div>

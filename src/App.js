@@ -19,8 +19,8 @@ function App() {
   const Cart = React.lazy(()=>import('./View/Cart/Cart'))
   const OrderTracking = React.lazy(()=>import('./View/OrderTracking/OrderTracking'))
   const CheckOutDetails = React.lazy(()=>import('./View/CheckOutDetails/CheckOutDetails'))
+  const Account_Orders_History = React.lazy(()=>import('./View/Account_Orders_History/Account_Orders_History'))
   return (
- 
     <div className="App">
       <BrowserRouter>
         <Suspense fallback={<div id="loader"></div>}>
@@ -28,6 +28,7 @@ function App() {
           <Header />
           <div id="main" style={{overflow:'hidden'}}>
           <Switch>
+            <Route exact path="/Account_Orders_History" component={Account_Orders_History}></Route>
             <Route exact path="/order-tracking" component={OrderTracking}></Route>
             <Route exact path="/compare" component={Compare}></Route>
             <Route exact path="/product" component={Product}></Route>

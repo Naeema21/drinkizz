@@ -14,8 +14,9 @@ const Compare = () => {
     return (
         <>
         <BreadCrumb heading='Product comparison' BC1Link='/' breadcrumb1='Home' BC3Link='/compare' breadcrumb3='Comparison'/>
+            {/* compare section start */}
             <div className='Compare'>
-                <div className='container  py-5 mb-2'>
+                <div className='container py-5 mb-2'>
                     <div className='row'>
                         <div className='table-responsive'>
                             <table className='table table-bordered table-layout-fixed fs-sm' style={{ "minwidth": "45rem" }}>
@@ -76,6 +77,7 @@ const Compare = () => {
                                         </td>
                                     </tr>
                                 </thead>
+                                {/* first Summary table */}
                                 <tbody id="table-data-summary" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Summary</th>
@@ -152,6 +154,7 @@ const Compare = () => {
                                         <td>4,100 mAh</td>
                                     </tr>
                                 </tbody>
+                                {/* General Table */}
                                 <tbody id="general" data-filter-target="" style={{ display: general ? "block" : "none" }}>
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">General</th>
@@ -202,6 +205,7 @@ const Compare = () => {
                                         <td>In-screen</td>
                                     </tr>
                                 </tbody>
+                                {/* MultiMedia table */}
                                 <tbody id="multimedia" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Multimedia</th>
@@ -228,6 +232,7 @@ const Compare = () => {
                                         <td>Yes</td>
                                     </tr>
                                 </tbody>
+                                {/* Performance Table */}
                                 <tbody id="performance" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Performance</th>
@@ -260,6 +265,7 @@ const Compare = () => {
                                         <td>8 GB</td>
                                     </tr>
                                 </tbody>
+                                {/* Design Table */}
                                 <tbody id="design" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Design</th>
@@ -310,6 +316,7 @@ const Compare = () => {
                                         <td>Midnight Black, Coral Blue, Lilac Purple</td>
                                     </tr>
                                 </tbody>
+                                {/* Dispaly Table */}
                                 <tbody id="display" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Display</th>
@@ -354,6 +361,7 @@ const Compare = () => {
                                         <td>Yes, Capacitive Touchscreen, Multi-touch</td>
                                     </tr>
                                 </tbody>
+                                {/* Storage Table */}
                                 <tbody id="storage" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Storage</th>
@@ -374,6 +382,7 @@ const Compare = () => {
                                         <td>Yes Up to 1 TB</td>
                                     </tr>
                                 </tbody>
+                                {/* Camera Table */}
                                 <tbody id="camera" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Camera</th>
@@ -436,6 +445,7 @@ const Compare = () => {
                                         <td>Yes, LED flash</td>
                                     </tr>
                                 </tbody>
+                                {/* Battery Table */}
                                 <tbody id="battery" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Battery</th>
@@ -474,6 +484,7 @@ const Compare = () => {
                                         <td>4,100 mAh</td>
                                     </tr>
                                 </tbody>
+                                {/* Price Table */}
                                 <tbody id="price" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Price &amp; rating</th>

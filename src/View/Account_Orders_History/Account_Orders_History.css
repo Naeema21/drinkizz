@@ -1,0 +1,26 @@
+.Account-Order-History .profile-orderhistory{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.Account-Order-History .profile-col-sidebar{
+    margin-top: -70px;
+}
+.Account-Order-History .sidebar-li{
+    list-style: none;
+}
+.Account-Order-History .sidebar-li a{
+    text-decoration: none;
+}
+.ToolTip-img{
+        display: inline-block;
+        padding: 0.25em 0.625em;
+        font-size: 0.75em;
+        font-weight: normal;
+        line-height: 1;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: 0.175rem;
+}
