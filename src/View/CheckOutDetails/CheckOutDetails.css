@@ -45,3 +45,16 @@ a{
 .fs-text-COD{
 font-size: 15px;
 }
+.SM-table-heading{
+    font-weight: 500;
+    font-size: 14px;
+}
+.SM-Address-D{
+    font-size: 14px;
+    font-weight: 500;
+}
+.Credit-card-design .card{
+    background-color: #dadada;
+    border: none;
+    padding: 25px;
+}
