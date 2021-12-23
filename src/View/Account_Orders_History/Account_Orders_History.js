@@ -1,12 +1,27 @@
 import React from 'react';
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 import './Account_Orders_History.css';
+import { useForm } from "react-hook-form";
+import { products } from '../../assets/Data/product';
+import { account } from '../../assets/Data/account';
 import { Nav, Row, Col,Tab } from "react-bootstrap";
 import profile from '../../assets/images/AccountHistory/profile.png';
+import avatar from '../../assets/images/AccountHistory/avatar.jpg';
 const Account_Orders_History =()=>{
+    const { register, handleSubmit, reset } = useForm();
  return(
      <>
-     <BreadCrumb heading='' BC1Link='/' breadcrumb1='Home' BC2Link='/' breadcrumb2='Account' BC3Link='/' breadcrumb3='Addressess'/>
+     <BreadCrumb heading='My addresses' BC1Link='/' breadcrumb1='Home' BC2Link='/' breadcrumb2='Account' BC3Link='/' breadcrumb3='Addressess'/>
+     <div className='Heading-back-com2'> 
+        <div className='row'>
+            <div className='col-lg-4'></div>
+            <div className='col-lg-8'>
+                        <div className="d-flex justify-content-between align-items-center">
+                        <h6 className="text-light mb-2 ml-4 px-4 ml-4 px-4">List of your registered addresses:</h6><a className="Button-Red-Border Button-Full-Red text-light me-2 mb-4 signoutbtn" href="#"><i className="fa fa-sign-out me-2"></i>Sign out</a>
+                        </div>
+            </div>
+        </div>
+     </div>
      <div className='Account-Order-History'>
             <div className='container'>
                 <div className='row'>
@@ -14,11 +29,11 @@ const Account_Orders_History =()=>{
                     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                             <Row>
                                 <Col sm={4} className="pt-4 profile-col-sidebar">
-                                    <div class="bg-white rounded-3 shadow-lg pt-1 mb-5">
-                                        <div class="d-flex justify-content-between align-items-center text-center text-md-start p-4">
-                                            <div class="d-flex align-items-center">
+                                    <div className="bg-white rounded-3 shadow-lg pt-1 mb-5">
+                                        <div className="d-flex justify-content-between align-items-center text-center text-md-start p-4">
+                                            <div className="d-flex align-items-center">
                                                 <div className='img-thumbnail rounded-circle position-relative'>
-                                                    <span class="ToolTip-img bg-warning position-absolute">384</span>
+                                                    <span className="ToolTip-img bg-warning position-absolute">384</span>
                                                     <img className='profile-orderhistory' src={profile} alt=""></img>
                                                 </div>
                                             </div>
@@ -29,75 +44,75 @@ const Account_Orders_History =()=>{
                                         </div> 
                                    
                                     <div id="account-menu">
-                                        <div class="bg-light px-4 py-3">
-                                           <h6 class="text-muted">Dashboard</h6>
+                                        <div className="bg-light px-4 py-3">
+                                           <h6 className="text-muted">Dashboard</h6>
                                         </div>
                                         <Nav variant="pills" className="flex-column">
                                             <ul>
                                             <Nav.Item>
-                                                    <Nav.Link eventKey="dashbord">
-                                                        <li class="sidebar-li">
-                                                            <div class="d-flex align-items-center px-2 py-1">
-                                                            <i class="fa fa-dashbord me-2"></i>Dashbord<span class="text-muted ms-auto"></span>
-                                                            </div>
-                                                        </li> 
-                                                    </Nav.Link>
-                                                </Nav.Item>
-                                                <Nav.Item>
-                                                    <Nav.Link eventKey="default">
-                                                        <li class="sidebar-li">
-                                                            <div class="d-flex align-items-center px-2 py-1">
-                                                            <i class="fa fa-shopping-bag me-2"></i>Orders<span class="text-muted ms-auto">1</span>
-                                                            </div>
-                                                        </li> 
-                                                    </Nav.Link>
-                                                </Nav.Item>
-                                                <Nav.Item>
                                                     <Nav.Link eventKey="first">
-                                                        <li class="sidebar-li">
-                                                            <div class="d-flex align-items-center px-2 py-1">
-                                                            <i class="fa fa-heart-o me-2"></i>Wishlist<span class="text-muted ms-auto">3</span>
+                                                        <li className="sidebar-li">
+                                                            <div className="d-flex align-items-center px-2 py-1">
+                                                            <i className="fa fa-dashboard me-2"></i>Dashbord<span className="text-muted ms-auto"></span>
                                                             </div>
-                                                        </li>
+                                                        </li> 
                                                     </Nav.Link>
                                                 </Nav.Item>
                                                 <Nav.Item>
                                                     <Nav.Link eventKey="second">
-                                                        <li class="sidebar-li">
-                                                        <div class="d-flex align-items-center px-2 py-1">
-                                                                <i class="fa fa-life-ring me-2"></i>Support tickets<span class="text-muted ms-auto"></span>
-                                                        </div>
-                                                        </li>
+                                                        <li className="sidebar-li">
+                                                            <div className="d-flex align-items-center px-2 py-1">
+                                                            <i className="fa fa-shopping-bag me-2"></i>Orders<span className="text-muted ms-auto">1</span>
+                                                            </div>
+                                                        </li> 
                                                     </Nav.Link>
                                                 </Nav.Item>
-                                            </ul>
-                                            <div class="bg-light px-4 py-3">
-                                                <h6 class="text-muted">Account settings</h6>
-                                            </div>
-                                             <ul>
                                                 <Nav.Item>
                                                     <Nav.Link eventKey="third">
-                                                        <li class="sidebar-li">
-                                                                <div class="d-flex align-items-center px-2 py-1">
-                                                                    <i class="fa fa-user-o me-2"></i>Profile info<span class="text-muted ms-auto"></span>
-                                                                </div>
+                                                        <li className="sidebar-li">
+                                                            <div className="d-flex align-items-center px-2 py-1">
+                                                            <i className="fa fa-heart-o me-2"></i>Wishlist<span className="text-muted ms-auto">3</span>
+                                                            </div>
                                                         </li>
                                                     </Nav.Link>
                                                 </Nav.Item>
                                                 <Nav.Item>
                                                     <Nav.Link eventKey="fourth">
-                                                        <li class="sidebar-li">
-                                                                <div class="d-flex align-items-center px-2 py-1">
-                                                                <i class="fa fa-map-marker me-2"></i>Addresses<span class="text-muted ms-auto"></span>
+                                                        <li className="sidebar-li">
+                                                        <div className="d-flex align-items-center px-2 py-1">
+                                                                <i className="fa fa-life-ring me-2"></i>Support tickets<span className="text-muted ms-auto"></span>
+                                                        </div>
+                                                        </li>
+                                                    </Nav.Link>
+                                                </Nav.Item>
+                                            </ul>
+                                            <div className="bg-light px-4 py-3">
+                                                <h6 className="text-muted">Account settings</h6>
+                                            </div>
+                                             <ul>
+                                                <Nav.Item>
+                                                    <Nav.Link eventKey="fifth">
+                                                        <li className="sidebar-li">
+                                                                <div className="d-flex align-items-center px-2 py-1">
+                                                                    <i className="fa fa-user-o me-2"></i>Profile info<span className="text-muted ms-auto"></span>
                                                                 </div>
                                                         </li>
                                                     </Nav.Link>
                                                 </Nav.Item>
                                                 <Nav.Item>
-                                                    <Nav.Link eventKey="fifth">
-                                                        <li class="sidebar-li">
-                                                                <div class="d-flex align-items-center px-2 py-1">
-                                                                <i class="fa fa-credit-card me-2"></i>Payment methods<span class="text-muted ms-auto"></span>
+                                                    <Nav.Link eventKey="sixth">
+                                                        <li className="sidebar-li">
+                                                                <div className="d-flex align-items-center px-2 py-1">
+                                                                <i className="fa fa-map-marker me-2"></i>Addresses<span className="text-muted ms-auto"></span>
+                                                                </div>
+                                                        </li>
+                                                    </Nav.Link>
+                                                </Nav.Item>
+                                                <Nav.Item>
+                                                    <Nav.Link eventKey="seventh">
+                                                        <li className="sidebar-li">
+                                                                <div className="d-flex align-items-center px-2 py-1">
+                                                                <i className="fa fa-credit-card me-2"></i>Payment methods<span className="text-muted ms-auto"></span>
                                                                 </div>
                                                         </li>
                                                     </Nav.Link>
@@ -109,9 +124,9 @@ const Account_Orders_History =()=>{
                             </Col>
                             <Col sm={8}>
                                 <Tab.Content>
-                                            <Tab.Pane eventKey="dashbord">
-                                            <div class="table-responsive fs-md">
-                                                <table class="table table-hover mb-0">
+                                            <Tab.Pane eventKey="first">
+                                            <div className="table-responsive fs-md">
+                                                <table className="table table-hover mb-0">
                                                     <thead>
                                                     <tr>
                                                         <th>Address</th>
@@ -119,56 +134,314 @@ const Account_Orders_History =()=>{
                                                     </tr>
                                                     </thead>
                                                     <tbody>
+                                                        {
+                                                            account.acc10.map((acc,i)=>{
+                                                                return(
+                                                                    <tr>
+                                                                    <td className="py-3 align-middle">{acc.countryName}
+                                                                        <span className="align-middle badge bg-info ms-2">Primary</span>
+                                                                    </td>
+                                                                    <td className="py-3 align-middle">
+                                                                        <a href="#" data-bs-toggle="tooltip"><i className="fa fa-edit me-2"></i></a>
+                                                                        <a className="text-danger" href="#" data-bs-toggle="tooltip">
+                                                                        <div className="fa fa-trash"></div>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                )
+                                                            })
+                                                        }
+
+                                                    </tbody>
+                                                </table>
+                                                </div>
+                                            </Tab.Pane>
+                                            <Tab.Pane eventKey="second">
+                                                 {/* Orders list */}
+                                            <div className="table-responsive mb-4">
+                                            <table className="table table-hover mb-0">
+                                                <thead>
+                                                <tr>
+                                                    <th>Order #</th>
+                                                    <th>Date Purchased</th>
+                                                    <th>Status</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {/* {
+                                                        account.accOrder((acc,i)=>{
+                                                            return(
+                                                                <tr>
+                                                                <td className="py-3"><a className="" href="#">{acc.order}</a></td>
+                                                                <td className="py-3">{acc.Date_Purchased}</td>
+                                                                <td className="py-3"><span className="badge bg-info m-0">{acc.Status}</span></td>
+                                                                <td className="py-3">{acc.total}</td>
+                                                            </tr>
+                                                            )
+                                                        })
+                                                    } */}
+                                                <tr>
+                                                    <td className="py-3"><a className="" href="#">34VB5540K83</a></td>
+                                                    <td className="py-3">May 21, 2019</td>
+                                                    <td className="py-3"><span className="badge bg-info m-0">In Progress</span></td>
+                                                    <td className="py-3">$358.75</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="py-3"><a className="" href="#">78A643CD409</a></td>
+                                                    <td className="py-3">December 09, 2018</td>
+                                                    <td className="py-3"><span className="badge bg-danger m-0">Canceled</span></td>
+                                                    <td className="py-3"><span>$760.50</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="py-3"><a className="" href="#">112P45A90V2</a></td>
+                                                    <td className="py-3">October 15, 2018</td>
+                                                    <td className="py-3"><span className="badge bg-warning m-0">Delayed</span></td>
+                                                    <td className="py-3">$1,264.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="py-3"><a className="" href="#">28BA67U0981</a></td>
+                                                    <td className="py-3">July 19, 2018</td>
+                                                    <td className="py-3"><span className="badge bg-success m-0">Delivered</span></td>
+                                                    <td className="py-3">$198.35</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="py-3"><a className="" href="#">502TR872W2</a></td>
+                                                    <td className="py-3">April 04, 2018</td>
+                                                    <td className="py-3"><span className="badge bg-success m-0">Delivered</span></td>
+                                                    <td className="py-3">$2,133.90</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="py-3"><a className="" href="#">47H76G09F33</a></td>
+                                                    <td className="py-3">March 30, 2018</td>
+                                                    <td className="py-3"><span className="badge bg-success m-0">Delivered</span></td>
+                                                    <td className="py-3">$86.40</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            </div> 
+                                            {/* Pagination */}
+                                            <nav className="d-flex justify-content-between pt-2" aria-label="Page navigation">
+                                                <ul className="pagination">
+                                                    <li className="page-item"><a className="page-link" href="#"><i className="fa fa-arrow-left me-2"></i>Prev</a></li>
+                                                </ul>
+                                                <ul className="pagination">
+                                                    <li className="page-item d-sm-none"><span className="page-link page-link-static">1 / 5</span></li>
+                                                    <li className="page-item active d-block" aria-current="page">
+                                                        <span className="page-link">1<span className="visually-hidden">(current)</span></span>
+                                                    </li>
+                                                    <li className="d-block"><a className="page-link" href="#">2</a></li>
+                                                    <li className="d-block"><a className="page-link" href="#">3</a></li>
+                                                    <li className="d-block"><a className="page-link" href="#">4</a></li>
+                                                    <li className="d-block"><a className="page-link" href="#">5</a></li>
+                                                </ul>
+                                                <ul className="pagination">
+                                                    <li className="page-item"><a className="page-link" href="#" aria-label="Next">Next<i className="fa fa-arrow-right ms-2"></i></a></li>
+                                                </ul>
+                                            </nav>
+                                            </Tab.Pane>
+                                            {/* WishList */}
+                                            <Tab.Pane eventKey="third">
+                                            <div className='container'>
+                                            {
+                                                products.map((productdata,i)=>{
+                                                    return(
+                                                    <div className='row'>
+                                                    <div className="d-flex justify-content-between mt-4 mb-4 pb-3 pb-2">
+                                                            <div className='col-lg-4'>
+                                                                <div className='d-block justify-content-center align-items-center'>
+                                                                    <img className="wishlist-img" src={productdata.imgsrc} alt="Product"/>
+                                                                </div>   
+                                                                </div>
+                                                            <div className='col-lg-6'>
+                                                                <div className='d-block justify-content-center align-items-center'>
+                                                                    <h6 className='text-muted font-weight-bold d-flex justify-content-center'>{productdata.category}</h6>
+                                                                    <div className="name-order d-flex justify-content-center"><span className="text-muted me-2">Color:</span>White & Blue</div>
+                                                                        <div className="name-order d-flex justify-content-center"><span className="text-muted me-2">Size:</span>8.5</div>
+                                                                        <p className='text-primary d-flex justify-content-center'>{productdata.price}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div className='col-lg-2'>
+                                                                <div className='d-block justify-content-center align-items-center pt-2'>
+                                                                        <button className="btn btn-outline-danger" type="button"><i className="fa fa-trash me-2"></i>Remove</button>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                    <hr style={{"width":"100%","textalign":"left","marginleft":"0"}}></hr>
+                                                    </div>
+                                                      )
+                                                    })
+                                                 }
+                                            </div>
+                                            </Tab.Pane>
+                                            {/*Support Ticket*/}
+                                            <Tab.Pane eventKey="fourth">
+                                              <div className="table-responsive mb-4">
+                                                  <table className="table table-hover mb-0">
+                                                    <thead>
                                                     <tr>
-                                                        <td class="py-3 align-middle">396 Lillian Blvd, Holbrook, NY 11741, USA
-                                                            <span class="align-middle badge bg-info ms-2">Primary</span>
-                                                        </td>
-                                                        <td class="py-3 align-middle">
-                                                            <a href="#" data-bs-toggle="tooltip"><i class="fa fa-edit me-2"></i></a>
-                                                            <a class="text-danger" href="#" data-bs-toggle="tooltip">
-                                                            <div class="fa fa-trash"></div>
-                                                            </a>
-                                                        </td>
+                                                        <th>Ticket Subject</th>
+                                                        <th>Date Submitted | Updated</th>
+                                                        <th>Type</th>
+                                                        <th>Priority</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td className="py-3"><a className="nav-link-style" href="#">My new ticket</a></td>
+                                                        <td className="py-3">09/27/2019 | 09/30/2019</td>
+                                                        <td className="py-3">Website problem</td>
+                                                        <td className="py-3"><span className="bg-warning badge m-0 px-2">High</span></td>
+                                                        <td className="py-3"><span className="bg-success badge m-0 px-2">Open</span></td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="py-3 align-middle">769, Industrial, West Chicago, IL 60185, USA</td>
-                                                        <td class="py-3 align-middle">
-                                                            <a href="#" data-bs-toggle="tooltip"><i class="fa fa-edit me-2"></i></a>
-                                                            <a class="text-danger" href="#">
-                                                            <div class="fa fa-trash"></div>
-                                                            </a>
-                                                        </td>
+                                                        <td className="py-3"><a className="nav-link-style" href="#">Another ticket</a></td>
+                                                        <td className="py-3">08/21/2019 | 08/23/2019</td>
+                                                        <td className="py-3">Partner request</td>
+                                                        <td className="py-3"><span className="bg-info badge m-0 px-2">Medium</span></td>
+                                                        <td className="py-3"><span className="bg-secondary badge m-0 px-2">Closed</span></td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="py-3 align-middle">514 S. Magnolia St. Orlando, FL 32806, USA</td>
-                                                        <td class="py-3 align-middle">
-                                                            <a href="#" data-bs-toggle="tooltip"><i class="fa fa-edit me-2"></i></a>
-                                                            <a class="text-danger" href="#">
-                                                            <div class="fa fa-trash"></div>
-                                                            </a>
-                                                        </td>
+                                                        <td className="py-3"><a className="nav-link-style" href="#">Yet another ticket</a></td>
+                                                        <td className="py-3">11/19/2018 | 11/20/2018</td>
+                                                        <td className="py-3">Complaint</td>
+                                                        <td className="py-3"><span className="bg-danger badge m-0 px-2">Urgent</span></td>
+                                                        <td className="py-3"><span className="bg-secondary badge m-0 px-2">Closed</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className="py-3"><a className="nav-link-style" href="#">My old ticket</a></td>
+                                                        <td className="py-3">06/19/2018 | 06/20/2018</td>
+                                                        <td className="py-3">Info inquiry</td>
+                                                        <td className="py-3"><span className="bg-success badge m-0 px-2">Low</span></td>
+                                                        <td className="py-3"><span className="bg-secondary badge m-0 px-2">Closed</span></td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
                                                 </div>
                                             </Tab.Pane>
-                                            <Tab.Pane eventKey="default">
-                                                hii how r u
-                                            </Tab.Pane>
-                                            <Tab.Pane eventKey="first">
-                                                hii
-                                            </Tab.Pane>
-                                            <Tab.Pane eventKey="second">
-                                                hello
-                                            </Tab.Pane>
-                                            <Tab.Pane eventKey="third">
-                                                hello hi
-                                            </Tab.Pane>
-                                            <Tab.Pane eventKey="forth">
-                                                hello  hiiiiii
-                                            </Tab.Pane>
+                                            {/* Profile Info */}
                                             <Tab.Pane eventKey="fifth">
-                                                hello hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+                                            <form autocomplete="off" onSubmit={handleSubmit}>
+                                            <div className="bg-light rounded-3 p-4 mb-4">
+                                                <div className="d-flex align-items-center">
+                                                    <img className="rounded profiletab-img" src={avatar} alt=""/>
+                                                <div className="ps-3">
+                                                    <button className="btn btn-light btn-shadow mb-2 badge-light" type="button">
+                                                        <i className="fa fa-spinner me-2"></i>Change avatar
+                                                    </button>
+                                                    <div className="mb-0 text-muted">Upload JPG, GIF or PNG image. 300 x 300 required.</div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div className="row gx-4 gy-3">
+                                                <div className="col-lg-6">
+                                                <label className="form-label">First Name</label>
+                                                <input className="form-control" type="text" {...register("firstname",{ required: "Please enter your first name." })}/>
+                                                </div>
+                                                <div className="col-lg-6">
+                                                <label className="form-label">Last Name</label>
+                                                <input className="form-control" type="text" {...register("lastname",{ required: "Please enter your last name." })}/>
+                                                </div>
+                                                <div className="col-lg-6">
+                                                <label className="form-label">Email Address</label>
+                                                <input className="form-control" type="email" {...register("email",{ required: "Please enter your email." })} disabled=""/>
+                                                </div>
+                                                <div className="col-lg-6">
+                                                <label className="form-label">Phone Number</label>
+                                                <input className="form-control" type="text" {...register("phone",{ required: "Please enter your phone number." })} required=""/>
+                                                </div>
+                                                <div className="col-lg-6">
+                                                <label className="form-label">New Password</label>
+                                                <div className="">
+                                                    <input className="form-control" type="password" {...register("password",{ required: "Please enter your password." })}/>
+                                                    <label className="">
+                                                    <input className="" type="checkbox"/>
+                                                    <span className=""></span>
+                                                    </label>
+                                                </div>
+                                                </div>
+                                                <div className="col-lg-6">
+                                                <label className="form-label">Confirm Password</label>
+                                                <div>
+                                                    <input className="form-control" type="password" {...register("confirmpassword",{ required: "Please enter your password." })}/>
+                                                    <label>
+                                                    <input type="checkbox"/>
+                                                    </label>
+                                                </div>
+                                                </div>
+                                                <div className="col-12">
+                                                <hr className="mt-2 mb-3"/>
+                                                <div className="d-flex flex-wrap justify-content-between align-items-center">
+                                                    <div className="form-check">
+                                                    <input className="form-check-input" type="checkbox" checked/>
+                                                    <label className="form-check-label">Subscribe me to Newsletter</label>
+                                                    </div>
+                                                    <button className="Button-Red-Border Button-Full-Red text-ligh" type="button">Update profile</button>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            </form>
+                                            </Tab.Pane>
+                                            {/* Addressess */}
+                                            <Tab.Pane eventKey="sixth">
+                                            <div className="table-responsive fs-md">
+                                            <table className="table table-hover mb-0">
+                                                <thead>
+                                                <tr>
+                                                    <th>Address</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {
+                                                        account.acc10.map((acc,i)=>{
+                                                            return(
+                                                                <tr>
+                                                                    <td className="py-3 align-middle">{acc.countryName}<span className="align-middle badge bg-info ms-2">Primary</span></td>
+                                                                    <td className="py-3 align-middle">
+                                                                        <a className="me-2" href="#"><i className="fa fa-edit"></i></a>
+                                                                        <a className="text-danger" href="#">
+                                                                            <div className="fa fa-trash"></div>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+
+                                                            )
+                                                        })
+                                                    }
+                                                </tbody>
+                                            </table>
+                                            </div>
+                                            </Tab.Pane>
+                                            {/* Payment Methods */}
+                                            <Tab.Pane eventKey="seventh">
+                                            <div className="table-responsive fs-md mb-4">
+                                                <table className="table table-hover mb-0">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Your credit / debit cards</th>
+                                                        <th>Name on card</th>
+                                                        <th>Expires on</th>
+                                                        <th></th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td className="py-3 align-middle">
+                                                        <div className="d-flex align-items-center"><img className="profiletab-img" src={profile}/>
+                                                            <div className="ps-2"><span className="text-heading me-1">Visa</span>ending in 4999<span className="align-middle bg-info badge ms-2 px-2">Primary</span></div>
+                                                        </div>
+                                                        </td>
+                                                        <td className="py-3 align-middle">Susan Gardner</td>
+                                                        <td className="py-3 align-middle">08 / 2019</td>
+                                                        <td className="py-3 align-middle"><a className="me-2" href="#"><i className="fa fa-edit"></i></a>
+                                                        <a className="text-danger" href="#">
+                                                            <div className="fa fa-trash"></div></a></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                </div>
                                             </Tab.Pane>
                                 </Tab.Content>
                             </Col>

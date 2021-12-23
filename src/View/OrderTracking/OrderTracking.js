@@ -12,22 +12,22 @@ const OrderTracking = (props) => {
     {/* breadcrumb for OrderTracking */}
     <BreadCrumb heading='Tracking order: 34VB5540K83' BC1Link='/' breadcrumb1='Home' BC2Link='/' breadcrumb2='Shop' BC3Link='/' breadcrumb3='Order tracking'/>
       <div className="orderTrack">
-        <div class="container py-5 mb-2 mb-md-3">
+        <div className="container py-5 mb-2 mb-md-3">
           {/* -- Details-- */}
-          <div class="row gx-4 mb-4">
-            <div class="col-md-4 mb-2">
-              <div class="bg-light h-100 p-4 text-center rounded-3">
-                <span class="text-dark me-2">Shipped via:</span>UPS Ground
+          <div className="row gx-4 mb-4">
+            <div className="col-md-4 mb-2">
+              <div className="bg-light h-100 p-4 text-center rounded-3">
+                <span className="text-dark me-2">Shipped via:</span>UPS Ground
               </div>
             </div>
-            <div class="col-md-4 mb-2">
-              <div class="bg-light h-100 p-4 text-center rounded-3">
-                <span class="text-dark me-2">Status:</span>Processing order
+            <div className="col-md-4 mb-2">
+              <div className="bg-light h-100 p-4 text-center rounded-3">
+                <span className="text-dark me-2">Status:</span>Processing order
               </div>
             </div>
-            <div class="col-md-4 mb-2">
-              <div class="bg-light h-100 p-4 text-center rounded-3">
-                <span class="text-dark me-2">Expected date:</span>October 15,
+            <div className="col-md-4 mb-2">
+              <div className="bg-light h-100 p-4 text-center rounded-3">
+                <span className="text-dark me-2">Expected date:</span>October 15,
                 2019
               </div>
             </div>
@@ -35,16 +35,16 @@ const OrderTracking = (props) => {
           {/* -- Progress-- */}
           <ul className="row ulrow">
             <div className="col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-2 mt-2">
-              <li class="card-order">
-                <div class="d-flex align-items-center">
-                  <div class="back-circle-order bg-light">
-                    <i class="fa fa-shopping-bag text-orange"></i>
+              <li className="card-order">
+                <div className="d-flex align-items-center">
+                  <div className="back-circle-order bg-light">
+                    <i className="fa fa-shopping-bag text-orange"></i>
                   </div>
-                  <div class="ps-3">
-                    <div class="media-tab-subtitle text-muted mb-1">
+                  <div className="ps-3">
+                    <div className="media-tab-subtitle text-muted mb-1">
                       First step
                     </div>
-                    <h6 class="media-tab-title text-nowrap mb-0">
+                    <h6 className="media-tab-title text-nowrap mb-0">
                       Order placed
                     </h6>
                   </div>
@@ -53,16 +53,16 @@ const OrderTracking = (props) => {
             </div>
             {/* active card */}
             <div className="col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-2 mt-2">
-              <li class="card-order">
-                <div class="d-flex align-items-center">
-                  <div class="back-circle-order active-card">
-                    <i class="fa fa-cog text-light" aria-hidden="true"></i>
+              <li className="card-order">
+                <div className="d-flex align-items-center">
+                  <div className="back-circle-order active-card">
+                    <i className="fa fa-cog text-light" aria-hidden="true"></i>
                   </div>
-                  <div class="ps-3">
-                    <div class="mb-1 text-orange text-order-active">
+                  <div className="ps-3">
+                    <div className="mb-1 text-orange text-order-active">
                       Second step
                     </div>
-                    <h6 class="text-nowrap mb-0 text-orange">
+                    <h6 className="text-nowrap mb-0 text-orange">
                       Processing order
                     </h6>
                   </div>
@@ -70,46 +70,46 @@ const OrderTracking = (props) => {
               </li>
             </div>
             <div className="col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-2 mt-2">
-              <li class="card-order">
-                <div class="d-flex align-items-center">
-                  <div class="back-circle-order bg-light">
+              <li className="card-order">
+                <div className="d-flex align-items-center">
+                  <div className="back-circle-order bg-light">
                     <i className="fa fa-star text-orange"></i>
                   </div>
-                  <div class="ps-3">
-                    <div class="text-muted mb-1">Third step</div>
-                    <h6 class="text-nowrap mb-0">Quality check</h6>
+                  <div className="ps-3">
+                    <div className="text-muted mb-1">Third step</div>
+                    <h6 className="text-nowrap mb-0">Quality check</h6>
                   </div>
                 </div>
               </li>
             </div>
             <div className="col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-2 mt-2">
-              <li class="card-order">
-                <div class="d-flex align-items-center">
-                  <div class="back-circle-order bg-light">
-                    <i class="fa fa-gift text-orange" aria-hidden="true"></i>
+              <li className="card-order">
+                <div className="d-flex align-items-center">
+                  <div className="back-circle-order bg-light">
+                    <i className="fa fa-gift text-orange" aria-hidden="true"></i>
                   </div>
-                  <div class="ps-3">
-                    <div class="text-muted mb-1">Fourth step</div>
-                    <h6 class="text-nowrap mb-0">Product dispatched</h6>
+                  <div className="ps-3">
+                    <div className="text-muted mb-1">Fourth step</div>
+                    <h6 className="text-nowrap mb-0">Product dispatched</h6>
                   </div>
                 </div>
               </li>
             </div>
           </ul>
-          <div class="d-sm-flex flex-wrap justify-content-between align-items-center text-center pt-4">
-          <div class="form-check mt-2 me-3">
+          <div className="d-sm-flex flex-wrap justify-content-between align-items-center text-center pt-4">
+          <div className="form-check mt-2 me-3">
             <input
-              class="form-check-input"
+              className="form-check-input"
               type="checkbox"
               id="notify-me"
               checked
             />
-            <label class="form-check-label" for="notify-me">
+            <label className="form-check-label" for="notify-me">
               Notify me when order is delivered
             </label>
           </div>
           {/* button for open modal */}
-          <button class="mt-2 btn-view-order Button-Red-Border Button-Full-Red text-light"
+          <button className="mt-2 btn-view-order Button-Red-Border Button-Full-Red text-light"
             data-bs-toggle="modal" onClick={() => setLgShow(true)}>
             View Order Details
           </button>
@@ -133,10 +133,10 @@ const OrderTracking = (props) => {
                                          <img className='product-img-ordertrack' src={productdata.imgsrc} alt=""></img>
                                     </div>
                                 </div>
-                                <div className='col-lg-5 col-info-order'>
+                                <div className='col-lg-5'>
                                       <h6 className='text-muted font-weight-bold d-flex justify-content-center'>{productdata.category}</h6>
-                                      <div class="fs-sm name-order d-flex justify-content-center"><span class="text-muted me-2 name-order">Size:</span>8.5</div>
-                                      <div class="fs-sm name-order d-flex justify-content-center"><span class="text-muted me-2 name-order">Color:</span>White & Blue</div>
+                                      <div className="d-flex justify-content-center"><span className="text-muted me-2">Size:</span>8.5</div>
+                                      <div className="d-flex justify-content-center"><span className="text-muted me-2">Color:</span>White & Blue</div>
                                       <p className='text-primary d-flex justify-content-center'>{productdata.price}</p>
                                 </div>
                                 <div className='col-lg-2'>

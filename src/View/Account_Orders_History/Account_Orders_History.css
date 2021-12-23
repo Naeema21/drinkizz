@@ -1,3 +1,8 @@
+
+.Account-Order-History a{
+    text-decoration: none;
+}
+/* .Account-Order-History dashbord*/
 .Account-Order-History .profile-orderhistory{
     width: 100px;
     height: 100px;
@@ -8,9 +13,6 @@
 }
 .Account-Order-History .sidebar-li{
     list-style: none;
-}
-.Account-Order-History .sidebar-li a{
-    text-decoration: none;
 }
 .ToolTip-img{
         display: inline-block;
@@ -27,4 +29,13 @@
 .Account-Order-History .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color:#fe696a !important;
     background-color: #fff !important;
+}
+/* wishlist */
+.Account-Order-History .wishlist-img{
+    width:100px;
+    height:100px;
+}
+.Account-Order-History .profiletab-img{
+    width:100px;
+    height:100px;
 }

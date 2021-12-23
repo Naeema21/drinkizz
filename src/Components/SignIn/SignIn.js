@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import { Modal, Tab, Tabs } from 'react-bootstrap';
 import './SignIn.css';
+import { useForm } from "react-hook-form";
 const SignIn = () => {
+    // for modal
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    // for signinform
+    const { register, handleSubmit, reset } = useForm();
     return (
         <>
             <span >
@@ -18,22 +22,22 @@ const SignIn = () => {
                     <Tab eventKey="Signin" title="Signin" className='signin-tab' defaultActiveKey="Signin">
                     <div className='Sign-in-modal'>
                     <div className="modal-body tab-content py-4">
-                        <form className="needs-validation tab-pane fade active show" autocomplete="off" novalidate="" >
+                        <form className="" autocomplete="off" onSubmit={handleSubmit}>
                             <div className="mb-3">
-                                <label className="form-label signup-form-label" htmlFor="compare-email">Email address</label>
-                                <input className="form-control signup-input" type="email" id="compare-email" placeholder="johndoe@example.com" required="" />
+                                <label className="form-label signup-form-label">Email address</label>
+                                <input className="form-control signup-input" type="email" {...register("email",{ required: "Please enter your email." })} />
                             </div>
                             <div className="mb-3">
-                                <label className="form-label signup-form-label" htmlFor="compare-password">Password</label>
-                                <div className="password-toggle">
-                                    <input className="form-control signup-input" type="password"  required=""/>
+                                <label className="form-label signup-form-label">Password</label>
+                                <div>
+                                    <input className="form-control signup-input" type="password" {...register("password",{ required: "Please enter your password." })}/>
                                 </div>
                             </div>
                             <div className="mb-3 d-flex flex-wrap justify-content-between">
                                 <div className="form-check mb-2">
                                     <input className="form-check-input sinupform" type="checkbox" />
-                                    <label className="form-check-label" htmlFor="compare-remember">Remember me</label>
-                                </div><a className="fs-sm signup-forgot" href="#">Forgot password?</a>
+                                    <label className="form-check-label">Remember me</label>
+                                </div><a className="signup-forgot" href="#">Forgot password?</a>
                             </div>
                             <button className="btn btn-primary btn-shadow d-block w-100 compare-btn-signup" type="submit">Sign in</button>
                         </form>
@@ -43,25 +47,25 @@ const SignIn = () => {
                     <Tab eventKey="Signup" title="Signup">
                     <div className='Sign-up-modal'>
                             <div className="modal-body tab-content py-4">
-                                <form className="needs-validation tab-pane fade active show" autocomplete="off" novalidate="" >
+                                <form className="" autocomplete="off" onSubmit={handleSubmit}>
                                 <div className="mb-3">
-                                        <label className="form-label signup-form-label" htmlFor="compare-fullname">Full Name</label>
-                                        <input className="form-control signup-input" type="name"  required="" placeholder='Provide Your Full Name'/>
+                                        <label className="form-label signup-form-label">Full Name</label>
+                                        <input className="form-control signup-input" type="name" {...register("name",{ required: "Please enter your name." })}/>
                                     </div>
                                     <div className="mb-3">
-                                        <label className="form-label signup-form-label" htmlFor="compare-email">Email address</label>
-                                        <input className="form-control signup-input" type="email"  placeholder="johndoe@example.com" required=""/>
+                                        <label className="form-label signup-form-label">Email address</label>
+                                        <input className="form-control signup-input" type="email" {...register("email",{ required: "Please enter your email." })}/>
                                     </div>
                                     <div className="mb-3">
-                                        <label className="form-label signup-form-label" htmlFor="compare-password">Password</label>
-                                        <div className="password-toggle">
-                                            <input className="form-control signup-input" type="password"  required=""/>
+                                        <label className="form-label signup-form-label" {...register("password",{ required: "Please enter your password." })}>Password</label>
+                                        <div>
+                                            <input className="form-control signup-input" type="password" required=""/>
                                         </div>
                                     </div>
                                     <div className="mb-3">
-                                        <label className="form-label signup-form-label" htmlFor="compare-password">Confirm Password</label>
+                                        <label className="form-label signup-form-label">Confirm Password</label>
                                         <div className="password-toggle">
-                                            <input className="form-control signup-input" type="password"  required=""/>
+                                            <input className="form-control signup-input" type="password" {...register("password",{ required: "Please enter your password." })}/>
                                         </div>
                                     </div>
                                     <button className="btn btn-primary btn-shadow d-block w-100 compare-btn-signup" type="submit">Sign Up</button>
