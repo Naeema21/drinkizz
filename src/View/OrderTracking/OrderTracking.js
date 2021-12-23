@@ -129,26 +129,27 @@ const OrderTracking = (props) => {
                            <>
                               <div className='row' style={{"padding":"5px 10px 5px 10px"}}>
                                 <div className='col-lg-3'>
-                                    <img className='product-img-ordertrack' src={productdata.imgsrc} alt=""></img>
-                                </div>
-                                <div className='col-lg-5 col-info-order'>
-                                  <h6 className='text-muted'></h6><h6 className='font-weight-bold'>{productdata.category}</h6>
-                                  <div className='d-flex'>
-                                      <p className='text-muted me-2 fw-bold'>Name:</p><p className='text-dark name-order mt-1'>{productdata.name}</p>
-                                  </div>
-                                  <div class="fs-sm name-order"><span class="text-muted me-2 name-order">Size:</span>8.5</div>
-                                  <div class="fs-sm name-order"><span class="text-muted me-2 name-order">Color:</span>White & Blue</div>
-                                  <p className='text-primary'>{productdata.price}</p>
-                                </div>
-                                <div className='col-lg-2'>
-                                    <h6 className='text-muted'>Quantity</h6>
                                     <div className='d-flex justify-content-center align-items-center'>
-                                      <p>1</p>
+                                         <img className='product-img-ordertrack' src={productdata.imgsrc} alt=""></img>
                                     </div>
                                 </div>
+                                <div className='col-lg-5 col-info-order'>
+                                      <h6 className='text-muted font-weight-bold d-flex justify-content-center'>{productdata.category}</h6>
+                                      <div class="fs-sm name-order d-flex justify-content-center"><span class="text-muted me-2 name-order">Size:</span>8.5</div>
+                                      <div class="fs-sm name-order d-flex justify-content-center"><span class="text-muted me-2 name-order">Color:</span>White & Blue</div>
+                                      <p className='text-primary d-flex justify-content-center'>{productdata.price}</p>
+                                </div>
                                 <div className='col-lg-2'>
-                                    <h6 className='text-muted'>Subtotal</h6>
-                                    <p>$154.00</p> 
+                                      <h6 className='text-muted d-flex justify-content-center align-items-center'>Quantity</h6>
+                                      <div className='d-flex justify-content-center align-items-center'>
+                                        <p>1</p>
+                                      </div>
+                                </div>
+                                <div className='col-lg-2'>
+                                    <h6 className='text-muted d-flex justify-content-center align-items-center'>Subtotal</h6>
+                                    <div className='d-flex justify-content-center align-items-center'>
+                                      <p>$154.00</p> 
+                                    </div>
                                 </div>
                                 
                             </div> 

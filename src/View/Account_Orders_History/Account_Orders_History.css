@@ -24,3 +24,7 @@
         vertical-align: baseline;
         border-radius: 0.175rem;
 }
+.Account-Order-History .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color:#fe696a !important;
+    background-color: #fff !important;
+}
