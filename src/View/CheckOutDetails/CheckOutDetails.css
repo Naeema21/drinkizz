@@ -58,3 +58,13 @@ font-size: 15px;
     border: none;
     padding: 25px;
 }
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////try */
+.Minus-margin{
+    margin-top: -80px;
+}
+.title-text-color{
+    color: #373f50;
+}
+.title-text-color:hover{
+    color: #fe696a;
+}
