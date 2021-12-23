@@ -6,6 +6,8 @@ import checkoutProfile from '../../assets/images/checkout-details/checkout-profi
 import { useForm } from 'react-hook-form';
 import { products } from '../../assets/Data/product';
 import { Link } from 'react-router-dom';
+import { Accordion } from 'react-bootstrap';
+import CreditCardTypes from '../../assets/images/checkout-details/cards.png'
 
 const CheckOutDetails = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -208,15 +210,229 @@ const CheckOutDetails = () => {
                                     {/* Tab Shipping start */}
                                     <Tab eventKey="shipping" title="Shipping" className='py-4 px-sm-4'>
                                         <div className='mt-5'>
-                                        <h2 class="h6 pb-3 mb-2">Choose shipping method</h2>
-                                        
+                                            <h2 className="h5 pb-3 mb-2">Choose shipping method</h2>
+                                            <div className="table-responsive">
+                                                <table className="table table-hover fs-sm border-top">
+                                                    <thead>
+                                                        <tr>
+                                                            <th className="align-middle"></th>
+                                                            <th className="align-middle SM-table-heading">Shipping method</th>
+                                                            <th className="align-middle SM-table-heading">Delivery time</th>
+                                                            <th className="align-middle SM-table-heading">Handling fee</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td className='p-3'>
+                                                                <div className="form-check mb-4">
+                                                                    <input className="form-check-input" type="radio" id="courier" name="shipping-method" checked="" />
+                                                                    <label className="form-check-label" for="courier"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td className="align-middle"><span className="SM-table-heading">Courier</span><br /><span className="text-muted SM-Address-D">All addresses (default zone), United States &amp; Canada</span></td>
+                                                            <td className="align-middle text-muted SM-Address-D">2 - 4 days</td>
+                                                            <td className="align-middle text-muted SM-Address-D">$26.50</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td className='p-3'>
+                                                                <div className="form-check mb-4">
+                                                                    <input className="form-check-input" type="radio" id="local" name="shipping-method" />
+                                                                    <label className="form-check-label" for="local"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td className="align-middle"><span className="SM-table-heading">Local Shipping</span><br /><span className="text-muted SM-Address-D">All addresses (default zone), United States &amp; Canada</span></td>
+                                                            <td className="align-middle text-muted SM-Address-D">up to one week</td>
+                                                            <td className="align-middle text-muted SM-Address-D">$10.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td className='p-3'>
+                                                                <div className="form-check mb-4">
+                                                                    <input className="form-check-input" type="radio" id="flat" name="shipping-method" />
+                                                                    <label className="form-check-label" for="flat"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td className="align-middle"><span className="SM-table-heading">Flat Rate</span><br /><span className="text-muted SM-Address-D">All addresses (default zone)</span></td>
+                                                            <td className="align-middle text-muted SM-Address-D">5 - 7 days</td>
+                                                            <td className="align-middle text-muted SM-Address-D">$33.85</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td className='p-3'>
+                                                                <div className="form-check mb-4">
+                                                                    <input className="form-check-input" type="radio" id="ups" name="shipping-method" />
+                                                                    <label className="form-check-label" for="ups"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td className="align-middle"><span className="SM-table-heading">UPS Ground Shipping</span><br /><span className="text-muted SM-Address-D">All addresses (default zone)</span></td>
+                                                            <td className="align-middle text-muted SM-Address-D">4 - 6 days</td>
+                                                            <td className="align-middle text-muted SM-Address-D">$18.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td className='p-3'>
+                                                                <div className="form-check mb-4">
+                                                                    <input className="form-check-input" type="radio" id="pickup" name="shipping-method" />
+                                                                    <label className="form-check-label" for="pickup"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td className="align-middle"><span className="SM-table-heading">Local Pickup from store</span><br /><span className="text-muted SM-Address-D">All addresses (default zone)</span></td>
+                                                            <td className="align-middle text-muted SM-Address-D">—</td>
+                                                            <td className="align-middle text-muted SM-Address-D">$0.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td className='p-3'>
+                                                                <div className="form-check mb-4">
+                                                                    <input className="form-check-input" type="radio" id="locker" name="shipping-method" />
+                                                                    <label className="form-check-label" for="locker"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td className="align-middle"><span className="SM-table-heading">Pick Up at Cartzilla Locker</span><br /><span className="text-muted SM-Address-D">All addresses (default zone), United States &amp; Canada</span></td>
+                                                            <td className="align-middle text-muted SM-Address-D">—</td>
+                                                            <td className="align-middle text-muted SM-Address-D">$9.99</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td className='p-3'>
+                                                                <div className="form-check mb-4">
+                                                                    <input className="form-check-input" type="radio" id="global-export" name="shipping-method" />
+                                                                    <label className="form-check-label" for="global-export"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td className="align-middle"><span className="SM-table-heading">Cartzilla Global Export</span><br /><span className="text-muted SM-Address-D fs-sm">All addresses (default zone), outside United States</span></td>
+                                                            <td className="align-middle text-muted SM-Address-D">3 - 4 days</td>
+                                                            <td className="align-middle text-muted SM-Address-D">$25.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td className='p-3'>
+                                                                <div className="form-check mb-4">
+                                                                    <input className="form-check-input" type="radio" id="same-day" name="shipping-method" />
+                                                                    <label className="form-check-label" for="same-day"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td className="align-middle"><span className="SM-table-heading">Same-Day Delivery</span><br /><span className="text-muted SM-Address-D">Only United States</span></td>
+                                                            <td className="align-middle text-muted SM-Address-D">—</td>
+                                                            <td className="align-middle text-muted SM-Address-D">$34.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td className='p-3'>
+                                                                <div className="form-check mb-4">
+                                                                    <input className="form-check-input" type="radio" id="international" name="shipping-method" />
+                                                                    <label className="form-check-label" for="international"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td className="align-middle"><span className="SM-table-heading">International Shipping</span><br /><span className="text-muted SM-Address-D">All addresses (default zone)</span></td>
+                                                            <td className="align-middle text-muted SM-Address-D">up to 15 days</td>
+                                                            <td className="align-middle text-muted SM-Address-D">$27.00</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div className='row my-5'>
+                                                <div className='col-lg-6'>
+                                                    <a className='d-block btn-Gray w-100' href='/cart'><i className="fa fa-angle-left me-2"></i>Back to Cart</a>
+                                                </div>
+                                                <div className='col-lg-6'>
+                                                    <button className='d-block Button-Full-Red w-100' type='submit'>Proceed to Payment &nbsp;<i className="fa fa-angle-right"></i></button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </Tab>
                                     {/* Tab Shipping end */}
                                     {/* Tab payment start */}
                                     <Tab eventKey="payment" title="Payment" className='py-4 px-sm-4'>
                                         <div className='mt-4'>
-                                            sdfgh
+                                            <h2 className="h5 pb-3 mb-2">Choose shipping method</h2>
+                                            <Accordion>
+                                                <Accordion.Item eventKey="0">
+                                                    <Accordion.Header>Pay with Credit Card</Accordion.Header>
+                                                    <Accordion.Body>
+                                                        <p className="fs-sm">We accept following credit cards:&nbsp;&nbsp;<img className="d-inline-block align-middle" src={CreditCardTypes} width="187" alt="Cerdit Cards" /></p>
+                                                        <div className='Credit-card-design'>
+                                                            <div className='row d-flex justify-content-center'>
+                                                                <div className='col-5'>
+                                                                    <div className='card'>
+
+                                                                        <label>1</label>
+                                                                        <label>2</label>
+                                                                        <label>3</label>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <form>
+                                                                <div className='row mt-4'>
+                                                                    <div className='col-lg-6'>
+                                                                        <div className="form-group mb-3">
+                                                                            <input type="number"
+                                                                                placeholder='Card Number'
+                                                                                autoComplete="off"
+                                                                                {...register("cardnumber", { required: true })}
+                                                                                className="form-control" />
+                                                                            <span className="error-msg" title="invalid card number">{errors.cardnumber && "please provide valid card number."}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className='col-lg-6'>
+                                                                        <div className="form-group mb-3">
+                                                                            <input type="text"
+                                                                                placeholder="Full Name"
+                                                                                {...register("fullname", {
+                                                                                    required: true,
+                                                                                    minLength: 3
+                                                                                })}
+                                                                                className="form-control" autoComplete="off" />
+                                                                            <span className="error-msg" title="name required">{errors.fullname && "Please enter your name."}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div className='row'>
+                                                                    <div className='col-lg-3'>
+                                                                        <div className="form-group mb-3">
+                                                                            <input
+                                                                                type="text"
+                                                                                id="inputExpDate"
+                                                                                placeholder="MM / YY"
+                                                                                maxlength='7'
+                                                                                {...register("inputExpDate", {
+                                                                                    required: true,
+                                                                                    minLength: 3
+                                                                                })}  className="form-control"/>
+                                                                                <span className="error-msg" title="Exp date required">{errors.inputExpDate && "Please enter card Exp date."}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className='col-lg-3'>
+                                                                    <input type="password" className="cvv" placeholder="CVV"
+                                                                    {...register("inputExpDate", {
+                                                                        required: true,
+                                                                        minLength: 3
+                                                                    })}  className="form-control"/>
+                                                                    </div>
+                                                                    <div className='col-lg-6'>
+                                                                        <button className='btn d-block Button-Red-Border w-100' type='submit'>Submit</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <form>
+
+                                                        </form>
+                                                    </Accordion.Body>
+                                                </Accordion.Item>
+                                                <Accordion.Item eventKey="1">
+                                                    <Accordion.Header>Pay with PayPal</Accordion.Header>
+                                                    <Accordion.Body>
+                                                        <p class="fs-sm">We accept following credit cards:&nbsp;&nbsp;<img class="d-inline-block align-middle" src={CreditCardTypes} width="187" alt="Cerdit Cards" /></p>
+                                                        <form>
+
+                                                        </form>
+                                                    </Accordion.Body>
+                                                </Accordion.Item>
+                                                <Accordion.Item eventKey="2">
+                                                    <Accordion.Header>Redeem Reward Points</Accordion.Header>
+                                                    <Accordion.Body>
+                                                        <p class="fs-sm">We accept following credit cards:&nbsp;&nbsp;<img class="d-inline-block align-middle" src={CreditCardTypes} width="187" alt="Cerdit Cards" /></p>
+                                                        <form>
+
+                                                        </form>
+                                                    </Accordion.Body>
+                                                </Accordion.Item>
+                                            </Accordion>
                                         </div>
                                     </Tab>
                                     {/* Tab payment end */}
