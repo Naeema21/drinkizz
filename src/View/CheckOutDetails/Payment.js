@@ -15,6 +15,7 @@ const Payment = ({ setForm, formData, navigation }) => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const onSubmit = (data) => {
     console.log(data);
+    next()
     reset();
   }
   useEffect(() => {
@@ -160,7 +161,7 @@ const Payment = ({ setForm, formData, navigation }) => {
                   <a className='d-block btn-Gray w-100' onClick={previous}><i className="fa fa-angle-left me-2"></i>Back to Shipping</a>
                 </div>
                 <div className='col-lg-6'>
-                  <button className='d-block Button-Full-Red w-100' type='submit' onClick={next}>Review Your Order &nbsp;<i className="fa fa-angle-right"></i></button>
+                  <button className='d-block Button-Full-Red w-100' type='submit' >Review Your Order &nbsp;<i className="fa fa-angle-right"></i></button>
                 </div>
               </div>
             </div>
