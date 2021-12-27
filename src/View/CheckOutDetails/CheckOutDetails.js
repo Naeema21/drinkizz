@@ -3,8 +3,8 @@ import './CheckOutDetails.css'
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 import MultiStepForm from './MultiStepForm'
 
-
-function CheckOutDetails () {
+function CheckOutDetails() {
+   
     return (
         <>
             <div className='checkout-details'>
@@ -16,7 +16,8 @@ function CheckOutDetails () {
                 />
                 <div className='Heading-back-com2'></div>
                 {/* Header End */}
-                <MultiStepForm />
+                <MultiStepForm /> 
+                
             </div>
         </>
     );

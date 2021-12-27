@@ -1,8 +1,11 @@
 import React from "react";
 import { products } from "../../assets/Data/product";
+import { useEffect } from "react";
 const Review = ({ setForm, formData, navigation }) => {
     const { previous, next } = navigation;
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     return (
         <div className="form">
             <div className="container">
