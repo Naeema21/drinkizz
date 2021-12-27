@@ -1,10 +1,15 @@
 import React from "react";
 import { products } from '../../assets/Data/product';
 import { Link } from 'react-router-dom';
+import { useEffect } from "react";
 const Shipping = ({ setForm, formData, navigation }) => {
   const { address, city, state, zip } = formData;
 
   const { previous, next } = navigation;
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <div className="form">
@@ -128,7 +133,7 @@ const Shipping = ({ setForm, formData, navigation }) => {
               </div>
               <div className='row my-5'>
                 <div className='col-lg-6'>
-                  <a className='d-block btn-Gray w-100' href='/cart' onClick={previous}><i className="fa fa-angle-left me-2"></i>Back to address</a>
+                  <a className='d-block btn-Gray w-100' onClick={previous}><i className="fa fa-angle-left me-2"></i>Back to address</a>
                 </div>
                 <div className='col-lg-6'>
                   <button className='d-block Button-Full-Red w-100' type='submit' onClick={next}>Proceed to Payment &nbsp;<i className="fa fa-angle-right"></i></button>

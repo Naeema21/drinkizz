@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm, useStep } from "react-hooks-helper";
-
 import Details from "./Details";
 import Shipping from "./Shipping";
 import Payment from "./Payment";

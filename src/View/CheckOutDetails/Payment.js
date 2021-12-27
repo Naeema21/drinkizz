@@ -4,6 +4,10 @@ import CreditCardTypes from '../../assets/images/checkout-details/cards.png'
 import { Accordion } from 'react-bootstrap';
 import { products } from '../../assets/Data/product';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import Cards from 'react-credit-cards'
+import 'react-credit-cards/es/styles-compiled.css'
+import './CheckOutDetails.css'
 const Payment = ({ setForm, formData, navigation }) => {
   const { phone, email } = formData;
 
@@ -13,9 +17,18 @@ const Payment = ({ setForm, formData, navigation }) => {
     console.log(data);
     reset();
   }
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  const [number, setNumber] = useState('')
+  const [name, setName] = useState('')
+  const [expiry, setExpiry] = useState('')
+  const [cvc, setCvc] = useState('')
+  const [focus, setFocus] = useState('')
 
   return (
-    <div className="form">
+    <div>
       <div className="container">
         <div className="row">
           <div className="col-lg-8">
@@ -26,64 +39,61 @@ const Payment = ({ setForm, formData, navigation }) => {
                   <Accordion.Header>Pay with Credit Card</Accordion.Header>
                   <Accordion.Body>
                     <p className="fs-sm">We accept following credit cards:&nbsp;&nbsp;<img className="d-inline-block align-middle" src={CreditCardTypes} width="187" alt="Cerdit Cards" /></p>
-                    <div className='Credit-card-design'>
-                      <div className='row d-flex justify-content-center'>
-                        <div className='col-5'>
-                          <div className='card'>
-
-                            <label>1</label>
-                            <label>2</label>
-                            <label>3</label>
-
-                          </div>
-                        </div>
-                      </div>
+                    <div className='Credit-card-design mt-4 pt-2'>
+                      <Cards
+                        number={number}
+                        name={name}
+                        expiry={expiry}
+                        cvc={cvc}
+                        focused={focus} />
                       <form>
                         <div className='row mt-4'>
                           <div className='col-lg-6'>
                             <div className="form-group mb-3">
-                              <input type="number"
-                                placeholder='Card Number'
-                                autoComplete="off"
-                                {...register("cardnumber", { required: true })}
+                              <input type="tel"
+                                name="number"
+                                placeholder="Card Number"
+                                value={number}
+                                onChange={e => setNumber(e.target.value)}
+                                onFocus={e => setFocus(e.target.name)}
                                 className="form-control" />
-                              <span className="error-msg" title="invalid card number">{errors.cardnumber && "please provide valid card number."}</span>
+
                             </div>
                           </div>
                           <div className='col-lg-6'>
                             <div className="form-group mb-3">
                               <input type="text"
-                                placeholder="Full Name"
-                                {...register("fullname", {
-                                  required: true,
-                                  minLength: 3
-                                })}
-                                className="form-control" autoComplete="off" />
-                              <span className="error-msg" title="name required">{errors.fullname && "Please enter your name."}</span>
+                                name="name"
+                                placeholder="Name"
+                                value={name}
+                                onChange={e => setName(e.target.value)}
+                                onFocus={e => setFocus(e.target.name)}
+                                className="form-control" />
+
                             </div>
                           </div>
                         </div>
                         <div className='row'>
                           <div className='col-lg-3'>
                             <div className="form-group mb-3">
-                              <input
-                                type="text"
-                                id="inputExpDate"
-                                placeholder="MM / YY"
-                                maxlength='7'
-                                {...register("inputExpDate", {
-                                  required: true,
-                                  minLength: 3
-                                })} className="form-control" />
-                              <span className="error-msg" title="Exp date required">{errors.inputExpDate && "Please enter card Exp date."}</span>
+                              <input type="text"
+                                name="expiry"
+                                placeholder="MM/YY"
+                                value={expiry}
+                                onChange={e => setExpiry(e.target.value)}
+                                onFocus={e => setFocus(e.target.name)}
+                                className="form-control" />
+
                             </div>
                           </div>
                           <div className='col-lg-3'>
-                            <input type="password" className="cvv" placeholder="CVV"
-                              {...register("inputExpDate", {
-                                required: true,
-                                minLength: 3
-                              })} className="form-control" />
+                            <input type="tel"
+                              name="cvc"
+                              placeholder="CVC"
+                              value={cvc}
+                              onChange={e => setCvc(e.target.value)}
+                              onFocus={e => setFocus(e.target.name)}
+                              className="form-control" />
                           </div>
                           <div className='col-lg-6'>
                             <button className='btn d-block Button-Red-Border w-100' type='submit'>Submit</button>
@@ -147,7 +157,7 @@ const Payment = ({ setForm, formData, navigation }) => {
               </Accordion>
               <div className='row my-5'>
                 <div className='col-lg-6'>
-                  <a className='d-block btn-Gray w-100' href='/cart' onClick={previous}><i className="fa fa-angle-left me-2"></i>Back to Shipping</a>
+                  <a className='d-block btn-Gray w-100' onClick={previous}><i className="fa fa-angle-left me-2"></i>Back to Shipping</a>
                 </div>
                 <div className='col-lg-6'>
                   <button className='d-block Button-Full-Red w-100' type='submit' onClick={next}>Review Your Order &nbsp;<i className="fa fa-angle-right"></i></button>

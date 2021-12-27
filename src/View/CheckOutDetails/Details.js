@@ -3,22 +3,26 @@ import { useForm } from 'react-hook-form';
 import checkoutProfile from '../../assets/images/checkout-details/checkout-profile.jpg'
 import { products } from '../../assets/Data/product';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Details = ({ setForm, formData, navigation }) => {
-    const { firstName, lastName, nickName } = formData;
-
-    const { next } = navigation;
+ 
+    const { previous, next } = navigation;
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data);
         reset();
     }
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     return (
-        <div className="form">
+        <div>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8">
                         <div className='mt-4'>
+                            {/* Steps */}
                             <div className='row p-4 rounded-3 bg-details-profile'>
                                 <div className='col-lg-9'>
                                     <div className="d-flex align-items-center">
