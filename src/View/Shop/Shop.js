@@ -138,10 +138,10 @@ function Shop() {
                                                     <span className='text-muted'>Color Option</span>
                                                 </div>
                                                 <div className="position-relative mb-5 pb-3">
-                                                    <input style={{ backgroundColor: '#f25540' }} className='color-circle' name='color' type='radio' />
-                                                    <input style={{ backgroundColor: '#65805b' }} className='color-circle' name='color' type='radio' />
-                                                    <input checked style={{ backgroundColor: '#f5f5f5' }} className='color-circle' name='color' type='radio' />
-                                                    <input style={{ backgroundColor: '#333' }} className='color-circle' name='color' type='radio' />
+                                                    <label className='color-circle-box'><input style={{ backgroundColor: '#f25540' }}  name='color' type='radio' /></label>
+                                                    <label className='color-circle-box'><input style={{ backgroundColor: '#65805b' }}  name='color' type='radio' /></label>
+                                                    <label className='color-circle-box'><input checked style={{ backgroundColor: '#f5f5f5' }}  name='color' type='radio' /></label>
+                                                    <label className='color-circle-box'><input style={{ backgroundColor: '#333' }}  name='color' type='radio' /></label>
                                                     <div className="product-badge product-available mt-n1">Product available</div>
                                                 </div>
                                                 <div className="d-flex align-items-center pt-2 pb-4">
