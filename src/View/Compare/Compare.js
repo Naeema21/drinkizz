@@ -34,7 +34,7 @@ const Compare = () => {
                                             <div className="pt-3">
                                                 <div className="form-check">
                                                     <input className="form-check-input" type="checkbox" id="differences" />
-                                                    <label className="form-check-label" for="differences">Show differences only</label>
+                                                    <label className="form-check-label" htmlFor="differences">Show differences only</label>
                                                 </div>
                                             </div>
                                         </td>
