@@ -48,5 +48,12 @@
 .Sign-in-modal,.Sign-up-modal,.form-label{
     font-weight: 500 !important;
 }
-
+/* close btn */
+.modalsingin-up-close .btn-close{
+    float: right;
+    padding: 10px;
+}
+.modalsingin-up-close .btn-close:focus{
+    box-shadow: none !important;
+}
 
