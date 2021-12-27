@@ -18,7 +18,7 @@ const Details = ({ setForm, formData, navigation }) => {
       }, [])
     return (
         <div>
-            <div className="container">
+            <div className="container CheckOut-Details">
                 <div className="row">
                     <div className="col-lg-8">
                         <div className='mt-4'>
@@ -178,7 +178,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                 </div>
                                 <div className='row my-5'>
                                     <div className='col-lg-6'>
-                                        <a className='d-block btn-Gray w-100' href='/cart'><i className="fa fa-angle-left me-2"></i>Back to Cart</a>
+                                        <a className='d-block btn-Gray' href='/cart'><i className="fa fa-angle-left me-2"></i>Back to Cart</a>
                                     </div>
                                     <div className='col-lg-6'>
                                         <button className='d-block Button-Full-Red w-100' type='submit' onClick={next}>Proceed to Shipping &nbsp;<i className="fa fa-angle-right"></i></button>

@@ -12,7 +12,7 @@ const Shipping = ({ setForm, formData, navigation }) => {
   }, [])
 
   return (
-    <div className="form">
+    <div className="form Checkout-Shipping">
       <div className="container">
         <div className="row">
           <div className="col-lg-8">

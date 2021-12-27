@@ -29,7 +29,7 @@ const Payment = ({ setForm, formData, navigation }) => {
 
   return (
     <div>
-      <div className="container">
+      <div className="container CheckOut-Payment">
         <div className="row">
           <div className="col-lg-8">
             <div className='mt-5'>

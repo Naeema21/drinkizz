@@ -143,6 +143,11 @@
     border-bottom-right-radius: 0;
     font-size: .8125rem;
 }
+@media (max-width:1024px){
+    .Product-Description .product-badge {
+        display: none;
+    }
+}
 .Product-Description .product-badge.product-available::after {
     border-color: rgba(66,214,151,0);
     border-bottom-color: #29bc7d;
@@ -333,3 +338,26 @@ color: #4e54c8 !important;
         padding-right: 15px;
     }
 }
+
+.color-circle{
+    height: 100px;
+    width: 100px;
+}
+input[type='radio'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 30px;
+    padding: 10px;
+    height: 30px;
+    margin: 5px 0 5px 5px;
+    background-size: 225px 70px;
+    float: left;
+    top: 0;
+    border-radius: 50%;
+    z-index: 99999;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000;
+}
+  .color-circle{
+      border: solid 2px white;
+  }
