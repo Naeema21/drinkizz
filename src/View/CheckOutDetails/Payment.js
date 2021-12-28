@@ -12,12 +12,19 @@ const Payment = ({ setForm, formData, navigation }) => {
   const { phone, email } = formData;
 
   const { previous, next } = navigation;
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-    next()
-    reset();
-  }
+   const { register, handleSubmit, formState: { errors }, reset } = useForm();
+   const onSubmit = () => {
+     console.log();
+     next()
+     reset();
+   }
+  let [account, setAccount] = useState({
+    number: '',
+    name: '',
+    expiry: '',
+    cvc:''
+  });
+  
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -47,7 +54,7 @@ const Payment = ({ setForm, formData, navigation }) => {
                         expiry={expiry}
                         cvc={cvc}
                         focused={focus} />
-                      <form>
+                      <form  action="">
                         <div className='row mt-4'>
                           <div className='col-lg-6'>
                             <div className="form-group mb-3">
@@ -97,21 +104,18 @@ const Payment = ({ setForm, formData, navigation }) => {
                               className="form-control" />
                           </div>
                           <div className='col-lg-6'>
-                            <button className='btn d-block Button-Red-Border w-100' type='submit'>Submit</button>
+                            <button className='btn d-block Button-Red-Border w-100' type="submit" onClick={onSubmit}>Submit</button>
                           </div>
                         </div>
                       </form>
                     </div>
-                    <form>
-
-                    </form>
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="1">
                   <Accordion.Header>Pay with PayPal</Accordion.Header>
                   <Accordion.Body>
                     <p><span className="fw-medium"><b>PayPal</b></span> - the safer, easier way to pay</p>
-                    <form>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                       <div className='row'>
                         <div className='col-lg-6'>
                           <div className="form-group mb-3">
@@ -161,7 +165,7 @@ const Payment = ({ setForm, formData, navigation }) => {
                   <a className='d-block btn-Gray w-100' onClick={previous}><i className="fa fa-angle-left me-2"></i>Back to Shipping</a>
                 </div>
                 <div className='col-lg-6'>
-                  <button className='d-block Button-Full-Red w-100' type='submit' >Review Your Order &nbsp;<i className="fa fa-angle-right"></i></button>
+                  <button className='d-block Button-Full-Red w-100' type='submit' onClick={next}>Review Your Order &nbsp;<i className="fa fa-angle-right"></i></button>
                 </div>
               </div>
             </div>
@@ -198,11 +202,11 @@ const Payment = ({ setForm, formData, navigation }) => {
                   <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Discount:</span><span className="text-end">—</span></li>
                 </ul>
                 <h3 className="fw-normal text-center my-4">$274.<small>50</small></h3>
-                <form>
+                
                   <input type="text"
                     className="form-control" autoComplete="off" placeholder="Promo code" />
                   <button className='btn Button-Red-Border d-block w-100 mt-3'>Apply promo code</button>
-                </form>
+               
               </div>
             </div>
           </div>

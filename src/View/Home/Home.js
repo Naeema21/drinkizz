@@ -1,4 +1,4 @@
-import React from "react"
+import React,{useEffect,useState} from "react"
 import './Home.css'
 import OwlCarousel from 'react-owl-carousel2';
 import 'react-owl-carousel2/lib/styles.css';
@@ -13,9 +13,24 @@ import OfferBanneripad from '../../assets/images/Home/offer-banner-1.jpg'
 import { products } from '../../assets/Data/product';
 import { clientCaroucel } from "../../assets/Data/data";
 import { Link } from "react-router-dom";
+import  axios  from "axios";
 
 const Home = () => {
     const Card = React.lazy(() => import('../../Components/Cards/Cards'))
+//GET/FETCH API Logic for Aceesing data/Details using Token 
+const [items, setItems] = useState([]);
+useEffect(()=> {
+    axios.get(`https://daruwale.herokuapp.com/public/product`)
+    .then(res => {
+        console.log(res);
+        console.log(res.data.data);
+        setItems(res.data.data);
+        console.log(items);
+    })
+    .catch(err =>{
+        console.log(err)
+    })
+}, [])
     const options = {
         items: 1,
         rewind: true,
@@ -129,9 +144,9 @@ const Home = () => {
                             </Link>
                         </div>
                         {/* Using Map Function to access the data & send to card */}
-                        {products.slice(0, 8).map((productdata, i) => (
-                            <div className='col-lg-3 col-md-4 col-sm-6' key={i}>
-                                <Card category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.imgsrc} star={productdata.star} />
+                        {items.slice(0, 8).map((productdata, i) => (
+                            <div className='col-lg-3 col-md-4 col-sm-6 px-1' key={i}>
+                                <Card category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
                             </div>
                         ))}
                     </div>
