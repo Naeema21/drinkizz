@@ -2,7 +2,16 @@
   --bs-gutter-x: 0;
   --bs-gutter-y: 0;
 }
-
+.shoplistbox{
+  border-radius: 0.4375rem;
+  margin-top: -90px;
+  background-color: #fff;
+}
+.Heading-back-com3 {
+  background-color: #363e4e;
+  margin-top: -2px;
+  padding-left: 3%;
+}
 .shoplist-box1 {
   border-top-left-radius: 0.4375rem;
   border-bottom-left-radius: 0.4375rem;

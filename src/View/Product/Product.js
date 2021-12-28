@@ -1,49 +1,104 @@
-import React, { useState }  from 'react'
+import React,{useEffect,useState} from 'react'
 import './product.css'
 import { Accordion } from 'react-bootstrap'
-import RangeSlider from 'react-bootstrap-range-slider';
+import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
+import RangeSlider from "react-bootstrap-range-slider";
 import { Link } from 'react-router-dom'
-import { products } from '../../assets/Data/product'
 import shoplistproimg1 from '../../assets/images/Product/shoplist-proimg1.jpg'
 import { Shoplist } from '../../assets/Data/data';
+import  axios  from "axios";
+import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb'
 
 
 const Product = () => {
+      //Summary
+      const [LowHighPrice, setLowHighPrice] = useState(false);
+      const [HighLowPrice, setHighLowPrice] = useState(false);
+      const [AverageRating, setAverageRating] = useState(false);
+      const [AZOrder, setAZOrder] = useState(false);
+      const [ZAOrder, setZAOrder] = useState(false);
+
     const Card = React.lazy(() => import('../../Components/Cards/Cards'))
 //Range Slider variable
     const [ rangevalue, setValue ] = useState(0); 
     const handleRange = (value11) =>{
         setValue(value11)
-        console.log(rangevalue);
+        console.log(value11);
     }
-    
 //Color data variable
-    const [colorvalue, setColorValue] = useState()
     const handleClick = (values) => {
-       setColorValue(values)
-        console.log(colorvalue);
+        console.log(values);
     }
 //Size variable
     const [size, setSize] = useState()
     const handleSize = (values1) => {
         setSize(values1)
-        console.log(size);
+        console.log(values1);
     }
  //Brand variable
     const [brand, setBrand] = useState()
     const handleBrand = (values2) => {
         setBrand(values2)
-        console.log(brand);
+        console.log(values2);
     }
-
+//GET/FETCH API Logic for Aceesing data from API using axios
+const [items, setItems] = useState([]);
+useEffect(()=> {
+    axios.get(`https://daruwale.herokuapp.com/public/product`)
+    .then(res => {
+        console.log(res);
+        console.log(res.data.data);
+        setItems(res.data.data);
+        console.log(items);
+    })
+    .catch(err =>{
+        console.log(err)
+    })
+}, [])
 
     return (
         <>
+            <BreadCrumb heading='Shop grid left sidebar' BC1Link='/' breadcrumb1='Home' BC2Link='/' breadcrumb2='Shop' BC3Link='/' breadcrumb3='Grid left sidebar'/>
+            <div className='Heading-back-com3'>
+                <div className='row'>
+                    <div className='col-lg-4'></div>
+                        <div className='col-lg-8 col-md-8'>
+                            <div className='row'>
+                                <div className='d-flex align-items-center flex-nowrap me-3 me-sm-4 pb-3'>
+                                    <div className="d-flex justify-content-between align-items-center">
+                                    <span className="text-light fs-base mb-0 ml-4 py-4 pt-7 px-2">Sort by</span>
+                                    <select className="form-select compare-crite" id="compare-criteria">
+                                        <option value="all">Popularity</option>
+                                        <option value="Low-High Price" onClick={() => { LowHighPrice ? setLowHighPrice(true) : setLowHighPrice(false) }}>Low-High Price</option>
+                                        <option value="High-Low Price" onClick={() => { HighLowPrice ? setHighLowPrice(true) : setHighLowPrice(false) }}>High-Low Price</option>
+                                        <option value="Average Rating" onClick={() => { AverageRating ? setAverageRating(true) : setAverageRating(false) }}>Average Rating</option>
+                                        <option value="A-Z Order" onClick={() => { AZOrder ? setAZOrder(false) : setAZOrder(true) }}>A-Z Order</option>
+                                        <option value="Z-A Order" onClick={() => { ZAOrder ? setZAOrder(false) : setZAOrder(true) }}>Z-A Order</option>
+                                    </select>      
+                                    <span className='fs-sm text-light opacity-75 text-nowrap ms-2 d-none d-md-block'>of 287 products</span>                          
+                                </div>
+                                <div className='d-flex px-5 justify-content-end'>
+                                    <Link className='nav-link-style nav-link-light text-light me-3'>
+                                        <i class="fa fa-angle-left"></i>
+                                    </Link>
+                                    <span className='fs-md text-light'>1 / 5</span>
+                                    <Link className='nav-link-style nav-link-light text-light mx-3'>
+                                        <i class="fa fa-angle-right"></i>
+                                    </Link>
+                                </div>
+                             </div>
+                            
+                            </div>
+                         
+                    </div>
+                </div>
+            </div>
+
             <section className='mt-4'>
                 <div className='container'>
                     <div className='row'>
                         <div className='col-lg-4 col-md-4 col-sm-6'>
-                            <div className='shadow py-4 px-3' style={{ borderRadius: '0.4375rem' }}>
+                            <div className='shadow py-4 px-3 shoplistbox'>
                                 <div className='mb-4'>
                                     <h4 className='shoplist1-catetxt'>Categories</h4>
                                 </div>
@@ -137,7 +192,7 @@ const Product = () => {
                                 <div className='mx-3 mt-6'>
                                 <RangeSlider
                                     value={rangevalue}
-                                    onChange={changeEvent => handleRange(changeEvent.target.value)}
+                                    onChange={e => handleRange(e.target.value)}
                                     tooltipPlacement='top'
                                     tooltip='on'
                                     variant='danger'
@@ -189,7 +244,9 @@ const Product = () => {
                                                 Shoplist.map((b,i) =>{
                                                     return(
                                                         <li><div to="#" className='shoplistitems d-flex justify-content-between align-items-center'>
-                                                            <span><input className='form-check-input' type='checkbox' style={{marginRight:'10px'}} value={b.brand} onChange={(e)=>handleBrand(e.target.value)} />{b.brand}</span></div>
+                                                            <span><input className='form-check-input' type='checkbox' style={{marginRight:'10px'}}
+                                                             value={b.brand} defaultValue={b.brand}
+                                                             onChange={(e)=>handleBrand(e.target.value)} />{b.brand}</span></div>
                                                         </li>
                                                     )
                                                 })
@@ -230,7 +287,9 @@ const Product = () => {
                                 return (
                                     <div className='form-check form-option text-center mb-2 mx-1'>
                                         <label className='shopform-option-label rounded-circle'>
-                                        <input className='form-check-input' type='checkbox' style={{border:'0', background:'none'}} value={v.color} onChange={(e)=>handleClick(e.target.value)} />
+                                        <input className='form-check-input' type='checkbox' style={{border:'0', background:'none'}}
+                                         value={v.color} 
+                                         onChange={(e)=>handleClick(e.target.value)} />
                                             <span className='shopform-option-color rounded-circle' style={{ backgroundColor: v.backgroundcolor}}></span>
                                         </label>
                                         <label className='d-block fs-xs text-muted mt-n1' style={{color:'#7d879c',fontSize:'12px'}}>{v.color}</label>
@@ -244,9 +303,9 @@ const Product = () => {
                         <div className='col-lg-8 col-md-8 col-sm-6 shoplist-leftside1'>
                             <div className='row'>
                                 {/* Using Map Function to access the data & send to card */}
-                                {products.slice(0, 6).map((productdata, i) => (
+                                {items.slice(0, 6).map((productdata, i) => (
                                     <div className='col-lg-4 col-md-6 col-sm-12 px-1' key={i}>
-                                        <Card category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.imgsrc} star={productdata.star} />
+                                        <Card category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
                                     </div>
                                 ))}
                             </div>
@@ -262,9 +321,9 @@ const Product = () => {
                             </div>
                             <div className='row'>
                                 {/* Using Map Function to access the data & send to card */}
-                                {products.slice(6, 12).map((productdata, i) => (
+                                {items.slice(6, 12).map((productdata, i) => (
                                     <div className='col-lg-4 col-md-6 col-sm-12  px-1' key={i}>
-                                        <Card category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.imgsrc} star={productdata.star} />
+                                        <Card category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
                                     </div>
                                 ))}
                             </div>

@@ -11,8 +11,7 @@ import product9 from '../images/Product/product9.jpg'
 import product10 from '../images/Product/product10.jpg'
 import product11 from '../images/Product/product11.jpg'
 import product12 from '../images/Product/product12.jpg'
-import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
-import RangeSlider from "react-bootstrap-range-slider";
+
 export const products = [
     {
         category: "Headphone",

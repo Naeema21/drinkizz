@@ -17,7 +17,7 @@ import  axios  from "axios";
 
 const Home = () => {
     const Card = React.lazy(() => import('../../Components/Cards/Cards'))
-//GET/FETCH API Logic for Aceesing data/Details using Token 
+//GET/FETCH API Logic for Aceesing data from API using axios
 const [items, setItems] = useState([]);
 useEffect(()=> {
     axios.get(`https://daruwale.herokuapp.com/public/product`)
