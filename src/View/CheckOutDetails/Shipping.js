@@ -12,7 +12,7 @@ const Shipping = ({ setForm, formData, navigation }) => {
   }, [])
 
   return (
-    <div className="Checkout-Shipping">
+    <div className="Checkout-Shipping" id="shipping">
       <div className="container">
         <div className="row">
           <div className="col-lg-8">
@@ -20,6 +20,7 @@ const Shipping = ({ setForm, formData, navigation }) => {
             <div className='mt-5'>
               <h2 className="h5 pb-3 mb-2">Choose shipping method</h2>
               <div className="table-responsive">
+                <form>
                 <table className="table table-hover fs-sm border-top">
                   <thead>
                     <tr>
@@ -32,8 +33,8 @@ const Shipping = ({ setForm, formData, navigation }) => {
                   <tbody>
                     <tr>
                       <td className='p-3'>
-                        <div className="form-check mb-4">
-                          <input className="form-check-input" type="radio" id="courier" name="shipping-method" required />
+                        <div className="mb-4">
+                          <input className="form-check-input" type="radio" id="courier" value="shipping-method" name="shipping-method" aria-required checked={true} />
                           <label className="form-check-label" for="courier"></label>
                         </div>
                       </td>
@@ -43,8 +44,8 @@ const Shipping = ({ setForm, formData, navigation }) => {
                     </tr>
                     <tr>
                       <td className='p-3'>
-                        <div className="form-check mb-4">
-                          <input className="form-check-input" type="radio" id="local" name="shipping-method" />
+                        <div className="mb-4">
+                          <input className="form-check-input" type="radio" id="local" name="shipping-method" required/>
                           <label className="form-check-label" for="local"></label>
                         </div>
                       </td>
@@ -54,8 +55,8 @@ const Shipping = ({ setForm, formData, navigation }) => {
                     </tr>
                     <tr>
                       <td className='p-3'>
-                        <div className="form-check mb-4">
-                          <input className="form-check-input" type="radio" id="flat" name="shipping-method" />
+                        <div className="mb-4">
+                          <input className="form-check-input" type="radio" id="flat" name="shipping-method"  required/>
                           <label className="form-check-label" for="flat"></label>
                         </div>
                       </td>
@@ -65,7 +66,7 @@ const Shipping = ({ setForm, formData, navigation }) => {
                     </tr>
                     <tr>
                       <td className='p-3'>
-                        <div className="form-check mb-4">
+                        <div className="mb-4">
                           <input className="form-check-input" type="radio" id="ups" name="shipping-method" />
                           <label className="form-check-label" for="ups"></label>
                         </div>
@@ -76,7 +77,7 @@ const Shipping = ({ setForm, formData, navigation }) => {
                     </tr>
                     <tr>
                       <td className='p-3'>
-                        <div className="form-check mb-4">
+                        <div className="mb-4">
                           <input className="form-check-input" type="radio" id="pickup" name="shipping-method" />
                           <label className="form-check-label" for="pickup"></label>
                         </div>
@@ -87,7 +88,7 @@ const Shipping = ({ setForm, formData, navigation }) => {
                     </tr>
                     <tr>
                       <td className='p-3'>
-                        <div className="form-check mb-4">
+                        <div className="mb-4">
                           <input className="form-check-input" type="radio" id="locker" name="shipping-method" />
                           <label className="form-check-label" for="locker"></label>
                         </div>
@@ -98,7 +99,7 @@ const Shipping = ({ setForm, formData, navigation }) => {
                     </tr>
                     <tr>
                       <td className='p-3'>
-                        <div className="form-check mb-4">
+                        <div className="mb-4">
                           <input className="form-check-input" type="radio" id="global-export" name="shipping-method" />
                           <label className="form-check-label" for="global-export"></label>
                         </div>
@@ -109,7 +110,7 @@ const Shipping = ({ setForm, formData, navigation }) => {
                     </tr>
                     <tr>
                       <td className='p-3'>
-                        <div className="form-check mb-4">
+                        <div className="mb-4">
                           <input className="form-check-input" type="radio" id="same-day" name="shipping-method" />
                           <label className="form-check-label" for="same-day"></label>
                         </div>
@@ -120,7 +121,7 @@ const Shipping = ({ setForm, formData, navigation }) => {
                     </tr>
                     <tr>
                       <td className='p-3'>
-                        <div className="form-check mb-4">
+                        <div className="mb-4">
                           <input className="form-check-input" type="radio" id="international" name="shipping-method" />
                           <label className="form-check-label" for="international"></label>
                         </div>
@@ -131,6 +132,7 @@ const Shipping = ({ setForm, formData, navigation }) => {
                     </tr>
                   </tbody>
                 </table>
+                </form>
               </div>
               <div className='row my-5'>
                 <div className='col-lg-6'>

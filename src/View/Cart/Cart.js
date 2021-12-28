@@ -4,12 +4,31 @@ import { products } from '../../assets/Data/product'
 import { Accordion } from 'react-bootstrap'
 import { useForm } from 'react-hook-form';
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
+import axios from 'axios'
+import { GET_CART_DATA } from "../../endpoint";
+import { useState, useEffect } from "react";
 
 const Cart = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data);
         reset();
+    }
+    const [Data, setData] = useState([]);
+    useEffect(() => {
+        try {
+            axios.get(GET_CART_DATA).then(res => {
+                console.log(res)
+                setData(res.data.data);      
+            })          
+        } catch (error) {
+            console.warn(error) 
+        }
+    }, [])
+    const Deletecart=(ids)=>{
+        axios.delete(GET_CART_DATA + "/"+ ids).then(res=>{
+            console.log(res.status)
+        })
     }
     return (
         <div className='cart'>
@@ -34,27 +53,27 @@ const Cart = () => {
                         </div>
                     </div>
                         {
-                            products.slice(0, 4).map((v, i) => {
+                            Data.slice(0, 4).map((v, i) => {
                                 return (
                                     <div key={i}>
                                         <div className='d-flex row Cart-list-item'>
                                             <div className='d-flex align-items-center col-lg-3 col-md-3 col-sm-3 col-xs-3 Cart-list-item-img'>
                                                 <div className='p-3'>
-                                                    <img src={v.imgsrc} className='img-fluid'
+                                                    <img src={v.image} className='img-fluid'
                                                         width="150px" height="150px" />
                                                 </div>
                                             </div>
                                                 <div className='product-desc col-lg-7 col-md-7 col-sm-7 col-xs-6'><a href='/product-details'>
                                                     <h6 className='title-text-color'>{v.name}</h6>
-                                                    <span className='text-muted'>Size: 8.5</span><br />
+                                                    <span className='text-muted'>Size: {v.size}</span><br />
                                                     <span className='text-muted'>Color: Black</span>
                                                     <p className='text-indigo fs-lg'>{v.price}</p>
                                                     </a></div>
                                             
                                             <div className='col-lg-2 col-md-2 col-sm-2 col-xs-3'>
                                                 <p className='text-quantity'>Quantity</p>
-                                                <input type="number" defaultValue="1" className='quanity-bar' /><br />
-                                                <a className='text-red remove-link mt-2'><i className='fa fa-close'></i>&nbsp;Remove</a>
+                                                <input type="number" defaultValue={v.quantity} className='quanity-bar' /><br />
+                                                <a className='text-red remove-link mt-2' onClick={()=>Deletecart(v._id)}><i className='fa fa-close'></i>&nbsp;Remove </a>
                                             </div>
                                         </div>
                                         <hr />

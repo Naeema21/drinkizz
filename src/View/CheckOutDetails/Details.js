@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const Details = ({ setForm, formData, navigation }) => {
- 
+
     const { previous, next } = navigation;
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
@@ -16,14 +16,25 @@ const Details = ({ setForm, formData, navigation }) => {
     }
     useEffect(() => {
         window.scrollTo(0, 0)
-      }, [])
+    }, [])
     return (
         <div>
             <div className="container CheckOut-Details">
                 <div className="row">
-                    <div className="col-lg-8">
+                    <div className="col-lg-8 Minus-margin-ProgressBar">
                         <div className='mt-4'>
                             {/* Steps */}
+                            <div className="ProgressBardesign">
+                            <ul id="progressbar" >
+                                <li className="active"><a className="btn" href="cart"><div className="mt-2 ProgressBar-Text"><i className="fa fa-shopping-cart me-2"></i>Cart</div></a></li>
+                                <li ><button className="btn" ><div className="mt-2 ProgressBar-Text"><i className="fa fa-user me-2" aria-hidden="true"></i>Details</div></button></li>
+                                <li><button className="btn"><div className="mt-2 ProgressBar-Text"><i className="fa fa-user me-2" aria-hidden="true"></i>Shipping</div></button></li>
+                                <li><button className="btn"><div className="mt-2 ProgressBar-Text"><i className="fa fa-credit-card me-2"></i>Payment</div></button></li>
+                                <li><button className="btn"><div className="mt-2 ProgressBar-Text"><i className="fa fa-check-square me-2"></i>Review</div></button></li>
+                            </ul>
+                            </div>
+                            
+                            {/* Steps end */}
                             <div className='row p-4 rounded-3 bg-details-profile'>
                                 <div className='col-lg-9'>
                                     <div className="d-flex align-items-center">
@@ -60,9 +71,9 @@ const Details = ({ setForm, formData, navigation }) => {
                                             <label className='form-label'>Last Name</label>
                                             <input type="text"
                                                 {...register("lastname", {
-                                                    required: true, pattern: 
-                                                    { value: "^[A-Za-z]$", message: "please enter valid name" },
-                                                    minLength: 3, 
+                                                    required: true, pattern:
+                                                        { value: "^[A-Za-z]$", message: "please enter valid name" },
+                                                    minLength: 3,
                                                     maxLength: 60
                                                 })}
                                                 className="form-control" autoComplete="off" placeholder="" />
@@ -76,9 +87,9 @@ const Details = ({ setForm, formData, navigation }) => {
                                             <label className='form-label'>Your Email</label>
                                             <input type="email"
                                                 autoComplete="off"
-                                                {...register("email", { 
+                                                {...register("email", {
                                                     required: true,
-                                                 })}
+                                                })}
                                                 className="form-control" />
                                             <span className="error-msg" title="invalid email address">{errors.email && "please provide valid e-mail address."}</span>
                                         </div>
@@ -88,8 +99,9 @@ const Details = ({ setForm, formData, navigation }) => {
                                             <label className='form-label'>Phone Number</label>
                                             <input type="text"
                                                 autoComplete="off"
-                                                {...register("phonenumber", { required: true,
-                                                maxLength:10
+                                                {...register("phonenumber", {
+                                                    required: true,
+                                                    maxLength: 10
                                                 })}
                                                 className="form-control" />
                                             <span className="error-msg" title="invalid email address">{errors.phonenumber && "please provide valid phone number."}</span>
@@ -110,7 +122,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                     <div className='col-lg-6'>
                                         <div className="form-group mb-3">
                                             <label className='form-label'>Country</label>
-                                            <select class="form-select" id="checkout-country" {...register("country", {
+                                            <select className="form-select" id="checkout-country" {...register("country", {
                                                 required: true
                                             })}>
                                                 <option value="">Choose country</option>
@@ -180,7 +192,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                 </div>
                                 <h2 className="h6 pt-3 pb-3 mb-3 border-bottom">Shipping address</h2>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" checked id="same-address" />
+                                    <input className="form-check-input" type="checkbox" id="same-address" />
                                     <label className="form-check-label" for="same-address">Same as shipping address</label>
                                 </div>
                                 <div className='row my-5'>

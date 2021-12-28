@@ -14,11 +14,11 @@ background-color: rgb(255, 115, 0);
     background-color: white;
     border-color: white;
 }
-.form-check-input:checked {
+ .checkout-details .form-check-input:checked {
     background-color: #fe696a;
     border-color: #fe696a;
 }
-a{
+.checkout-details a{
     text-decoration: none;
     cursor: pointer;
 }
@@ -28,7 +28,7 @@ a{
 .btn-Gray .fa{
     font-size: 20px;
 }
-.form-control:focus {
+.checkout-details .form-control:focus {
     border-color: red;
     box-shadow: none;
 }
@@ -147,4 +147,89 @@ font-size: 15px;
 }
 .accordion-button:focus {
     box-shadow: inherit;
+}
+
+/* Progressbar */
+.Minus-margin-ProgressBar{
+    margin-top: -100px;
+}
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+.ProgressBardesign ul{
+    display: flex;
+}
+#progressbar li {
+	list-style-type: none;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    width: 33.33%;
+    float: left;
+    position: relative;
+    z-index: 1;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 10px;
+	color: #333;
+	background: white;
+	border-radius: 3px;
+	margin: 0 auto 5px auto;content: counter(step);
+    counter-increment: step;
+    width: 27px;
+    line-height: 27px;
+    display: block;
+    font-size: 17px;
+    color: white;
+    background: #485268;;
+    border-radius: 50%;
+    margin: 0 auto 5px auto;
+    padding: 0px 7px;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 4px;
+	background: #485268;
+	position: absolute;
+	left: -42%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+/* #progressbar li:first-child:after {
+	
+	content: none; 
+} */
+/*connector not needed before the first step*/
+
+
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #fe696a;;
+	color: white !important;
+}
+.ProgressBar-Text{
+    font-weight: 600;
+}
+#progressbar a{
+    text-decoration: none;
+    color: white !important;
+}
+.ProgressBardesign .btn {
+    border: none;
+    color: inherit;
+    font-size: inherit;
+    display: inline-block;
+    font-weight: 400;
+    background-color: transparent;
 }

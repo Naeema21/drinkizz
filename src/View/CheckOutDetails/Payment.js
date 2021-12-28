@@ -14,7 +14,7 @@ const Payment = ({ setForm, formData, navigation }) => {
   const { previous, next } = navigation;
    const { register, handleSubmit, formState: { errors }, reset } = useForm();
    const onSubmit = () => {
-     console.log();
+     console.log(account);
      next()
      reset();
    }

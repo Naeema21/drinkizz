@@ -13,6 +13,9 @@ import OfferBanneripad from '../../assets/images/Home/offer-banner-1.jpg'
 import { products } from '../../assets/Data/product';
 import { clientCaroucel } from "../../assets/Data/data";
 import { Link } from "react-router-dom";
+import axios from 'axios'
+import { PRODUCT_URL } from "../../endpoint";
+import { useState, useEffect } from "react";
 
 const Home = () => {
     const Card = React.lazy(() => import('../../Components/Cards/Cards'))
@@ -28,6 +31,20 @@ const Home = () => {
         nav: false,
         dots: false
     };
+    const [Data, setData] = useState([]);
+    useEffect(() => {
+      
+        try {
+            axios.get(PRODUCT_URL).then(res => {
+                console.log(res)
+                setData(res.data.data);
+                
+            })
+        } catch (error) {
+            console.warn(error)
+            
+        }
+    }, [])
     return (
         <div className='home'>
             {/* banner */}
@@ -186,12 +203,12 @@ const Home = () => {
                             <div className='BS-Product'>
                                 <h3 className='BS-Heading'>BestSellers</h3>
                                 {
-                                    products.slice(0, 4).map((value, index) => {
+                                    Data.slice(0, 4).map((value, index) => {
                                         return (
                                             <Link to="/product-details" key={index}>
                                                 <div className='BS-Product-item d-flex align-items-center '>
                                                     <div className=''>
-                                                        <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
+                                                        <img src={value.image} alt='product' width="70" className='img-fluid'></img>
                                                     </div>
                                                     <div className='d-flex align-items-center'>
                                                         <div className='mt-4'>
@@ -213,12 +230,12 @@ const Home = () => {
                             <div className='BS-Product'>
                                 <h3 className='BS-Heading'>New Arrivals</h3>
                                 {
-                                    products.slice(4, 8).map((value, index) => {
+                                    Data.slice(3, 7).map((value, index) => {
                                         return (
                                             <Link to="/product-details" key={index}>
                                                 <div className='BS-Product-item d-flex align-items-center ' >
                                                     <div className=''>
-                                                        <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
+                                                        <img src={value.image} alt='product' width="70" className='img-fluid'></img>
                                                     </div>
                                                     <div className='d-flex align-items-center'>
                                                         <div className='mt-4'>
@@ -240,12 +257,12 @@ const Home = () => {
                             <div className='BS-Product'>
                                 <h3 className='BS-Heading'>Top Rated</h3>
                                 {
-                                    products.slice(8, 12).map((value, index) => {
+                                    Data.slice(2, 6).map((value, index) => {
                                         return (
                                             <Link to="/product-details" key={index}>
                                                 <div className='BS-Product-item d-flex align-items-center' >
                                                     <div className=''>
-                                                        <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
+                                                        <img src={value.image} alt='product' width="70" className='img-fluid'></img>
                                                     </div>
                                                     <div className='d-flex align-items-center'>
                                                         <div className='mt-4'>
