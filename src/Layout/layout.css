@@ -291,10 +291,6 @@
 .btn-social-icon-footer {
   background-color: white;
 }
-
 .socialhover:hover {
   color: #1da1f2;
-}
-.footer a:hover {
-    color: #fff;
 }
