@@ -12,10 +12,11 @@ const Shipping = ({ setForm, formData, navigation }) => {
   }, [])
 
   return (
-    <div className="form Checkout-Shipping">
+    <div className="Checkout-Shipping">
       <div className="container">
         <div className="row">
           <div className="col-lg-8">
+            <form>
             <div className='mt-5'>
               <h2 className="h5 pb-3 mb-2">Choose shipping method</h2>
               <div className="table-responsive">
@@ -32,7 +33,7 @@ const Shipping = ({ setForm, formData, navigation }) => {
                     <tr>
                       <td className='p-3'>
                         <div className="form-check mb-4">
-                          <input className="form-check-input" type="radio" id="courier" name="shipping-method" checked="" />
+                          <input className="form-check-input" type="radio" id="courier" name="shipping-method" required />
                           <label className="form-check-label" for="courier"></label>
                         </div>
                       </td>
@@ -140,6 +141,7 @@ const Shipping = ({ setForm, formData, navigation }) => {
                 </div>
               </div>
             </div>
+            </form>
           </div>
           <div className='col-lg-4 Minus-margin'>
             <div className='card rounded-3 shadow-lg p-4'>
