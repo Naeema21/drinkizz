@@ -2,7 +2,16 @@
   --bs-gutter-x: 0;
   --bs-gutter-y: 0;
 }
-
+.shoplistbox{
+  border-radius: 0.4375rem;
+  margin-top: -90px;
+  background-color: #fff;
+}
+.Heading-back-com3 {
+  background-color: #363e4e;
+  margin-top: -2px;
+  padding-left: 3%;
+}
 .shoplist-box1 {
   border-top-left-radius: 0.4375rem;
   border-bottom-left-radius: 0.4375rem;
@@ -26,17 +35,14 @@
   font-size: 0.900rem !important;
   font-weight: normal !important;
 }
-
 .accordion-button:hover {
   color: #fe3638;
 }
-
 .accordion-button:focus {
   background-color: white;
   border-color: #fe3638;
   box-shadow: none;
 }
-
 .accordion-button::after {
   background-image: none;
   content: "\f078";
@@ -46,7 +52,6 @@
   border-radius: 50%;
   padding: 3px;
 }
-
 .accordion-button:not(.collapsed)::after {
   background-image: none;
 }
@@ -139,7 +144,6 @@
 .shoplistitems:hover {
   color: #fe3638;
 }
-
 .shopform-option-label {
   position: relative;
   min-width: 2rem;
@@ -158,7 +162,7 @@
   line-height: 1.75rem;
   cursor: pointer;
 }
-
+.shopform-option-label:active{ border: 1px solid #fe3638;}
 .shopform-option-color {
   display: block;
   position: absolute;
@@ -174,36 +178,23 @@
 }
 
 /* Shoplist Range slider */
-.shoplist-slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 3px;
-  border-radius: 5px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+.shoplistrange-line{
+    height: 50px;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    color: #999; 
 }
-
-.shoplist-slider:hover {
-  opacity: 1;
+.shoplistange-linediv2{
+  height: 0.75rem;
+  display: flex;
+  width: 1px;
+  background-color: #d0dae4;
+  margin-left: -1px;
+  background: #AAA;
 }
-
-.shoplist-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #fe3638;
-  cursor: pointer;
-}
-
-.shoplist-slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #fe3638;
-  cursor: pointer;
+.shoplistange-value{
+    padding-top: 1.125rem;
+    color: #4b566b;
+    font-size: 15px;
 }

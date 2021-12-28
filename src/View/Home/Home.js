@@ -1,4 +1,4 @@
-import React from "react"
+import React,{useEffect,useState} from "react"
 import './Home.css'
 import OwlCarousel from 'react-owl-carousel2';
 import 'react-owl-carousel2/lib/styles.css';
@@ -15,10 +15,22 @@ import { clientCaroucel } from "../../assets/Data/data";
 import { Link } from "react-router-dom";
 import axios from 'axios'
 import { PRODUCT_URL } from "../../endpoint";
-import { useState, useEffect } from "react";
 
 const Home = () => {
     const Card = React.lazy(() => import('../../Components/Cards/Cards'))
+//GET/FETCH API Logic for Aceesing data from API using axios
+const [items, setItems] = useState([]);
+useEffect(()=> {
+    axios.get(PRODUCT_URL).then(res => {
+        console.log(res);
+        console.log(res.data.data);
+        setItems(res.data.data);
+        console.log(items);
+    })
+    .catch(err =>{
+        console.log(err)
+    })
+}, [])
     const options = {
         items: 1,
         rewind: true,
@@ -31,20 +43,20 @@ const Home = () => {
         nav: false,
         dots: false
     };
-    const [Data, setData] = useState([]);
-    useEffect(() => {
+    // const [Data, setData] = useState([]);
+    // useEffect(() => {
       
-        try {
-            axios.get(PRODUCT_URL).then(res => {
-                console.log(res)
-                setData(res.data.data);
+    //     try {
+    //         axios.get(PRODUCT_URL).then(res => {
+    //             console.log(res)
+    //             setData(res.data.data);
                 
-            })
-        } catch (error) {
-            console.warn(error)
+    //         })
+    //     } catch (error) {
+    //         console.warn(error)
             
-        }
-    }, [])
+    //     }
+    // }, [])
     return (
         <div className='home'>
             {/* banner */}
@@ -146,9 +158,9 @@ const Home = () => {
                             </Link>
                         </div>
                         {/* Using Map Function to access the data & send to card */}
-                        {products.slice(0, 8).map((productdata, i) => (
-                            <div className='col-lg-3 col-md-4 col-sm-6' key={i}>
-                                <Card category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.imgsrc} star={productdata.star} />
+                        {items.slice(0, 8).map((productdata, i) => (
+                            <div className='col-lg-3 col-md-4 col-sm-6 px-1' key={i}>
+                                <Card category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
                             </div>
                         ))}
                     </div>
@@ -203,7 +215,7 @@ const Home = () => {
                             <div className='BS-Product'>
                                 <h3 className='BS-Heading'>BestSellers</h3>
                                 {
-                                    Data.slice(0, 4).map((value, index) => {
+                                    items.slice(0, 4).map((value, index) => {
                                         return (
                                             <Link to="/product-details" key={index}>
                                                 <div className='BS-Product-item d-flex align-items-center '>
@@ -230,7 +242,7 @@ const Home = () => {
                             <div className='BS-Product'>
                                 <h3 className='BS-Heading'>New Arrivals</h3>
                                 {
-                                    Data.slice(3, 7).map((value, index) => {
+                                    items.slice(3, 7).map((value, index) => {
                                         return (
                                             <Link to="/product-details" key={index}>
                                                 <div className='BS-Product-item d-flex align-items-center ' >
@@ -257,7 +269,7 @@ const Home = () => {
                             <div className='BS-Product'>
                                 <h3 className='BS-Heading'>Top Rated</h3>
                                 {
-                                    Data.slice(2, 6).map((value, index) => {
+                                    items.slice(2, 6).map((value, index) => {
                                         return (
                                             <Link to="/product-details" key={index}>
                                                 <div className='BS-Product-item d-flex align-items-center' >

@@ -8,7 +8,12 @@ const SignIn = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     // for signinform
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => console.log(data);
+   
+    const handleSignUp =(data)=>{
+        console.log(data);
+    }
     return (
         <>
             <span >
@@ -25,7 +30,7 @@ const SignIn = () => {
                     <Tab eventKey="Signin" title="Signin" className='signin-tab' defaultActiveKey="Signin">
                     <div className='Sign-in-modal'>
                     <div className="modal-body tab-content py-4">
-                        <form className="" autocomplete="off" onSubmit={handleSubmit}>
+                        <form className="" autocomplete="off" onSubmit={handleSubmit(onSubmit)}>
                             <div className="mb-3">
                                 <label className="form-label signup-form-label">Email address</label>
                                 <input className="form-control signup-input" type="email" {...register("email",{ required: "Please enter your email." })} />
@@ -50,17 +55,17 @@ const SignIn = () => {
                     <Tab eventKey="Signup" title="Signup">
                     <div className='Sign-up-modal'>
                             <div className="modal-body tab-content py-4">
-                                <form className="" autocomplete="off" onSubmit={handleSubmit}>
+                                <form className="" autocomplete="off" onSubmit={handleSubmit(handleSignUp)}>
                                 <div className="mb-3">
                                         <label className="form-label signup-form-label">Full Name</label>
-                                        <input className="form-control signup-input" type="name" {...register("name",{ required: "Please enter your name." })}/>
+                                        <input className="form-control signup-input" type="name" {...register("name",{ required: "Please enter your name.",maxLength:20})}/>
                                     </div>
                                     <div className="mb-3">
                                         <label className="form-label signup-form-label">Email address</label>
-                                        <input className="form-control signup-input" type="email" {...register("email",{ required: "Please enter your email." })}/>
+                                        <input className="form-control signup-input" type="email" {...register("email",{ required: "Please enter your email.",pattern:"[a-z0-9._%+-]+@[a-z0-9.-]+/.[a-z]{2,}$" })}/>
                                     </div>
                                     <div className="mb-3">
-                                        <label className="form-label signup-form-label" {...register("password",{ required: "Please enter your password." })}>Password</label>
+                                        <label className="form-label signup-form-label" {...register("password",{ required: "Please enter your password.",pattern:"(?=.*/d)(?=.*[a-z])(?=.*[A-Z]).{8,}" })}>Password</label>
                                         <div>
                                             <input className="form-control signup-input" type="password" required=""/>
                                         </div>
@@ -68,7 +73,7 @@ const SignIn = () => {
                                     <div className="mb-3">
                                         <label className="form-label signup-form-label">Confirm Password</label>
                                         <div className="password-toggle">
-                                            <input className="form-control signup-input" type="password" {...register("password",{ required: "Please enter your password." })}/>
+                                            <input className="form-control signup-input" type="password" {...register("password",{ required: "Please enter your password.",pattern:"(?=.*/d)(?=.*[a-z])(?=.*[A-Z]).{8,}"})}/>
                                         </div>
                                     </div>
                                     <button className="btn btn-primary btn-shadow d-block w-100 compare-btn-signup" type="submit">Sign Up</button>

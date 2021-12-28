@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Cards = React.memo((props) => {
     return (
         <>
-            <div className='card product-card'>
+            <div className='card product-card mt-3 mb-3'>
                 <div className='pro-compare d-flex align-items-center'>
                     <Link to='/compare' className='btn-compare me-2'><i className="fa fa-refresh px-1"></i>Compare</Link>
                     <button data-toggle="tooltip" data-placement="top" title="Hooray!" className='btn-wishlist btn-sm'><i className="fa fa-heart-o" aria-hidden="true"></i></button>
@@ -33,9 +33,9 @@ const Cards = React.memo((props) => {
                         </div>
                     </div>
                     <div className="product-actionadd px-3">
-                        <button className='btn btn btn-sm d-block w-100 mb-2 addto-cardbtn'>
+                       <Link to='/cart'><button className='btn btn btn-sm d-block w-100 mb-2 addto-cardbtn'>
                             <i className="fa fa-shopping-cart px-1" aria-hidden="true"></i>
-                            Add to Cart</button>
+                            Add to Cart</button></Link> 
                         <div className='text-center'>
                             <Link to='/product-details'>
                                 <i className="fa fa-eye px-1" aria-hidden="true"></i>
