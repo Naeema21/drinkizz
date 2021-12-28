@@ -34,7 +34,7 @@ useEffect(()=> {
     const options = {
         items: 1,
         rewind: true,
-        autoplay: false
+        autoplay: true
     };
     const options2 = {
         items: 4,

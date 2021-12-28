@@ -1,6 +1,11 @@
-
+.Account-Order-History{
+    cursor: pointer;
+}
 .Account-Order-History a{
     text-decoration: none;
+}
+.Account-Order-History .img-boreder-profile{
+    border-radius: 50%;
 }
 /* .Account-Order-History dashbord*/
 .Account-Order-History .profile-orderhistory{
@@ -9,10 +14,11 @@
     border-radius: 50%;
 }
 .Account-Order-History .profile-col-sidebar{
-    margin-top: -70px;
+    margin-top: -100px;
 }
 .Account-Order-History .sidebar-li{
     list-style: none;
+    margin-left:-30px !important;
 }
 .ToolTip-img{
         display: inline-block;
@@ -30,12 +36,52 @@
     color:#fe696a !important;
     background-color: #fff !important;
 }
+/* paggination */
+.Account-Order-History .order-page.active .page-link {
+    background-color:#fe696a !important;
+    border-color: #fe696a !important;
+    border-radius: 8px;
+}
+.Account-Order-History .order-page:not(:first-child) .page-link {
+    margin-left: -1px;
+}
+.Account-Order-History .pagination .page-link {
+    border-radius: 0.3125rem;
+    font-size: .9375rem;
+    margin-left: 5px;
+}
+.Account-Order-History .page-link {
+    position: relative;
+    transition: color .25s ease-in-out,border-color .25s ease-in-out,background-color .25s ease-in-out;
+}
+.Account-Order-History .page-link {
+    padding: 0.3125rem 0.75rem;
+    border: none !important;
+    box-shadow: none !important;
+}
+.Account-Order-History .page-link:hover{
+    color:#fff;
+}
 /* wishlist */
 .Account-Order-History .wishlist-img{
     width:100px;
     height:100px;
 }
+.Account-Order-History .product-order-wishlist h3{
+    font-size: 17px;
+}
+.Account-Order-History .product-order-wishlist span{
+    font-size: 14px;
+}
 .Account-Order-History .profiletab-img{
     width:100px;
     height:100px;
+}
+.Account-Order-History .profiletab-img-card{
+    width:50px;
+    height:30px;
+}
+.card-img-pay{
+    width: 30px;
+    height: 20px;
 }

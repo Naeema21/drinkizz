@@ -1,16 +1,22 @@
 import React from "react";
 import { products } from '../../assets/Data/product';
 import { Link } from 'react-router-dom';
+import { useEffect } from "react";
 const Shipping = ({ setForm, formData, navigation }) => {
   const { address, city, state, zip } = formData;
 
   const { previous, next } = navigation;
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
-    <div className="form">
+    <div className="Checkout-Shipping">
       <div className="container">
         <div className="row">
           <div className="col-lg-8">
+            <form>
             <div className='mt-5'>
               <h2 className="h5 pb-3 mb-2">Choose shipping method</h2>
               <div className="table-responsive">
@@ -27,7 +33,7 @@ const Shipping = ({ setForm, formData, navigation }) => {
                     <tr>
                       <td className='p-3'>
                         <div className="form-check mb-4">
-                          <input className="form-check-input" type="radio" id="courier" name="shipping-method" checked="" />
+                          <input className="form-check-input" type="radio" id="courier" name="shipping-method" required />
                           <label className="form-check-label" for="courier"></label>
                         </div>
                       </td>
@@ -128,13 +134,14 @@ const Shipping = ({ setForm, formData, navigation }) => {
               </div>
               <div className='row my-5'>
                 <div className='col-lg-6'>
-                  <a className='d-block btn-Gray w-100' href='/cart' onClick={previous}><i className="fa fa-angle-left me-2"></i>Back to address</a>
+                  <a className='d-block btn-Gray w-100' onClick={previous}><i className="fa fa-angle-left me-2"></i>Back to address</a>
                 </div>
                 <div className='col-lg-6'>
                   <button className='d-block Button-Full-Red w-100' type='submit' onClick={next}>Proceed to Payment &nbsp;<i className="fa fa-angle-right"></i></button>
                 </div>
               </div>
             </div>
+            </form>
           </div>
           <div className='col-lg-4 Minus-margin'>
             <div className='card rounded-3 shadow-lg p-4'>

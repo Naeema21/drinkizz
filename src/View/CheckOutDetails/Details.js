@@ -3,22 +3,27 @@ import { useForm } from 'react-hook-form';
 import checkoutProfile from '../../assets/images/checkout-details/checkout-profile.jpg'
 import { products } from '../../assets/Data/product';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Details = ({ setForm, formData, navigation }) => {
-    const { firstName, lastName, nickName } = formData;
-
-    const { next } = navigation;
+ 
+    const { previous, next } = navigation;
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data);
+        next()
         reset();
     }
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     return (
-        <div className="form">
-            <div className="container">
+        <div>
+            <div className="container CheckOut-Details">
                 <div className="row">
                     <div className="col-lg-8">
                         <div className='mt-4'>
+                            {/* Steps */}
                             <div className='row p-4 rounded-3 bg-details-profile'>
                                 <div className='col-lg-9'>
                                     <div className="d-flex align-items-center">
@@ -32,7 +37,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                     </div>
                                 </div>
                                 <div className='col-lg-3 align-items-center d-flex justify-content-end'>
-                                    <a className="btn btn-sm btn-edit " href="/"><i class="fa fa-edit me-1"></i>Edit profile</a>
+                                    <a className="btn btn-sm btn-edit " href="/account-orders-history"><i class="fa fa-edit me-1"></i>Edit profile</a>
                                 </div>
                             </div>
                             <h2 className="h6 pt-3 pb-3 mb-3 border-bottom">Shipping address</h2>
@@ -55,8 +60,10 @@ const Details = ({ setForm, formData, navigation }) => {
                                             <label className='form-label'>Last Name</label>
                                             <input type="text"
                                                 {...register("lastname", {
-                                                    required: true, pattern: { value: "^[A-Za-z]$", message: "please enter valid name" },
-                                                    minLength: 3, maxLength: 60
+                                                    required: true, pattern: 
+                                                    { value: "^[A-Za-z]$", message: "please enter valid name" },
+                                                    minLength: 3, 
+                                                    maxLength: 60
                                                 })}
                                                 className="form-control" autoComplete="off" placeholder="" />
                                             <span className="error-msg" title="name required">{errors.lastname && "Please enter your name."}</span>
@@ -69,7 +76,9 @@ const Details = ({ setForm, formData, navigation }) => {
                                             <label className='form-label'>Your Email</label>
                                             <input type="email"
                                                 autoComplete="off"
-                                                {...register("email", { required: true })}
+                                                {...register("email", { 
+                                                    required: true,
+                                                 })}
                                                 className="form-control" />
                                             <span className="error-msg" title="invalid email address">{errors.email && "please provide valid e-mail address."}</span>
                                         </div>
@@ -77,11 +86,13 @@ const Details = ({ setForm, formData, navigation }) => {
                                     <div className='col-lg-6'>
                                         <div className="form-group mb-3">
                                             <label className='form-label'>Phone Number</label>
-                                            <input type="number"
+                                            <input type="text"
                                                 autoComplete="off"
-                                                {...register("phonenumber", { required: true })}
+                                                {...register("phonenumber", { required: true,
+                                                maxLength:10
+                                                })}
                                                 className="form-control" />
-                                            <span className="error-msg" title="invalid email address">{errors.phonenumber && "please provide valid e-mail address."}</span>
+                                            <span className="error-msg" title="invalid email address">{errors.phonenumber && "please provide valid phone number."}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -116,7 +127,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                 <div className='row'>
                                     <div className='col-lg-6'>
                                         <div className="form-group mb-3">
-                                            <label className='form-label'>Country</label>
+                                            <label className='form-label'>City</label>
                                             <select className="form-select" id="checkout-city" {...register("city", {
                                                 required: true
                                             })}>
@@ -174,10 +185,10 @@ const Details = ({ setForm, formData, navigation }) => {
                                 </div>
                                 <div className='row my-5'>
                                     <div className='col-lg-6'>
-                                        <a className='d-block btn-Gray w-100' href='/cart'><i className="fa fa-angle-left me-2"></i>Back to Cart</a>
+                                        <a className='d-block btn-Gray' href='/cart'><i className="fa fa-angle-left me-2"></i>Back to Cart</a>
                                     </div>
                                     <div className='col-lg-6'>
-                                        <button className='d-block Button-Full-Red w-100' type='submit' onClick={next}>Proceed to Shipping &nbsp;<i className="fa fa-angle-right"></i></button>
+                                        <button className='d-block Button-Full-Red w-100' type='submit' >Proceed to Shipping &nbsp;<i className="fa fa-angle-right"></i></button>
                                     </div>
                                 </div>
                             </form>

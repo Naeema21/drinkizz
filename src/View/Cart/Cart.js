@@ -142,6 +142,7 @@ const Cart = () => {
                                     </Accordion.Item>
                                 </div>
                             </Accordion>
+                            <br />
                             <a className='Button-Full-Red' href='/checkout-details'>Proceed to Checkout</a>
                         </div>
                     </div>

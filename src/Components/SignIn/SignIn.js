@@ -16,8 +16,11 @@ const SignIn = () => {
                     <i className='fa fa-user-o text-danger'></i>&nbsp; Hello,sign In</span>
             </span>
             {/* modal for signin signup */}
-            <div className='Modal-signin-up'>
+            <div className='Modal-signin-up'style={{ display: !show ? 'none' : '' }}>
             <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" id="signin_modal" aria-hidden="true" tabIndex="-1" role="dialog" centered> 
+                  <div className='modalsingin-up-close'>
+                    <button className="btn-close" type="button" onClick={() => handleClose(true)}></button>
+                  </div>
                 <Tabs defaultActiveKey="Signin" id="uncontrolled-tab-example" className="mb-3 flex-row">
                     <Tab eventKey="Signin" title="Signin" className='signin-tab' defaultActiveKey="Signin">
                     <div className='Sign-in-modal'>

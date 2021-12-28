@@ -128,16 +128,19 @@ const OrderTracking = (props) => {
                          return(
                            <>
                               <div className='row' style={{"padding":"5px 10px 5px 10px"}}>
-                                <div className='col-lg-3'>
+                                <div className='col-lg-3 d-inline-block flex-shrink-0 mx-auto'>
                                     <div className='d-flex justify-content-center align-items-center'>
                                          <img className='product-img-ordertrack' src={productdata.imgsrc} alt=""></img>
                                     </div>
                                 </div>
                                 <div className='col-lg-5'>
-                                      <h6 className='text-muted font-weight-bold d-flex justify-content-center'>{productdata.category}</h6>
-                                      <div className="d-flex justify-content-center"><span className="text-muted me-2">Size:</span>8.5</div>
-                                      <div className="d-flex justify-content-center"><span className="text-muted me-2">Color:</span>White & Blue</div>
-                                      <p className='text-primary d-flex justify-content-center'>{productdata.price}</p>
+                                      <div className="d-block d-sm-flex align-items-start text-center text-sm-start">
+                                        <div className="product-order-wishlist">
+                                          <h6 className="text-dark font-weight-bold fs-base text-sm-start fw-bold mb-2">{productdata.category}</h6>
+                                          <div className="fs-sm"><span className="text-muted me-2">Brand:</span>Tommy Hilfiger</div>
+                                          <div className="fs-sm"><span className="text-muted me-2">Color:</span>Khaki</div>
+                                          <div className="fs-lg text-accent pt-2 text-primary">{productdata.price}<small>50</small></div>
+                                          </div></div>
                                 </div>
                                 <div className='col-lg-2'>
                                       <h6 className='text-muted d-flex justify-content-center align-items-center'>Quantity</h6>

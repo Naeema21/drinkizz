@@ -197,9 +197,7 @@ const Footer = () => {
                             <div className="row pb-2">
                                 <div className="col-md-6 text-center text-md-start mb-4">
                                     <div className="text-nowrap mb-4">
-                                        <a className="d-inline-block align-middle mt-n1 me-3 text-orange" href="#">
-                                            <img className="d-block" src={footer_logo_light} width="117" alt="Cartzilla" />
-                                        </a>
+                                        <a href="#home" className="navbar-brand d-inline-block align-middle mt-n1 me-3 text-orange"><span className="text-light fw-bolder">🍻</span>Daruwale</a>
                                         <div className="btn-group dropdown disable-autohide">
                                             <button className="btn btn-outline-light border-light btn-sm dropdown-toggle px-2" type="button" data-bs-toggle="dropdown" onClick={() => { list ? showList(false) : showList(true) }}>
                                                 <img className="me-2" src={en} width="20" alt="English" />Eng / $

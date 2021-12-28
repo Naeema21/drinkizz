@@ -62,9 +62,89 @@ font-size: 15px;
 .Minus-margin{
     margin-top: -80px;
 }
+@media(max-width:991px){
+    .Minus-margin{
+        margin-top: 0px;
+    }
+}
+
 .title-text-color{
     color: #373f50;
 }
 .title-text-color:hover{
     color: #fe696a;
+}
+
+/* .Credit-card */
+.rccs__card--unknown > div {
+    background: linear-gradient(
+25deg, #c4c2c2, #ccc) !important;
+    box-shadow: none;
+}
+.rccs__card {
+    height: 200px !important;
+    width: 350px !important;
+}
+
+/* /////////////Submit order/////////////// */
+.Align-thankYou{
+    margin-top: -212px !important;
+    background-color: white !important;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+  @media (max-width:768px){
+    .Align-thankYou{
+      margin-top: -260px !important;
+      background-color: white !important;
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+  }
+@media(min-width:500px){
+    .Align-thankYou .OrderSubmitButton{
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}
+@media(max-width:500px){
+    .Align-thankYou .OrderSubmitButton{
+           display: inline-grid;
+           text-align: center;
+       }
+       .Align-thankYou .OrderSubmitButton a{
+           margin-bottom: 20px;
+       }
+   } 
+
+@media(max-width:992px){
+    .CheckOut-Details .Button-Full-Red{
+        margin-top: 20px;
+    }
+    .Checkout-Shipping .Button-Full-Red{
+        margin-top: 20px;
+    }
+    .CheckOut-Payment .Button-Full-Red{
+        margin-top: 20px;
+    }
+    .CheckOut-Review .Button-Full-Red{
+        margin-top: 20px;
+    }
+}
+
+.accordion-button{
+    font-size: 16px;
+    font-weight: 600;
+    /* border-bottom: solid 1px rgb(196, 196, 196) !important; */
+}
+.accordion-button:hover {
+    color: #fe696a;
+}
+.accordion-button:not(.collapsed) {
+    color: inherit;
+    background-color: transparent;
+  
+}
+.accordion-button:focus {
+    box-shadow: inherit;
 }

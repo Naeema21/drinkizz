@@ -55,3 +55,6 @@
     font-size: 14px;
     font-weight: normal;
 } 
+.orderTrack, .btn-close{
+    box-shadow: none !important;
+}

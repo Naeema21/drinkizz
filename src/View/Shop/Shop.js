@@ -137,23 +137,11 @@ function Shop() {
                                                     <span className='Desc-text-heading'>Color:</span>
                                                     <span className='text-muted'>Color Option</span>
                                                 </div>
-                                                <div className="position-relative me-n4 mb-3">
-                                                    <div className="form-check form-option form-check-inline mb-2">
-                                                        <input className="form-check-input" type="radio" name="color" id="color1" data-bs-label="colorOption" value="Dark blue/Orange" checked="" />
-                                                        <label className="form-option-label rounded-circle" for="color1"><span className="form-option-color rounded-circle" style={{ backgroundColor: '#f25540' }}></span></label>
-                                                    </div>
-                                                    <div className="form-check form-option form-check-inline mb-2">
-                                                        <input className="form-check-input" type="radio" name="color" id="color2" data-bs-label="colorOption" value="Dark blue/Green" />
-                                                        <label className="form-option-label rounded-circle" for="color2"><span className="form-option-color rounded-circle" style={{ backgroundColor: '#65805b' }}></span></label>
-                                                    </div>
-                                                    <div className="form-check form-option form-check-inline mb-2">
-                                                        <input className="form-check-input" type="radio" name="color" id="color3" data-bs-label="colorOption" value="Dark blue/White" />
-                                                        <label className="form-option-label rounded-circle" for="color3"><span className="form-option-color rounded-circle" style={{ backgroundColor: '#f5f5f5' }}></span></label>
-                                                    </div>
-                                                    <div className="form-check form-option form-check-inline mb-2">
-                                                        <input className="form-check-input" type="radio" name="color" id="color4" data-bs-label="colorOption" value="Dark blue/Black" />
-                                                        <label className="form-option-label rounded-circle" for="color4"><span className="form-option-color rounded-circle" style={{ backgroundColor: '#333' }}></span></label>
-                                                    </div>
+                                                <div className="position-relative mb-5 pb-3">
+                                                    <label className='color-circle-box'><input style={{ backgroundColor: '#f25540' }}  name='color' type='radio' /></label>
+                                                    <label className='color-circle-box'><input style={{ backgroundColor: '#65805b' }}  name='color' type='radio' /></label>
+                                                    <label className='color-circle-box'><input checked style={{ backgroundColor: '#f5f5f5' }}  name='color' type='radio' /></label>
+                                                    <label className='color-circle-box'><input style={{ backgroundColor: '#333' }}  name='color' type='radio' /></label>
                                                     <div className="product-badge product-available mt-n1">Product available</div>
                                                 </div>
                                                 <div className="d-flex align-items-center pt-2 pb-4">
@@ -233,13 +221,13 @@ function Shop() {
                             <Tab eventKey="specs" title="Tech Specs" className='py-4 px-sm-4'>
                                 <div className="tab-pane fade active show" id="specs" role="tabpanel">
                                     <div className="row d-md-flex justify-content-between align-items-start pb-4 mb-4 border-bottom">
-                                        <div className="col-lg-4 col-sm-5 d-flex align-items-center me-md-3"><img src={Smwatch1} width="90" alt="Product thumb" />
+                                        <div className="col-lg-4 col-sm-8 d-flex align-items-center me-md-3"><img src={Smwatch1} width="90" alt="Product thumb" />
                                             <div className="ps-3">
                                                 <h6 className="fs-base mb-2">Smartwatch Youth Edition</h6>
                                                 <div className="h3 C-Tprice">$124.<small>99</small></div>
                                             </div>
                                         </div>
-                                        <div className=" col-lg-4 col-sm-5 d-flex align-items-center pt-3">
+                                        <div className=" col-lg-4 col-sm-8 d-flex align-items-center pt-3">
                                             <select className="form-select me-2 w-50" >
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -306,13 +294,13 @@ function Shop() {
                             {/* Tab Reviews Start */}
                             <Tab eventKey="reviews" title="Reviews" className='py-4 px-sm-4'>
                                 <div className="row d-md-flex justify-content-between align-items-start pb-4 mb-4 border-bottom">
-                                    <div className="col-lg-4 col-sm-5 d-flex align-items-center me-md-3"><img src={Smwatch1} width="90" alt="Product thumb" />
+                                    <div className="col-lg-4 col-sm-8 d-flex align-items-center me-md-3"><img src={Smwatch1} width="90" alt="Product thumb" />
                                         <div className="ps-3">
                                             <h6 className="fs-base mb-2">Smartwatch Youth Edition</h6>
                                             <div className="h3 C-Tprice">$124.<small>99</small></div>
                                         </div>
                                     </div>
-                                    <div className=" col-lg-4 col-sm-5 d-flex align-items-center pt-3">
+                                    <div className=" col-lg-6 col-sm-8 d-flex align-items-center pt-3">
                                         <select className="form-select me-2 w-50" >
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -325,7 +313,7 @@ function Shop() {
                                             <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} ><i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
                                         </div>
                                         <div>
-                                            <button className="btn btn-small-desc"><i className="fa fa-refresh me-2" style={{ color: "gray" }}></i></button>
+                                            <a className="btn btn-small-desc" href='/compare'><i className="fa fa-refresh" style={{ color: "gray" }}></i></a>
                                         </div>
                                     </div>
                                 </div>

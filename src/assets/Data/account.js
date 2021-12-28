@@ -1,3 +1,6 @@
+import cardvisa from '../images/AccountHistory/cardvisa.png';
+import cardmaster from '../images/AccountHistory/cardmaster.png';
+import cardpaypal from '../images/AccountHistory/cardpaypal.png';
 export const account = {
   acc10: [
     {
@@ -9,6 +12,17 @@ export const account = {
     {
       countryName: "514 S. Magnolia St. Orlando, FL 32806, USA",
     },
+  ],
+  acc9:[
+    {
+      cardimg:cardvisa
+    },
+    {
+      cardimg:cardmaster
+    },
+    {
+      cardimg:cardpaypal
+    }
   ],
   accOrder: [
     {
