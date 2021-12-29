@@ -8,18 +8,19 @@ import { useState, useEffect } from "react";
 import Cards from 'react-credit-cards'
 import 'react-credit-cards/es/styles-compiled.css'
 import './CheckOutDetails.css'
+import CheckoutProgressBar from "./CheckoutProgressBar";
 const Payment = ({ setForm, formData, navigation }) => {
   const { phone, email } = formData;
 
   const { previous, next } = navigation;
-   const { register, handleSubmit, formState: { errors }, reset } = useForm();
-   const onSubmit = (data) => {
-     console.log(data);
-     next()
-     reset();
-   }
- 
-  
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+    next()
+    reset();
+  }
+
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -30,31 +31,42 @@ const Payment = ({ setForm, formData, navigation }) => {
   const [cvc, setCvc] = useState('')
   const [focus, setFocus] = useState('')
 
-  const handleCardData = (e) =>{
+  const handleCardData = (e) => {
     e.preventDefault();
     const cardData = {
-      "number":number,
-      "name":name,
-      "expiry":expiry,
-      "CVC":cvc,
+      "number": number,
+      "name": name,
+      "expiry": expiry,
+      "CVC": cvc,
     }
 
     console.log(cardData)
   }
+  const { go } = navigation;
 
   return (
     <div>
       <div className="container CheckOut-Payment">
         <div className="row">
-          <div className="col-lg-8">
-            <div className='mt-5'>
+          <div className="col-lg-8 Minus-margin-ProgressBar">
+            <div className='mt-4'>
+               <div className="ProgressBardesign">
+                <ul id="progressbar" >
+                  <li className="active"><a className="btn" href="cart"><div className="mt-2 ProgressBar-Text"><i className="fa fa-shopping-cart me-2"></i>Cart</div></a></li>
+                  <li className="active"><button className="btn" onClick={() => go("details")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-user me-2" aria-hidden="true"></i>Details</div></button></li>
+                  <li className="active"><button className="btn" onClick={() => go("shipping")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-user me-2" aria-hidden="true"></i>Shipping</div></button></li>
+                  <li className="active"><button className="btn" onClick={() => go("payment")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-credit-card me-2"></i>Payment</div></button></li>
+                  <li><button className="btn" onClick={() => go("review")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-check-square me-2"></i>Review</div></button></li>
+                </ul>
+              </div> 
+              {/* <CheckoutProgressBar></CheckoutProgressBar> */}
               <h2 className="h5 pb-3 mb-2">Choose shipping method</h2>
               <Accordion defaultActiveKey='0'>
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>Pay with Credit Card</Accordion.Header>
                   <Accordion.Body>
                     <p className="fs-sm">We accept following credit cards:&nbsp;&nbsp;
-                    <img className="d-inline-block align-middle" src={CreditCardTypes} width="187" alt="Cerdit Cards" /></p>
+                      <img className="d-inline-block align-middle" src={CreditCardTypes} width="187" alt="Cerdit Cards" /></p>
                     <div className='Credit-card-design mt-4 pt-2'>
                       <Cards
                         number={number}
@@ -62,7 +74,7 @@ const Payment = ({ setForm, formData, navigation }) => {
                         expiry={expiry}
                         cvc={cvc}
                         focused={focus} />
-                      <form   onSubmit={handleCardData}>
+                      <form onSubmit={handleCardData}>
                         <div className='row mt-4'>
                           <div className='col-lg-6'>
                             <div className="form-group mb-3">
@@ -212,11 +224,11 @@ const Payment = ({ setForm, formData, navigation }) => {
                   <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Discount:</span><span className="text-end">—</span></li>
                 </ul>
                 <h3 className="fw-normal text-center my-4">$274.<small>50</small></h3>
-                
-                  <input type="text"
-                    className="form-control" autoComplete="off" placeholder="Promo code" />
-                  <button className='btn Button-Red-Border d-block w-100 mt-3'>Apply promo code</button>
-               
+
+                <input type="text"
+                  className="form-control" autoComplete="off" placeholder="Promo code" />
+                <button className='btn Button-Red-Border d-block w-100 mt-3'>Apply promo code</button>
+
               </div>
             </div>
           </div>

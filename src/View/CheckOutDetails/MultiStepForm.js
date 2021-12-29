@@ -15,8 +15,8 @@ const steps = [
 ];
 
 const defaultData = {
-  firstName: "Jane",
-  lastName: "Doe",
+  firstName: "",
+  lastName: "",
   nickName: "Jan",
   address: "200 South Main St",
   city: "Anytown",

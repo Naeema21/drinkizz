@@ -5,13 +5,33 @@ const Review = ({ setForm, formData, navigation }) => {
     const { previous, next } = navigation;
     useEffect(() => {
         window.scrollTo(0, 0)
-      }, [])
+    }, [])
+    const { go } = navigation;
+    const {
+        firstName,
+        lastName,
+        nickName,
+        address,
+        city,
+        state,
+        zip,
+        phone,
+      } = formData;
     return (
         <div className="form CheckOut-Review">
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-8">
-                        <div className='mt-5'>
+                    <div className="col-lg-8  Minus-margin-ProgressBar">
+                        <div className='mt-4'>
+                            <div className="ProgressBardesign">
+                                <ul id="progressbar" >
+                                    <li className="active"><a className="btn" href="cart"><div className="mt-2 ProgressBar-Text"><i className="fa fa-shopping-cart me-2"></i>Cart</div></a></li>
+                                    <li className="active"><button className="btn" onClick={() => go("details")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-user me-2" aria-hidden="true"></i>Details</div></button></li>
+                                    <li className="active"><button className="btn" onClick={() => go("shipping")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-user me-2" aria-hidden="true"></i>Shipping</div></button></li>
+                                    <li className="active"><button className="btn" onClick={() => go("payment")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-credit-card me-2"></i>Payment</div></button></li>
+                                    <li className="active"><button className="btn" onClick={() => go("review")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-check-square me-2"></i>Review</div></button></li>
+                                </ul>
+                            </div>
                             <h2 className="h5 pb-1">Review Your Order</h2>
                             <hr />
                             {
@@ -48,10 +68,11 @@ const Review = ({ setForm, formData, navigation }) => {
                                 <div className="col-sm-6">
                                     <h4 className="h6">Shipping to:</h4>
                                     <ul className="list-unstyled fs-sm">
-                                        <li><span className="text-muted">Client:&nbsp;</span>Susan Gardner</li>
+                                        <li><span className="text-muted">Client:&nbsp;</span></li>
                                         <li><span className="text-muted">Address:&nbsp;</span>44 Shirley Ave. West Chicago, IL 60185, USA</li>
                                         <li><span className="text-muted">Phone:&nbsp;</span>+1 (808) 764 554 330</li>
                                     </ul>
+                                    <button className="btn text-red" onClick={() => go("details")}><i class="fa fa-edit me-1"></i>Edit</button>
                                 </div>
                                 <div className="col-sm-6">
                                     <h4 className="h6">Payment method:</h4>

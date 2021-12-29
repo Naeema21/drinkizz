@@ -110,7 +110,7 @@ color: #000 !important;
 }
 
 .text-red{
-  color: #fe696a;
+  color: #fe696a !important;
 }
 .form-select:focus , .form-check-input:focus {
   outline: 0;

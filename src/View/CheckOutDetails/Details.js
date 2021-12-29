@@ -8,6 +8,8 @@ import { useEffect } from 'react';
 const Details = ({ setForm, formData, navigation }) => {
 
     const { previous, next } = navigation;
+    const { firstName, lastName } = formData;
+
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data);
@@ -17,6 +19,7 @@ const Details = ({ setForm, formData, navigation }) => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
+    const { go } = navigation;
     return (
         <div>
             <div className="container CheckOut-Details">
@@ -27,10 +30,10 @@ const Details = ({ setForm, formData, navigation }) => {
                             <div className="ProgressBardesign">
                             <ul id="progressbar" >
                                 <li className="active"><a className="btn" href="cart"><div className="mt-2 ProgressBar-Text"><i className="fa fa-shopping-cart me-2"></i>Cart</div></a></li>
-                                <li ><button className="btn" ><div className="mt-2 ProgressBar-Text"><i className="fa fa-user me-2" aria-hidden="true"></i>Details</div></button></li>
-                                <li><button className="btn"><div className="mt-2 ProgressBar-Text"><i className="fa fa-user me-2" aria-hidden="true"></i>Shipping</div></button></li>
-                                <li><button className="btn"><div className="mt-2 ProgressBar-Text"><i className="fa fa-credit-card me-2"></i>Payment</div></button></li>
-                                <li><button className="btn"><div className="mt-2 ProgressBar-Text"><i className="fa fa-check-square me-2"></i>Review</div></button></li>
+                                <li className="active"><button className="btn" onClick={() => go("details")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-user me-2" aria-hidden="true"></i>Details</div></button></li>
+                                <li><button className="btn" onClick={() => go("shipping")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-user me-2" aria-hidden="true"></i>Shipping</div></button></li>
+                                <li><button className="btn"  onClick={() => go("payment")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-credit-card me-2"></i>Payment</div></button></li>
+                                <li><button className="btn"  onClick={() => go("review")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-check-square me-2"></i>Review</div></button></li>
                             </ul>
                             </div>
                             
@@ -58,6 +61,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                         <div className="form-group mb-3">
                                             <label className='form-label'>First Name</label>
                                             <input type="text"
+                                           
                                                 {...register("firstname", {
                                                     required: true, pattern: { value: "^[A-Za-z]$", message: "please enter valid name" },
                                                     minLength: 3, maxLength: 60
@@ -70,6 +74,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                         <div className="form-group mb-3">
                                             <label className='form-label'>Last Name</label>
                                             <input type="text"
+                                           
                                                 {...register("lastname", {
                                                     required: true, pattern:
                                                         { value: "^[A-Za-z]$", message: "please enter valid name" },
@@ -200,7 +205,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                         <a className='d-block btn-Gray' href='/cart'><i className="fa fa-angle-left me-2"></i>Back to Cart</a>
                                     </div>
                                     <div className='col-lg-6'>
-                                        <button className='d-block Button-Full-Red w-100' type='submit' onClick={next}>Proceed to Shipping &nbsp;<i className="fa fa-angle-right"></i></button>
+                                        <button className='d-block Button-Full-Red w-100' type='submit'>Proceed to Shipping &nbsp;<i className="fa fa-angle-right"></i></button>
                                     </div>
                                 </div>
                             </form>

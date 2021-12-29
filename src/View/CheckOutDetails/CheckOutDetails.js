@@ -3,8 +3,9 @@ import './CheckOutDetails.css'
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 import MultiStepForm from './MultiStepForm'
 
-function CheckOutDetails() {
-   
+function CheckOutDetails(navigation) {
+    const { previous, next } = navigation;
+    const { go } = navigation;
     return (
         <>
             <div className='checkout-details'>
