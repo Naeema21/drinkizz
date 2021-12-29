@@ -58,14 +58,13 @@ useEffect(()=> {
 
     return (
         <>
-            <BreadCrumb heading='Shop grid left sidebar' BC1Link='/' breadcrumb1='Home' BC2Link='/' breadcrumb2='Shop' BC3Link='/' breadcrumb3='Grid left sidebar'/>
+            <BreadCrumb heading='Shop grid left sidebar' BC1Link='/' breadcrumb1='Home' BC2Link='/' breadcrumb2='Products' BC3Link='/' breadcrumb3='Products left sidebar'/>
             <div className='Heading-back-com3'>
                 <div className='row'>
-                    <div className='col-lg-4'></div>
-                        <div className='col-lg-8 col-md-8'>
-                            <div className='row'>
-                                <div className='d-flex align-items-center flex-nowrap me-3 me-sm-4 pb-3'>
-                                    <div className="d-flex justify-content-between align-items-center">
+                    <div className='col-lg-4 col-md-4 col-sm-4'></div>
+                        <div className='col-lg-8 col-md-8 col-sm-8'>
+                            <div className=' d-flex align-items-center flex-nowrap'>
+                                <div className="d-flex justify-content-between align-items-center">
                                     <span className="text-light fs-base mb-0 ml-4 py-4 pt-7 px-2">Sort by</span>
                                     <select className="form-select compare-crite" id="compare-criteria">
                                         <option value="all">Popularity</option>
@@ -77,7 +76,7 @@ useEffect(()=> {
                                     </select>      
                                     <span className='fs-sm text-light opacity-75 text-nowrap ms-2 d-none d-md-block'>of 287 products</span>                          
                                 </div>
-                                <div className='d-flex px-5 justify-content-end'>
+                                <div className='d-flex px-4 justify-content-end'>
                                     <Link className='nav-link-style nav-link-light text-light me-3'>
                                         <i class="fa fa-angle-left"></i>
                                     </Link>
@@ -87,10 +86,8 @@ useEffect(()=> {
                                     </Link>
                                 </div>
                              </div>
-                            
-                            </div>
                          
-                    </div>
+                        </div>
                 </div>
             </div>
 
@@ -305,7 +302,7 @@ useEffect(()=> {
                                 {/* Using Map Function to access the data & send to card */}
                                 {items.slice(0, 6).map((productdata, i) => (
                                     <div className='col-lg-4 col-md-6 col-sm-12 px-1' key={i}>
-                                        <Card category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
+                                        <Card id={productdata._id} category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
                                     </div>
                                 ))}
                             </div>
@@ -323,7 +320,7 @@ useEffect(()=> {
                                 {/* Using Map Function to access the data & send to card */}
                                 {items.slice(6, 12).map((productdata, i) => (
                                     <div className='col-lg-4 col-md-6 col-sm-12  px-1' key={i}>
-                                        <Card category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
+                                        <Card id={productdata._id} category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
                                     </div>
                                 ))}
                             </div>

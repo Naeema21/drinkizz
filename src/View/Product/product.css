@@ -198,3 +198,7 @@
     color: #4b566b;
     font-size: 15px;
 }
+/* Media Query of Product */
+@media screen and (min-width:320px) and (max-width:767px) {
+  .shoplistbox { margin-top: 0px;} 
+}
