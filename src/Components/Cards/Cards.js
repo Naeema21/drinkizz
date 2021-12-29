@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import './Cards.css'
 import { Link } from 'react-router-dom';
 import axios from "axios";
-import Alert from '../Alert/Alert';
+import swal from 'sweetalert';
 
 const Cards = React.memo((props) => {
 //POST data for Add to card
 const [showDangerAlert, setshowDangerAlert] = useState(false);
 
+// const[deleteId , setDeleteId]=useState();
 
     const data = { name:props.name, category :props.category,price:props.price,size :1,quantity:1,image:props.imgsrc};
     const handleSubmit = () => {
@@ -15,15 +16,17 @@ const [showDangerAlert, setshowDangerAlert] = useState(false);
     .then(response => {
         console.log("Status: ", response.status);
         console.log("Data: ", response.data); 
-
-        if(response.status === 201){
-            setshowDangerAlert(true);  
-            const timeId = setTimeout(() => setshowDangerAlert(true), 90)
-            return () => clearTimeout(timeId) 
-        }  
-        else{
-            setshowDangerAlert(false);  
-        }              
+        if (response.status === 201) {
+            swal({
+                title:response.data.message,
+                timer:2000,
+            })
+        } else {
+            swal({
+                title: "Try Again!",
+            })          
+        }
+                    
     }).catch(error => {
         console.error('Something went wrong!', error);
     });
@@ -34,16 +37,23 @@ const [showDangerAlert, setshowDangerAlert] = useState(false);
         axios.post(`https://daruwale.herokuapp.com/public/wishlist/${props.id}`, data2)
         .then(response => {
             console.log("Status: ", response.status);
-            console.log("Data: ", response.data);         
+            console.log("Data: ", response.data); 
+            if (response.status === 201) {
+                swal({
+                    title:response.data.message,
+                    timer:2000,
+                })
+            } else {
+                swal({
+                    title: "Try Again!",
+                })          
+            }        
         }).catch(error => {
             console.error('Something went wrong!', error);
         });
         }
     return (
-        <>    
-        {
-            showDangerAlert ? <Alert variant="black" /> : ""
-        }
+        <> 
             <div className='card product-card mt-3 mb-3'>
                 <div className='pro-compare d-flex align-items-center'>
                     <Link to='/compare' className='btn-compare me-2'><i className="fa fa-refresh px-1"></i>Compare</Link>
