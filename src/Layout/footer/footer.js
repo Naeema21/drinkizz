@@ -161,7 +161,7 @@ const Footer = () => {
                         <div className="container">
                             <div className="row pb-3">
                                 <div className="col-sm-6 col-md-3 col-lg-3 mb-4">
-                                    <div className="d-flex"><i className="fa fa-rocket text-orange"></i>
+                                    <div className="d-flex align-items-center"><i className="fa fa-rocket text-orange"></i>
                                         <div className="ps-3">
                                             <h6 className="fs-base text-light mb-1">Fast and free delivery</h6>
                                             <p className="mb-0 fs-ms text-light opacity-50">Free delivery for all orders over $200</p>
@@ -169,7 +169,7 @@ const Footer = () => {
                                     </div>
                                 </div>
                                 <div className="col-sm-6 col-md-3 col-lg-3 mb-4">
-                                    <div className="d-flex"><i className="fa fa-money text-orange"></i>
+                                    <div className="d-flex align-items-center"><i className="fa fa-money text-orange"></i>
                                         <div className="ps-3">
                                             <h6 className="fs-base text-light mb-1">Money back guarantee</h6>
                                             <p className="mb-0 fs-ms text-light opacity-50">We return money within 30 days</p>
@@ -177,7 +177,7 @@ const Footer = () => {
                                     </div>
                                 </div>
                                 <div className="col-sm-6 col-md-3 col-lg-3 mb-4">
-                                    <div className="d-flex"><i className="fa fa-headphones text-orange"></i>
+                                    <div className="d-flex align-items-center"><i className="fa fa-headphones text-orange"></i>
                                         <div className="ps-3">
                                             <h6 className="fs-base text-light mb-1">24/7 customer support</h6>
                                             <p className="mb-0 fs-ms text-light opacity-50">Friendly 24/7 customer support</p>
@@ -185,7 +185,7 @@ const Footer = () => {
                                     </div>
                                 </div>
                                 <div className="col-sm-6 col-md-3 col-lg-3 mb-4">
-                                    <div className="d-flex"><i className="fa fa-support text-orange"></i>
+                                    <div className="d-flex align-items-center"><i className="fa fa-support text-orange"></i>
                                         <div className="ps-3">
                                             <h6 className="fs-base text-light mb-1">Fast and free delivery</h6>
                                             <p className="mb-0 fs-ms text-light opacity-50">Free delivery for all orders over $200</p>
