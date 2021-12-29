@@ -47,7 +47,7 @@ const Account_Orders_History =()=>{
         </div>
         </div>  col-4 pt-4 pt-lg-0 pe-xl-5*/}
      <div className='Account-Order-History'>
-           <div className='container-fluid pb-5 mb-2 mb-md-4'>
+           <div className='container pb-5 mb-2 mb-md-4'>
                     {/* sidebar  onSelect={handleSelect()} */}
                     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                             <Row>

@@ -87,38 +87,3 @@
 cursor: pointer;
 }
 
-/* Alert Cart Delete Item */
- .swal-overlay--show-modal .swal-modal {
-    color: white;
- 
-}
- .swal-modal {
-    color: white !important;
-    width: 400px;
-    height: 60px;
-    background-color: #282828 !important;
-    /* position: static; */
-    margin: 20px auto;
-       vertical-align: bottom;
-}
-.swal-title {
-    color: rgb(255 255 255 / 65%);
-    font-weight: 400;
-    position: relative;
-    display: block;
-    padding: 0px 0px;
-    font-size: 22px;
-    margin-bottom: 0;
-}
- .swal-title:first-child {
-    margin-top: 14px;
-}
- .swal-title:not(:last-child) {
-    margin-bottom: 13px;
-}
- .swal-footer {
-    display: none;
-}
-.swal-overlay {
-     background-color: transparent;
-}

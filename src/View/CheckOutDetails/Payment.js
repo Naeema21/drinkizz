@@ -108,6 +108,7 @@ const Payment = ({ setForm, formData, navigation }) => {
                               <input type="number"
                                 name="expiry"
                                 placeholder="MM/YY"
+                                minLength={4}
                                 maxLength={4}
                                 value={expiry}
                                 onChange={e => setExpiry(e.target.value)}
@@ -120,6 +121,7 @@ const Payment = ({ setForm, formData, navigation }) => {
                             <input type="text"
                               name="cvc"
                               placeholder="CVC"
+                              maxLength={3}
                               value={cvc}
                               onChange={e => setCvc(e.target.value)}
                               onFocus={e => setFocus(e.target.name)}
