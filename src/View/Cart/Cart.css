@@ -80,6 +80,9 @@
         justify-content: center;
     }
 }
-a{
+.Cart-list a{
     text-decoration: none !important;
+}
+.Cart-list-item .remove-link{
+cursor: pointer;
 }

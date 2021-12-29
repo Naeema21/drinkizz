@@ -56,7 +56,7 @@ const Cart = () => {
                             Data.slice(0, 4).map((v, i) => {
                                 return (
                                     <div key={i}>
-                                        <div className='d-flex row Cart-list-item'>
+                                        <div className='d-flex row Cart-list-item align-items-center'>
                                             <div className='d-flex align-items-center col-lg-3 col-md-3 col-sm-3 col-xs-3 Cart-list-item-img'>
                                                 <div className='p-3'>
                                                     <img src={v.image} className='img-fluid'
@@ -65,9 +65,11 @@ const Cart = () => {
                                             </div>
                                                 <div className='product-desc col-lg-7 col-md-7 col-sm-7 col-xs-6'><a href='/product-details'>
                                                     <h6 className='title-text-color'>{v.name}</h6>
-                                                    <span className='text-muted'>Size: {v.size}</span><br />
+                                                    {/* <span className='text-muted'>Size: {v.size}</span> */}
+                                                    <span className='text-muted'>Category: {v.category}</span>
+                                                    <br />
                                                     <span className='text-muted'>Color: Black</span>
-                                                    <p className='text-indigo fs-lg'>{v.price}</p>
+                                                    <p className='text-indigo fs-lg'>${v.price}</p>
                                                     </a></div>
                                             
                                             <div className='col-lg-2 col-md-2 col-sm-2 col-xs-3'>
