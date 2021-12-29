@@ -86,6 +86,7 @@ font-size: 15px;
     width: 350px !important;
 }
 
+
 /* /////////////Submit order/////////////// */
 .Align-thankYou{
     margin-top: -212px !important;
@@ -232,4 +233,11 @@ font-size: 15px;
     display: inline-block;
     font-weight: 400;
     background-color: transparent;
+}
+/* //////////////////review/////////////// */
+.CheckOut-Review .text-red{
+    cursor: pointer;
+}
+.CheckOut-Review a{
+    text-decoration: none;
 }
