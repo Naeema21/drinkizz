@@ -13,17 +13,12 @@ const Payment = ({ setForm, formData, navigation }) => {
 
   const { previous, next } = navigation;
    const { register, handleSubmit, formState: { errors }, reset } = useForm();
-   const onSubmit = () => {
-     console.log(account);
+   const onSubmit = (data) => {
+     console.log(data);
      next()
      reset();
    }
-  let [account, setAccount] = useState({
-    number: '',
-    name: '',
-    expiry: '',
-    cvc:''
-  });
+ 
   
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -34,6 +29,18 @@ const Payment = ({ setForm, formData, navigation }) => {
   const [expiry, setExpiry] = useState('')
   const [cvc, setCvc] = useState('')
   const [focus, setFocus] = useState('')
+
+  const handleCardData = (e) =>{
+    e.preventDefault();
+    const cardData = {
+      "number":number,
+      "name":name,
+      "expiry":expiry,
+      "CVC":cvc,
+    }
+
+    console.log(cardData)
+  }
 
   return (
     <div>
@@ -46,7 +53,8 @@ const Payment = ({ setForm, formData, navigation }) => {
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>Pay with Credit Card</Accordion.Header>
                   <Accordion.Body>
-                    <p className="fs-sm">We accept following credit cards:&nbsp;&nbsp;<img className="d-inline-block align-middle" src={CreditCardTypes} width="187" alt="Cerdit Cards" /></p>
+                    <p className="fs-sm">We accept following credit cards:&nbsp;&nbsp;
+                    <img className="d-inline-block align-middle" src={CreditCardTypes} width="187" alt="Cerdit Cards" /></p>
                     <div className='Credit-card-design mt-4 pt-2'>
                       <Cards
                         number={number}
@@ -54,18 +62,19 @@ const Payment = ({ setForm, formData, navigation }) => {
                         expiry={expiry}
                         cvc={cvc}
                         focused={focus} />
-                      <form  action="">
+                      <form   onSubmit={handleCardData}>
                         <div className='row mt-4'>
                           <div className='col-lg-6'>
                             <div className="form-group mb-3">
-                              <input type="tel"
+                              <input type="text"
                                 name="number"
                                 placeholder="Card Number"
+                                minLength={16}
+                                maxLength={16}
                                 value={number}
                                 onChange={e => setNumber(e.target.value)}
                                 onFocus={e => setFocus(e.target.name)}
                                 className="form-control" />
-
                             </div>
                           </div>
                           <div className='col-lg-6'>
@@ -84,9 +93,10 @@ const Payment = ({ setForm, formData, navigation }) => {
                         <div className='row'>
                           <div className='col-lg-3'>
                             <div className="form-group mb-3">
-                              <input type="text"
+                              <input type="number"
                                 name="expiry"
                                 placeholder="MM/YY"
+                                maxLength={4}
                                 value={expiry}
                                 onChange={e => setExpiry(e.target.value)}
                                 onFocus={e => setFocus(e.target.name)}
@@ -95,7 +105,7 @@ const Payment = ({ setForm, formData, navigation }) => {
                             </div>
                           </div>
                           <div className='col-lg-3'>
-                            <input type="tel"
+                            <input type="text"
                               name="cvc"
                               placeholder="CVC"
                               value={cvc}
@@ -104,7 +114,7 @@ const Payment = ({ setForm, formData, navigation }) => {
                               className="form-control" />
                           </div>
                           <div className='col-lg-6'>
-                            <button className='btn d-block Button-Red-Border w-100' type="submit" onClick={onSubmit}>Submit</button>
+                            <button className='btn d-block Button-Red-Border w-100' type="submit" >Submit</button>
                           </div>
                         </div>
                       </form>
@@ -129,17 +139,17 @@ const Payment = ({ setForm, formData, navigation }) => {
                         <div className='col-lg-6'>
                           <div className="form-group mb-3">
 
-                            <input type="email"
+                            <input type="password"
                               autoComplete="off"
-                              {...register("email", { required: true })}
+                              {...register("password", { required: true })}
                               className="form-control" placeholder='Password' />
-                            <span className="error-msg" title="invalid email address">{errors.email && "please provide valid e-mail address."}</span>
+                            <span className="error-msg" title="invalid password">{errors.password && "please provide valid password"}</span>
                           </div>
                         </div>
                       </div>
                       <div className='row d-flex align-items-center'>
                         <div className='col-lg-6'>
-                          <label className='text-muted'>Forgot Password ?</label>
+                          <a className='text-muted'>Forgot Password ?</a>
                         </div>
                         <div className='col-lg-6 d-flex justify-content-end'>
                           <button className='Button-Full-Red'>Log in</button>
