@@ -43,9 +43,10 @@ const SignIn = () => {
                             </div>
                             <div className="mb-3 d-flex flex-wrap justify-content-between">
                                 <div className="form-check mb-2">
-                                    <input className="form-check-input sinupform" type="checkbox" />
+                                    <input className="form-check-input sinupform" type="checkbox"/>
                                     <label className="form-check-label">Remember me</label>
-                                </div><a className="signup-forgot" href="#">Forgot password?</a>
+                                </div>
+                                <a className="signup-forgot" href="#">Forgot password?</a>
                             </div>
                             <button className="btn btn-primary btn-shadow d-block w-100 compare-btn-signup" type="submit">Sign in</button>
                         </form>

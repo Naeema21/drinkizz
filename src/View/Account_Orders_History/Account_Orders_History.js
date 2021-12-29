@@ -1,65 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 import './Account_Orders_History.css';
 import { useForm } from "react-hook-form";
 import { products } from '../../assets/Data/product';
-import { account } from '../../assets/Data/account';
+//import { account } from '../../assets/Data/account';
 import { Nav, Row, Col,Tab, ModalFooter, ModalBody } from "react-bootstrap";
-import { Modal } from 'react-bootstrap';
 import profile from '../../assets/images/AccountHistory/profile.png';
-// images payment
-import cardvisa from '../../assets/images/AccountHistory/cardvisa.png';
-import cardpaypal from '../../assets/images/AccountHistory/cardpaypal.png';
-import cardmaster from '../../assets/images/AccountHistory/cardmaster.png';
+import Wishlist from './Wishlist';
+import Support from './Support';
+import Address from './Address';
+import PaymentMethods from './PaymentMethods';
 const Account_Orders_History =()=>{
     // payments modal
     const { register, handleSubmit } = useForm();
-    const onPayment = data => console.log(data);
-    const onProfile = data => console.log(data);
-    const onSupport = data => console.log(data);
-    const onAddress = data => console.log(data);
-    // modal functionality close
-    const handleClose = () => setLgShow(false);
-    // modal for support ticket
-    const [lgShow, setLgShow] = useState(false);
-    // modal for payment method  
-    const [lgShowpay, setLgShowPay] = useState(false);
-    //modal for Address Method
-    const [lgShowAddress,setLgShowAddress]=useState(false);
-    //tab container onclick
-    const [key,setKey]=useState({key:''});
-    const handleSelect=(key)=>{
-        if (key === 'first')
-         {
-            setKey({ heading: "account-orders" })
-            console.log('account-orders', key)
-         }
-         if(key === 'second')
-         {
-            setKey({ heading: "account-wishlist" })
-            console.log('account-wishlist', key)
-         }
-         if(key === 'third')
-         {
-            setKey({ heading: "account-tickets" })
-            console.log('account-tickets', key);
-         }
-         if(key === 'fourth')
-         {
-            setKey({heading:"account-profile"})
-             console.log('account-profile',key);
-         }
-         if(key === 'fifth' )
-         {
-            setKey({heading:"account-address"})
-             console.log('account-address', key);
-         }
-         if(key === 'sixth')
-         {
-            setKey({heading:"account-payment"})
-             console.log('account-payment', key);
-         }
-    }
+    const onProfile = data => console.log(data); 
  return(
      <>
      <BreadCrumb heading='My addresses' BC1Link='/' breadcrumb1='Home' BC2Link='/' breadcrumb2='Account' BC3Link='/' breadcrumb3='Addressess'/>
@@ -68,16 +22,16 @@ const Account_Orders_History =()=>{
          <div className='col-lg-4'></div>
          <div className='col-lg-8'>
                     <div className="d-flex justify-content-between align-items-center px-4 mb-4">
-                                <h6 className="text-light fs-base mb-0 ml-4 pt-4 mt-1 ListSort">List of your registered addresses:</h6>
-                                <a className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" href="#"><i className="fa fa-sign-out me-2"></i>Sign out</a>
-                                </div>
+                        <h6 className="text-light fs-base mb-0 ml-4 pt-4 mt-1 ListSort">List of your registered addresses:</h6>
+                        <a className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" href="#"><i className="fa fa-sign-out me-2"></i>Sign out</a>
                     </div>
+        </div>
                     </div>
         </div>
      <div className='Account-Order-History'>
            <div className='container-fluid pb-5 mb-2 mb-md-4'>
-                    {/* sidebar */}
-                    <Tab.Container id="left-tabs-example" defaultActiveKey="first" onSelect={handleSelect()}>
+                    {/* sidebar  onSelect={handleSelect()} */}
+                    <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                             <Row>
                                 <Col lg={4} className="pt-4 pt-lg-0 pe-xl-5 profile-col-sidebar">
                                     <div className="bg-white rounded-3 shadow-lg pt-1 mb-5 mb-lg-0">
@@ -100,7 +54,7 @@ const Account_Orders_History =()=>{
                                         <Nav variant="pills" className="flex-column">
                                             <ul>
                                                 <Nav.Item>
-                                                    <Nav.Link eventKey="first" title="account-orders">
+                                                    <Nav.Link eventKey="first" title="account-orders" href="#account-orders">
                                                         <li className="sidebar-li">
                                                             <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                             <i className="fa fa-shopping-bag me-2"></i>Orders<span className="text-muted ms-auto">1</span>
@@ -109,7 +63,7 @@ const Account_Orders_History =()=>{
                                                     </Nav.Link>
                                                 </Nav.Item>
                                                 <Nav.Item>
-                                                    <Nav.Link eventKey="second" title='account-wishlist'>
+                                                    <Nav.Link eventKey="second" title='account-wishlist' href="#account-wishlist">
                                                         <li className="sidebar-li">
                                                             <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                             <i className="fa fa-heart-o me-2"></i>Wishlist<span className="text-muted ms-auto">3</span>
@@ -118,7 +72,7 @@ const Account_Orders_History =()=>{
                                                     </Nav.Link>
                                                 </Nav.Item>
                                                 <Nav.Item>
-                                                    <Nav.Link eventKey="third" title='account-tickets'>
+                                                    <Nav.Link eventKey="third" title='account-tickets' href="#account-tickets">
                                                         <li className="sidebar-li">
                                                         <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                                 <i className="fa fa-life-ring me-2"></i>Support tickets<span className="text-muted ms-auto"></span>
@@ -132,7 +86,7 @@ const Account_Orders_History =()=>{
                                             </div>
                                              <ul>
                                                 <Nav.Item>
-                                                    <Nav.Link eventKey="fourth" title='account-profile'>
+                                                    <Nav.Link eventKey="fourth" title='account-profile' href="#account-profile">
                                                         <li className="sidebar-li">
                                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                                     <i className="fa fa-user-o me-2"></i>Profile info<span className="text-muted ms-auto"></span>
@@ -141,7 +95,7 @@ const Account_Orders_History =()=>{
                                                     </Nav.Link>
                                                 </Nav.Item>
                                                 <Nav.Item>
-                                                    <Nav.Link eventKey="fifth" title='account-address'>
+                                                    <Nav.Link eventKey="fifth" title='account-address' href="#account-address">
                                                         <li className="sidebar-li">
                                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                                 <i className="fa fa-map-marker me-2"></i>Addresses<span className="text-muted ms-auto"></span>
@@ -150,7 +104,7 @@ const Account_Orders_History =()=>{
                                                     </Nav.Link>
                                                 </Nav.Item>
                                                 <Nav.Item>
-                                                    <Nav.Link eventKey="sixth" title='account-payment'>
+                                                    <Nav.Link eventKey="sixth" title='account-payment' href="#account-payment">
                                                         <li className="sidebar-li">
                                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                                 <i className="fa fa-credit-card me-2"></i>Payment methods<span className="text-muted ms-auto"></span>
@@ -163,7 +117,7 @@ const Account_Orders_History =()=>{
                                     </div>
                                 </div> 
                             </Col>
-                            <Col sm={12} lg={8}>
+                            <Col sm={12} lg={8}>    
                                 <Tab.Content>
                                         <Tab.Pane eventKey="first"> 
                                                  {/* Orders list */}
@@ -239,136 +193,11 @@ const Account_Orders_History =()=>{
                                             </Tab.Pane>
                                             {/* WishList */}
                                             <Tab.Pane eventKey="second">
-                                            <div className='container'>
-                                            {
-                                                products.slice(0,3).map((productdata,i)=>{
-                                                    return(
-                                                    <div className='row'>
-                                                    <div className="d-sm-flex justify-content-between mt-lg-4 mb-4 pb-3 pb-sm-2">
-                                                            <div className='col-lg-4'>
-                                                                <div className='d-block d-sm-flex align-items-start text-center text-sm-start'>
-                                                                    <img className="wishlist-img" src={productdata.imgsrc} alt="Product"/>
-                                                                </div>   
-                                                                </div>
-                                                            <div className='col-lg-6'>
-                                                                <div className='d-block d-sm-flex align-items-start text-center text-sm-start'>
-                                                                <div className="pt-2 product-order-wishlist">
-                                                                <h3 className="text-dark font-weight-bold fs-base text-sm-start mb-2">{productdata.category}</h3>
-                                                                <div className="fs-sm"><span className="text-muted me-2">Brand:</span>Tommy Hilfiger</div>
-                                                                <div className="fs-sm"><span className="text-muted me-2">Color:</span>Khaki</div>
-                                                                <div className="fs-lg text-accent pt-2 text-primary fw-bold">$79.<small>50</small></div>
-                                                                </div>
-                                                                </div>
-                                                            </div>
-                                                            <div className='col-lg-2'>
-                                                                <div className='d-block d-sm-flex align-items-start text-center text-sm-start trash-wishlist'>
-                                                                        <button className="btn btn-outline-danger btn-sm" type="button"><i className="fa fa-trash me-2"></i>Remove</button>
-                                                                </div>
-                                                            </div>
-                                                    </div>
-                                                    <hr style={{"width":"100%","textalign":"left","marginleft":"0"}}></hr>
-                                                    </div>
-                                                      )
-                                                    })
-                                                 }
-                                            </div>
+                                                <Wishlist/>
                                             </Tab.Pane>
-                                            {/*Support Ticket*/}
+                                            {/* Support Ticket */}
                                             <Tab.Pane eventKey="third">
-                                              <div className="table-responsive mb-4">
-                                                  <table className="table table-hover mb-0">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Ticket Subject</th>
-                                                        <th>Date Submitted | Updated</th>
-                                                        <th>Type</th>
-                                                        <th>Priority</th>
-                                                        <th>Status</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr>
-                                                        <td className="py-3"><a className="nav-link-style text-dark fw-bold" href="#">My new ticket</a></td>
-                                                        <td className="py-3">09/27/2019 | 09/30/2019</td>
-                                                        <td className="py-3">Website problem</td>
-                                                        <td className="py-3"><span className="badge bg-warning m-0 px-2">High</span></td>
-                                                        <td className="py-3"><span className="badge bg-success bg-lighten-xl m-0 px-2">Open</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td className="py-3"><a className="nav-link-style text-dark fw-bold" href="#">Another ticket</a></td>
-                                                        <td className="py-3">08/21/2019 | 08/23/2019</td>
-                                                        <td className="py-3">Partner request</td>
-                                                        <td className="py-3"><span className="badge bg-info m-0 px-2">Medium</span></td>
-                                                        <td className="py-3"><span className="badge bg-secondary m-0 px-2 text-dark">Closed</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td className="py-3"><a className="nav-link-style text-dark fw-bold" href="#">Yet another ticket</a></td>
-                                                        <td className="py-3">11/19/2018 | 11/20/2018</td>
-                                                        <td className="py-3">Complaint</td>
-                                                        <td className="py-3"><span className="badge bg-danger m-0 px-2">Urgent</span></td>
-                                                        <td className="py-3"><span className="badge bg-secondary m-0 px-2 text-dark">Closed</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td className="py-3"><a className="nav-link-style text-dark fw-bold" href="#">My old ticket</a></td>
-                                                        <td className="py-3">06/19/2018 | 06/20/2018</td>
-                                                        <td className="py-3">Info inquiry</td>
-                                                        <td className="py-3"><span className="badge bg-success bg-lighten-xl m-0 px-2">Low</span></td>
-                                                        <td className="py-3"><span className="badge bg-secondary bg-lighten-xl m-0 px-2 text-dark">Closed</span></td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                                <div className="text-end pt-4">
-                                                    <button className="Button-Red-Border Button-Full-Red text-light" onClick={() => setLgShow(true)}>Submit new ticket</button>
-                                                </div>
-                                                </div>
-                                                <Modal centered size="lg" show={lgShow} onHide={() => setLgShow(false)} className="order-details"
-                                                    aria-labelledby="example-modal-sizes-title-lg">
-                                                        <Modal.Header closeButton className='bg-light'>
-                                                            <Modal.Title id="example-modal-sizes-title-lg" className='py-1 ml-4'>
-                                                            Submit new ticket
-                                                            </Modal.Title>
-                                                        </Modal.Header>
-                                                        <Modal.Body>
-                                                        <form autoComplete='off' onSubmit={handleSubmit(onSupport)}>
-                                                            <p className="text-muted fs-sm">We normally respond tickets within 2 business days.</p>
-                                                            <div className="row gx-4 gy-3">
-                                                                <div className="col-12">
-                                                                <input className="form-control" type="text" {...register("subject")}/>
-                                                                <label>Subject</label>
-                                                                <div className="invalid-feedback">Please fill in the subject line!</div>
-                                                                </div>
-                                                                <div className="col-sm-6">
-                                                                <select className="form-select form-control" {...register("choose type")}>
-                                                                    <option value="">Choose type</option>
-                                                                    <option value="Website problem">Website problem</option>
-                                                                    <option value="Partner request">Partner request</option>
-                                                                    <option value="Complaint">Complaint</option>
-                                                                    <option value="Info inquiry">Info inquiry</option>
-                                                                </select>
-                                                                </div>
-                                                                <div className="col-sm-6">
-                                                                <select className="form-select form-control" {...register("issue")}>
-                                                                    <option value="">How urgent is your issue?</option>
-                                                                    <option value="Urgent">Urgent</option>
-                                                                    <option value="High">High</option>
-                                                                    <option value="Medium">Medium</option>
-                                                                    <option value="Low">Low</option>
-                                                                </select>
-                                                                </div>
-                                                                <div className="col-12">
-                                                                <textarea className="form-control bg-light" rows="8" {...register("message")}></textarea>
-                                                                </div>
-                                                                <div className="col-12">
-                                                                <input className="form-control" type="file" {...register("file")}/>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                        </Modal.Body>
-                                                        <ModalFooter>
-                                                        <button className="btn btn-secondary" type="button" onClick={handleClose}>Close</button>
-                                                        <button className="Button-Red-Border Button-Full-Red text-light" type="submit">Submit Ticket</button>
-                                                        </ModalFooter>
-                                                </Modal>
+                                                <Support/>
                                             </Tab.Pane>
                                             {/* Profile Info */}
                                             <Tab.Pane eventKey="fourth">
@@ -406,18 +235,12 @@ const Account_Orders_History =()=>{
                                                 <label className="form-label">New Password</label>
                                                 <div className="">
                                                     <input className="form-control" type="password" {...register("password",{ required: "Please enter your password.",pattern:"(?=.*/d)(?=.*[a-z])(?=.*[A-Z]).{8,}" })}/>
-                                                    <label className="">
-                                                    <input className="" type="checkbox"/>
-                                                    </label>
                                                 </div>
                                                 </div>
                                                 <div className="col-lg-6">
                                                 <label className="form-label">Confirm Password</label>
                                                 <div>
                                                     <input className="form-control" type="password" {...register("confirmpassword",{ required: "Please enter your password.",pattern:"(?=.*/d)(?=.*[a-z])(?=.*[A-Z]).{8,}" })}/>
-                                                    <label>
-                                                    <input type="checkbox"/>
-                                                    </label>
                                                 </div>
                                                 </div>
                                                 <div className="col-12">
@@ -436,218 +259,11 @@ const Account_Orders_History =()=>{
                                             </Tab.Pane>
                                             {/* Addressess */}
                                             <Tab.Pane eventKey="fifth">
-                                            <div className="table-responsive fs-md">
-                                            <table className="table table-hover mb-0">
-                                                <thead>
-                                                <tr>
-                                                    <th>Address</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                             
-                                                     <tr>
-                                                                    <td className="py-3 align-middle">396 Lillian Blvd, Holbrook, NY 11741, USA<span className="align-middle badge bg-info ms-2">Primary</span></td>
-                                                                    <td className="py-3 align-middle">
-                                                                        <a className="text-muted me-2 py-3" href="#"><i className="fa fa-edit"></i></a>
-                                                                        <a className="text-danger py-3 ml-2" href="#">
-                                                                            <div className="fa fa-trash"></div>
-                                                                        </a>
-                                                                    </td>
-                                                    </tr>
-                                                    <tr>
-                                                                    <td className="py-3 align-middle">769, Industrial, West Chicago, IL 60185, USA</td>
-                                                                    <td className="py-3 align-middle">
-                                                                        <a className="text-muted me-2 py-3" href="#"><i className="fa fa-edit"></i></a>
-                                                                        <a className="text-danger py-3 ml-2" href="#">
-                                                                            <div className="fa fa-trash"></div>
-                                                                        </a>
-                                                                    </td>
-                                                    </tr>
-                                                    <tr>
-                                                                    <td className="py-3 align-middle">514 S. Magnolia St. Orlando, FL 32806, USA</td>
-                                                                    <td className="py-3 align-middle">
-                                                                        <a className="text-muted me-2 py-3" href="#"><i className="fa fa-edit"></i></a>
-                                                                        <a className="text-danger py-3 ml-2" href="#">
-                                                                            <div className="fa fa-trash"></div>
-                                                                        </a>
-                                                                    </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <div className="text-sm-end pt-4"><button className='Button-Red-Border Button-Full-Red text-light' onClick={() => setLgShowAddress(true)}>Add new address</button></div>
-                                            <Modal centered size="lg" show={lgShowAddress} onHide={() => setLgShowAddress(false)} className="order-details"
-                                                    aria-labelledby="example-modal-sizes-title-lg">
-                                                        <Modal.Header closeButton className='bg-light'>
-                                                            <Modal.Title id="example-modal-sizes-title-lg" className='py-1 ml-4'>
-                                                            Add a new address
-                                                            </Modal.Title>
-                                                        </Modal.Header>
-                                                        <Modal.Body>
-                                                        <form autoComplete='off' onSubmit={handleSubmit(onAddress)}>
-                                                            <div className="row gx-4 gy-3">
-                                                                <div className="col-sm-6">
-                                                                <label className="form-label">First name</label>
-                                                                <input className="form-control" type="text" {...register("fname")}/>
-                                                                <div className="invalid-feedback">Please fill in you first name!</div>
-                                                                </div>
-                                                                <div className="col-sm-6">
-                                                                <label className="form-label">Last name</label>
-                                                                <input className="form-control" type="text" {...register("lname")}/>
-                                                                <div className="invalid-feedback">Please fill in you last name!</div>
-                                                                </div>
-                                                                <div className="col-sm-6">
-                                                                <label className="form-label">Company</label>
-                                                                <input className="form-control" type="text" {...register("company")}/>
-                                                                </div>
-                                                                <div className="col-sm-6">
-                                                                <label className="form-label">Country</label>
-                                                                <select className="form-select form-control" {...register("country")}>
-                                                                    <option value="">Select country</option>
-                                                                    <option value="Argentina">Argentina</option>
-                                                                    <option value="Belgium">Belgium</option>
-                                                                    <option value="France">France</option>
-                                                                    <option value="Germany">Germany</option>
-                                                                    <option value="Spain">Spain</option>
-                                                                    <option value="UK">United Kingdom</option>
-                                                                    <option value="USA">USA</option>
-                                                                </select>
-                                                                <div className="invalid-feedback">Please select your country!</div>
-                                                                </div>
-                                                                <div className="col-sm-6">
-                                                                <label className="form-label">City</label>
-                                                                <input className="form-control" {...register("city",{ required: "Please fill in your city!." })}/>
-                                                                </div>
-                                                                <div className="col-sm-6">
-                                                                <label className="form-label">Line 1</label>
-                                                                <input className="form-control" type="text" {...register("addressL1",{ required: "Please fill in your address!." })}/>
-                                                                </div>
-                                                                <div className="col-sm-6">
-                                                                <label className="form-label">Line 2</label>
-                                                                <input className="form-control" {...register("addressL2")}/>
-                                                                </div>
-                                                                <div className="col-sm-6">
-                                                                <label className="form-label">ZIP code</label>
-                                                                <input className="form-control" type="text" {...register("zipcode",{ required: "Please add your ZIP code!." ,maxLength:6})}/>
-                                                                </div>
-                                                                <div className="col-12">
-                                                                <div className="form-check">
-                                                                    <input className="form-check-input" type="checkbox" {...register("primary_address",{ required: "Make this address primary."})}/>
-                                                                </div>
-                                                                </div>
-                                                            </div>
-                                                            </form>
-                                                        </Modal.Body>
-                                                        <ModalFooter>
-                                                        <button className="btn btn-secondary" type="button" onClick={handleClose}>Close</button>
-                                                        <button className="Button-Red-Border Button-Full-Red text-light" type="submit">Add address</button>
-                                                        </ModalFooter>
-                                            </Modal>
-                                            </div>
+                                                <Address/>
                                             </Tab.Pane>
                                             {/* Payment Methods */}
                                             <Tab.Pane eventKey="sixth">
-                                            <div className="table-responsive fs-md mb-4">
-                                                <table className="table table-hover mb-0">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Your credit / debit cards</th>
-                                                        <th>Name on card</th>
-                                                        <th>Expires on</th>
-                                                        <th></th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                                <tr>
-                                                                    <td className="py-3 align-middle">
-                                                                    <div className="d-flex align-items-center">
-                                                                        <img className="profiletab-img-card" src={cardvisa}/>
-                                                                        <div className="ps-2"><span className="text-heading me-1">Visa</span>ending in 4999<span className="align-middle bg-info badge ms-2 px-2">Primary</span></div>
-                                                                    </div>
-                                                                    </td>
-                                                                    <td className="py-3 align-middle">Susan Gardner</td>
-                                                                    <td className="py-3 align-middle">08 / 2019</td>
-                                                                    <td className="py-3 align-middle">
-                                                                        <a className="text-muted me-2" href="#"><div className="fa fa-edit"></div></a>
-                                                                        <a className="text-danger" href="#">
-                                                                            <div className="fa fa-trash"></div>
-                                                                        </a>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td className="py-3 align-middle">
-                                                                    <div className="d-flex align-items-center">
-                                                                        <img className="profiletab-img-card" src={cardmaster}/>
-                                                                        <div className="ps-2"><span className="text-heading me-1">Visa</span>ending in 4999</div>
-                                                                    </div>
-                                                                    </td>
-                                                                    <td className="py-3 align-middle">Susan Gardner</td>
-                                                                    <td className="py-3 align-middle">08 / 2019</td>
-                                                                    <td className="py-3 align-middle">
-                                                                        <a className="text-muted me-2" href="#"><div className="fa fa-edit"></div></a>
-                                                                        <a className="text-danger" href="#">
-                                                                            <div className="fa fa-trash"></div>
-                                                                        </a>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td className="py-3 align-middle">
-                                                                    <div className="d-flex align-items-center">
-                                                                        <img className="profiletab-img-card" src={cardpaypal}/>
-                                                                        <div className="ps-2"><span className="text-heading me-1">Visa</span>ending in 4999</div>
-                                                                    </div>
-                                                                    </td>
-                                                                    <td className="py-3 align-middle">Susan Gardner</td>
-                                                                    <td className="py-3 align-middle">08 / 2019</td>
-                                                                    <td className="py-3 align-middle">
-                                                                        <a className="text-muted me-2" href="#"><div className="fa fa-edit"></div></a>
-                                                                        <a className="text-danger" href="#">
-                                                                            <div className="fa fa-trash"></div>
-                                                                        </a>
-                                                                    </td>
-                                                                </tr>
-                                                    </tbody>
-                                                </table>
-                                                </div>
-                                                <div className="text-sm-end"><button className="Button-Red-Border Button-Full-Red text-light" onClick={() => setLgShowPay(true)}>Add payment method</button></div>
-                                                <Modal centered size="lg" show={lgShowpay} onHide={() => setLgShowPay(false)} className="order-details"
-                                                    aria-labelledby="example-modal-sizes-title-lg">
-                                                        <Modal.Header closeButton className='bg-light'>
-                                                            <Modal.Title id="example-modal-sizes-title-lg" className='py-1 ml-4'>
-                                                            Add a payment method
-                                                            </Modal.Title>
-                                                        </Modal.Header>
-                                                        <Modal.Body>
-                                                        <form onSubmit={handleSubmit(onPayment)}>
-                                                                <div className="form-check mb-4">
-                                                                    <input className="form-check-input" type="radio" {...register("paypal")}/>
-                                                                    <label className="form-check-label">PayPal<img className="d-inline-block align-middle card-img-pay ms-2" src={cardpaypal} alt="PayPal"/></label>
-                                                                </div>
-                                                                <div className="form-check mb-4">
-                                                                    <input className="form-check-input" type="radio" {...register("credit / debit card")} checked=""/>
-                                                                    <label className="form-check-label">Credit / Debit card<img className="d-inline-block card-img-pay align-middle ms-2" src={cardmaster} alt="Credit card"/></label>
-                                                                </div>
-                                                                <div className="row g-3 mb-2">
-                                                                    <div className="col-sm-6">
-                                                                    <input className="form-control" type="text" {...register("cardname",{maxLength:15})} placeholder="Card Number"/>
-                                                                    <div className="invalid-feedback">Please fill in the card number!</div>
-                                                                    </div>
-                                                                    <div className="col-sm-6">
-                                                                    <input className="form-control" type="text" {...register("fullname",{maxLength:20})} placeholder="Full Name"/>
-                                                                    </div>
-                                                                    <div className="col-sm-3">
-                                                                    <input className="form-control" type="month" {...register("mm/yy")} placeholder="MM/YY"/>
-                                                                    </div>
-                                                                    <div className="col-sm-3">
-                                                                    <input className="form-control" type="text" {...register("cvc",{maxLength:3})} placeholder="CVC"/>
-                                                                    </div>
-                                                                    <div className="col-sm-6">
-                                                                    <button className="Button-Red-Border Button-Full-Red text-light d-block w-100" type="submit">Register this card</button>
-                                                                    </div>
-                                                                </div>
-                                                            </form>     
-                                                </Modal.Body>
-                                                </Modal>
+                                                <PaymentMethods/>
                                             </Tab.Pane>
                                 </Tab.Content>
                             </Col>

@@ -19,24 +19,24 @@ const Cart = () => {
         try {
             axios.get(GET_CART_DATA).then(res => {
                 console.log(res)
-                setData(res.data.data);      
-            })          
+                setData(res.data.data);
+            })
         } catch (error) {
-            console.warn(error) 
+            console.warn(error)
         }
     }, [])
-    const Deletecart=(ids)=>{
-        axios.delete(GET_CART_DATA + "/"+ ids).then(res=>{
+    const Deletecart = (ids) => {
+        axios.delete(GET_CART_DATA + "/" + ids).then(res => {
             console.log(res.status)
         })
     }
     return (
         <div className='cart'>
             {/* Header start*/}
-            <BreadCrumb heading="Your Cart" 
-            breadcrumb1="Home" BC1Link="/"
-            breadcrumb2="Shop" BC2Link="/shop"
-            breadcrumb3="cart" BC3Link="/cart"
+            <BreadCrumb heading="Your Cart"
+                breadcrumb1="Home" BC1Link="/"
+                breadcrumb2="Shop" BC2Link="/shop"
+                breadcrumb3="cart" BC3Link="/cart"
             />
             <div className='Heading-back-com2'> </div>
             {/* Header End */}
@@ -44,14 +44,14 @@ const Cart = () => {
             <div className='container Cart-list'>
                 <div className='row'>
                     <div className='col-lg-8'>
-                         <div className='row pt-4 pb-5'>
-                        <div className='col-6'>
-                            <h6 className='text-white'>Products</h6>
+                        <div className='row pt-4 pb-5'>
+                            <div className='col-6'>
+                                <h6 className='text-white'>Products</h6>
+                            </div>
+                            <div className='col-6 d-flex justify-content-end'>
+                                <a href='/product' className='btn Button-Red-Border btn-sm'> <i className="fa fa-angle-left me-2"></i> Continue Shopping</a>
+                            </div>
                         </div>
-                        <div className='col-6 d-flex justify-content-end'>
-                            <a href='/product' className='btn Button-Red-Border btn-sm'> <i className="fa fa-angle-left me-2"></i> Continue Shopping</a>
-                        </div>
-                    </div>
                         {
                             Data.slice(0, 4).map((v, i) => {
                                 return (
@@ -63,19 +63,23 @@ const Cart = () => {
                                                         width="150px" height="150px" />
                                                 </div>
                                             </div>
-                                                <div className='product-desc col-lg-7 col-md-7 col-sm-7 col-xs-6'><a href='/product-details'>
-                                                    <h6 className='title-text-color'>{v.name}</h6>
-                                                    {/* <span className='text-muted'>Size: {v.size}</span> */}
-                                                    <span className='text-muted'>Category: {v.category}</span>
-                                                    <br />
-                                                    <span className='text-muted'>Color: Black</span>
-                                                    <p className='text-indigo fs-lg'>${v.price}</p>
-                                                    </a></div>
-                                            
+                                            <div className='product-desc col-lg-7 col-md-7 col-sm-7 col-xs-6'><a href='/product-details'>
+                                                <h6 className='title-text-color'>{v.name}</h6>
+                                                {/* <span className='text-muted'>Size: {v.size}</span> */}
+                                                <span className='text-muted'>Category: {v.category}</span>
+                                                <br />
+                                                <span className='text-muted'>Color: Black</span>
+                                                <p className='text-indigo fs-lg'>${v.price}</p>
+                                            </a></div>
+
                                             <div className='col-lg-2 col-md-2 col-sm-2 col-xs-3'>
                                                 <p className='text-quantity'>Quantity</p>
                                                 <input type="number" defaultValue={v.quantity} className='quanity-bar' /><br />
-                                                <a className='text-red remove-link mt-2' onClick={()=>Deletecart(v._id)}><i className='fa fa-close'></i>&nbsp;Remove </a>
+                                                <a className='text-red remove-link mt-2' onClick={() => Deletecart(v._id)}><i className='fa fa-close'></i>&nbsp;Remove
+                                                    {/* <div className="alert alert-primary" role="alert">
+                                                        This is a primary alert with <a href="#" className="alert-link">an example link</a>. Give it a click if you like.
+                                                    </div> */}
+                                                </a>
                                             </div>
                                         </div>
                                         <hr />
@@ -123,8 +127,8 @@ const Cart = () => {
                                             <form onSubmit={handleSubmit(onSubmit)} >
                                                 <div className="mb-3">
                                                     <select className="form-select" required="" {...register("country", {
-                                                            required: true,
-                                                        })}>
+                                                        required: true,
+                                                    })}>
                                                         <option value="">Choose your country</option>
                                                         <option value="Australia">Australia</option>
                                                         <option value="Belgium">Belgium</option>
@@ -135,12 +139,12 @@ const Cart = () => {
                                                         <option value="Switzerland">Switzerland</option>
                                                         <option value="United States">United States</option>
                                                     </select><span className="error-msg" title="invlid subject">{errors.country && "Please Choose Country"}</span>
-                                                    
+
                                                 </div>
                                                 <div className="mb-3">
                                                     <select className="form-select" required="" {...register("city", {
-                                                            required: true,
-                                                        })}>
+                                                        required: true,
+                                                    })}>
                                                         <option value="">Choose your city</option>
                                                         <option value="Bern">Bern</option>
                                                         <option value="Brussels">Brussels</option>
@@ -154,8 +158,8 @@ const Cart = () => {
                                                 </div>
                                                 <div className="mb-3">
                                                     <input className="form-control" type="text" placeholder="ZIP / Postal code" required="" {...register("code", {
-                                                            required: true,
-                                                        })}/><span className="error-msg" title="invlid subject">{errors.code && "Please provide valid code"}</span>
+                                                        required: true,
+                                                    })} /><span className="error-msg" title="invlid subject">{errors.code && "Please provide valid code"}</span>
                                                 </div>
                                                 <button className="btn Button-Red-Border d-block w-100" type="submit">Calculate shipping</button>
                                             </form>

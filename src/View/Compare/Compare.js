@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Compare.css';
 import i1 from '../../assets/images/Compare/01.jpg';
-import i2 from '../../assets/images/Compare/02.jpg';
-import i3 from '../../assets/images/Compare/03.jpg';
+//import i2 from '../../assets/images/Compare/02.jpg';
+//import i3 from '../../assets/images/Compare/03.jpg';
 import { Link } from 'react-router-dom';
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 const Compare = () => {
@@ -48,17 +48,17 @@ const Compare = () => {
                                             <h6 className="product-title">
                                                 <Link className='product-name' to="product-details">Apple iPhone Xs Max</Link>
                                             </h6>
-                                            <button className="Button-Full-Red" type="button">Add to Cart</button>
+                                            <Link to="/cart"><button className="Button-Full-Red" type="button">Add to Cart</button></Link>
                                         </td>
                                         <td className="text-center px-4 pb-4">
                                             <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
                                                 <i className="fa fa-trash-o me-1"></i>Remove
                                             </Link>
                                             <Link className="d-inline-block mb-3" to="product-details">
-                                                <img src={i2} width="80" alt="Google Pixel 3 XL" />
+                                                {/* <img src={i2} width="80" alt="Google Pixel 3 XL" /> */}
                                             </Link>
                                             <h6 className="product-title">
-                                                <Link className='product-name' to="product-details">Google Pixel 3 XL</Link>
+                                                <Link className='product-name' to="product-details"></Link>
                                             </h6>
                                             <button className="Button-Full-Red" type="button">Add to Cart</button>
                                         </td>
@@ -67,10 +67,10 @@ const Compare = () => {
                                                 <i className="fa fa-trash-o me-1"></i>Remove
                                             </Link>
                                             <Link className="d-inline-block mb-3" to="product-details">
-                                                <img src={i3} width="80" alt="Samsung Galaxy S10+" />
+                                                {/* <img src={i3} width="80" alt="Samsung Galaxy S10+" /> */}
                                             </Link>
                                             <h6 className="product-title">
-                                                <Link className='product-name' to="product-details">Samsung Galaxy S10+
+                                                <Link className='product-name' to="product-details">
                                                 </Link>
                                             </h6>
                                             <button className="Button-Full-Red" type="button">Add to Cart</button>
