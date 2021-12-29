@@ -16,7 +16,7 @@ const Review = ({ setForm, formData, navigation }) => {
         state,
         zip,
         phone,
-      } = formData;
+    } = formData;
     return (
         <div className="form CheckOut-Review">
             <div className="container">
@@ -68,7 +68,12 @@ const Review = ({ setForm, formData, navigation }) => {
                                 <div className="col-sm-6">
                                     <h4 className="h6">Shipping to:</h4>
                                     <ul className="list-unstyled fs-sm">
-                                        <li><span className="text-muted">Client:&nbsp;</span></li>
+                                        <li>
+                                            <div className="text-muted">
+                                                {" "}
+                                                Name: {`${firstName}`} {`${lastName}`}
+                                            </div>
+                                        </li>
                                         <li><span className="text-muted">Address:&nbsp;</span>44 Shirley Ave. West Chicago, IL 60185, USA</li>
                                         <li><span className="text-muted">Phone:&nbsp;</span>+1 (808) 764 554 330</li>
                                     </ul>

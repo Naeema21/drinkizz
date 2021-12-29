@@ -7,6 +7,7 @@ import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 import axios from 'axios'
 import { GET_CART_DATA } from "../../endpoint";
 import { useState, useEffect } from "react";
+import swal from 'sweetalert';
 
 const Cart = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -15,7 +16,9 @@ const Cart = () => {
         reset();
     }
     const [Data, setData] = useState([]);
+    const[deleteId , setDeleteId]=useState();
     useEffect(() => {
+       
         try {
             axios.get(GET_CART_DATA).then(res => {
                 console.log(res)
@@ -28,6 +31,20 @@ const Cart = () => {
     const Deletecart = (ids) => {
         axios.delete(GET_CART_DATA + "/" + ids).then(res => {
             console.log(res.status)
+            if (res.status === 200) {
+                swal({
+                    title: "Removed From Wishlist!",
+                    timer:2000,
+                }).then(()=>{
+                    setDeleteId(ids)
+                })
+            } else {
+                swal({
+                    title: "Try Again!",
+                })
+               
+            }
+          
         })
     }
     return (
@@ -54,6 +71,9 @@ const Cart = () => {
                         </div>
                         {
                             Data.slice(0, 4).map((v, i) => {
+                                if(deleteId===v._id){
+                                    return("")
+                                }else{
                                 return (
                                     <div key={i}>
                                         <div className='d-flex row Cart-list-item align-items-center'>
@@ -72,7 +92,7 @@ const Cart = () => {
                                                 <p className='text-indigo fs-lg'>${v.price}</p>
                                             </a></div>
 
-                                            <div className='col-lg-2 col-md-2 col-sm-2 col-xs-3'>
+                                            <div className='col-lg-2 col-md-2 col-sm-2 col-xs-3 Delete-Cart-Item'>
                                                 <p className='text-quantity'>Quantity</p>
                                                 <input type="number" defaultValue={v.quantity} className='quanity-bar' /><br />
                                                 <a className='text-red remove-link mt-2' onClick={() => Deletecart(v._id)}><i className='fa fa-close'></i>&nbsp;Remove
@@ -84,12 +104,12 @@ const Cart = () => {
                                         </div>
                                         <hr />
                                     </div>
-                                )
+                                )}
                             })
                         }
                         <div className='row my-4'>
                             <a href='/product' className='btn Button-Blue-Border d-block w-100'>
-                                <i className='fa fa-refresh'></i>&nbsp; &nbsp; Update Cart</a>
+                                <i className='fa fa-refresh'></i>&nbsp; &nbsp; Load More</a>
                         </div>
 
                     </div>

@@ -5,6 +5,7 @@ import i1 from '../../assets/images/Compare/01.jpg';
 //import i3 from '../../assets/images/Compare/03.jpg';
 import { Link } from 'react-router-dom';
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
+
 const Compare = () => {
     //Summary
     const [summary, setSummary] = useState(false);
@@ -56,6 +57,7 @@ const Compare = () => {
                                             </Link>
                                             <Link className="d-inline-block mb-3" to="product-details">
                                                 {/* <img src={i2} width="80" alt="Google Pixel 3 XL" /> */}
+                                                <div className='skeleton-loader-background' />
                                             </Link>
                                             <h6 className="product-title">
                                                 <Link className='product-name' to="product-details"></Link>
@@ -68,6 +70,7 @@ const Compare = () => {
                                             </Link>
                                             <Link className="d-inline-block mb-3" to="product-details">
                                                 {/* <img src={i3} width="80" alt="Samsung Galaxy S10+" /> */}
+                                                <div className='skeleton-loader-background' />
                                             </Link>
                                             <h6 className="product-title">
                                                 <Link className='product-name' to="product-details">

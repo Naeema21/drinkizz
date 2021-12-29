@@ -10,26 +10,44 @@ import Wishlist from './Wishlist';
 import Support from './Support';
 import Address from './Address';
 import PaymentMethods from './PaymentMethods';
+import axios from 'axios';
 const Account_Orders_History =()=>{
     // payments modal
-    const { register, handleSubmit } = useForm();
-    const onProfile = data => console.log(data); 
+    const { register, handleSubmit,reset } = useForm();
+    const onProfile = data => 
+    {
+        console.log(data); 
+        reset()
+    }
+     //get data from Api
+     const[items,setItems]=useState([]);
+     useEffect(()=> {   
+         axios.get(`https://daruwale.herokuapp.com/public/wishlist`)
+         .then(res => 
+             {
+             console.log(res);
+             console.log(res.data.data);
+             console.log(res.data.totalwishlist);
+             setItems(res.data.totalwishlist); 
+             console.log(items);
+         })    
+  }, [])
  return(
      <>
      <BreadCrumb heading='My addresses' BC1Link='/' breadcrumb1='Home' BC2Link='/' breadcrumb2='Account' BC3Link='/' breadcrumb3='Addressess'/>
-     <div className='Heading-back-com2'>
+     {/* <div className='Heading-back-com2'>
          <div className='row'>
-         <div className='col-lg-4'></div>
-         <div className='col-lg-8'>
-                    <div className="d-flex justify-content-between align-items-center px-4 mb-4">
-                        <h6 className="text-light fs-base mb-0 ml-4 pt-4 mt-1 ListSort">List of your registered addresses:</h6>
-                        <a className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" href="#"><i className="fa fa-sign-out me-2"></i>Sign out</a>
-                    </div>
+            <div className='col-lg-4'></div>
+            <div className='col-lg-8'>
+                        <div className="d-flex justify-content-between align-items-center px-4 mb-4">
+                            <h6 className="text-light fs-base mb-0 ml-4 pt-4 mt-1 ListSort">List of your registered addresses:</h6>
+                            <a className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" href="#"><i className="fa fa-sign-out me-2"></i>Sign out</a>
+                        </div>
+            </div>
         </div>
-                    </div>
-        </div>
+        </div>  col-4 pt-4 pt-lg-0 pe-xl-5*/}
      <div className='Account-Order-History'>
-           <div className='container-fluid pb-5 mb-2 mb-md-4'>
+           <div className='container pb-5 mb-2 mb-md-4'>
                     {/* sidebar  onSelect={handleSelect()} */}
                     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                             <Row>
@@ -66,7 +84,7 @@ const Account_Orders_History =()=>{
                                                     <Nav.Link eventKey="second" title='account-wishlist' href="#account-wishlist">
                                                         <li className="sidebar-li">
                                                             <div className="d-flex align-items-center px-2 py-1 fw-bold">
-                                                            <i className="fa fa-heart-o me-2"></i>Wishlist<span className="text-muted ms-auto">3</span>
+                                                            <i className="fa fa-heart-o me-2"></i>Wishlist<span className="text-muted ms-auto">{items.totalwishlist}</span>
                                                             </div>
                                                         </li>
                                                     </Nav.Link>
@@ -201,6 +219,11 @@ const Account_Orders_History =()=>{
                                             </Tab.Pane>
                                             {/* Profile Info */}
                                             <Tab.Pane eventKey="fourth">
+                                            <div className="d-flex justify-content-between align-items-center px-4 mb-4">
+                                                                <h6 className="text-dark fs-base mb-0 ml-4 pt-4 mt-1 ListSort">Update you profile details below:</h6>
+                                                                <a className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" href="#"><i className="fa fa-sign-out me-2"></i>Sign out</a>
+                                                            </div>
+                                            <hr></hr>
                                             <div className='pb-5 mb-2 mb-md-4'>
                                             <form autoComplete="off" onSubmit={handleSubmit(onProfile)}>
                                                 <div className="bg-light rounded-3 p-4 mb-4">
@@ -229,7 +252,7 @@ const Account_Orders_History =()=>{
                                                 </div>
                                                 <div className="col-lg-6">
                                                 <label className="form-label">Phone Number</label>
-                                                <input className="form-control" type="text" {...register("phone",{ required: true, minLength:10, maxLength: 12 })} required=""/>
+                                                <input className="form-control" type="number" {...register("phone",{ required: true, minLength:10, maxLength: 12 })} required=""/>
                                                 </div>
                                                 <div className="col-lg-6">
                                                 <label className="form-label">New Password</label>

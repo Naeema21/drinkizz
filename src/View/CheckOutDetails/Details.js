@@ -4,6 +4,7 @@ import checkoutProfile from '../../assets/images/checkout-details/checkout-profi
 import { products } from '../../assets/Data/product';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import ItemForm from './ItemForm'
 
 const Details = ({ setForm, formData, navigation }) => {
 
@@ -28,15 +29,15 @@ const Details = ({ setForm, formData, navigation }) => {
                         <div className='mt-4'>
                             {/* Steps */}
                             <div className="ProgressBardesign">
-                            <ul id="progressbar" >
-                                <li className="active"><a className="btn" href="cart"><div className="mt-2 ProgressBar-Text"><i className="fa fa-shopping-cart me-2"></i>Cart</div></a></li>
-                                <li className="active"><button className="btn" onClick={() => go("details")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-user me-2" aria-hidden="true"></i>Details</div></button></li>
-                                <li><button className="btn" onClick={() => go("shipping")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-user me-2" aria-hidden="true"></i>Shipping</div></button></li>
-                                <li><button className="btn"  onClick={() => go("payment")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-credit-card me-2"></i>Payment</div></button></li>
-                                <li><button className="btn"  onClick={() => go("review")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-check-square me-2"></i>Review</div></button></li>
-                            </ul>
+                                <ul id="progressbar" >
+                                    <li className="active"><a className="btn" href="cart"><div className="mt-2 ProgressBar-Text"><i className="fa fa-shopping-cart me-2"></i>Cart</div></a></li>
+                                    <li className="active"><button className="btn" onClick={() => go("details")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-user me-2" aria-hidden="true"></i>Details</div></button></li>
+                                    <li><button className="btn" onClick={() => go("shipping")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-user me-2" aria-hidden="true"></i>Shipping</div></button></li>
+                                    <li><button className="btn" onClick={() => go("payment")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-credit-card me-2"></i>Payment</div></button></li>
+                                    <li><button className="btn" onClick={() => go("review")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-check-square me-2"></i>Review</div></button></li>
+                                </ul>
                             </div>
-                            
+
                             {/* Steps end */}
                             <div className='row p-4 rounded-3 bg-details-profile'>
                                 <div className='col-lg-9'>
@@ -60,28 +61,40 @@ const Details = ({ setForm, formData, navigation }) => {
                                     <div className='col-lg-6'>
                                         <div className="form-group mb-3">
                                             <label className='form-label'>First Name</label>
-                                            <input type="text"
-                                           
+                                            <ItemForm 
+                                                name="firstName"
+                                                value={firstName}
+                                                onChange={setForm}
+                                                
+                                            />
+                                            {/* <input type="text"
+
                                                 {...register("firstname", {
                                                     required: true, pattern: { value: "^[A-Za-z]$", message: "please enter valid name" },
                                                     minLength: 3, maxLength: 60
                                                 })}
-                                                className="form-control" autoComplete="off" placeholder="" />
+                                                className="form-control" autoComplete="off" placeholder="" /> */}
                                             <span className="error-msg" title="name required">{errors.firstname && "Please enter your name."}</span>
                                         </div>
                                     </div>
                                     <div className='col-lg-6'>
                                         <div className="form-group mb-3">
                                             <label className='form-label'>Last Name</label>
-                                            <input type="text"
-                                           
+                                            <ItemForm
+                                               
+                                                name="lastName"
+                                                value={lastName}
+                                                onChange={setForm}
+                                            />
+                                            {/* <input type="text"
+
                                                 {...register("lastname", {
                                                     required: true, pattern:
                                                         { value: "^[A-Za-z]$", message: "please enter valid name" },
                                                     minLength: 3,
                                                     maxLength: 60
                                                 })}
-                                                className="form-control" autoComplete="off" placeholder="" />
+                                                className="form-control" autoComplete="off" placeholder="" /> */}
                                             <span className="error-msg" title="name required">{errors.lastname && "Please enter your name."}</span>
                                         </div>
                                     </div>
