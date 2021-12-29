@@ -9,7 +9,7 @@ const Cards = React.memo((props) => {
 const [showDangerAlert, setshowDangerAlert] = useState(false);
 
 
-    const data = { name:props.name, category :props.category,price:props.price,size :1,quantity:2,image:props.imgsrc};
+    const data = { name:props.name, category :props.category,price:props.price,size :1,quantity:1,image:props.imgsrc};
     const handleSubmit = () => {
     axios.post(`https://daruwale.herokuapp.com/public/cart/${props.id}`, data)
     .then(response => {
@@ -19,7 +19,7 @@ const [showDangerAlert, setshowDangerAlert] = useState(false);
         if(response.status === 201){
             setshowDangerAlert(true);  
             const timeId = setTimeout(() => setshowDangerAlert(true), 90)
-            return () => clearTimeout(timeId)
+            return () => clearTimeout(timeId) 
         }  
         else{
             setshowDangerAlert(false);  
@@ -72,9 +72,9 @@ const [showDangerAlert, setshowDangerAlert] = useState(false);
                         </div>
                     </div>
                     <div className="product-actionadd px-3">                    
-                        <Link to='/cart'>  <button className='btn btn btn-sm d-block w-100 mb-2 addto-cardbtn' onClick={handleSubmit}>
+                        <button className='btn btn btn-sm d-block w-100 mb-2 addto-cardbtn' onClick={handleSubmit}>
                             <i className="fa fa-shopping-cart px-1" aria-hidden="true"></i>
-                            Add to Cart</button>   </Link>                                            
+                            Add to Cart</button>                                           
                         <div className='text-center'>
                             <Link to='/product-details'>
                                 <i className="fa fa-eye px-1" aria-hidden="true"></i>

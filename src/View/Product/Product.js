@@ -11,6 +11,7 @@ import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb'
 
 
 const Product = () => {
+    const Card = React.lazy(() => import('../../Components/Cards/Cards'))
       //Summary
       const [LowHighPrice, setLowHighPrice] = useState(false);
       const [HighLowPrice, setHighLowPrice] = useState(false);
@@ -18,7 +19,6 @@ const Product = () => {
       const [AZOrder, setAZOrder] = useState(false);
       const [ZAOrder, setZAOrder] = useState(false);
 
-    const Card = React.lazy(() => import('../../Components/Cards/Cards'))
 //Range Slider variable
     const [ rangevalue, setValue ] = useState(0); 
     const handleRange = (value11) =>{
@@ -26,8 +26,12 @@ const Product = () => {
         console.log(value11);
     }
 //Color data variable
-    const handleClick = (values) => {
-        console.log(values);
+const [colorcheck, setChecked] = useState();
+    const handleClick = (values , id) => {
+        console.log(values.value);
+        console.log(values.checked);
+        setChecked(id);   
+        console.log(colorcheck);
     }
 //Size variable
     const [size, setSize] = useState()
@@ -55,7 +59,6 @@ useEffect(()=> {
         console.log(err)
     })
 }, [])
-const [checked, setChecked] = useState(false);
 
     return (
         <>
@@ -283,12 +286,14 @@ const [checked, setChecked] = useState(false);
                                 {
                                 Shoplist.map((v, i) => {
                                 return (
-                                    <div className='form-check form-option text-center mb-2 mx-1'>
-                                        <label className='shopform-option-label rounded-circle'>
-                                        <input className='form-check-input' type='checkbox' checked={checked} style={{border:'0', background:'none'}}
+                                    <div className='form-check form-option text-center mb-2 mx-1' key={i}>
+                                        <label className='shopform-option-label rounded-circle'
+                                        style={({ borderColor: colorcheck ? "red" : "blue"})}
+                                        >
+                                        <input className='form-check-input' type='checkbox' style={{border:'0', background:'none'}}
                                          value={v.color} 
-                                         onChange={(e)=>handleClick(e.target.value)}
-                                         style={({ backgroundColor: setChecked ? "blue" : "red"})}              
+                                         onChange={(e)=>handleClick(e.target,i)}
+                                         id={i}                           
                                          />
                                             <span className='shopform-option-color rounded-circle' style={{ backgroundColor: v.backgroundcolor}}></span>
                                         </label>
