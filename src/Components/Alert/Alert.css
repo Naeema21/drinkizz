@@ -1,0 +1,9 @@
+.alert {
+    padding: 20px;
+    background-color: black;
+    color: white;
+  }
+.prod-alertspan{
+    background-color: green;
+    border-radius: 20px;
+}

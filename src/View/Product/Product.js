@@ -55,6 +55,7 @@ useEffect(()=> {
         console.log(err)
     })
 }, [])
+const [checked, setChecked] = useState(false);
 
     return (
         <>
@@ -284,9 +285,11 @@ useEffect(()=> {
                                 return (
                                     <div className='form-check form-option text-center mb-2 mx-1'>
                                         <label className='shopform-option-label rounded-circle'>
-                                        <input className='form-check-input' type='checkbox' style={{border:'0', background:'none'}}
+                                        <input className='form-check-input' type='checkbox' checked={checked} style={{border:'0', background:'none'}}
                                          value={v.color} 
-                                         onChange={(e)=>handleClick(e.target.value)} />
+                                         onChange={(e)=>handleClick(e.target.value)}
+                                         style={({ backgroundColor: setChecked ? "blue" : "red"})}              
+                                         />
                                             <span className='shopform-option-color rounded-circle' style={{ backgroundColor: v.backgroundcolor}}></span>
                                         </label>
                                         <label className='d-block fs-xs text-muted mt-n1' style={{color:'#7d879c',fontSize:'12px'}}>{v.color}</label>

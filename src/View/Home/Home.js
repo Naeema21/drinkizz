@@ -160,7 +160,7 @@ useEffect(()=> {
                         {/* Using Map Function to access the data & send to card */}
                         {items.slice(0, 8).map((productdata, i) => (
                             <div className='col-lg-3 col-md-4 col-sm-6 px-1' key={i}>
-                                <Card category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
+                                <Card id={productdata._id} category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
                             </div>
                         ))}
                     </div>

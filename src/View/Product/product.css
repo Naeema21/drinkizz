@@ -140,7 +140,6 @@
   font-size: .875rem;
   text-decoration: none;
 }
-
 .shoplistitems:hover {
   color: #fe3638;
 }
@@ -163,6 +162,11 @@
   cursor: pointer;
 }
 .shopform-option-label:active{ border: 1px solid #fe3638;}
+
+.shopform-option-label input:checked .shopform-option-label { border: 1px solid #fe3638;}
+
+
+
 .shopform-option-color {
   display: block;
   position: absolute;
