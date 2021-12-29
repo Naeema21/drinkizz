@@ -5,8 +5,11 @@ import { Modal } from 'react-bootstrap';
 import { ModalFooter, ModalBody } from "react-bootstrap";
 function Support() {
     //useform for modal form
-    const { register, handleSubmit } = useForm();
-    const onSupport = data => console.log(data);
+    const { register, handleSubmit,reset } = useForm();
+    const onSupport = data =>{
+        console.log(data);
+        reset()
+    }
      // modal functionality close
      const handleClose = () => setLgShow(false);
      // modal for support ticket
@@ -14,6 +17,18 @@ function Support() {
     return (
         <>
       {/*Support_Ticket*/}  
+      <div class="d-flex justify-content-between align-items-center pt-lg-2 pb-4 pb-lg-5 mb-lg-3">
+              <div class="d-flex align-items-center">
+                <label class="d-none d-lg-block fs-sm text-light text-nowrap opacity-75 me-2 text-dark">Sort tickets:</label>
+                <label class="d-lg-none fs-sm text-nowrap opacity-75 me-2 text-dark">Sort tickets:</label>
+                <select class="form-select" id="ticket-sort">
+                  <option>All</option>
+                  <option>Open</option>
+                  <option>Closed</option>
+                </select>
+              </div><a class="Button-Red-Border Button-Full-Red text-light me-2 mt-2 mb-0 btn-sm signoutbtn" href="#"><i class="fa fa-sign-out me-2"></i>Sign out</a>
+            </div>
+            <hr></hr>
       <div className="table-responsive mb-4">
           <table className="table table-hover mb-0">
             <thead>
@@ -72,11 +87,12 @@ function Support() {
                     <p className="text-muted fs-sm">We normally respond tickets within 2 business days.</p>
                     <div className="row gx-4 gy-3">
                         <div className="col-12">
+                        <label className='form-label'>Subject</label>
                         <input className="form-control" type="text" {...register("subject")}/>
-                        <label>Subject</label>
                         <div className="invalid-feedback">Please fill in the subject line!</div>
                         </div>
                         <div className="col-sm-6">
+                        <label className='form-label'>Type</label>
                         <select className="form-select form-control" {...register("choosetype")}>
                             <option value="">Choose type</option>
                             <option value="Website problem">Website problem</option>
@@ -86,6 +102,7 @@ function Support() {
                         </select>
                         </div>
                         <div className="col-sm-6">
+                        <label className='form-label'>Priority</label>
                         <select className="form-select form-control" {...register("issue")}>
                             <option value="">How urgent is your issue?</option>
                             <option value="Urgent">Urgent</option>
@@ -95,18 +112,20 @@ function Support() {
                         </select>
                         </div>
                         <div className="col-12">
+                            <label className='form-label'>Describe your issue</label>
                         <textarea className="form-control bg-light" rows="8" {...register("message")}></textarea>
                         </div>
                         <div className="col-12">
                         <input className="form-control" type="file" {...register("file")}/>
                         </div>
                     </div>
-                    <button className="Button-Red-Border Button-Full-Red text-light mt-2 float-right" type="submit">Submit Ticket</button>
+                    <hr></hr>
+                        <div className='closemodal d-flex'>
+                        <button className="Button-Red-Border Button-Full-Red text-light" type="submit">Submit Ticket</button>
+                        <button className="btn btn-secondary closeModal_Submit" type="button" onClick={handleClose}>Close</button> 
+                        </div>
                 </form>
                 </Modal.Body>
-                 <ModalFooter>
-                    <button className="btn btn-secondary" type="button" onClick={handleClose}>Close</button>   
-                </ModalFooter>
         </Modal>
  
     </>

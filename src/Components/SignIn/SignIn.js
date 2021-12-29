@@ -56,7 +56,7 @@ const SignIn = () => {
                     <Tab eventKey="Signup" title="Signup">
                     <div className='Sign-up-modal'>
                             <div className="modal-body tab-content py-4">
-                                <form className="" autocomplete="off" onSubmit={handleSubmit(handleSignUp)}>
+                                <form autocomplete="off" onSubmit={handleSubmit(handleSignUp)}>
                                 <div className="mb-3">
                                         <label className="form-label signup-form-label">Full Name</label>
                                         <input className="form-control signup-input" type="name" {...register("name",{ required: "Please enter your name.",maxLength:20})}/>

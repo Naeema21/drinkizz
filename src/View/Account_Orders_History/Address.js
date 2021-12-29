@@ -4,14 +4,22 @@ import { Modal } from 'react-bootstrap';
 import './Account_Orders_History.css';
 import { useForm } from "react-hook-form";
 function Address() {
-    const { register, handleSubmit } = useForm();
-    const onAddress = data => console.log(data);
+    const { register, handleSubmit,reset } = useForm();
+    const onAddress = data =>{
+        console.log(data);
+        reset()
+    }
     // modal functionality close
     const handleClose = () => setLgShowAddress(false);
      //modal for Address Method
     const [lgShowAddress,setLgShowAddress]=useState(false);
     return (
         <div>
+             <div className="d-flex justify-content-between align-items-center px-4 mb-4">
+                                                                <h6 className="text-dark fs-base mb-0 ml-4 pt-4 mt-1 ListSort">List of your registered addresses:</h6>
+                                                                <a className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" href="#"><i className="fa fa-sign-out me-2"></i>Sign out</a>
+                                                            </div>
+                                                            <hr></hr>
              <div className="table-responsive fs-md">
                                             <table className="table table-hover mb-0">
                                                 <thead>
@@ -64,21 +72,21 @@ function Address() {
                                                             <div className="row gx-4 gy-3">
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">First name</label>
-                                                                <input className="form-control" type="text" {...register("fname")}/>
+                                                                <input className="form-control" type="text" {...register("fname",{required:"Enter Your First Name"})}/>
                                                                 <div className="invalid-feedback">Please fill in you first name!</div>
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">Last name</label>
-                                                                <input className="form-control" type="text" {...register("lname")}/>
+                                                                <input className="form-control" type="text" {...register("lname",{required:"Enter Your Last Name"})}/>
                                                                 <div className="invalid-feedback">Please fill in you last name!</div>
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">Company</label>
-                                                                <input className="form-control" type="text" {...register("company")}/>
+                                                                <input className="form-control" type="text" {...register("company",{required:"Enter Your Company Name"})}/>
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">Country</label>
-                                                                <select className="form-select form-control" {...register("country")}>
+                                                                <select className="form-select form-control" {...register("country",{required:"Please select your country!"})}>
                                                                     <option value="">Select country</option>
                                                                     <option value="Argentina">Argentina</option>
                                                                     <option value="Belgium">Belgium</option>
@@ -88,7 +96,6 @@ function Address() {
                                                                     <option value="UK">United Kingdom</option>
                                                                     <option value="USA">USA</option>
                                                                 </select>
-                                                                <div className="invalid-feedback">Please select your country!</div>
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">City</label>
@@ -100,7 +107,7 @@ function Address() {
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">Line 2</label>
-                                                                <input className="form-control" {...register("addressL2")}/>
+                                                                <input className="form-control" {...register("addressL2",{required:"Enter Your Address"})}/>
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">ZIP code</label>
@@ -112,12 +119,13 @@ function Address() {
                                                                 </div>
                                                                 </div>
                                                             </div>
-                                                            <button className="Button-Red-Border Button-Full-Red text-light mt-2" type="submit">Add address</button>
+                                                            <hr></hr>
+                                                            <div className='closemodal d-flex'>
+                                                                <button className="Button-Red-Border Button-Full-Red text-light" type="submit">Add address</button>
+                                                                <button className="btn btn-secondary closeModal_Submit" type="submit" onClick={handleClose}>Close</button>
+                                                            </div>
                                                             </form>
                                                         </Modal.Body>
-                                                        <ModalFooter>
-                                                        <button className="btn btn-secondary" type="submit" onClick={handleClose}>Close</button>
-                                                        </ModalFooter>
                                             </Modal>
                                             </div>
         </div>
