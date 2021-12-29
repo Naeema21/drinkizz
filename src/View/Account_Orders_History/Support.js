@@ -17,16 +17,16 @@ function Support() {
     return (
         <>
       {/*Support_Ticket*/}  
-      <div class="d-flex justify-content-between align-items-center pt-lg-2 pb-4 pb-lg-5 mb-lg-3">
-              <div class="d-flex align-items-center">
-                <label class="d-none d-lg-block fs-sm text-light text-nowrap opacity-75 me-2 text-dark">Sort tickets:</label>
-                <label class="d-lg-none fs-sm text-nowrap opacity-75 me-2 text-dark">Sort tickets:</label>
-                <select class="form-select" id="ticket-sort">
+      <div className="d-flex justify-content-between align-items-center pt-lg-2 pb-4 pb-lg-5 mb-lg-3">
+              <div className="d-flex align-items-center">
+                <label className="d-none d-lg-block fs-sm text-light text-nowrap opacity-75 me-2 text-dark">Sort tickets:</label>
+                <label className="d-lg-none fs-sm text-nowrap opacity-75 me-2 text-dark">Sort tickets:</label>
+                <select className="form-select" id="ticket-sort">
                   <option>All</option>
                   <option>Open</option>
                   <option>Closed</option>
                 </select>
-              </div><a class="Button-Red-Border Button-Full-Red text-light me-2 mt-2 mb-0 btn-sm signoutbtn" href="#"><i class="fa fa-sign-out me-2"></i>Sign out</a>
+              </div><a className="Button-Red-Border Button-Full-Red text-light me-2 mt-2 mb-0 btn-sm signoutbtn" href="#"><i className="fa fa-sign-out me-2"></i>Sign out</a>
             </div>
             <hr></hr>
       <div className="table-responsive mb-4">

@@ -138,6 +138,20 @@ const Account_Orders_History =()=>{
                             <Col sm={12} lg={8}>    
                                 <Tab.Content>
                                         <Tab.Pane eventKey="first"> 
+                                        <div className="d-flex justify-content-between align-items-center pt-lg-2 pb-4 pb-lg-5 mb-lg-3">
+                                        <div className="d-flex align-items-center">
+                                            <label className="d-none d-lg-block fs-sm text-light text-nowrap opacity-75 me-2 text-dark">Sort orders:</label>
+                                            <label className="d-lg-none fs-sm text-nowrap opacity-75 me-2 text-dark">Sort orders:</label>
+                                            <select className="form-select" id="order-sort">
+                                            <option>All</option>
+                                            <option>Delivered</option>
+                                            <option>In Progress</option>
+                                            <option>Delayed</option>
+                                            <option>Canceled</option>
+                                            </select>
+                                        </div><a className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" href="#"><i className="fa fa-sign-out me-2"></i>Sign out</a>
+                                        </div>
+                                                       <hr style={{"width":"100%","textalign":"left","marginleft":"0","color":"black","height":"3px"}}></hr>
                                                  {/* Orders list */}
                                             <div className="table-responsive fs-md mb-4">
                                             <table className="table table-hover mb-0">
