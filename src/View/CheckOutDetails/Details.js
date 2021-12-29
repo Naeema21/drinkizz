@@ -3,8 +3,10 @@ import { useForm } from 'react-hook-form';
 import checkoutProfile from '../../assets/images/checkout-details/checkout-profile.jpg'
 import { products } from '../../assets/Data/product';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
-import ItemForm from './ItemForm'
+import ItemForm from './ItemForm';
+import axios from 'axios'
+import { GET_CART_DATA } from "../../endpoint";
+import { useState, useEffect } from "react";
 
 const Details = ({ setForm, formData, navigation }) => {
 
@@ -17,10 +19,20 @@ const Details = ({ setForm, formData, navigation }) => {
         next()
         reset();
     }
+    const { go } = navigation;
+
+    const [Data, setData] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0)
+        try {
+            axios.get(GET_CART_DATA).then(res => {
+                console.log(res)
+                setData(res.data.data);
+            })
+        } catch (error) {
+            console.warn(error)
+        }
     }, [])
-    const { go } = navigation;
     return (
         <div>
             <div className="container CheckOut-Details">
@@ -65,7 +77,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                                 name="firstName"
                                                 value={firstName}
                                                 onChange={setForm}
-                                                
+                                                required={true}
                                             />
                                             {/* <input type="text"
 
@@ -85,6 +97,8 @@ const Details = ({ setForm, formData, navigation }) => {
                                                 name="lastName"
                                                 value={lastName}
                                                 onChange={setForm}
+                                                required={true}
+                                                
                                             />
                                             {/* <input type="text"
 
@@ -161,7 +175,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                             <select className="form-select" id="checkout-city" {...register("city", {
                                                 required: true
                                             })}>
-                                                <option value="">Choose country</option>
+                                                <option value="">Choose city</option>
                                                 <option>Australia</option>
                                                 <option>Canada</option>
                                                 <option>France</option>
@@ -231,17 +245,17 @@ const Details = ({ setForm, formData, navigation }) => {
                                 <h6>Order Summary</h6>
                                 <div>
                                     {
-                                        products.slice(0, 4).map((value, index) => {
+                                        Data.map((value, index) => {
                                             return (
                                                 <Link to="/product-details" key={index}>
                                                     <div className='d-flex align-items-center border-bottom'>
                                                         <div className=''>
-                                                            <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
+                                                            <img src={value.image} alt='product' width="70" className='img-fluid'></img>
                                                         </div>
                                                         <div className='d-flex align-items-center'>
                                                             <div className='mt-4 Check-out-product-body'>
                                                                 <h6 className='Check-out-product-title'>{value.name}</h6>
-                                                                <p className='Check-out-product-price'>{value.price}</p>
+                                                                <p className='Check-out-product-price'>${value.price}</p>
                                                             </div>
                                                         </div>
                                                     </div>

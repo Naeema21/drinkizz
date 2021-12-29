@@ -96,9 +96,6 @@ const Cart = () => {
                                                 <p className='text-quantity'>Quantity</p>
                                                 <input type="number" defaultValue={v.quantity} className='quanity-bar' /><br />
                                                 <a className='text-red remove-link mt-2' onClick={() => Deletecart(v._id)}><i className='fa fa-close'></i>&nbsp;Remove
-                                                    {/* <div className="alert alert-primary" role="alert">
-                                                        This is a primary alert with <a href="#" className="alert-link">an example link</a>. Give it a click if you like.
-                                                    </div> */}
                                                 </a>
                                             </div>
                                         </div>
