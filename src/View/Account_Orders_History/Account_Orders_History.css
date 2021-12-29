@@ -1,14 +1,12 @@
 .Account-Order-History{
     cursor: pointer;
 }
-.Account-Order-History .badge{
-    --bs-bg-opacity: 1;
-}
 .Account-Order-History a{
     text-decoration: none;
 }
 .Account-Order-History .img-boreder-profile{
     border-radius: 50%;
+    border:1px solid black;
 }
 /* .Account-Order-History dashbord*/
 .Account-Order-History .profile-orderhistory{
@@ -112,12 +110,26 @@ top: 50%;
 transform: translateY(-50%);
 }
 /* modal focus color /form focus */
+.closemodal{
+    float:right;
+}
+.closeModal_Submit{
+    margin-left: 20px;
+    padding: 10px 25px;
+    border-radius: 7px;
+}
 .Account-Order-History,.form-control:focus {
     color: #4b566b !important;
     background-color: #fff !important;
     border-color: #ffb4b5 !important;
     outline: 0 !important;
     box-shadow: inset 0 1px 2px transparent, 0 0.375rem 0.625rem -0.3125rem rgb(254 105 106 / 15%) !important;
+}
+.Account-Order-History, .form-label {
+    margin-bottom: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #373f50;
 }
 @media only screen and (min-width:320px) and (max-width: 768px) {
     .ListSort{
@@ -127,4 +139,7 @@ transform: translateY(-50%);
         margin-bottom: 3.5rem !important;
     }
    
+}
+.top{
+    background-color: #363e4e;
 }
