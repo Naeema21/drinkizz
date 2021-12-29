@@ -13,17 +13,12 @@ const Payment = ({ setForm, formData, navigation }) => {
 
   const { previous, next } = navigation;
    const { register, handleSubmit, formState: { errors }, reset } = useForm();
-   const onSubmit = () => {
-     console.log(account);
+   const onSubmit = (data) => {
+     console.log(data);
      next()
      reset();
    }
-  let [account, setAccount] = useState({
-    number: '',
-    name: '',
-    expiry: '',
-    cvc:''
-  });
+ 
   
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -34,6 +29,18 @@ const Payment = ({ setForm, formData, navigation }) => {
   const [expiry, setExpiry] = useState('')
   const [cvc, setCvc] = useState('')
   const [focus, setFocus] = useState('')
+
+  const handleCardData = (e) =>{
+    e.preventDefault();
+    const cardData = {
+      "number":number,
+      "name":name,
+      "expiry":expiry,
+      "CVC":cvc,
+    }
+
+    console.log(cardData)
+  }
 
   return (
     <div>
@@ -46,7 +53,8 @@ const Payment = ({ setForm, formData, navigation }) => {
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>Pay with Credit Card</Accordion.Header>
                   <Accordion.Body>
-                    <p className="fs-sm">We accept following credit cards:&nbsp;&nbsp;<img className="d-inline-block align-middle" src={CreditCardTypes} width="187" alt="Cerdit Cards" /></p>
+                    <p className="fs-sm">We accept following credit cards:&nbsp;&nbsp;
+                    <img className="d-inline-block align-middle" src={CreditCardTypes} width="187" alt="Cerdit Cards" /></p>
                     <div className='Credit-card-design mt-4 pt-2'>
                       <Cards
                         number={number}
@@ -54,7 +62,7 @@ const Payment = ({ setForm, formData, navigation }) => {
                         expiry={expiry}
                         cvc={cvc}
                         focused={focus} />
-                      <form  action="">
+                      <form   onSubmit={handleCardData}>
                         <div className='row mt-4'>
                           <div className='col-lg-6'>
                             <div className="form-group mb-3">
@@ -104,7 +112,7 @@ const Payment = ({ setForm, formData, navigation }) => {
                               className="form-control" />
                           </div>
                           <div className='col-lg-6'>
-                            <button className='btn d-block Button-Red-Border w-100' type="submit" onClick={onSubmit}>Submit</button>
+                            <button className='btn d-block Button-Red-Border w-100' type="submit" >Submit</button>
                           </div>
                         </div>
                       </form>
