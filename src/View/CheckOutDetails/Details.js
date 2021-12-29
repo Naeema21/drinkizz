@@ -200,7 +200,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                         <a className='d-block btn-Gray' href='/cart'><i className="fa fa-angle-left me-2"></i>Back to Cart</a>
                                     </div>
                                     <div className='col-lg-6'>
-                                        <button className='d-block Button-Full-Red w-100' type='submit' >Proceed to Shipping &nbsp;<i className="fa fa-angle-right"></i></button>
+                                        <button className='d-block Button-Full-Red w-100' type='submit' onClick={next}>Proceed to Shipping &nbsp;<i className="fa fa-angle-right"></i></button>
                                     </div>
                                 </div>
                             </form>
