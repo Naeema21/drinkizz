@@ -50,7 +50,10 @@
 }
 /* close btn */
 .modalsingin-up-close .btn-close{
-    float: right;
+    position: absolute;
+    right: 7px;
+    font-size: 10px;
+    top: 8px;
     padding: 10px;
 }
 .modalsingin-up-close .btn-close:focus{
