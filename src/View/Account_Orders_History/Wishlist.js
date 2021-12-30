@@ -60,7 +60,7 @@ function Wishlist() {
             return ("")
         } else {
             return (
-                <div className='row'>
+                <div className='row' key={i}>
                     <div className="d-sm-flex justify-content-between mt-lg-4 mb-4 pb-3 pb-sm-2">
                         <div className='col-lg-4'>
                             <div className='d-block d-sm-flex align-items-start text-center text-sm-start'>
