@@ -91,8 +91,8 @@ const Compare = () => {
                                     <tr>
                                         <th className="text-dark">Performance</th>
                                         <td>Hexa Core</td>
-                                        <td>Octa Core</td>
-                                        <td>Octa Core</td>
+                                        <td className=''></td>
+                                        <td></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Display</th>

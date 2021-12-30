@@ -4,7 +4,7 @@ import { Modal } from 'react-bootstrap';
 import './Account_Orders_History.css';
 import { useForm } from "react-hook-form";
 function Address() {
-    const { register, handleSubmit,reset } = useForm();
+    const { register, handleSubmit,reset,formState: {errors}} = useForm();
     const onAddress = data =>{
         console.log(data);
         reset()
@@ -72,21 +72,23 @@ function Address() {
                                                             <div className="row gx-4 gy-3">
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">First name</label>
-                                                                <input className="form-control" type="text" {...register("fname",{required:"Enter Your First Name"})}/>
-                                                                <div className="invalid-feedback">Please fill in you first name!</div>
+                                                                <input className="form-control" type="text" {...register("fname",{required:true})}/>
+                                                                <div className='text-errormsg'>{errors.fname?.type === 'required' && "Please fill in you first name!"}</div>
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">Last name</label>
-                                                                <input className="form-control" type="text" {...register("lname",{required:"Enter Your Last Name"})}/>
+                                                                <input className="form-control" type="text" {...register("lname",{required:true})}/>
                                                                 <div className="invalid-feedback">Please fill in you last name!</div>
+                                                                <div className='text-errormsg'>{errors.lname && "Last name is required"}</div>
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">Company</label>
-                                                                <input className="form-control" type="text" {...register("company",{required:"Enter Your Company Name"})}/>
+                                                                <input className="form-control" type="text" {...register("company",{required:true})}/>
+                                                                <div className='text-errormsg'>{errors.company && "Enter Your Company Name"}</div>
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">Country</label>
-                                                                <select className="form-select form-control" {...register("country",{required:"Please select your country!"})}>
+                                                                <select className="form-select form-control" {...register("country",{required:true})}>
                                                                     <option value="">Select country</option>
                                                                     <option value="Argentina">Argentina</option>
                                                                     <option value="Belgium">Belgium</option>
@@ -96,26 +98,32 @@ function Address() {
                                                                     <option value="UK">United Kingdom</option>
                                                                     <option value="USA">USA</option>
                                                                 </select>
+                                                                <div className='text-errormsg'>{errors.country && "Please select your country!"}</div>
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">City</label>
-                                                                <input className="form-control" {...register("city",{ required: "Please fill in your city!." })}/>
+                                                                <input className="form-control" {...register("city",{ required: true })}/>
+                                                                <div className='text-errormsg'>{errors.city && "Please fill in your city!."}</div>
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">Line 1</label>
-                                                                <input className="form-control" type="text" {...register("addressL1",{ required: "Please fill in your address!." })}/>
+                                                                <input className="form-control" type="text" {...register("addressL1",{ required: true })}/>
+                                                                <div className='text-errormsg'>{errors.addressL1 && "Please fill in your address!."}</div>
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">Line 2</label>
-                                                                <input className="form-control" {...register("addressL2",{required:"Enter Your Address"})}/>
+                                                                <input className="form-control" {...register("addressL2",{required:true})}/>
+                                                                <div className='text-errormsg'>{errors.addressL2 && "Enter Your Address"}</div>
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">ZIP code</label>
-                                                                <input className="form-control" type="text" {...register("zipcode",{ required: "Please add your ZIP code!." ,maxLength:6})}/>
+                                                                <input className="form-control" type="text" {...register("zipcode",{ required: true ,maxLength:6})}/>
+                                                                <div className='text-errormsg'>{errors.zipcode && "Please add your ZIP code!."}</div>
                                                                 </div>
                                                                 <div className="col-12">
                                                                 <div className="form-check">
-                                                                    <input className="form-check-input" type="checkbox" {...register("primary_address",{ required: "Make this address primary."})}/>
+                                                                    <input className="form-check-input" type="checkbox" {...register("primary_address",{ required:true})}/>
+                                                                <div className='text-errormsg'>{errors.primary_address && "Make this address primary."}</div>
                                                                 </div>
                                                                 </div>
                                                             </div>
