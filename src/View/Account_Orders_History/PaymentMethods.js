@@ -8,7 +8,7 @@ import cardpaypal from '../../assets/images/AccountHistory/cardpaypal.png';
 import cardmaster from '../../assets/images/AccountHistory/cardmaster.png';
 function PaymentMethods() {
     //useform for modal form
-    const { register, handleSubmit,reset } = useForm();
+    const { register, handleSubmit,reset,formState:{errors} } = useForm();
      // modal for payment method  
      const [lgShowpay, setLgShowPay] = useState(false);
     const onPayment = data =>{
@@ -95,26 +95,31 @@ function PaymentMethods() {
                                                         <Modal.Body>
                                                         <form onSubmit={handleSubmit(onPayment)}>
                                                                 <div className="form-check mb-4">
-                                                                    <input className="form-check-input" type="radio" {...register("paypal",{required:""})} id="PayPal" value="PayPal"/>
+                                                                    <input className="form-check-input" type="radio" {...register("paypal",{required:true})} id="PayPal" value="PayPal"/>
                                                                     <label className="form-check-label">PayPal<img className="d-inline-block align-middle card-img-pay ms-2" src={cardpaypal} alt="PayPal"/></label>
+                                                                    <div className='text-errormsg'>{errors.paypal && "please select payment method"}</div>
                                                                 </div>
                                                                 <div className="form-check mb-4">
-                                                                    <input className="form-check-input" type="radio" {...register("credit / debit card",{required:""})} id="Credit / Debit card" value="Credit / Debit card"/>
+                                                                    <input className="form-check-input" type="radio" {...register("credit_debit",{required:true})} id="Credit / Debit card" value="Credit / Debit card"/>
                                                                     <label className="form-check-label">Credit / Debit card<img className="d-inline-block card-img-pay align-middle ms-2" src={cardmaster} alt="Credit card"/></label>
+                                                                    <div className='text-errormsg'>{errors.credit_debit && "please select payment method"}</div>
                                                                 </div>
                                                                 <div className="row g-3 mb-2">
                                                                     <div className="col-sm-6">
-                                                                    <input className="form-control" type="number" {...register("cardname",{required:"Enter Your Card Number",maxLength:15})} placeholder="Card Number"/>
-                                                                    <div className="invalid-feedback">Please fill in the card number!</div>
+                                                                    <input className="form-control" type="number" {...register("cardname",{required:true, maxLength:15})} placeholder="Card Number"/>
+                                                                    <div className='text-errormsg'>{errors.cardname && "Please fill in the card number!"}</div>
                                                                     </div>
                                                                     <div className="col-sm-6">
-                                                                    <input className="form-control" type="text" {...register("fullname",{required:"Enter Your FullName",maxLength:20})} placeholder="Full Name"/>
+                                                                    <input className="form-control" type="text" {...register("fullname",{required:true, maxLength:20})} placeholder="Full Name"/>
+                                                                    <div className='text-errormsg'>{errors.fullname && "Please fill Your FullName!"}</div>
                                                                     </div>
                                                                     <div className="col-sm-3">
-                                                                    <input className="form-control" type="month" {...register("mm/yy",{required:"Enter Month year"})} placeholder="MM/YY"/>
+                                                                    <input className="form-control" type="month" {...register("mm_yy",{required:true})} placeholder="MM/YY"/>
+                                                                    <div className='text-errormsg'>{errors.mm_yy && "Please fill Month & year!"}</div>
                                                                     </div>
                                                                     <div className="col-sm-3">
-                                                                    <input className="form-control" type="text" {...register("cvc",{required:"Enter CVC",maxLength:3})} placeholder="CVC"/>
+                                                                    <input className="form-control" type="text" {...register("cvc",{required:true,maxLength:3})} placeholder="CVC"/>
+                                                                    <div className='text-errormsg'>{errors.cvc && "Please fill CVC!"}</div>
                                                                     </div>
                                                                     <div className="col-sm-6">
                                                                     <button className="Button-Red-Border Button-Full-Red text-light d-block w-100" type="submit">Register this card</button>
