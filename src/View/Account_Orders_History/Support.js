@@ -5,7 +5,7 @@ import { Modal } from 'react-bootstrap';
 import { ModalFooter, ModalBody } from "react-bootstrap";
 function Support() {
     //useform for modal form
-    const { register, handleSubmit,reset } = useForm();
+    const { register, handleSubmit,reset,formState:{errors} } = useForm();
     const onSupport = data =>{
         console.log(data);
         reset()
@@ -88,35 +88,40 @@ function Support() {
                     <div className="row gx-4 gy-3">
                         <div className="col-12">
                         <label className='form-label'>Subject</label>
-                        <input className="form-control" type="text" {...register("subject")}/>
+                        <input className="form-control" type="text" {...register("subject",{required:true})}/>
                         <div className="invalid-feedback">Please fill in the subject line!</div>
+                        <div className='text-errormsg'>{errors.subject && "Please fill in the subject line!"}</div>
                         </div>
                         <div className="col-sm-6">
                         <label className='form-label'>Type</label>
-                        <select className="form-select form-control" {...register("choosetype")}>
+                        <select className="form-select form-control" {...register("choosetype",{required:true})}>
                             <option value="">Choose type</option>
                             <option value="Website problem">Website problem</option>
                             <option value="Partner request">Partner request</option>
                             <option value="Complaint">Complaint</option>
                             <option value="Info inquiry">Info inquiry</option>
                         </select>
+                        <div className='text-errormsg'>{errors.choosetype && "Please fill in the subject type!"}</div>
                         </div>
                         <div className="col-sm-6">
                         <label className='form-label'>Priority</label>
-                        <select className="form-select form-control" {...register("issue")}>
+                        <select className="form-select form-control" {...register("issue",{required:true})}>
                             <option value="">How urgent is your issue?</option>
                             <option value="Urgent">Urgent</option>
                             <option value="High">High</option>
                             <option value="Medium">Medium</option>
                             <option value="Low">Low</option>
                         </select>
+                        <div className='text-errormsg'>{errors.issue && "Please fill in the subject issue!"}</div>
                         </div>
                         <div className="col-12">
                             <label className='form-label'>Describe your issue</label>
-                        <textarea className="form-control bg-light" rows="8" {...register("message")}></textarea>
+                        <textarea className="form-control bg-light" rows="8" {...register("message",{required:true})}></textarea>
+                        <div className='text-errormsg'>{errors.message && "Please describe issue!"}</div>
                         </div>
                         <div className="col-12">
-                        <input className="form-control" type="file" {...register("file")}/>
+                        <input className="form-control" type="file" {...register("file",{required:true})}/>
+                        <div className='text-errormsg'>{errors.file && "Please select file!"}</div>
                         </div>
                     </div>
                     <hr></hr>
