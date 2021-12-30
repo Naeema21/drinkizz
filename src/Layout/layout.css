@@ -1,104 +1,68 @@
 /* =====================================
                     Header
 =========================================*/
-.header .topbar {
-  background-color: #363e4e;
+.header .navbar{
+  padding: 5px 0px !important;
 }
-
-.header .topbar p {
-  font-size: 14px;
-  color: #989fae;
-  margin: 0px !important;
+ .header .navbar-light .navbar-nav .nav-link {
+  color: #c1c3c7;
+  text-decoration: none;
   font-weight: 600;
 }
 
-.header .topbar p a ,  .header .topbar span span {
-  color: #c1c3c7;
-  text-decoration: none;
-}
-
-.header .topbar p a:hover , .header .topbar span span:hover{
-  color: #fff;
-}
-
-.header .navbar-light .navbar-nav .nav-link {
-  color: #000;
-  font-weight: 500;
+.header .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+  color: #ffff !important;
 }
 
 .header .navbar-brand {
-  font-family: cursive;
   letter-spacing: 1.5px;
-  color: #fe4a4c;
+  color: #fff !important;
   font-weight: 800;
-  font-size: 30px;
+  font-size: 14px;
 }
 
-@media (min-width: 992px) {
-  .navbar-expand-lg .navbar-collapse {
-    display: flex !important;
-    /* flex-basis: auto; */
-    justify-content:end;
-    align-items: center;
-  }
+.header .sub-header{
+  border-bottom: 2px solid #80808012;
 }
-
-.search-bar input[type=search] {
-  width: 15px;
-  padding-left: 10px;
-  color: transparent;
-  cursor: pointer;
+.header .sub-header .logo{
+  font-family: cursive;
+    letter-spacing: 1.5px;
+    color: #fe4a4c;
+    font-weight: 800;
+    font-size: 30px;
+    text-decoration: none;
 }
-
-.search-bar input[type=search]:hover {
-  background-color: #fff;
-}
-
-.search-bar input[type=search]:focus {
-  width: 130px;
-  padding-left: 32px;
+.header .sub-header .sub-header-link{
   color: #000;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.navbar-toggler {
+  padding: 0.2rem 0.7rem;
+  font-size: 1rem;
+  line-height: 1;
   background-color: #fff;
-  cursor: auto;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  transition: box-shadow 0.15s ease-in-out;
 }
 
-.search-bar input:-moz-placeholder {
-  color: transparent;
-}
-
-.search-bar input::-webkit-input-placeholder {
-  color: transparent;
-}
-
-.search-bar input {
-  outline: none;
-}
-
-.search-bar input[type=search] {
-  -webkit-appearance: textfield;
-
-  font-family: inherit;
-  font-size: 100%;
-}
-
-.search-bar input::-webkit-search-decoration,
-.search-bar input::-webkit-search-cancel-button {
-  display: none;
-}
-
-.search-bar input[type=search] {
+.search-bar{
   padding: 9px 10px 9px 32px;
   /* width: 55px; */
-  background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 10px center;
+  background: #fff url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 10px center;
   border: solid 1px #ccc;
-  border-radius: 10em;
+  border-radius: 7px;
   transition: all .5s;
 }
 
-.search-bar input[type=search]:focus {
-  width: 130px;
+.search-bar:focus {
+  box-shadow: none !important;
   background-color: #fff;
 }
+
 
 
 
@@ -109,6 +73,7 @@
   font-size: 36px;
   font-weight: 100;
 }
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -291,6 +256,7 @@
 .btn-social-icon-footer {
   background-color: white;
 }
+
 .socialhover:hover {
   color: #1da1f2;
 }
