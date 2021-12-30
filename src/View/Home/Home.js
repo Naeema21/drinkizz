@@ -10,7 +10,6 @@ import HomeBannerCaroucel1 from '../../assets/images/Home/Caroucel-1.jpg'
 import HomeBannerCaroucel2 from '../../assets/images/Home/caroucel-2.jpg'
 import HomeBannerCaroucel3 from '../../assets/images/Home/caroucel-3.jpg'
 import OfferBanneripad from '../../assets/images/Home/offer-banner-1.jpg'
-import { products } from '../../assets/Data/product';
 import { clientCaroucel } from "../../assets/Data/data";
 import { Link } from "react-router-dom";
 import axios from 'axios'
@@ -20,16 +19,22 @@ const Home = () => {
     const Card = React.lazy(() => import('../../Components/Cards/Cards'))
 //GET/FETCH API Logic for Aceesing data from API using axios
 const [items, setItems] = useState([]);
-useEffect(()=> {
-    axios.get(PRODUCT_URL).then(res => {
-        console.log(res);
-        console.log(res.data.data);
-        setItems(res.data.data);
-        console.log(items);
-    })
-    .catch(err =>{
+const [loader ,setLoader] = useState();
+
+useEffect(() => {  
+    setLoader(true)   
+    try {
+        axios.get(PRODUCT_URL).then(res => {
+            console.log(res);
+            console.log(res.data.data);
+            setItems(res.data.data);
+            console.log(items);
+            setLoader(false)
+        })
+    } catch (err) {
         console.log(err)
-    })
+        setLoader(true)
+    }
 }, [])
     const options = {
         items: 1,
@@ -43,21 +48,93 @@ useEffect(()=> {
         nav: false,
         dots: false
     };
-    // const [Data, setData] = useState([]);
-    // useEffect(() => {
-      
-    //     try {
-    //         axios.get(PRODUCT_URL).then(res => {
-    //             console.log(res)
-    //             setData(res.data.data);
-                
-    //         })
-    //     } catch (error) {
-    //         console.warn(error)
-            
-    //     }
-    // }, [])
+//For Skeleton & Card data HTML here in 2 diff variables
+const carditemdata=
+    items.slice(0, 8).map((productdata, i) => (
+        <div className='col-lg-3 col-md-4 col-sm-6 px-1' key={i}>
+            <Card id={productdata._id} category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
+        </div>
+    ))
+const skeleton=
+    [0,1,2,3].map(() => (
+        <div className='col-lg-3 col-md-4 col-sm-6 px-1 Skeleton-products' key={Math.random()}>
+            <div className="skel1div"></div><br/>
+            <h2></h2>
+            <h3></h3>
+            <div style={{display:'flex'}}><h2></h2><h2 style={{marginLeft:'25%'}}></h2></div>   
+            <h1></h1>    
+        </div>
+        
+    ))
+//For Skeleton for Best seller & data HTML here in 2 diff variables
+const bestsellerdata =
+items.slice(0, 4).map((value, index) => {
     return (
+        <Link to="/product-details" key={index}>
+            <div className='BS-Product-item d-flex align-items-center'>
+                <div className=''>
+                    <img src={value.image} alt='product' width="70" className='img-fluid'></img>
+                </div>
+                <div className='d-flex align-items-center'>
+                    <div className='mt-4'>
+                        <h6 className='best-seller-product-title'>{value.name}</h6>
+                        <p className='best-seller-product-price'>{value.price}</p>
+                    </div>
+                </div>
+            </div>
+        </Link>
+    );
+})
+const bestsellerdata2 =
+items.slice(3,7).map((value, index) => {
+    return (
+        <Link to="/product-details" key={index}>
+            <div className='BS-Product-item d-flex align-items-center'>
+                <div className=''>
+                    <img src={value.image} alt='product' width="70" className='img-fluid'></img>
+                </div>
+                <div className='d-flex align-items-center'>
+                    <div className='mt-4'>
+                        <h6 className='best-seller-product-title'>{value.name}</h6>
+                        <p className='best-seller-product-price'>{value.price}</p>
+                    </div>
+                </div>
+            </div>
+        </Link>
+    );
+})
+const bestsellerdata3 =
+items.slice(2,6).map((value, index) => {
+    return (
+        <Link to="/product-details" key={index}>
+            <div className='BS-Product-item d-flex align-items-center'>
+                <div className=''>
+                    <img src={value.image} alt='product' width="70" className='img-fluid'></img>
+                </div>
+                <div className='d-flex align-items-center'>
+                    <div className='mt-4'>
+                        <h6 className='best-seller-product-title'>{value.name}</h6>
+                        <p className='best-seller-product-price'>{value.price}</p>
+                    </div>
+                </div>
+            </div>
+        </Link>
+    );
+})
+const bestsellerskeleton =
+    [0,1,2,3].map(() => (
+        <div className='Skeleton-bestseller'style={{display:'flex'}} key={Math.random()}>
+            <div className="selskeldiv1 mb-2 mt-4"></div><br/>
+            <div className="mt-4" style={{marginLeft:'20%'}}>
+               <h3></h3>
+                <h2></h2>
+            </div>           
+        </div>
+    ))
+
+
+
+    return (       
         <div className='home'>
             {/* banner */}
             <section className="banner-home py-4">
@@ -157,12 +234,8 @@ useEffect(()=> {
                                 <i className="fa fa-angle-right" style={{ fontSize: '15px', paddingLeft: '3px' }}></i>
                             </Link>
                         </div>
-                        {/* Using Map Function to access the data & send to card */}
-                        {items.slice(0, 8).map((productdata, i) => (
-                            <div className='col-lg-3 col-md-4 col-sm-6 px-1' key={i}>
-                                <Card id={productdata._id} category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
-                            </div>
-                        ))}
+                        {/* Skeleton & Card data condition check here */}
+                        {!loader ? carditemdata : skeleton }
                     </div>
                 </div>
             </section>
@@ -214,25 +287,10 @@ useEffect(()=> {
                         <div className='col-md-4 col-sm-6'>
                             <div className='BS-Product'>
                                 <h3 className='BS-Heading'>BestSellers</h3>
-                                {
-                                    items.slice(0, 4).map((value, index) => {
-                                        return (
-                                            <Link to="/product-details" key={index}>
-                                                <div className='BS-Product-item d-flex align-items-center '>
-                                                    <div className=''>
-                                                        <img src={value.image} alt='product' width="70" className='img-fluid'></img>
-                                                    </div>
-                                                    <div className='d-flex align-items-center'>
-                                                        <div className='mt-4'>
-                                                            <h6 className='best-seller-product-title'>{value.name}</h6>
-                                                            <p className='best-seller-product-price'>{value.price}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        );
-                                    })
-                                }
+                                 {/* Best Seller data & skeleton condition check here */}
+                                    {
+                                        !loader ? bestsellerdata :bestsellerskeleton
+                                    }
                                 <div className='mt-4 text-orange'>
                                     <Link to="/product" className="text-orange">View More <i className="fa fa-angle-right"></i></Link>
                                 </div>
@@ -240,26 +298,11 @@ useEffect(()=> {
                         </div>
                         <div className='col-md-4 col-sm-6'>
                             <div className='BS-Product'>
-                                <h3 className='BS-Heading'>New Arrivals</h3>
-                                {
-                                    items.slice(3, 7).map((value, index) => {
-                                        return (
-                                            <Link to="/product-details" key={index}>
-                                                <div className='BS-Product-item d-flex align-items-center ' >
-                                                    <div className=''>
-                                                        <img src={value.image} alt='product' width="70" className='img-fluid'></img>
-                                                    </div>
-                                                    <div className='d-flex align-items-center'>
-                                                        <div className='mt-4'>
-                                                            <h6 className='best-seller-product-title'>{value.name}</h6>
-                                                            <p className='best-seller-product-price'>{value.price}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        );
-                                    })
-                                }
+                                <h3 className='BS-Heading'>New Arrivals</h3> 
+                            {/* New Arrivals data & skeleton condition check here */}
+                                { 
+                                    !loader ? bestsellerdata2 : bestsellerskeleton 
+                                }                           
                                 <div className='mt-4 text-orange'>
                                     <Link to="/product" className="text-orange">View More <i className="fa fa-angle-right"></i></Link>
                                 </div>
@@ -268,25 +311,10 @@ useEffect(()=> {
                         <div className='col-md-4 col-sm-6'>
                             <div className='BS-Product'>
                                 <h3 className='BS-Heading'>Top Rated</h3>
-                                {
-                                    items.slice(2, 6).map((value, index) => {
-                                        return (
-                                            <Link to="/product-details" key={index}>
-                                                <div className='BS-Product-item d-flex align-items-center' >
-                                                    <div className=''>
-                                                        <img src={value.image} alt='product' width="70" className='img-fluid'></img>
-                                                    </div>
-                                                    <div className='d-flex align-items-center'>
-                                                        <div className='mt-4'>
-                                                            <h6 className='best-seller-product-title'>{value.name}</h6>
-                                                            <p className='best-seller-product-price'>{value.price}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        );
-                                    })
-                                }
+                                 {/* New Arrivals data & skeleton condition check here */}
+                                 { 
+                                    !loader ? bestsellerdata3 : bestsellerskeleton 
+                                }                                
                                 <div className='mt-4 text-orange'>
                                     <Link to="/product" className="text-orange">View More
                                         <i className="fa fa-angle-right"></i></Link>
