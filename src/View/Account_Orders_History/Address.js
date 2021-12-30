@@ -72,14 +72,14 @@ function Address() {
                                                             <div className="row gx-4 gy-3">
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">First name</label>
-                                                                <input className="form-control" type="text" {...register("fname",{required:true})}/>
-                                                                <div className='text-errormsg'>{errors.fname?.type === 'required' && "Please fill in you first name!"}</div>
+                                                                <input className="form-control" type="text" {...register("fname",{required:true, maxLength:10})}/>
+                                                                <div className='text-errormsg'>{errors.fname?.type === 'required' && "Please fill in you firstname maximum 10 alphabets!"}</div>
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">Last name</label>
-                                                                <input className="form-control" type="text" {...register("lname",{required:true})}/>
+                                                                <input className="form-control" type="text" {...register("lname",{required:true, maxLength:10})}/>
                                                                 <div className="invalid-feedback">Please fill in you last name!</div>
-                                                                <div className='text-errormsg'>{errors.lname && "Last name is required"}</div>
+                                                                <div className='text-errormsg'>{errors.lname && "Lastname is required maximum 10 alphabets!"}</div>
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">Company</label>
@@ -118,7 +118,7 @@ function Address() {
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">ZIP code</label>
                                                                 <input className="form-control" type="text" {...register("zipcode",{ required: true ,maxLength:6})}/>
-                                                                <div className='text-errormsg'>{errors.zipcode && "Please add your ZIP code!."}</div>
+                                                                <div className='text-errormsg'>{errors.zipcode && "Please add your ZIP code maximum 6 digit!!."}</div>
                                                                 </div>
                                                                 <div className="col-12">
                                                                 <div className="form-check">
