@@ -114,9 +114,11 @@ const Payment = ({ setForm, formData, navigation }) => {
                         <div className='row'>
                           <div className='col-lg-3'>
                             <div className="form-group mb-3">
-                              <input type="number"
+                              <input type="tel"
                                 name="expiry"
+                               onkeyup="formatString(event);"
                                 placeholder="MM/YY"
+                                pattern={"\d*"}
                                 minLength={4}
                                 maxLength={4}
                                 value={expiry}
