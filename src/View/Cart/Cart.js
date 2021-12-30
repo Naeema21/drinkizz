@@ -1,6 +1,5 @@
 import React from 'react'
 import './Cart.css'
-import { products } from '../../assets/Data/product'
 import { Accordion } from 'react-bootstrap'
 import { useForm } from 'react-hook-form';
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
@@ -16,17 +15,26 @@ const Cart = () => {
         reset();
     }
     const [Data, setData] = useState([]);
-    const[deleteId , setDeleteId]=useState();
+    const [deleteId, setDeleteId] = useState();
+    const [Loder, setLoader] = useState(false)
+    const [EmptyCart, setEmptyCart] = useState(false)
     useEffect(() => {
-       
+        setLoader(true)
         try {
             axios.get(GET_CART_DATA).then(res => {
                 console.log(res)
                 setData(res.data.data);
+                if(res.status===203){
+                    setEmptyCart(true)
+                }
+                setLoader(false)
             })
         } catch (error) {
             console.warn(error)
+            setLoader(true)
         }
+      
+        setEmptyCart(false)
     }, [])
     const Deletecart = (ids) => {
         axios.delete(GET_CART_DATA + "/" + ids).then(res => {
@@ -34,19 +42,78 @@ const Cart = () => {
             if (res.status === 200) {
                 swal({
                     title: "Removed From Wishlist!",
-                    timer:2000,
-                }).then(()=>{
+                    timer: 2000,
+                }).then(() => {
                     setDeleteId(ids)
                 })
             } else {
                 swal({
                     title: "Try Again!",
                 })
-               
+
             }
-          
+
         })
     }
+    //Skeleron
+    const CartItemCards = Data.slice(0, 4).map((v, i) => {
+        if (deleteId === v._id) {
+            return ("")
+        } else {
+            return (
+                <div key={i}>
+                    <div className='d-flex row Cart-list-item align-items-center'>
+                        <div className='d-flex align-items-center col-lg-3 col-md-3 col-sm-3 col-xs-3 Cart-list-item-img'>
+                            <div className='p-3'>
+                                <img src={v.image} className='img-fluid'
+                                    width="150px" height="150px" />
+                            </div>
+                        </div>
+                        <div className='product-desc col-lg-7 col-md-7 col-sm-7 col-xs-6'><a href='/product-details'>
+                            <h6 className='title-text-color'>{v.name}</h6>
+                            {/* <span className='text-muted'>Size: {v.size}</span> */}
+                            <span className='text-muted'>Category: {v.category}</span>
+                            <br />
+                            <span className='text-muted'>Color: Black</span>
+                            <p className='text-indigo fs-lg'>${v.price}</p>
+                        </a></div>
+
+                        <div className='col-lg-2 col-md-2 col-sm-2 col-xs-3 Delete-Cart-Item'>
+                            <p className='text-quantity'>Quantity</p>
+                            <input type="number" defaultValue={v.quantity} className='quanity-bar' /><br />
+                            <a className='text-red remove-link mt-2' onClick={() => Deletecart(v._id)}><i className='fa fa-close'></i>&nbsp;Remove
+                            </a>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+            )
+        }
+    })
+    const SkeletonCartItem = [0, 1, 2].map(() => {
+        return (
+            <div key={Math.random()}>
+                <div className='row Skeleton-Cart'>
+                    <div className='col-lg-3 col-md-3 col-sm-3 col-xs-3 Cart-list-item-img'>
+                        <div className='p-3 Cart-skeleton-img'>
+                        </div>
+                    </div>
+                    <div className='product-desc col-lg-7 col-md-7 col-sm-7 col-xs-6'><a href='/product-details'>
+                        <h6 className='title-text-color'></h6>
+                        <span><p> </p></span>
+                        <span><p> </p></span>
+                        <h4> </h4>
+                    </a></div>
+                    <div className='col-lg-2 col-md-2 col-sm-2 col-xs-3 Delete-Cart-Item'>
+                        <p className='text-quantity'></p>
+                        <h4></h4>
+                        <p> </p>
+                    </div>
+                </div>
+                <hr />
+            </div>
+        )
+    })
     return (
         <div className='cart'>
             {/* Header start*/}
@@ -70,39 +137,7 @@ const Cart = () => {
                             </div>
                         </div>
                         {
-                            Data.slice(0, 4).map((v, i) => {
-                                if(deleteId===v._id){
-                                    return("")
-                                }else{
-                                return (
-                                    <div key={i}>
-                                        <div className='d-flex row Cart-list-item align-items-center'>
-                                            <div className='d-flex align-items-center col-lg-3 col-md-3 col-sm-3 col-xs-3 Cart-list-item-img'>
-                                                <div className='p-3'>
-                                                    <img src={v.image} className='img-fluid'
-                                                        width="150px" height="150px" />
-                                                </div>
-                                            </div>
-                                            <div className='product-desc col-lg-7 col-md-7 col-sm-7 col-xs-6'><a href='/product-details'>
-                                                <h6 className='title-text-color'>{v.name}</h6>
-                                                {/* <span className='text-muted'>Size: {v.size}</span> */}
-                                                <span className='text-muted'>Category: {v.category}</span>
-                                                <br />
-                                                <span className='text-muted'>Color: Black</span>
-                                                <p className='text-indigo fs-lg'>${v.price}</p>
-                                            </a></div>
-
-                                            <div className='col-lg-2 col-md-2 col-sm-2 col-xs-3 Delete-Cart-Item'>
-                                                <p className='text-quantity'>Quantity</p>
-                                                <input type="number" defaultValue={v.quantity} className='quanity-bar' /><br />
-                                                <a className='text-red remove-link mt-2' onClick={() => Deletecart(v._id)}><i className='fa fa-close'></i>&nbsp;Remove
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <hr />
-                                    </div>
-                                )}
-                            })
+                            !Loder ? CartItemCards : SkeletonCartItem 
                         }
                         <div className='row my-4'>
                             <a href='/product' className='btn Button-Blue-Border d-block w-100'>
