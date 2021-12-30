@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Cards.css'
 import { Link } from 'react-router-dom';
 import axios from "axios";
@@ -6,9 +6,6 @@ import swal from 'sweetalert';
 
 const Cards = React.memo((props) => {
 //POST data for Add to card
-const [showDangerAlert, setshowDangerAlert] = useState(false);
-
-// const[deleteId , setDeleteId]=useState();
 
     const data = { name:props.name, category :props.category,price:props.price,size :1,quantity:1,image:props.imgsrc};
     const handleSubmit = () => {

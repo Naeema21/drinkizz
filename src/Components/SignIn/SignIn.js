@@ -8,11 +8,18 @@ const SignIn = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     // for signinform
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
-   
-    const handleSignUp =(data)=>{
+    const { register, handleSubmit,reset, formState:{errors} } = useForm({mode: "onBlur"});
+    const {register: register2,formState: { errors: errors2 },handleSubmit: handleSubmit2,reset:reset1} = useForm({mode: "onBlur",});
+    // const {handleForm}= useForm();
+    const onSubmit = data =>{
+        alert(JSON.stringify(data));
         console.log(data);
+        reset();
+    }
+    const handleSignUp =(data)=>{
+        alert(JSON.stringify(data));
+        console.log(data);
+        reset1();
     }
     return (
         <>
@@ -26,20 +33,20 @@ const SignIn = () => {
                   <div className='modalsingin-up-close'>
                     <button className="btn-close" type="button" onClick={() => handleClose(true)}></button>
                   </div>
-                <Tabs defaultActiveKey="Signin" id="uncontrolled-tab-example" className="mb-3 flex-row">
-                    <Tab eventKey="Signin" title="Signin" className='signin-tab' defaultActiveKey="Signin">
+                <Tabs defaultactivekey="Signin" id="uncontrolled-tab-example" className="mb-3 flex-row">
+                    <Tab eventKey="Signin" title="Signin" className='signin-tab' defaultactivekey="Signin">
                     <div className='Sign-in-modal'>
                     <div className="modal-body tab-content py-4">
-                        <form className="" autocomplete="off" onSubmit={handleSubmit(onSubmit)}>
+                        <form className="" key={1} autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
                             <div className="mb-3">
                                 <label className="form-label signup-form-label">Email address</label>
-                                <input className="form-control signup-input" type="email" {...register("email",{ required: "Please enter your email." })} />
+                                <input className="form-control signup-input" type="email" {...register("email",{ required: true })} />
+                                <div className='text-errormsg'>{errors.email && "Please provide a valid email address."}</div>
                             </div>
                             <div className="mb-3">
                                 <label className="form-label signup-form-label">Password</label>
-                                <div>
-                                    <input className="form-control signup-input" type="password" {...register("password",{ required: "Please enter your password." })}/>
-                                </div>
+                               <input className="form-control signup-input" type="password" {...register("password",{ required: true })}/>
+                               <div className='text-errormsg'>{errors.password && "Please provide a valid Password."}</div>
                             </div>
                             <div className="mb-3 d-flex flex-wrap justify-content-between">
                                 <div className="form-check mb-2">
@@ -56,26 +63,38 @@ const SignIn = () => {
                     <Tab eventKey="Signup" title="Signup">
                     <div className='Sign-up-modal'>
                             <div className="modal-body tab-content py-4">
-                                <form autocomplete="off" onSubmit={handleSubmit(handleSignUp)}>
+                                <form autocomplete="off" key={2} onSubmit={handleSubmit2(handleSignUp)}>
                                 <div className="mb-3">
                                         <label className="form-label signup-form-label">Full Name</label>
-                                        <input className="form-control signup-input" type="name" {...register("name",{ required: "Please enter your name.",maxLength:20})}/>
+                                        <input className="form-control signup-input" {...register2("name",{required: true, maxLength: 20, pattern: /^[A-Za-z]+$/i})}/>
+                                        <div className='text-errormsg'>
+                                        {errors2.name && "Please enter your name."}
+                                        {errors2?.name?.type === "maxLength" && (
+                                            <p>First name cannot exceed 20 characters</p>
+                                        )}
+                                        {errors2?.name?.type === "pattern" && (
+                                            <p>Alphabetical characters only</p>
+                                        )}
+                                        </div>  
                                     </div>
                                     <div className="mb-3">
                                         <label className="form-label signup-form-label">Email address</label>
-                                        <input className="form-control signup-input" type="email" {...register("email",{ required: "Please enter your email.",pattern:"[a-z0-9._%+-]+@[a-z0-9.-]+/.[a-z]{2,}$" })}/>
+                                        <input className="form-control signup-input" type="email" {...register2("emails",{ required: true })}/>
+                                        <div className='text-errormsg'>{errors2.emails && "Please enter your email."}</div>
                                     </div>
                                     <div className="mb-3">
-                                        <label className="form-label signup-form-label" {...register("password",{ required: "Please enter your password.",pattern:"(?=.*/d)(?=.*[a-z])(?=.*[A-Z]).{8,}" })}>Password</label>
-                                        <div>
-                                            <input className="form-control signup-input" type="password" required=""/>
+                                        <label className="form-label signup-form-label">Password</label>
+                                        <div className='password-toggle'>
+                                            <input className="form-control signup-input" type="password" {...register2("password1",{ required: true })}/>
                                         </div>
+                                        <div className='text-errormsg'>{errors2.password1 && "Please enter your password."}</div>
                                     </div>
                                     <div className="mb-3">
                                         <label className="form-label signup-form-label">Confirm Password</label>
                                         <div className="password-toggle">
-                                            <input className="form-control signup-input" type="password" {...register("password",{ required: "Please enter your password.",pattern:"(?=.*/d)(?=.*[a-z])(?=.*[A-Z]).{8,}"})}/>
+                                            <input className="form-control signup-input" type="password" {...register2("confirmpassword",{ required: true })}/>
                                         </div>
+                                        <div className='text-errormsg'>{errors2.confirmpassword && "Please enter your password."}</div>
                                     </div>
                                     <button className="btn btn-primary btn-shadow d-block w-100 compare-btn-signup" type="submit">Sign Up</button>
                                 </form>

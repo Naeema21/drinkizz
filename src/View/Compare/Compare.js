@@ -56,8 +56,8 @@ const Compare = () => {
                                                 <i className="fa fa-trash-o me-1"></i>Remove
                                             </Link>
                                             <Link className="d-inline-block mb-3" to="product-details">
-                                                {/* <img src={i2} width="80" alt="Google Pixel 3 XL" /> */}
-                                                <div className='skeleton-loader-background' />
+                                                {/* <img src={i2}  alt="Google Pixel 3 XL" className='skeleton-loader-background1' /> */}
+                                                <div className='skeleton-loader-background1' />
                                             </Link>
                                             <h6 className="product-title">
                                                 <Link className='product-name' to="product-details"></Link>
@@ -69,8 +69,8 @@ const Compare = () => {
                                                 <i className="fa fa-trash-o me-1"></i>Remove
                                             </Link>
                                             <Link className="d-inline-block mb-3" to="product-details">
-                                                {/* <img src={i3} width="80" alt="Samsung Galaxy S10+" /> */}
-                                                <div className='skeleton-loader-background' />
+                                                {/* <img src={i3} alt="Samsung Galaxy S10+" className='skeleton-loader-background1'/> */}
+                                                <div className='skeleton-loader-background1' />
                                             </Link>
                                             <h6 className="product-title">
                                                 <Link className='product-name' to="product-details">
@@ -91,32 +91,32 @@ const Compare = () => {
                                     <tr>
                                         <th className="text-dark">Performance</th>
                                         <td>Hexa Core</td>
-                                        <td className=''></td>
-                                        <td></td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Display</th>
                                         <td>6.5-inch</td>
-                                        <td>6.3-inch</td>
-                                        <td>6.4-inch</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Storage</th>
                                         <td>64 GB</td>
-                                        <td>64 GB</td>
-                                        <td>128 GB</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Camera</th>
                                         <td>Dual 12-megapixel</td>
-                                        <td>12.2-megapixel</td>
-                                        <td>12,16,12-megapixel</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Battery</th>
                                         <td>3,174 mAh</td>
-                                        <td>3,430 mAh</td>
-                                        <td>4,100 mAh</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                 </tbody>
                                 <tbody id="summary" className='showsummary' data-filter-target="" style={{ display: summary ? "block" : 'none' }}>
@@ -129,32 +129,32 @@ const Compare = () => {
                                     <tr>
                                         <th className="text-dark">Performance</th>
                                         <td>Hexa Core</td>
-                                        <td>Octa Core</td>
-                                        <td>Octa Core</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Display</th>
                                         <td>6.5-inch</td>
-                                        <td>6.3-inch</td>
-                                        <td>6.4-inch</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Storage</th>
                                         <td>64 GB</td>
-                                        <td>64 GB</td>
-                                        <td>128 GB</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Camera</th>
                                         <td>Dual 12-megapixel</td>
-                                        <td>12.2-megapixel</td>
-                                        <td>12,16,12-megapixel</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Battery</th>
                                         <td>3,174 mAh</td>
-                                        <td>3,430 mAh</td>
-                                        <td>4,100 mAh</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                 </tbody>
                                 {/* General Table */}
@@ -168,44 +168,44 @@ const Compare = () => {
                                     <tr>
                                         <th className="text-dark">Quick charging</th>
                                         <td>Yes</td>
-                                        <td>Yes</td>
-                                        <td>Yes</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Operating system</th>
                                         <td>iOS v12</td>
-                                        <td>Android v9.0 Pie	</td>
-                                        <td>Android v9.0 with Samsung One UI	</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'>	</td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Sim slots</th>
                                         <td>Single SIM, GSM</td>
-                                        <td>Single SIM, GSM</td>
-                                        <td>Hybrid SIM slot, GSM</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Launch date</th>
                                         <td>September 12, 2018 (Official)</td>
-                                        <td>November 1, 2018 (Official)</td>
-                                        <td>February 20, 2019 (Official)</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Sim size</th>
                                         <td>SIM1: Nano</td>
-                                        <td>SIM1: Nano</td>
-                                        <td>SIM1: Nano SIM2: Nano (Hybrid)</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Network</th>
                                         <td>4G: Available (supports Indian bands) 3G: Available, 2G: Available</td>
-                                        <td>4G: Available (supports Indian bands) 3G: Available, 2G: Available</td>
-                                        <td>4G: Available (supports Indian bands) 3G: Available, 2G: Available</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Fingerprint sensor</th>
                                         <td>None (Face ID)</td>
-                                        <td>Back cover</td>
-                                        <td>In-screen</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                 </tbody>
                                 {/* MultiMedia table */}
@@ -219,20 +219,20 @@ const Compare = () => {
                                     <tr>
                                         <th className="text-dark">Loudspeaker</th>
                                         <td>Yes</td>
-                                        <td>Yes</td>
-                                        <td>Yes</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">FM radio</th>
                                         <td>No</td>
-                                        <td>No</td>
-                                        <td>No</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Headphone jack</th>
                                         <td>No</td>
-                                        <td>No</td>
-                                        <td>Yes</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                 </tbody>
                                 {/* Performance Table */}
@@ -246,26 +246,26 @@ const Compare = () => {
                                     <tr>
                                         <th className="text-dark">Processor</th>
                                         <td>Apple A12 Bionic</td>
-                                        <td>Qualcomm Snapdragon 845 (2.5GHz octa-core)</td>
-                                        <td>Octa-core Qualcomm Snapdragon 855</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Graphics</th>
                                         <td>Apple GPU (4-core graphics)</td>
-                                        <td>Adreno 630</td>
-                                        <td>Mali-G72 MP18</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Architecture</th>
                                         <td>64 bit</td>
-                                        <td>64 bit</td>
-                                        <td>64 bit</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">RAM</th>
                                         <td>4 GB</td>
-                                        <td>4 GB</td>
-                                        <td>8 GB</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                 </tbody>
                                 {/* Design Table */}
@@ -279,44 +279,44 @@ const Compare = () => {
                                     <tr>
                                         <th className="text-dark">Build material</th>
                                         <td>Case: AluminiumBack: Mineral Glass</td>
-                                        <td>Case: AluminiumBack: Aluminium</td>
-                                        <td>Case: AluminiumBack: Mineral Glass</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Thickness</th>
                                         <td>7.7 mm</td>
-                                        <td>7.9 mm</td>
-                                        <td>8.5 mm</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Width</th>
                                         <td>70.9 mm</td>
-                                        <td>76.7 mm</td>
-                                        <td>73.8 mm</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Height</th>
                                         <td>143.6 mm</td>
-                                        <td>157.9 mm</td>
-                                        <td>158.1 mm</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Weight</th>
                                         <td>174 grams</td>
-                                        <td>175 grams</td>
-                                        <td>189 grams</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Waterproof</th>
                                         <td>Yes Water resistant (up to 30 minutes in a depth of 1 meter), IP67</td>
-                                        <td>Yes Water resistant (up to 30 minutes in a depth of 1 meter), IP67</td>
-                                        <td>Yes Water resistant (up to 30 minutes in a depth of 1.5 meter), IP68</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Colors</th>
                                         <td>Silver, Space Grey</td>
-                                        <td>Black, Black and White</td>
-                                        <td>Midnight Black, Coral Blue, Lilac Purple</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                 </tbody>
                                 {/* Dispaly Table */}
@@ -330,38 +330,38 @@ const Compare = () => {
                                     <tr>
                                         <th className="text-dark">Display type</th>
                                         <td>Super Retina OLED</td>
-                                        <td>'flexible' OLED</td>
-                                        <td>Super AMOLED</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Pixel density</th>
                                         <td>458 ppi</td>
-                                        <td>522 ppi</td>
-                                        <td>522 ppi</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Screen protection</th>
                                         <td>Yes</td>
-                                        <td>Corning Gorilla Glass v5</td>
-                                        <td>Corning Gorilla Glass v5</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Screen size</th>
                                         <td>6.5 inches</td>
-                                        <td>6.3 inches</td>
-                                        <td>6.4 inches</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Screen resolution</th>
                                         <td>1125 x 2436 pixels</td>
-                                        <td>1440 x 2880 pixels</td>
-                                        <td>1440 x 2960 pixels	</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Touch screen</th>
                                         <td>Yes, 3D Touch Touchscreen, Multi-touch</td>
-                                        <td>Yes, Capacitive Touchscreen, Multi-touch</td>
-                                        <td>Yes, Capacitive Touchscreen, Multi-touch</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                 </tbody>
                                 {/* Storage Table */}
@@ -375,14 +375,14 @@ const Compare = () => {
                                     <tr>
                                         <th className="text-dark">Internal memory</th>
                                         <td>64 GB</td>
-                                        <td>64 GB</td>
-                                        <td>128 GB</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Expandable memory</th>
                                         <td>No</td>
-                                        <td>No</td>
-                                        <td>Yes Up to 1 TB</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                 </tbody>
                                 {/* Camera Table */}
@@ -396,56 +396,56 @@ const Compare = () => {
                                     <tr>
                                         <th className="text-dark">Settings</th>
                                         <td>Exposure compensation, ISO control</td>
-                                        <td>Exposure compensation, ISO control</td>
-                                        <td>Exposure compensation</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Aperture</th>
                                         <td>F2.2</td>
-                                        <td>F2.4</td>
-                                        <td>F1.7</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Camera features</th>
                                         <td>10 x Digital zoom, Optical zoom, Auto flash, Face detection, Touch to focus</td>
-                                        <td>Fixed zocus</td>
-                                        <td>Wide angle selfie</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Image resolution</th>
                                         <td>4000 x 3000 pixels</td>
-                                        <td>4000 x 3000 pixels</td>
-                                        <td>4000 x 3000 pixels</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Sensor</th>
                                         <td>BSI sensor</td>
-                                        <td>CMOS image sensor</td>
-                                        <td>CMOS image sensor</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Autofocus</th>
                                         <td>Yes</td>
-                                        <td>No</td>
-                                        <td>Yes</td>
+                                        <td className='skeleton-loader-background'>No</td>
+                                        <td className='skeleton-loader-background'>Yes</td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Shooting modes</th>
                                         <td>Continuos shooting, High dynamic range mode (HDR), Burst mode</td>
-                                        <td>Continuos shooting, High dynamic range mode (HDR)</td>
-                                        <td>Continuos shooting, High dynamic range mode (HDR)</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Optical image stabilisation</th>
                                         <td>Yes, Dual optical image stabilization</td>
-                                        <td>Yes</td>
-                                        <td>Yes</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Flash</th>
                                         <td>Yes, Retina flash</td>
-                                        <td>Yes, Dual LED flash</td>
-                                        <td>Yes, LED flash</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                 </tbody>
                                 {/* Battery Table */}
@@ -459,32 +459,32 @@ const Compare = () => {
                                     <tr>
                                         <th className="text-dark">Talktime</th>
                                         <td>Up to 21 hours(4G)</td>
-                                        <td>Up to 24 hours(4G)</td>
-                                        <td>Up to 25 hours(4G)</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Quick charging</th>
                                         <td>Yes, fast, 50 % in 30 minutes</td>
-                                        <td>Yes</td>
-                                        <td>Yes</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Wireless charging</th>
                                         <td>Yes</td>
-                                        <td>Yes</td>
-                                        <td>Yes</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Type</th>
                                         <td>Li-ion</td>
-                                        <td>Li-ion</td>
-                                        <td>Li-ion</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Capacity</th>
                                         <td>3,174 mAh</td>
-                                        <td>3,430 mAh</td>
-                                        <td>4,100 mAh</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                 </tbody>
                                 {/* Price Table */}
@@ -498,14 +498,14 @@ const Compare = () => {
                                     <tr>
                                         <th className="text-dark">Price</th>
                                         <td>$1,099</td>
-                                        <td>$899</td>
-                                        <td>$1,000</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Rating</th>
                                         <td>4.5/5</td>
-                                        <td>4.5/5</td>
-                                        <td>4.5/5</td>
+                                        <td className='skeleton-loader-background'></td>
+                                        <td className='skeleton-loader-background'></td>
                                     </tr>
                                     <tr className='text-center'>
                                         <th></th>

@@ -55,7 +55,10 @@
 .accordion-button:not(.collapsed)::after {
   background-image: none;
 }
-
+.pro-5page{
+  margin-left: 33%;
+  margin-top: 2%;
+}
 /* ShopList Search button */
 .shoplistsearch-bar input[type=search] {
   width: 100% !important;
@@ -68,37 +71,30 @@
 .shoplistsearch-bar input[type=search]:hover {
   background-color: #fff;
 }
-
 .shoplistsearch-bar input[type=search]:focus {
   color: #000;
   background-color: #fff;
   cursor: auto;
   border: 1px solid #fe696a;
 }
-
 .shoplistsearch-bar input:-moz-placeholder {
   color: transparent;
 }
-
 .shoplistsearch-bar input::-webkit-input-placeholder {
   color: transparent;
 }
-
 .shoplistsearch-bar input {
   outline: none;
 }
-
 .shoplistsearch-bar input[type=search] {
   -webkit-appearance: textfield;
   font-family: inherit;
   font-size: 100%;
 }
-
 .shoplistsearch-bar input::-webkit-search-decoration,
 .shoplistsearch-bar input::-webkit-search-cancel-button {
   display: none;
 }
-
 .shoplistsearch-bar input[type=search] {
   padding: 5px 10px 5px 32px;
   width: 55px;
@@ -163,10 +159,6 @@
 }
 .shopform-option-label:active{ border: 1px solid #fe3638;}
 
-.shopform-option-label input:checked .shopform-option-label { border: 1px solid #fe3638;}
-
-
-
 .shopform-option-color {
   display: block;
   position: absolute;
@@ -202,7 +194,109 @@
     color: #4b566b;
     font-size: 15px;
 }
+/* Skleton css of product cards */
+.Skeleton-products .skel1div{
+  height: 150px;
+  width: 100%;
+  background: linear-gradient(to right,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.5) 50%,
+          rgba(255, 255, 255, 0) 80%),
+      #efecec;
+}
+.Skeleton-products h2{
+  height: 15px;
+  width: 100px;
+  background: linear-gradient(to right,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.5) 50%,
+          rgba(255, 255, 255, 0) 80%),
+      #efecec;
+}
+.Skeleton-products h3{
+  height: 15px;
+  width: 140px;
+  background: linear-gradient(to right,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.5) 50%,
+          rgba(255, 255, 255, 0) 80%),
+      #efecec;}
+.Skeleton-products h1{
+   border-radius: 10px;
+  height: 40px;
+  width:100%;
+  background: linear-gradient(to right,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.5) 50%,
+          rgba(255, 255, 255, 0) 80%),
+      #efecec;
+}
+/* Pagination css */
+.propagination {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+}
+.propage-item {
+  margin: 0.15rem;
+}
+.propage-link{
+  text-decoration: none;
+  border-top-right-radius: 0.3125rem;
+    border-bottom-right-radius: 0.3125rem;
+    border-radius: 0.3125rem;
+    font-size: .9375rem;
+    padding: 0.3125rem 0.75rem;
+    position: relative;
+    display: block;
+    color: #4b566b;
+    background-color: transparent;
+    border: 1px solid transparent;
+    transition: color .25s ease-in-out,border-color .25s ease-in-out,background-color .25s ease-in-out;
+}
+.propage-link:hover {
+  z-index: 2;
+  color: #4b566b;
+  background-color: #f3f5f9;
+  border-color: #f3f5f9;
+}
+.propage-link i {
+  margin-top: -0.125rem;
+    vertical-align: middle;
+    font-size: 25px;
+}
+.propage-item .active{
+  position: relative;
+  z-index: 5;
+  cursor: default;
+}
+.propage-item.active .propage-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #fe696a;
+    border-color: transparent;
+  box-shadow: 0 0.5rem 1.125rem -0.425rem rgb(254 105 106 / 90%);
+}
+.provisually-hidden, .visually-hidden-focusable:not(:focus):not(:focus-within) {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;}
+
 /* Media Query of Product */
 @media screen and (min-width:320px) and (max-width:767px) {
   .shoplistbox { margin-top: 0px;} 
+ .pro-5page {
+    margin-left: 2%;
+    margin-top: 3%;}
+}
+@media screen and (min-width:768px) and (max-width:1024px) {
+.pro-5page {
+  margin-left: 10%;
+  margin-top: 3%;}
 }
