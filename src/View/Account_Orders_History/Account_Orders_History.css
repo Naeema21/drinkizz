@@ -156,11 +156,7 @@ transform: translateY(-50%);
     background-color: #fff;
     background-clip: border-box;
 }
-@keyframes shine {
-    to {
-        background-position: 100% 0;
-    }
-}
+
 .Skeleton-Cart .Cart-skeleton-img{
     max-width: 100%;
     height: 100px;
