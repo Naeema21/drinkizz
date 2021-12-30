@@ -5,7 +5,7 @@ body {
 }
 
 #main{
-  margin-top: 115px;
+  margin-top: 114px; 
 }
 @media(max-width:768px){
   #main{
@@ -112,8 +112,9 @@ color: #000 !important;
 .text-red{
   color: #fe696a !important;
 }
-.form-select:focus , .form-check-input:focus {
+.form-select:focus , .form-check-input:focus ,.form-control:focus{
   outline: 0;
+  border-color: #fe3638 !important;
   box-shadow: none !important;
 }
 

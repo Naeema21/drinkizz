@@ -13,7 +13,7 @@ import PaymentMethods from './PaymentMethods';
 import axios from 'axios';
 const Account_Orders_History =()=>{
     // payments modal
-    const { register, handleSubmit,reset } = useForm();
+    const { register, handleSubmit,reset,formState:{errors} } = useForm();
     const onProfile = data => 
     {
         console.log(data); 
@@ -255,29 +255,35 @@ const Account_Orders_History =()=>{
                                                 <div className="col-lg-6">
                                                 <label className="form-label">First Name</label>
                                                 <input className="form-control" type="text" {...register("firstname",{ required: true, maxLength: 20 })}/>
+                                                <div className='text-errormsg'>{errors.firstname && "Please fill firstName!"}</div>
                                                 </div>
                                                 <div className="col-lg-6">
                                                 <label className="form-label">Last Name</label>
                                                 <input className="form-control" type="text" {...register("lastname",{ required: true, maxLength: 20, pattern: /^[A-Za-z]+$/i  })}/>
+                                                <div className='text-errormsg'>{errors.lastname && "Please fill LastName!"}</div>
                                                 </div>
                                                 <div className="col-lg-6">
                                                 <label className="form-label">Email Address</label>
-                                                <input className="form-control" type="email" {...register("email",{ required: "Please enter your email." })} disabled=""/>
+                                                <input className="form-control" type="email" {...register("email",{ required:true })} disabled=""/>
+                                                <div className='text-errormsg'>{errors.email && "Please fill Email!"}</div>
                                                 </div>
                                                 <div className="col-lg-6">
                                                 <label className="form-label">Phone Number</label>
                                                 <input className="form-control" type="number" {...register("phone",{ required: true, minLength:10, maxLength: 12 })} required=""/>
+                                                <div className='text-errormsg'>{errors.phone && "Please fill PhoneNumber!"}</div>
                                                 </div>
                                                 <div className="col-lg-6">
                                                 <label className="form-label">New Password</label>
                                                 <div className="">
-                                                    <input className="form-control" type="password" {...register("password",{ required: "Please enter your password.",pattern:"(?=.*/d)(?=.*[a-z])(?=.*[A-Z]).{8,}" })}/>
+                                                    <input className="form-control" type="password" {...register("password",{ required: true,pattern:"(?=.*/d)(?=.*[a-z])(?=.*[A-Z]).{8,}" })}/>
+                                                    <div className='text-errormsg'>{errors.password && "Please fill Password!"}</div>
                                                 </div>
                                                 </div>
                                                 <div className="col-lg-6">
                                                 <label className="form-label">Confirm Password</label>
                                                 <div>
-                                                    <input className="form-control" type="password" {...register("confirmpassword",{ required: "Please enter your password.",pattern:"(?=.*/d)(?=.*[a-z])(?=.*[A-Z]).{8,}" })}/>
+                                                    <input className="form-control" type="password" {...register("confirmpassword",{ required: true,pattern:"(?=.*/d)(?=.*[a-z])(?=.*[A-Z]).{8,}" })}/>
+                                                    <div className='text-errormsg'>{errors.confirmpassword && "Please fill Password Again!"}</div>
                                                 </div>
                                                 </div>
                                                 <div className="col-12">
