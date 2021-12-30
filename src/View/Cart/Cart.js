@@ -17,25 +17,29 @@ const Cart = () => {
     const [Data, setData] = useState([]);
     const [deleteId, setDeleteId] = useState();
     const [Loder, setLoader] = useState(false)
-    const [EmptyCart, setEmptyCart] = useState(false)
+    const[Empty , setEmptyData] = useState(false)
+
+    //get data
     useEffect(() => {
         setLoader(true)
         try {
             axios.get(GET_CART_DATA).then(res => {
-                console.log(res)
-                setData(res.data.data);
-                if(res.status===203){
-                    setEmptyCart(true)
+                if (res.status === 200) {
+                    setData(res.data.data);
+                    setLoader(false)
+                }else if(res.status === 204){
+                    setEmptyData(true)
+                    setLoader(false)
                 }
-                setLoader(false)
             })
         } catch (error) {
             console.warn(error)
             setLoader(true)
         }
-      
-        setEmptyCart(false)
     }, [])
+
+
+    // card delete
     const Deletecart = (ids) => {
         axios.delete(GET_CART_DATA + "/" + ids).then(res => {
             console.log(res.status)
@@ -55,7 +59,8 @@ const Cart = () => {
 
         })
     }
-    //Skeleron
+    
+    //card item
     const CartItemCards = Data.slice(0, 4).map((v, i) => {
         if (deleteId === v._id) {
             return ("")
@@ -90,6 +95,8 @@ const Cart = () => {
             )
         }
     })
+
+    //skeleton
     const SkeletonCartItem = [0, 1, 2].map(() => {
         return (
             <div key={Math.random()}>
@@ -114,6 +121,8 @@ const Cart = () => {
             </div>
         )
     })
+
+
     return (
         <div className='cart'>
             {/* Header start*/}
@@ -123,8 +132,8 @@ const Cart = () => {
                 breadcrumb3="cart" BC3Link="/cart"
             />
             <div className='Heading-back-com2'> </div>
-            {/* Header End */}
-            {/* Cart list started */}
+            {/*------------- Header End--------------------- */}
+            {/* -------------------Cart list started ------------------*/}
             <div className='container Cart-list'>
                 <div className='row'>
                     <div className='col-lg-8'>
@@ -136,16 +145,22 @@ const Cart = () => {
                                 <a href='/product' className='btn Button-Red-Border btn-sm'> <i className="fa fa-angle-left me-2"></i> Continue Shopping</a>
                             </div>
                         </div>
+                        {/* --------------condition checking---------------------------*/}
                         {
-                            !Loder ? CartItemCards : SkeletonCartItem 
+                            !Loder ? CartItemCards : SkeletonCartItem
                         }
+                         {
+                            !Empty ? CartItemCards : <h1>no data</h1>
+                        }
+                        
+                        {/* ----------------------------------------------------------- */}
                         <div className='row my-4'>
                             <a href='/product' className='btn Button-Blue-Border d-block w-100'>
                                 <i className='fa fa-refresh'></i>&nbsp; &nbsp; Load More</a>
                         </div>
 
                     </div>
-                    {/* Additional Comments start */}
+                    {/*------------------------- Additional Comments start------------- */}
                     <div className='col-lg-4'>
                         <div className='card rounded-3 shadow-lg p-4'>
                             <div className='card-head text-center'>
