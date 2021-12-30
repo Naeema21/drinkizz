@@ -150,7 +150,7 @@ const Cart = () => {
                             !Loder ? CartItemCards : SkeletonCartItem
                         }
                          {
-                            !Empty ? CartItemCards : <h1>no data</h1>
+                            !Empty ? "" : <h1>no data</h1>
                         }
                         
                         {/* ----------------------------------------------------------- */}
