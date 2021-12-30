@@ -1,16 +1,28 @@
 import React from "react";
 import { products } from '../../assets/Data/product';
 import { Link } from 'react-router-dom';
-import { useEffect } from "react";
+import axios from 'axios'
+import { GET_CART_DATA } from "../../endpoint";
+import { useState, useEffect } from "react";
+
 const Shipping = ({ setForm, formData, navigation }) => {
   const { address, city, state, zip } = formData;
 
   const { previous, next } = navigation;
    const { go } = navigation;
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+  const [Data, setData] = useState([]);
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        try {
+            axios.get(GET_CART_DATA).then(res => {
+                console.log(res)
+                setData(res.data.data);
+            })
+        } catch (error) {
+            console.warn(error)
+        }
+    }, [])
  
 
   return (
@@ -162,17 +174,17 @@ const Shipping = ({ setForm, formData, navigation }) => {
                 <h6>Order Summary</h6>
                 <div>
                   {
-                    products.slice(0, 4).map((value, index) => {
+                    Data.map((value, index) => {
                       return (
                         <Link to="/product-details" key={index}>
                           <div className='d-flex align-items-center border-bottom'>
                             <div className=''>
-                              <img src={value.imgsrc} alt='product' width="70" className='img-fluid'></img>
+                              <img src={value.image} alt='product' width="70" className='img-fluid'></img>
                             </div>
                             <div className='d-flex align-items-center'>
                               <div className='mt-4 Check-out-product-body'>
                                 <h6 className='Check-out-product-title'>{value.name}</h6>
-                                <p className='Check-out-product-price'>{value.price}</p>
+                                <p className='Check-out-product-price'>${value.price}</p>
                               </div>
                             </div>
                           </div>
