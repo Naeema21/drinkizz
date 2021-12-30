@@ -12,7 +12,8 @@ import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb'
 
 const Product = () => {
     const Card = React.lazy(() => import('../../Components/Cards/Cards'))
-      //Summary
+
+//Summary
       const [LowHighPrice, setLowHighPrice] = useState(false);
       const [HighLowPrice, setHighLowPrice] = useState(false);
       const [AverageRating, setAverageRating] = useState(false);
@@ -47,29 +48,62 @@ const [colorcheck, setChecked] = useState();
     }
 //GET/FETCH API Logic for Aceesing data from API using axios
 const [items, setItems] = useState([]);
+const [loader ,setLoader] = useState();
+
 useEffect(()=> {
-    axios.get(`https://daruwale.herokuapp.com/public/product`)
+    setLoader(true) 
+   try{
+        axios.get(`https://daruwale.herokuapp.com/public/product`)
     .then(res => {
         console.log(res);
         console.log(res.data.data);
         setItems(res.data.data);
         console.log(items);
-    })
-    .catch(err =>{
+        setLoader(false)
+    })}
+    catch(err){
         console.log(err)
-    })
+        setLoader(true)
+    }
 }, [])
+//For Skeleton & Card data HTML here in 2 diff variables
+const carditemdata=
+    items.slice(0, 6).map((productdata, i) => (
+        <div className='col-lg-3 col-md-4 col-sm-6 px-1' key={i}>
+            <Card id={productdata._id} category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
+        </div>
+    ))
+const carditemdata2=
+    items.slice(6, 12).map((productdata, i) => (
+        <div className='col-lg-3 col-md-4 col-sm-6 px-1' key={i}>
+            <Card id={productdata._id} category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
+        </div>
+    ))
+const skeleton=
+    [0,1,2,3].map(() => (
+        <div className='col-lg-3 col-md-4 col-sm-6 px-1 Skeleton-products' key={Math.random()}>
+            <div className="skel1div"></div><br/>
+            <h2></h2>
+            <h3></h3>
+            <div style={{display:'flex'}}><h2></h2><h2 style={{marginLeft:'25%'}}></h2></div>   
+            <h1></h1>    
+        </div>
+        
+    ))
 
+//For Get the Total lenght of product in API
+ const breadcrumbheading = ' Products '+ items.length;
+ console.log(breadcrumbheading);
     return (
         <>
-            <BreadCrumb heading='Shop grid left sidebar' BC1Link='/' breadcrumb1='Home' BC2Link='/' breadcrumb2='Products' BC3Link='/' breadcrumb3='Products left sidebar'/>
+            <BreadCrumb heading={breadcrumbheading} BC1Link='/' breadcrumb1='Home' BC2Link='/' breadcrumb2='Products' BC3Link='/' breadcrumb3='Products left sidebar'/>
             <div className='Heading-back-com3'>
                 <div className='row'>
                     <div className='col-lg-4 col-md-4 col-sm-4'></div>
                         <div className='col-lg-8 col-md-8 col-sm-8'>
-                            <div className=' d-flex align-items-center flex-nowrap'>
+                            <div className=' d-flex  flex-nowrap'>
                                 <div className="d-flex justify-content-between align-items-center">
-                                    <span className="text-light fs-base mb-0 ml-4 py-4 pt-7 px-2">Sort by</span>
+                                    <span className="text-light fs-base mb-0 ml-4 pt-7 py-2 px-2">Sort by</span>
                                     <select className="form-select compare-crite" id="compare-criteria">
                                         <option value="all">Popularity</option>
                                         <option value="Low-High Price" onClick={() => { LowHighPrice ? setLowHighPrice(true) : setLowHighPrice(false) }}>Low-High Price</option>
@@ -79,8 +113,8 @@ useEffect(()=> {
                                         <option value="Z-A Order" onClick={() => { ZAOrder ? setZAOrder(false) : setZAOrder(true) }}>Z-A Order</option>
                                     </select>      
                                     <span className='fs-sm text-light opacity-75 text-nowrap ms-2 d-none d-md-block'>of 287 products</span>                          
-                                </div>
-                                <div className='d-flex px-4 justify-content-end'>
+                                </div>     
+                                <div className='d-flex justify-content-end pro-5page'>
                                     <Link className='nav-link-style nav-link-light text-light me-3'>
                                         <i class="fa fa-angle-left"></i>
                                     </Link>
@@ -88,8 +122,9 @@ useEffect(()=> {
                                     <Link className='nav-link-style nav-link-light text-light mx-3'>
                                         <i class="fa fa-angle-right"></i>
                                     </Link>
-                                </div>
+                                </div> 
                              </div>
+                            
                          
                         </div>
                 </div>
@@ -155,7 +190,7 @@ useEffect(()=> {
                                                         {
                                                             Shoplist.map((w,i)=>{
                                                                 return(
-                                                                    <li><Link to="#" className='shoplistitems d-flex justify-content-between align-items-center'><span>{w.watches}</span><span>{w.watches_total}</span></Link></li>
+                                                                    <li key={i}><Link to="#" className='shoplistitems d-flex justify-content-between align-items-center'><span>{w.watches}</span><span>{w.watches_total}</span></Link></li>
                                                                 )
                                                             })
                                                         } 
@@ -191,6 +226,9 @@ useEffect(()=> {
                                 </div>
                                 <div className='border-bottom'>
                                 <div className='mx-3 mt-6'>
+                                    {/* <input type='range'  
+                                    value={rangevalue}
+                                    onChange={e => handleRange(e.target.value)} /> */}
                                 <RangeSlider
                                     value={rangevalue}
                                     onChange={e => handleRange(e.target.value)}
@@ -307,12 +345,10 @@ useEffect(()=> {
                         </div>
                         <div className='col-lg-8 col-md-8 col-sm-6 shoplist-leftside1'>
                             <div className='row'>
-                                {/* Using Map Function to access the data & send to card */}
-                                {items.slice(0, 6).map((productdata, i) => (
-                                    <div className='col-lg-4 col-md-6 col-sm-12 px-1' key={i}>
-                                        <Card id={productdata._id} category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
-                                    </div>
-                                ))}
+                                 {/* Skeleton & Card data condition check here */}
+                                    {
+                                     !loader ? carditemdata : skeleton 
+                                    }
                             </div>
                             <div className='row mb-5 mt-5'>
                                 <div className='col-lg-6 col-md-6 col-sm-12 py-4  px-4  text-center text-sm-start shoplist-box1'>
@@ -325,12 +361,48 @@ useEffect(()=> {
                                 </div>
                             </div>
                             <div className='row'>
-                                {/* Using Map Function to access the data & send to card */}
-                                {items.slice(6, 12).map((productdata, i) => (
-                                    <div className='col-lg-4 col-md-6 col-sm-12  px-1' key={i}>
-                                        <Card id={productdata._id} category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
-                                    </div>
-                                ))}
+                                {/* Skeleton & Card data condition check here */}
+                                {
+                                    !loader ? carditemdata2 : skeleton 
+                                }
+                            </div>
+                            <div class="d-flex justify-content-between pt-2">
+                                <ul className='propagination'>
+                                    <li className='propage-item'>
+                                        <a className='propage-link'>
+                                        <i class="fa fa-angle-left mx-2"></i>
+                                        Prev
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul className='propagination'>
+                                    <li className='propage-item d-sm-none'>
+                                        <span className='propage-link propage-link-static'>1 / 5</span>
+                                    </li>
+                                    <li className='propage-item active d-none d-sm-block'>
+                                        <span className='propage-link'>1</span>
+                                        <span className='provisually-hidden'>(current)</span>
+                                    </li>
+                                    <li className='propage-item d-none d-sm-block'>
+                                        <a className='propage-link'>2</a>
+                                    </li>
+                                    <li className='propage-item d-none d-sm-block'>
+                                        <a className='propage-link'>3</a>
+                                    </li>
+                                    <li className='propage-item d-none d-sm-block'>
+                                        <a className='propage-link'>4</a>
+                                    </li>
+                                    <li className='propage-item d-none d-sm-block'>
+                                        <a className='propage-link'>5</a>
+                                    </li>
+                                </ul>
+                                <ul className='propagination'>
+                                    <li className='propage-item'>
+                                        <a className='propage-link'>
+                                        Next <i class="fa fa-angle-right mx-1"></i>
+                                        </a>                                     
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
