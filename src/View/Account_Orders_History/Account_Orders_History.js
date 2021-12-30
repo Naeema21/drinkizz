@@ -32,20 +32,12 @@ const Account_Orders_History =()=>{
              console.log(items);
          })    
   }, [])
+//  const Wishlist = ' Wishlist '+ items.length;
+//  console.log(Wishlist);
  return(
      <>
      <BreadCrumb heading='My addresses' BC1Link='/' breadcrumb1='Home' BC2Link='/' breadcrumb2='Account' BC3Link='/' breadcrumb3='Addressess'/>
-     {/* <div className='Heading-back-com2'>
-         <div className='row'>
-            <div className='col-lg-4'></div>
-            <div className='col-lg-8'>
-                        <div className="d-flex justify-content-between align-items-center px-4 mb-4">
-                            <h6 className="text-light fs-base mb-0 ml-4 pt-4 mt-1 ListSort">List of your registered addresses:</h6>
-                            <a className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" href="#"><i className="fa fa-sign-out me-2"></i>Sign out</a>
-                        </div>
-            </div>
-        </div>
-        </div>  col-4 pt-4 pt-lg-0 pe-xl-5*/}
+
      <div className='Account-Order-History'>
            <div className='container pb-5 mb-2 mb-md-4'>
                     {/* sidebar  onSelect={handleSelect()} */}
@@ -81,10 +73,11 @@ const Account_Orders_History =()=>{
                                                     </Nav.Link>
                                                 </Nav.Item>
                                                 <Nav.Item>
-                                                    <Nav.Link eventKey="second" title='account-wishlist' href="#account-wishlist">
+                                                    <Nav.Link eventKey="second" title="Wishlist" href="#account-wishlist">
                                                         <li className="sidebar-li">
                                                             <div className="d-flex align-items-center px-2 py-1 fw-bold">
-                                                            <i className="fa fa-heart-o me-2"></i>Wishlist<span className="text-muted ms-auto">{items.totalwishlist}</span>
+                                                            <i className="fa fa-heart-o me-2"></i>Wishlist
+                                                            <span className="text-muted ms-auto">{Wishlist.length}</span>
                                                             </div>
                                                         </li>
                                                     </Nav.Link>
@@ -254,13 +247,13 @@ const Account_Orders_History =()=>{
                                             <div className="row gx-4 gy-3">
                                                 <div className="col-lg-6">
                                                 <label className="form-label">First Name</label>
-                                                <input className="form-control" type="text" {...register("firstname",{ required: true, maxLength: 20 })}/>
-                                                <div className='text-errormsg'>{errors.firstname && "Please fill firstName!"}</div>
+                                                <input className="form-control" type="text" {...register("firstname",{ required: true, maxLength: 10 })}/>
+                                                <div className='text-errormsg'>{errors.firstname && "Please fill firstName maximum 10 alphabets!!"}</div>
                                                 </div>
                                                 <div className="col-lg-6">
                                                 <label className="form-label">Last Name</label>
-                                                <input className="form-control" type="text" {...register("lastname",{ required: true, maxLength: 20, pattern: /^[A-Za-z]+$/i  })}/>
-                                                <div className='text-errormsg'>{errors.lastname && "Please fill LastName!"}</div>
+                                                <input className="form-control" type="text" {...register("lastname",{ required: true, maxLength: 10 })}/>
+                                                <div className='text-errormsg'>{errors.lastname && "Please fill LastName maximum 10 alphabets!!"}</div>
                                                 </div>
                                                 <div className="col-lg-6">
                                                 <label className="form-label">Email Address</label>
@@ -270,13 +263,13 @@ const Account_Orders_History =()=>{
                                                 <div className="col-lg-6">
                                                 <label className="form-label">Phone Number</label>
                                                 <input className="form-control" type="number" {...register("phone",{ required: true, minLength:10, maxLength: 12 })} required=""/>
-                                                <div className='text-errormsg'>{errors.phone && "Please fill PhoneNumber!"}</div>
+                                                <div className='text-errormsg'>{errors.phone && "Please fill PhoneNumber maximum 12 digits!!"}</div>
                                                 </div>
                                                 <div className="col-lg-6">
                                                 <label className="form-label">New Password</label>
                                                 <div className="">
-                                                    <input className="form-control" type="password" {...register("password",{ required: true,pattern:"(?=.*/d)(?=.*[a-z])(?=.*[A-Z]).{8,}" })}/>
-                                                    <div className='text-errormsg'>{errors.password && "Please fill Password!"}</div>
+                                                    <input className="form-control" type="password" {...register("password",{ required: true })}/>
+                                                    <div className='text-errormsg'>{errors.password && "Please fill Password."}</div>
                                                 </div>
                                                 </div>
                                                 <div className="col-lg-6">

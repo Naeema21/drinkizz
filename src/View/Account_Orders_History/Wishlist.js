@@ -49,10 +49,10 @@ function Wishlist() {
         <div>
              <div className='container'>
              <div className="d-flex justify-content-between align-items-center px-4 mb-4">
-                                                                <h6 className="text-dark fs-base mb-0 ml-4 pt-4 mt-1 ListSort">List of your registered addresses:</h6>
-                                                                <a className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" href="#"><i className="fa fa-sign-out me-2"></i>Sign out</a>
-                                                            </div>
-                                                       <hr style={{"width":"100%","textalign":"left","marginleft":"0","color":"black","height":"3px"}}></hr>
+                <h6 className="text-dark fs-base mb-0 ml-4 pt-4 mt-1 ListSort">List of your registered addresses:</h6>
+                <a className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" href="#"><i className="fa fa-sign-out me-2"></i>Sign out</a>
+            </div>
+                <hr style={{"width":"100%","textalign":"left","marginleft":"0","color":"black","height":"3px"}}></hr>
                                             {
                                                 items.slice(0,3).map((productdata,i)=>{
                                                     if(deleteId===productdata._id){

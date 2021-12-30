@@ -59,4 +59,10 @@
 .modalsingin-up-close .btn-close:focus{
     box-shadow: none !important;
 }
+/* error msg */
+.text-errormsg{
+    color:#fe696a !important;
+    font-size: 12px;
+    text-transform: capitalize;
+}
 

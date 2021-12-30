@@ -32,8 +32,12 @@
 }
 /* skeleton */
 .skeleton-loader-background{
-  width:100px;
-  height:100px;
   display: block;
   background: lightgray; 
+}
+.skeleton-loader-background1{
+    width:120px;
+    height:120px;
+    display: block;
+    background: lightgray; 
 }
