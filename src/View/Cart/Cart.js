@@ -17,7 +17,14 @@ const Cart = () => {
     const [Data, setData] = useState([]);
     const [deleteId, setDeleteId] = useState();
     const [Loder, setLoader] = useState(false)
-    const[Empty , setEmptyData] = useState(false)
+    const [Empty, setEmptyData] = useState(false)
+    //Load more button
+    const [noOfElement, setnoOfElement] = useState(4);
+    const loadMore = () => {
+        setnoOfElement(noOfElement + noOfElement)
+    }
+
+    const slice = Data.slice(0, noOfElement)
 
     //get data
     useEffect(() => {
@@ -27,7 +34,7 @@ const Cart = () => {
                 if (res.status === 200) {
                     setData(res.data.data);
                     setLoader(false)
-                }else if(res.status === 204){
+                } else if (res.status === 204) {
                     setEmptyData(true)
                     setLoader(false)
                 }
@@ -60,9 +67,9 @@ const Cart = () => {
 
         })
     }
-    
+
     //card item
-    const CartItemCards = Data.slice(0, 4).map((v, i) => {
+    const CartItemCards = slice.map((v, i) => {
         if (deleteId === v._id) {
             return ("")
         } else {
@@ -150,15 +157,17 @@ const Cart = () => {
                         {
                             !Loder ? CartItemCards : SkeletonCartItem
                         }
-                         {
-                            Empty ?  <NoDataInCart/> :""
+                        {
+                            Empty ? <NoDataInCart /> : ""
                         }
-                        
+
                         {/* ----------------------------------------------------------- */}
+                        
                         <div className='row my-4'>
-                            <a href='/product' className='btn Button-Blue-Border d-block w-100'>
-                                <i className='fa fa-refresh'></i>&nbsp; &nbsp; Load More</a>
+                            <button className='btn Button-Blue-Border d-block w-100' onClick={() => loadMore()}>
+                                <i className='fa fa-refresh'></i>&nbsp; &nbsp; Load More</button>
                         </div>
+                       
 
                     </div>
                     {/*------------------------- Additional Comments start------------- */}
