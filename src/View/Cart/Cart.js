@@ -7,7 +7,7 @@ import axios from 'axios'
 import { GET_CART_DATA } from "../../endpoint";
 import { useState, useEffect } from "react";
 import swal from 'sweetalert';
-
+import NoDataInCart from './NoDataInCart';
 const Cart = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
@@ -49,6 +49,7 @@ const Cart = () => {
                     timer: 2000,
                 }).then(() => {
                     setDeleteId(ids)
+                    window.location.reload()
                 })
             } else {
                 swal({
@@ -150,7 +151,7 @@ const Cart = () => {
                             !Loder ? CartItemCards : SkeletonCartItem
                         }
                          {
-                            !Empty ? "" : <h1>no data</h1>
+                            Empty ?  <NoDataInCart/> :""
                         }
                         
                         {/* ----------------------------------------------------------- */}
