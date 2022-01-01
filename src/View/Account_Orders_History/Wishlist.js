@@ -10,6 +10,14 @@ function Wishlist() {
     //get data from Api
     const [items, setItems] = useState([]);
     const [Empty, setEmptyData] = useState(false)
+    //Load more button
+    const [noOfElement, setnoOfElement] = useState(3);
+    const loadMore = () => {
+        setnoOfElement(noOfElement + noOfElement)
+    }
+
+    const slice = items.slice(0, noOfElement)
+    
     useEffect(() => {
         setLoader(true)
         try {
@@ -48,13 +56,7 @@ function Wishlist() {
 
         })
     }
-    //Load more button
-    const [noOfElement, setnoOfElement] = useState(3);
-    const loadMore = () => {
-        setnoOfElement(noOfElement + noOfElement)
-    }
-
-    const slice = items.slice(0, noOfElement)
+    
 
     // console.log(res.data.data.id);
 
