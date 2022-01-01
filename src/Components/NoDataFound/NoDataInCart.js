@@ -3,7 +3,7 @@ import EmptyCart from '../../assets/images/checkout-details/empty_cart.jpeg'
 
 const NoDataInCart = () => {
     return (
-        <div>
+        <div className="mb-5">
             <div className=" row d-flex justify-content-center">
                 <div className="col-6">
                     <img src={EmptyCart} className="" alt="empty-cart" height="300px" ></img>

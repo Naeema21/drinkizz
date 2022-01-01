@@ -3,22 +3,26 @@ import './Account_Orders_History.css';
 import axios from 'axios';
 import swal from 'sweetalert';
 import { GET_WISHLIST_DATA } from "../../endpoint"
+import NoDataInCart from '../../Components/NoDataFound/NoDataInCart';
 function Wishlist() {
     //skeleton
     const [Loder, setLoader] = useState(false)
     //get data from Api
     const [items, setItems] = useState([]);
+    const [Empty, setEmptyData] = useState(false)
     useEffect(() => {
         setLoader(true)
         try {
             axios.get(GET_WISHLIST_DATA)
-            .then(res => {
-                console.log(res);
-                console.log(res.data.data);
-                setItems(res.data.data);
-                console.log(items);
-                setLoader(false)
-            })
+                .then(res => {
+                    if (res.status === 200) {
+                        setItems(res.data.data);
+                        setLoader(false)
+                    } else if (res.status === 204) {
+                        setEmptyData(true)
+                        setLoader(false)
+                    }
+                })
         } catch (error) {
             console.warn(error)
             setLoader(true)
@@ -103,7 +107,7 @@ function Wishlist() {
                         <span><p> </p></span>
                         <span><p> </p></span>
                         <span><p> </p></span>
-                        
+
                         <h4> </h4>
                     </a></div>
                     <div className='col-lg-2 col-md-2 col-sm-2 col-xs-3 Delete-Cart-Item'>
@@ -125,16 +129,23 @@ function Wishlist() {
                 </div>
                 <hr style={{ "width": "100%", "textalign": "left", "marginleft": "0", "color": "black", "height": "3px" }}></hr>
                 {
-                !Loder ? WishListItemCard : SkeletonWishListItem
+                    !Loder ? WishListItemCard : SkeletonWishListItem
                 }
-                <div className='row my-4'>
+                {
+                    Empty ? <NoDataInCart /> : ""
+                }
+                {
+                    items.length > 0 && items.length >= noOfElement ?
+                        <div className='row my-4'>
                             <button className='btn Button-Blue-Border d-block w-100' onClick={() => loadMore()}>
                                 <i className='fa fa-refresh'></i>&nbsp; &nbsp; Load More</button>
                         </div>
+                        : ""
+                }
             </div>
 
         </div>
-        
+
     )
 }
 
