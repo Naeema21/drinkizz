@@ -24,14 +24,6 @@ function Wishlist() {
             setLoader(true)
         }
     }, [])
-    //    delete data from Api
-    //    const deleteUser = (id)=> {
-    //     axios.delete(`https://daruwale.herokuapp.com/public/wishlist/${id}`)
-    //      .then(res => {
-    //          console.log(res);
-
-    //      })
-    //     }
     const [deleteId, setDeleteId] = useState();
     const Deletecart = (ids) => {
         axios.delete(GET_WISHLIST_DATA + "/" + ids).then(res => {
@@ -52,10 +44,18 @@ function Wishlist() {
 
         })
     }
+    //Load more button
+    const [noOfElement, setnoOfElement] = useState(3);
+    const loadMore = () => {
+        setnoOfElement(noOfElement + noOfElement)
+    }
+
+    const slice = items.slice(0, noOfElement)
+
     // console.log(res.data.data.id);
 
     //Skeleton start
-    const WishListItemCard = items.slice(0, 3).map((productdata, i) => {
+    const WishListItemCard = slice.map((productdata, i) => {
         if (deleteId === productdata._id) {
             return ("")
         } else {
@@ -127,9 +127,14 @@ function Wishlist() {
                 {
                 !Loder ? WishListItemCard : SkeletonWishListItem
                 }
+                <div className='row my-4'>
+                            <button className='btn Button-Blue-Border d-block w-100' onClick={() => loadMore()}>
+                                <i className='fa fa-refresh'></i>&nbsp; &nbsp; Load More</button>
+                        </div>
             </div>
 
         </div>
+        
     )
 }
 
