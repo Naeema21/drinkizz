@@ -17,7 +17,7 @@ function Wishlist() {
     }
 
     const slice = items.slice(0, noOfElement)
-    
+
     useEffect(() => {
         setLoader(true)
         try {
@@ -57,8 +57,6 @@ function Wishlist() {
         })
     }
     
-
-    // console.log(res.data.data.id);
 
     //Skeleton start
     const WishListItemCard = slice.map((productdata, i) => {

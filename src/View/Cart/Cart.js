@@ -26,6 +26,8 @@ const Cart = () => {
 
     const slice = Data.slice(0, noOfElement)
 
+    //TotalPrice
+    var totalCartPrice = 0;
     //get data
     useEffect(() => {
         setLoader(true)
@@ -70,6 +72,7 @@ const Cart = () => {
 
     //card item
     const CartItemCards = slice.map((v, i) => {
+        totalCartPrice += v.price * v.quantity
         if (deleteId === v._id) {
             return ("")
         } else {
@@ -92,7 +95,7 @@ const Cart = () => {
                         </a></div>
 
                         <div className='col-lg-2 col-md-2 col-sm-2 col-xs-3 Delete-Cart-Item'>
-                            <p className='text-quantity'>Quantity</p>
+                            <p className='text-quantity'>{v.quantity}</p>
                             <input type="number" defaultValue={v.quantity} className='quanity-bar' /><br />
                             <a className='text-red remove-link mt-2' onClick={() => Deletecart(v._id)}><i className='fa fa-close'></i>&nbsp;Remove
                             </a>
@@ -181,7 +184,7 @@ const Cart = () => {
                         <div className='card rounded-3 shadow-lg p-4'>
                             <div className='card-head text-center'>
                                 <h5>Subtotal</h5>
-                                <h3>$265.00</h3>
+                                <h3>$ {totalCartPrice}</h3>
                                 <hr />
                             </div>
                             <div className="card-body">
