@@ -518,13 +518,17 @@ const Compare = () => {
                                     <tr className='text-center'>
                                         <th></th>
                                         <td>
-                                            <button className="Button-Full-Red " type="button">Add to Cart</button>
+                                            <button className="Button-Full-Red " type="button">Add to Compare</button>
                                         </td>
                                         <td>
-                                            <button className="Button-Full-Red " type="button"><span className='skeleton-loader-background2'>Add to Cart</span></button>
+                                            {/* <button className="Button-Full-Red " type="button">Add to Compare*/}
+                                                <span className='skeleton-loader-background3'></span>
+                                            {/* </button> */}
                                         </td>
                                         <td>
-                                            <button className="Button-Full-Red " type="button"><span className='skeleton-loader-background2'>Add to Cart</span></button>
+                                            {/* <button className="Button-Full-Red " type="button">Add to Compare */}
+                                                <span className='skeleton-loader-background3'></span>
+                                            {/* </button> */}
                                         </td>
                                     </tr>
                                 </tbody>

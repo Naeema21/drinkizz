@@ -15,7 +15,7 @@ function Profile() {
         <div>
              <div className="d-flex justify-content-between align-items-center px-4 mb-4">
                                                                 <h6 className="text-dark fs-base mb-0 ml-4 pt-4 mt-1 ListSort">Update you profile details below:</h6>
-                                                                <Link className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" to="#"><i className="fa fa-sign-out me-2"></i>Sign out</Link>
+                                                                <Link className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" to="/"><i className="fa fa-sign-out me-2"></i>Sign out</Link>
                                                             </div>
                                             <hr></hr>
                                             <div className='pb-5 mb-2 mb-md-4'>
