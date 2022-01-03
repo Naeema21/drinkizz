@@ -4,7 +4,7 @@ import './Account_Orders_History.css';
 function Orders() {
     return (
         <div>
-            <div className="d-flex justify-content-between align-items-center pt-lg-2 pb-4 pb-lg-5 mb-lg-3">
+                    <div className="d-flex justify-content-between align-items-center pt-lg-2 pb-4 pb-lg-5 mb-lg-3">
                                         <div className="d-flex align-items-center">
                                             <label className="d-none d-lg-block fs-sm text-light text-nowrap opacity-75 me-2 text-dark">Sort orders:</label>
                                             <label className="d-lg-none fs-sm text-nowrap opacity-75 me-2 text-dark">Sort orders:</label>
@@ -88,8 +88,7 @@ function Orders() {
                                                     <li className="order-page"><Link  className="page-link text-dark" to="#" aria-label="Next">Next<i className="fa fa-angle-right ms-2"></i></Link></li>
                                                 </ul>
                                             </nav>
-            
-        </div>
+                    </div>
     )
 }
 
