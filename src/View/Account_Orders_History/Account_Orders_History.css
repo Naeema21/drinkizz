@@ -252,7 +252,5 @@ transform: translateY(-50%);
 .text-errormsg{
     color:#fe696a !important;
     font-size: 12px;
-    text-transform: lowercase !important;
+    text-transform: capitalize;
 }
-
-/* checkbox */
