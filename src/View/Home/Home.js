@@ -232,7 +232,7 @@ const bestsellerskeleton =
                             </Link>
                         </div>
                         {/* Skeleton & Card data condition check here */}
-                        {loader ? carditemdata : skeleton }
+                        {!loader ? carditemdata : skeleton }
                     </div>
                 </div>
             </section>
