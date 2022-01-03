@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Modal, Tab, Tabs } from 'react-bootstrap';
 import './SignIn.css';
+import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 const SignIn = () => {
     // for modal
@@ -53,7 +54,7 @@ const SignIn = () => {
                                     <input className="form-check-input sinupform" type="checkbox"/>
                                     <label className="form-check-label">Remember me</label>
                                 </div>
-                                <a className="signup-forgot" href="#">Forgot password?</a>
+                                <Link className="signup-forgot" to="#">Forgot password?</Link>
                             </div>
                             <button className="btn btn-primary btn-shadow d-block w-100 compare-btn-signup" type="submit">Sign in</button>
                         </form>

@@ -3,6 +3,7 @@ import { ModalFooter, ModalBody } from "react-bootstrap";
 import { Modal } from 'react-bootstrap';
 import './Account_Orders_History.css';
 import { useForm } from "react-hook-form";
+import { Link } from 'react-router-dom';
 function Address() {
     const { register, handleSubmit,reset,formState: {errors}} = useForm();
     const onAddress = data =>{
@@ -17,7 +18,7 @@ function Address() {
         <div>
              <div className="d-flex justify-content-between align-items-center px-4 mb-4">
                                                                 <h6 className="text-dark fs-base mb-0 ml-4 pt-4 mt-1 ListSort">List of your registered addresses:</h6>
-                                                                <a className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" href="#"><i className="fa fa-sign-out me-2"></i>Sign out</a>
+                                                                <Link className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" to="#"><i className="fa fa-sign-out me-2"></i>Sign out</Link>
                                                             </div>
                                                             <hr></hr>
              <div className="table-responsive fs-md">
@@ -33,28 +34,28 @@ function Address() {
                                                      <tr>
                                                                     <td className="py-3 align-middle">396 Lillian Blvd, Holbrook, NY 11741, USA<span className="align-middle badge bg-info ms-2">Primary</span></td>
                                                                     <td className="py-3 align-middle">
-                                                                        <a className="text-muted me-2 py-3" href="#"><i className="fa fa-edit"></i></a>
-                                                                        <a className="text-danger py-3 ml-2" href="#">
+                                                                        <Link className="text-muted me-2 py-3" to="#"><i className="fa fa-edit"></i></Link>
+                                                                        <Link className="text-danger py-3 ml-2" to="#">
                                                                             <div className="fa fa-trash"></div>
-                                                                        </a>
+                                                                        </Link>
                                                                     </td>
                                                     </tr>
                                                     <tr>
                                                                     <td className="py-3 align-middle">769, Industrial, West Chicago, IL 60185, USA</td>
                                                                     <td className="py-3 align-middle">
-                                                                        <a className="text-muted me-2 py-3" href="#"><i className="fa fa-edit"></i></a>
-                                                                        <a className="text-danger py-3 ml-2" href="#">
+                                                                        <Link className="text-muted me-2 py-3" to="#"><i className="fa fa-edit"></i></Link>
+                                                                        <Link className="text-danger py-3 ml-2" to="#">
                                                                             <div className="fa fa-trash"></div>
-                                                                        </a>
+                                                                        </Link>
                                                                     </td>
                                                     </tr>
                                                     <tr>
                                                                     <td className="py-3 align-middle">514 S. Magnolia St. Orlando, FL 32806, USA</td>
                                                                     <td className="py-3 align-middle">
-                                                                        <a className="text-muted me-2 py-3" href="#"><i className="fa fa-edit"></i></a>
-                                                                        <a className="text-danger py-3 ml-2" href="#">
+                                                                        <Link className="text-muted me-2 py-3" to="#"><i className="fa fa-edit"></i></Link>
+                                                                        <Link className="text-danger py-3 ml-2" to="#">
                                                                             <div className="fa fa-trash"></div>
-                                                                        </a>
+                                                                        </Link>
                                                                     </td>
                                                     </tr>
                                                 </tbody>
@@ -72,14 +73,14 @@ function Address() {
                                                             <div className="row gx-4 gy-3">
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">First name</label>
-                                                                <input className="form-control" type="text" {...register("fname",{required:true, maxLength:10})}/>
-                                                                <div className='text-errormsg'>{errors.fname?.type === 'required' && "Please fill in you firstname maximum 10 alphabets!"}</div>
+                                                                <input className="form-control" type="text" {...register("fname",{required:true, maxLength:10, pattern: /^[A-Za-z]+$/i })}/>
+                                                                <div className='text-errormsg'>{errors.fname?.type === 'required' && "Please fill firstname maximum 10 alphabets!"}</div>
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">Last name</label>
-                                                                <input className="form-control" type="text" {...register("lname",{required:true, maxLength:10})}/>
+                                                                <input className="form-control" type="text" {...register("lname",{required:true, maxLength:10, pattern: /^[A-Za-z]+$/i })}/>
                                                                 <div className="invalid-feedback">Please fill in you last name!</div>
-                                                                <div className='text-errormsg'>{errors.lname && "Lastname is required maximum 10 alphabets!"}</div>
+                                                                <div className='text-errormsg'>{errors.lname && "Please fill Lastname is required maximum 10 alphabets!"}</div>
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">Company</label>
@@ -117,7 +118,7 @@ function Address() {
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                 <label className="form-label">ZIP code</label>
-                                                                <input className="form-control" type="text" {...register("zipcode",{ required: true ,maxLength:6})}/>
+                                                                <input className="form-control" type="number" {...register("zipcode",{ required: true ,maxLength:6})}/>
                                                                 <div className='text-errormsg'>{errors.zipcode && "Please add your ZIP code maximum 6 digit!!."}</div>
                                                                 </div>
                                                                 <div className="col-12">
