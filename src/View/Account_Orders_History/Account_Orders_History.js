@@ -120,7 +120,7 @@ const [key,setKey]=useState({});
                                                                     </Link>
                                                                 </div>
                                                             <span className="text-muted ms-auto">
-                                                                  {Wishlist1.items} 
+                                                                  {items} 
                                                                 </span>
                                                             </div>
                                                         </li>
