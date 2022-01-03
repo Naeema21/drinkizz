@@ -1,9 +1,9 @@
 import React from 'react'
 import './CheckOutDetails.css'
-import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 import MultiStepForm from './MultiStepForm'
 
 function CheckOutDetails(navigation) {
+    const BreadCrumb = React.lazy(() => import('../../Components/BreadCrumb/Breadcrumb'))
     const { previous, next } = navigation;
     const { go } = navigation;
     return (
