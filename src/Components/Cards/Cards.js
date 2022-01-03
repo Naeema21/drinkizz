@@ -57,13 +57,13 @@ const Cards = React.memo((props) => {
                     <button onClick={handleSubmit2} data-toggle="tooltip" data-placement="top" title="Hooray!" className='btn-wishlist btn-sm'><i className="fa fa-heart-o" aria-hidden="true"></i></button>
                 </div>
                 <div className='product-img'>
-                    <Link to='/product-details' className='card-img-top d-block overflow-hidden'>
+                    <Link to={`/product-details/` + props.id} className='card-img-top d-block overflow-hidden'>
                         <img className='img-fluid' src={props.imgsrc} alt="productimg" />
                     </Link>
                     <div className='px-3'>
-                        <Link to='/product-details' className='product-name d-block fs-xs'>{props.category}</Link>
+                        <Link to={`/product-details/` + props.id} className='product-name d-block fs-xs'>{props.category}</Link>
                         <h3 className='product-title'>
-                            <Link to='/product-details'>{props.name}</Link>
+                            <Link to={`/product-details/` + props.id}>{props.name}</Link>
                         </h3>
                     </div>
                     <div className='d-flex justify-content-between px-3 py-2'>
@@ -83,7 +83,7 @@ const Cards = React.memo((props) => {
                             <i className="fa fa-shopping-cart px-1" aria-hidden="true"></i>
                             Add to Cart</button>                                           
                         <div className='text-center'>
-                            <Link to='/product-details'>
+                            <Link to={`/product-details/` + props.id}>
                                 <i className="fa fa-eye px-1" aria-hidden="true"></i>
                                 Quick view</Link>
                         </div>

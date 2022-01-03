@@ -8,6 +8,7 @@ import { GET_CART_DATA } from "../../endpoint";
 import { useState, useEffect } from "react";
 import swal from 'sweetalert';
 import NoDataInCart from '../../Components/NoDataFound/NoDataInCart';
+import SignInFirst from '../../Components/SignInFirst/SignInFirst';
 const Cart = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
@@ -164,7 +165,6 @@ const Cart = () => {
                             Empty ? <NoDataInCart /> : ""
                         }
                         
-
                         {/* ----------------------------------------------------------- */}
                         
                         {

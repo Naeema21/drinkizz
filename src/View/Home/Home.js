@@ -52,7 +52,12 @@ useEffect(() => {
 const carditemdata=
     items.slice(0, 8).map((productdata, i) => (
         <div className='col-lg-3 col-md-4 col-sm-6 px-1' key={i}>
-            <Card id={productdata._id} category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
+            <Card id={productdata._id} 
+            category={productdata.category} 
+            name={productdata.name} 
+            price={productdata.price} 
+            imgsrc={productdata.image} 
+            star={productdata.rating} />
         </div>
     ))
 const skeleton=
@@ -124,7 +129,7 @@ const bestsellerskeleton =
     [0,1,2,3].map(() => (
         <div className='Skeleton-bestseller'style={{display:'flex',marginBottom:'20px'}} key={Math.random()}>
             <div className="selskeldiv1 mb-2 mt-4"></div><br/>
-            <div className="mt-4" style={{marginLeft:'20%'}}>
+            <div className="mt-4" style={{marginLeft:'5%'}}>
                <h3></h3>
                 <h2></h2>
             </div>           
@@ -232,7 +237,7 @@ const bestsellerskeleton =
                             </Link>
                         </div>
                         {/* Skeleton & Card data condition check here */}
-                        {loader ? carditemdata : skeleton }
+                        {!loader ? carditemdata : skeleton }
                     </div>
                 </div>
             </section>
