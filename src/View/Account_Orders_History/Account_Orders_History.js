@@ -27,6 +27,41 @@ const Account_Orders_History =()=>{
   }, [])
  const Wishlist1 = ' Wishlist '+ items.length;
  console.log(Wishlist1);
+
+//  change the tab url'
+const [key,setKey]=useState({});
+ const handleSelect=(key)=>{
+        if (key === 'first')
+         {
+            setKey({ title: "/account-orders" })
+            console.log('account-orders', key)
+         }
+        if(key === 'second')
+         {
+            setKey({ title: "account-wishlist" })
+            console.log('account-wishlist', key)
+         }
+        if(key === 'third')
+         {
+            setKey({ title: "/account-tickets" })
+            console.log('account-tickets', key);
+         }
+        if(key === 'fourth')
+         {
+            setKey({ title:"/account-profile"})
+            console.log('account-profile',key);
+         }
+        if(key === 'fifth' )
+         {
+            setKey({ title:"/account-address"})
+            console.log('account-address', key);
+         }
+        if(key === 'sixth')
+         {
+            setKey({ title:"/account-payment"})
+            console.log('account-payment', key);
+         }
+    }
  return(
      <>
      <BreadCrumb heading='My addresses' BC1Link='/' breadcrumb1='Home' BC2Link='/' breadcrumb2='Account' BC3Link='/' breadcrumb3='Addressess'/>
@@ -37,7 +72,7 @@ const Account_Orders_History =()=>{
      <div className='Account-Order-History'>
            <div className='container pb-5 mb-2 mb-md-4'>
                     {/* sidebar  onSelect={handleSelect()} */}
-                    <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+                    <Tab.Container id="left-tabs-example" defaultActiveKey="first" onSelect={handleSelect()}>
                             <Row>
                                 <Col lg={4} className="pt-4 pt-lg-0 pe-xl-5 profile-col-sidebar">
                                     <div className="bg-white rounded-3 shadow-lg pt-1 mb-5 mb-lg-0">
@@ -57,7 +92,7 @@ const Account_Orders_History =()=>{
                                         <div className="bg-light px-4 py-3">
                                            <h6 className="text-muted">Dashboard</h6>
                                         </div>
-                                        <Nav variant="pills" className="flex-column">
+                                        <Nav variant="pills" className="flex-column" activeKey="first">
                                             <ul>
                                                 <Nav.Item>
                                                     <Nav.Link eventKey="first" title="account-orders" to="#account-orders">
@@ -85,7 +120,7 @@ const Account_Orders_History =()=>{
                                                                     </Link>
                                                                 </div>
                                                             <span className="text-muted ms-auto">
-                                                                  {Wishlist1.items} 
+                                                                  {items} 
                                                                 </span>
                                                             </div>
                                                         </li>

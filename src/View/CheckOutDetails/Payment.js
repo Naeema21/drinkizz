@@ -6,10 +6,10 @@ import Cards from 'react-credit-cards'
 import 'react-credit-cards/es/styles-compiled.css'
 import './CheckOutDetails.css'
 import {useState, useEffect } from "react";
-import OrderSummary from "../../Components/CheckOutSidebar/OrderSummary";
 
 // import CheckoutProgressBar from "./CheckoutProgressBar";
 const Payment = ({ setForm, formData, navigation }) => {
+  const OrderSummary = React.lazy(() => import('../../Components/CheckOutSidebar/OrderSummary'))
   const { phone, email } = formData;
 
   const { previous, next } = navigation;

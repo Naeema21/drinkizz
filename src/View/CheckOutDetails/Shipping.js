@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
-import OrderSummary from "../../Components/CheckOutSidebar/OrderSummary";
 
 const Shipping = ({ setForm, formData, navigation }) => {
+  const OrderSummary = React.lazy(() => import('../../Components/CheckOutSidebar/OrderSummary'))
   const { address, city, state, zip } = formData;
 
   const { previous, next } = navigation;
