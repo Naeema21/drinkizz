@@ -2,13 +2,13 @@ import React from 'react'
 import './Cart.css'
 import { Accordion } from 'react-bootstrap'
 import { useForm } from 'react-hook-form';
-import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 import axios from 'axios'
 import { GET_CART_DATA } from "../../endpoint";
 import { useState, useEffect } from "react";
 import swal from 'sweetalert';
-import NoDataInCart from '../../Components/NoDataFound/NoDataInCart';
 const Cart = () => {
+    const BreadCrumb = React.lazy(() => import('../../Components/BreadCrumb/Breadcrumb'))
+    const NoDataInCart = React.lazy(() => import('../../Components/NoDataFound/NoDataInCart'))
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data);
@@ -95,7 +95,7 @@ const Cart = () => {
                         </a></div>
 
                         <div className='col-lg-2 col-md-2 col-sm-2 col-xs-3 Delete-Cart-Item'>
-                            <p className='text-quantity'>{v.quantity}</p>
+                            <p className='text-quantity'>Quantity</p>
                             <input type="number" defaultValue={v.quantity} className='quanity-bar' /><br />
                             <a className='text-red remove-link mt-2' onClick={() => Deletecart(v._id)}><i className='fa fa-close'></i>&nbsp;Remove
                             </a>
