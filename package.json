@@ -18,6 +18,7 @@
     "react-hook-form": "^7.22.5",
     "react-hooks-helper": "^1.6.0",
     "react-owl-carousel2": "^0.3.0",
+    "react-router-bootstrap": "^0.26.0",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
     "sweetalert": "^2.1.2",
