@@ -1,17 +1,10 @@
 import React, { useState } from 'react';
 import './Compare.css';
 import i1 from '../../assets/images/Compare/01.jpg';
-//import i2 from '../../assets/images/Compare/02.jpg';
-//import i3 from '../../assets/images/Compare/03.jpg';
 import { Link } from 'react-router-dom';
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 const Compare = () => {
-    //Summary
-    const [summary, setSummary] = useState(false);
-    const [general, setGeneral] = useState(false);
-    const [multimedia, setMultimedia] = useState(false);
-    const [performance, setPerformance] = useState(false);
-    
+    const [summary, setSummary] = useState();
     return (
         <>
         <BreadCrumb heading='Product comparison' BC1Link='/' breadcrumb1='Home' BC3Link='/compare' breadcrumb3='Comparison'/>
@@ -24,12 +17,13 @@ const Compare = () => {
                                 <thead>
                                     <tr>
                                         <td className="align-middle">
-                                            <select className="form-select compare-crite" id="compare-criteria">
+                                            <select className="form-select compare-crite" id="compare-criteria"
+                                            onChange={(e)=>setSummary(e.target.value)}>
                                                 <option value="all">Comparison criteria</option>
                                                 <option value="summary">Summary</option>
-                                                <option value="general" onClick={() => { general ? setGeneral(true) : setGeneral(false) }}>General</option>
-                                                <option value="multimedia" onClick={() => { multimedia ? setMultimedia(true) : setMultimedia(false) }}>Multimedia</option>
-                                                <option value="performance" onClick={() => { performance ? setPerformance(false) : setPerformance(true) }}>Performance</option>
+                                                <option value="general" >General</option>
+                                                <option value="multimedia" >Multimedia</option>
+                                                <option value="performance">Performance</option>
                                             </select>
                                             <div className="form-text"> Choose criteria to filter table below.</div>
                                             <div className="pt-3">
@@ -118,7 +112,7 @@ const Compare = () => {
                                         <td><h6 className='skeleton-loader-background'></h6></td>
                                     </tr>
                                 </tbody>
-                                <tbody id="summary" className='showsummary' data-filter-target="" style={{ display: summary ? "block" : 'none' }}>
+                                <tbody id="summary" className='showsummary' data-filter-target="" >
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Summary</th>
                                         <th>Apple iPhone Xs Max</th>
@@ -157,7 +151,7 @@ const Compare = () => {
                                     </tr>
                                 </tbody>
                                 {/* General Table */}
-                                <tbody id="general" data-filter-target="" style={{ display: general ? "block" : "none" }}>
+                                <tbody id="general" data-filter-target="" >
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">General</th>
                                         <th>Apple iPhone Xs Max</th>
