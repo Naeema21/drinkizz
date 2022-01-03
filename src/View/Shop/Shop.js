@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Shop.css'
 import Smwatch1 from '../../assets/images/Product/Product-Desc/Smart-watch/1.jpg'
 import Smwatch2 from '../../assets/images/Product/Product-Desc/Smart-watch/2.jpg'
@@ -10,7 +10,6 @@ import ProductDescImg from '../../assets/images/Product/Product-Desc/Smart-watch
 import OwlCarousel from 'react-owl-carousel2';
 import 'react-owl-carousel2/lib/styles.css';
 import 'react-owl-carousel2/src/owl.theme.default.css';
-import Card from '../../Components/Cards/Cards'
 import { products } from '../../assets/Data/product'
 import BTearphones from '../../assets/images/Product/Product-Desc/Smart-watch/BT-Earphones.jpg'
 import CTSMwatch from '../../assets/images/Product/Product-Desc/Smart-watch/5.jpg'
@@ -22,9 +21,13 @@ import Smwatch4Large from '../../assets/images/Product/Product-Desc/Smart-watch/
 import { ReviewComments } from '../../assets/Data/data'
 import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
-import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb'
+import axios from 'axios'
+import { PRODUCT_URL } from '../../endpoint'
 
-function Shop() {
+const Shop = (({ match },) => {
+    const BreadCrumb = React.lazy(() => import('../../Components/BreadCrumb/Breadcrumb'))
+    const Card = React.lazy(() => import('../../Components/Cards/Cards'))
+    const [Data, setData] = useState({})
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data);
@@ -34,6 +37,62 @@ function Shop() {
             icon: "success",
         })
         reset();
+    }
+    const data2 = {
+        "name": Data.name,
+        "category": Data.category,
+        "price": Data.price,
+        "size": 1,
+        "image": Data.image,
+        "rating": Data.rating,
+        // "quantity": Data.quantity
+    };
+    const handleSubmitWsishlist = () => {
+        // console.log(data2)
+        axios.post(`https://daruwale.herokuapp.com/public/wishlist/${match.params.id}`, data2)
+            .then(response => {
+                console.log("Status: ", response.status);
+                console.log("Data: ", response.data);
+                if (response.status === 201) {
+                    swal({
+                        title: response.data.message,
+                        timer: 2000,
+                    })
+                } else {
+                    swal({
+                        title: "Try Again!",
+                    })
+                }
+            }).catch(error => {
+                console.error('Something went wrong!', error);
+            });
+    }
+    const DataToCart = {
+        "name": Data.name,
+        "category": Data.category,
+        "price": Data.price,
+        "size": 1,
+        "image": Data.image,
+        "quantity": 1
+    }
+    const handleSubmitCart = () => {
+        axios.post(`https://daruwale.herokuapp.com/public/cart/${match.params.id}`,DataToCart)
+        .then(response => {
+            console.log("Status: ", response.status);
+            console.log("Data: ",response.data);
+            if(response.status === 201){
+                swal({
+                    title: response.data.message,
+                    timer:2000
+                })
+            }else{
+                swal({
+                    title: "Try Again"
+                })
+            }
+        }).catch(error => {
+            console.error('Something went wrong !',error);
+        });
     }
     const options = {
         items: 4,
@@ -63,11 +122,16 @@ function Shop() {
         autoplay: false,
         dots: true
     }
+    useEffect(() => {
+        axios.get(PRODUCT_URL + "/" + match.params.id).then((res) => {
+            setData(res.data)
+        })
+    }, [match.params.id])
     return (
         <div>
             {/* Header */}
             <BreadCrumb
-                heading="Smartwatch Youth Edition"
+                heading={Data.name}
                 breadcrumb1="Home" BC1Link="/"
                 breadcrumb2="Shop" BC2Link="/shop"
                 breadcrumb3="Product Descripton" BC3Link=""
@@ -112,7 +176,7 @@ function Shop() {
                                                         <Col sm={9}>
                                                             <Tab.Content>
                                                                 <Tab.Pane eventKey="first">
-                                                                    <img src={Smwatch1Large} className='img-fluid' width="100%"></img>
+                                                                    <img src={Data.image} className='img-fluid' width="100%"></img>
                                                                 </Tab.Pane>
                                                                 <Tab.Pane eventKey="second">
                                                                     <img src={Smwatch2Large} className='img-fluid' width="100%"></img>
@@ -130,33 +194,34 @@ function Shop() {
                                             </div>
                                             <div className="col-lg-5 pt-4 pt-lg-0">
                                                 <div className="product-details ms-auto pb-3">
-                                                    <div className='h3 product-desc-price'>"$124.
-                                                        <small>99</small></div>
+                                                    <div className='h3 product-desc-price'>$ {Data.price}</div>
                                                 </div>
                                                 <div className='mb-4'>
                                                     <span className='Desc-text-heading'>Color:</span>
                                                     <span className='text-muted'>Color Option</span>
                                                 </div>
                                                 <div className="position-relative mb-5 pb-3">
-                                                    <label className='color-circle-box'><input style={{ backgroundColor: '#f25540' }}  name='color' type='radio' /></label>
-                                                    <label className='color-circle-box'><input style={{ backgroundColor: '#65805b' }}  name='color' type='radio' /></label>
-                                                    <label className='color-circle-box'><input checked style={{ backgroundColor: '#f5f5f5' }}  name='color' type='radio' /></label>
-                                                    <label className='color-circle-box'><input style={{ backgroundColor: '#333' }}  name='color' type='radio' /></label>
+                                                    <label className='color-circle-box'><input style={{ backgroundColor: '#f25540' }} name='color' type='radio' /></label>
+                                                    <label className='color-circle-box'><input style={{ backgroundColor: '#65805b' }} name='color' type='radio' /></label>
+                                                    <label className='color-circle-box'><input checked style={{ backgroundColor: '#f5f5f5' }} name='color' type='radio' /></label>
+                                                    <label className='color-circle-box'><input style={{ backgroundColor: '#333' }} name='color' type='radio' /></label>
                                                     <div className="product-badge product-available mt-n1">Product available</div>
                                                 </div>
                                                 <div className="d-flex align-items-center pt-2 pb-4">
-                                                    <select className="form-select me-3" style={{ width: "5rem" }}>
+                                                    <select className="form-select me-3" style={{ width: "5rem" }} 
+                                                    // onChange={Data.quantity}
+                                                    >
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
                                                         <option value="4">4</option>
                                                         <option value="5">5</option>
                                                     </select>
-                                                    <a className="Button-Full-Red d-block w-100" type="button" href='/cart'><i className="fa fa-shopping-cart me-2"></i>Add to Cart</a>
+                                                    <button className="Button-Full-Red d-block w-100"  data-toggle="tooltip" data-placement="top" onClick={handleSubmitCart}><i className="fa fa-shopping-cart me-2"></i>Add to Cart</button>
                                                 </div>
                                                 <div className="d-flex mb-4">
                                                     <div className="w-100 me-3">
-                                                        <a className="btn-Gray d-block w-100" type="button"><i className="fa fa-heart-o me-2" style={{ color: "gray" }}></i><span className="d-none d-sm-inline">Add to </span>Wishlist</a>
+                                                        <button className="btn-Gray d-block w-100" data-toggle="tooltip" data-placement="top" title="Hooray!" onClick={handleSubmitWsishlist} type="button"><i className="fa fa-heart-o me-2" style={{ color: "gray" }}></i><span className="d-none d-sm-inline">Add to </span>Wishlist</button>
                                                     </div>
                                                     <div className="w-100">
                                                         <a className="btn-Gray d-block w-100" type="button" href='/compare'><i className="fa fa-refresh me-2" style={{ color: "gray" }}></i>Compare</a>
@@ -610,6 +675,6 @@ function Shop() {
             </section>
         </div>
     )
-}
+});
 
 export default Shop

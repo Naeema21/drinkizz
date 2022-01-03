@@ -4,8 +4,8 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import { Link } from 'react-router-dom';
 import { GET_WISHLIST_DATA } from "../../endpoint"
-import NoDataInCart from '../../Components/NoDataFound/NoDataInCart';
 function Wishlist() {
+    const NoDataInCart = React.lazy(() => import('../../Components/NoDataFound/NoDataInCart'))
     //skeleton
     const [Loder, setLoader] = useState(false)
     //get data from Api
