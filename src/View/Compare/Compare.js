@@ -49,11 +49,14 @@ const Compare = () => {
                                             <h6 className="product-title">
                                                 <Link className='product-name' to="product-details">Apple iPhone Xs Max </Link>
                                             </h6>
-                                            <Link to="/cart"><button className="Button-Full-Red" type="button"><span className='skeleton-loader-background2'>Add to Cart</span></button></Link>
+                                            <Link to="/cart"><button className="Button-Full-Red" type="button">Add to Cart</button></Link>
                                         </td>
                                         <td className="text-center px-4 pb-4">
                                             <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
-                                                <i className="fa fa-trash-o me-1"></i>Remove
+                                            <h6 className='skeleton-loader-background4'>
+                                                {/* <i className="fa fa-trash-o me-1"></i> */}
+                                            </h6>
+                                                
                                             </Link>
                                             <Link className="d-inline-block mb-3" to="product-details">
                                                 {/* <img src={i2}  alt="Google Pixel 3 XL" className='skeleton-loader-background1' /> */}
@@ -62,11 +65,15 @@ const Compare = () => {
                                             <h6 className="product-title">
                                                 <Link className='product-name' to="product-details"><h6 className='skeleton-loader-background'></h6></Link>
                                             </h6>
-                                            <button className="Button-Full-Red" type="button"><span className='skeleton-loader-background2'>Add to Cart</span></button>
+                                            {/* <button className="Button-Full-Red" type="button"> */}
+                                                <span className='skeleton-loader-background3'></span>
+                                            {/* </button> */}
                                         </td>
                                         <td className="text-center px-4 pb-4">
                                             <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
-                                                <i className="fa fa-trash-o me-1"></i>Remove
+                                            <h6 className='skeleton-loader-background4'>
+                                                {/* <i className="fa fa-trash-o me-1"></i>Remove */}
+                                            </h6>
                                             </Link>
                                             <Link className="d-inline-block mb-3" to="product-details">
                                                 {/* <img src={i3} alt="Samsung Galaxy S10+" className='skeleton-loader-background1'/> */}
@@ -75,7 +82,9 @@ const Compare = () => {
                                             <h6 className="product-title">
                                                 <Link className='product-name' to="product-details"><h6 className='skeleton-loader-background'></h6></Link>
                                             </h6>
-                                            <button className="Button-Full-Red" type="button"><span className='skeleton-loader-background2'>Add to Cart</span></button>
+                                            {/* <button className="Button-Full-Red" type="button"> */}
+                                                <span className='skeleton-loader-background3'></span>
+                                            {/* </button> */}
                                         </td>
                                     </tr>
                                 </thead>
@@ -122,8 +131,8 @@ const Compare = () => {
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Summary</th>
                                         <th>Apple iPhone Xs Max</th>
-                                        <th>Google Pixel 3 XL</th>
-                                        <th>Samsung Galaxy S10+</th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Performance</th>
@@ -161,8 +170,8 @@ const Compare = () => {
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">General</th>
                                         <th>Apple iPhone Xs Max</th>
-                                        <th>Google Pixel 3 XL</th>
-                                        <th>Samsung Galaxy S10+</th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Quick charging</th>
@@ -212,8 +221,8 @@ const Compare = () => {
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Multimedia</th>
                                         <th>Apple iPhone Xs Max</th>
-                                        <th>Google Pixel 3 XL</th>
-                                        <th>Samsung Galaxy S10+</th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Loudspeaker</th>
@@ -239,8 +248,8 @@ const Compare = () => {
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Performance</th>
                                         <th>Apple iPhone Xs Max</th>
-                                        <th>Google Pixel 3 XL</th>
-                                        <th>Samsung Galaxy S10+</th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Processor</th>
@@ -272,8 +281,8 @@ const Compare = () => {
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Design</th>
                                         <th>Apple iPhone Xs Max</th>
-                                        <th>Google Pixel 3 XL</th>
-                                        <th>Samsung Galaxy S10+</th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Build material</th>
@@ -323,8 +332,8 @@ const Compare = () => {
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Display</th>
                                         <th>Apple iPhone Xs Max</th>
-                                        <th>Google Pixel 3 XL</th>
-                                        <th>Samsung Galaxy S10+</th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Display type</th>
@@ -368,8 +377,8 @@ const Compare = () => {
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Storage</th>
                                         <th>Apple iPhone Xs Max</th>
-                                        <th>Google Pixel 3 XL</th>
-                                        <th>Samsung Galaxy S10+</th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Internal memory</th>
@@ -389,8 +398,8 @@ const Compare = () => {
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Camera</th>
                                         <th>Apple iPhone Xs Max</th>
-                                        <th>Google Pixel 3 XL</th>
-                                        <th>Samsung Galaxy S10+</th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Settings</th>
@@ -452,8 +461,8 @@ const Compare = () => {
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Battery</th>
                                         <th>Apple iPhone Xs Max</th>
-                                        <th>Google Pixel 3 XL</th>
-                                        <th>Samsung Galaxy S10+</th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Talktime</th>
@@ -491,8 +500,8 @@ const Compare = () => {
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Price &amp; rating</th>
                                         <th>Apple iPhone Xs Max</th>
-                                        <th>Google Pixel 3 XL</th>
-                                        <th>Samsung Galaxy S10+</th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
+                                        <th><h6 className='skeleton-loader-background'></h6></th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Price</th>
@@ -509,13 +518,17 @@ const Compare = () => {
                                     <tr className='text-center'>
                                         <th></th>
                                         <td>
-                                            <button className="Button-Full-Red " type="button">Add to Cart</button>
+                                            <button className="Button-Full-Red " type="button">Add to Compare</button>
                                         </td>
                                         <td>
-                                            <button className="Button-Full-Red " type="button"><span className='skeleton-loader-background2'>Add to Cart</span></button>
+                                            {/* <button className="Button-Full-Red " type="button">Add to Compare*/}
+                                                <span className='skeleton-loader-background3'></span>
+                                            {/* </button> */}
                                         </td>
                                         <td>
-                                            <button className="Button-Full-Red " type="button"><span className='skeleton-loader-background2'>Add to Cart</span></button>
+                                            {/* <button className="Button-Full-Red " type="button">Add to Compare */}
+                                                <span className='skeleton-loader-background3'></span>
+                                            {/* </button> */}
                                         </td>
                                     </tr>
                                 </tbody>

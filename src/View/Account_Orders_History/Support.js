@@ -15,6 +15,15 @@ function Support() {
      const handleClose = () => setLgShow(false);
      // modal for support ticket
      const [lgShow, setLgShow] = useState(false);
+     //sort tickets
+     const getInitialState = () => {
+        const value = "All";
+        return value;
+      };
+      const [value, setValue] = useState(getInitialState);
+      const handleChange = (e) => {
+        setValue(e.target.value);
+      };
     return (
         <>
       {/*Support_Ticket*/}  
@@ -22,12 +31,12 @@ function Support() {
               <div className="d-flex align-items-center">
                 <label className="d-none d-lg-block fs-sm text-light text-nowrap opacity-75 me-2 text-dark">Sort tickets:</label>
                 <label className="d-lg-none fs-sm text-nowrap opacity-75 me-2 text-dark">Sort tickets:</label>
-                <select className="form-select" id="ticket-sort">
-                  <option>All</option>
-                  <option>Open</option>
-                  <option>Closed</option>
+                <select className="form-select" id="ticket-sort" value={value} onChange={handleChange}>
+                  <option value="All">All</option>
+                  <option value="Open">Open</option>
+                  <option value="Closed">Closed</option>
                 </select>
-              </div><Link className="Button-Red-Border Button-Full-Red text-light me-2 mt-2 mb-0 btn-sm signoutbtn" to="#"><i className="fa fa-sign-out me-2"></i>Sign out</Link>
+              </div><Link className="Button-Red-Border Button-Full-Red text-light me-2 mt-2 mb-0 btn-sm signoutbtn" to="/"><i className="fa fa-sign-out me-2"></i>Sign out</Link>
             </div>
             <hr></hr>
       <div className="table-responsive mb-4">
@@ -47,7 +56,7 @@ function Support() {
                 <td className="py-3">09/27/2019 | 09/30/2019</td>
                 <td className="py-3">Website problem</td>
                 <td className="py-3"><span className="badge bg-warning m-0 px-2">High</span></td>
-                <td className="py-3"><span className="badge bg-success bg-lighten-xl m-0 px-2">Open</span></td>
+                <td className="py-3"><span className="badge bg-success bg-lighten-xl m-0 px-2">{`${value}`}</span></td>
             </tr>
             <tr>
                 <td className="py-3"><Link className="nav-link-style text-dark fw-bold" to="#">Another ticket</Link></td>

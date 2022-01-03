@@ -6,7 +6,6 @@ import axios from 'axios'
 import { GET_CART_DATA } from "../../endpoint";
 import { useState, useEffect } from "react";
 import swal from 'sweetalert';
-
 const Cart = () => {
     const BreadCrumb = React.lazy(() => import('../../Components/BreadCrumb/Breadcrumb'))
     const NoDataInCart = React.lazy(() => import('../../Components/NoDataFound/NoDataInCart'))
@@ -165,7 +164,6 @@ const Cart = () => {
                             Empty ? <NoDataInCart /> : ""
                         }
                         
-
                         {/* ----------------------------------------------------------- */}
                         
                         {

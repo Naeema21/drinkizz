@@ -1,21 +1,32 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Link } from 'react-router-dom';
 import './Account_Orders_History.css';
 function Orders() {
+    //sort orders
+const getInitialState = () => {
+    const value = "All";
+    return value;
+  };
+  const [value, setValue] = useState(getInitialState);
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
     return (
         <div>
-            <div className="d-flex justify-content-between align-items-center pt-lg-2 pb-4 pb-lg-5 mb-lg-3">
+            <div className='container'>
+            <div className='row'>
+                    <div className="d-flex justify-content-between align-items-center pt-lg-2 pb-4 pb-lg-5 mb-lg-3">
                                         <div className="d-flex align-items-center">
                                             <label className="d-none d-lg-block fs-sm text-light text-nowrap opacity-75 me-2 text-dark">Sort orders:</label>
                                             <label className="d-lg-none fs-sm text-nowrap opacity-75 me-2 text-dark">Sort orders:</label>
-                                            <select className="form-select" id="order-sort">
-                                            <option>All</option>
-                                            <option>Delivered</option>
-                                            <option>In Progress</option>
-                                            <option>Delayed</option>
-                                            <option>Canceled</option>
+                                            <select className="form-select" id="order-sort" value={value} onChange={handleChange}>
+                                            <option value="All">All</option>
+                                            <option value="Delivered">Delivered</option>
+                                            <option value="In Progress">In Progress</option>
+                                            <option value="Delayed">Delayed</option>
+                                            <option value="Canceled">Canceled</option>
                                             </select>
-                                        </div><Link className="Button-Red-Border Button-Full-Red text-light me-2 mt-2 mb-0 btn-sm signoutbtn" to="#"><i className="fa fa-sign-out me-2"></i>Sign out</Link>
+                                        </div><Link className="Button-Red-Border Button-Full-Red text-light me-2 mt-2 mb-0 btn-sm signoutbtn" to="/"><i className="fa fa-sign-out me-2"></i>Sign out</Link>
                                         </div>
                                                        <hr style={{"width":"100%","textalign":"left","marginleft":"0","color":"black","height":"3px"}}></hr>
                                                  {/* Orders list */}
@@ -31,10 +42,12 @@ function Orders() {
                                                 </thead>
                                                 <tbody>
                                                 <tr>
+                                               
                                                     <td className="py-3"><Link className="text-dark fw-bold" to="#">34VB5540K83</Link></td>
                                                     <td className="py-3 px-4">May 21, 2019</td>
-                                                    <td className="py-3"><span className="badge bg-info bg-opacity-60 bg-lighten-xl m-0">In Progress</span></td>
+                                                    <td className="py-3"><span className="badge bg-info bg-opacity-60 bg-lighten-xl m-0">{`${value}`}</span></td>
                                                     <td className="py-3 px-4">$358.75</td>
+                                               
                                                 </tr>
                                                 <tr>
                                                     <td className="py-3"><Link className="text-dark fw-bold" to="#">78A643CD409</Link></td>
@@ -88,8 +101,9 @@ function Orders() {
                                                     <li className="order-page"><Link  className="page-link text-dark" to="#" aria-label="Next">Next<i className="fa fa-angle-right ms-2"></i></Link></li>
                                                 </ul>
                                             </nav>
-            
-        </div>
+                    </div>
+                    </div>
+                    </div>
     )
 }
 

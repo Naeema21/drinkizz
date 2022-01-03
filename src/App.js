@@ -17,6 +17,8 @@ function App() {
   const OrderTracking = React.lazy(()=>import('./View/OrderTracking/OrderTracking'))
   const CheckOutDetails = React.lazy(()=>import('./View/CheckOutDetails/CheckOutDetails'))
   const Account_Orders_History = React.lazy(()=>import('./View/Account_Orders_History/Account_Orders_History'))
+  const Orders = React.lazy(()=>import('./View/Account_Orders_History/Orders'))
+  const Wishlist = React.lazy(()=>import('./View/Account_Orders_History/Wishlist'))
   return (
     <div className="App">
       <BrowserRouter>
@@ -25,6 +27,8 @@ function App() {
           <Header />
           <div id="main" style={{overflow:'hidden'}}>
           <Switch>
+            <Route exact path="/orders" component={Orders}></Route>
+            <Route exact path="/wishlist" component={Wishlist}></Route>
             <Route exact path="/account-orders-history" component={Account_Orders_History}></Route>
             <Route exact path="/order-tracking" component={OrderTracking}></Route>
             <Route exact path="/compare" component={Compare}></Route>

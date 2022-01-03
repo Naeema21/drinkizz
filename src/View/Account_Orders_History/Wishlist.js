@@ -65,11 +65,12 @@ function Wishlist() {
             return ("")
         } else {
             return (
+                <div className='container'>
                 <div className='row' key={i}>
                     <div className="d-sm-flex justify-content-between mt-lg-4 mb-4 pb-3 pb-sm-2">
                         <div className='col-lg-4'>
                             <div className='d-block d-sm-flex align-items-start text-center text-sm-start'>
-                                <img className="wishlist-img" src={productdata.image} alt="Product" />
+                                <img className="wishlist-img" src={productdata.image} alt="Product" style={{"width":"200px"}}/>
                             </div>
                         </div>
                         <div className='col-lg-6'>
@@ -91,6 +92,7 @@ function Wishlist() {
                         </div>
                     </div>
                     <hr style={{ "width": "100%", "textalign": "left", "marginleft": "0" }}></hr>
+                </div>
                 </div>
             )
         }
@@ -128,7 +130,7 @@ function Wishlist() {
             <div className='container'>
                 <div className="d-flex justify-content-between align-items-center px-4 mb-4">
                     <h6 className="text-dark fs-base mb-0 ml-4 pt-4 mt-1 ListSort">List of your registered addresses:</h6>
-                    <Link className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" to="#"><i className="fa fa-sign-out me-2"></i>Sign out</Link>
+                    <Link className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" to="/"><i className="fa fa-sign-out me-2"></i>Sign out</Link>
                 </div>
                 <hr style={{ "width": "100%", "textalign": "left", "marginleft": "0", "color": "black", "height": "3px" }}></hr>
                 {
