@@ -96,13 +96,13 @@ function PaymentMethods() {
                                                         <Modal.Body>
                                                         <form onSubmit={handleSubmit(onPayment)}>
                                                                 <div className="form-check mb-4">
-                                                                    <input className="form-check-input" type="radio" {...register("paypal",{required:true})} id="PayPal" value="PayPal" />
+                                                                    <input className="form-check-input" type="radio" {...register("paymentType",{required:true})} value="PayPal" />
                                                                    
                                                                     <label className="form-check-label">PayPal<img className="d-inline-block align-middle card-img-pay ms-2" src={cardpaypal} alt="PayPal"/></label>
                                                                     {/* <div className='text-errormsg'>{errors.paypal && "please select payment method"}</div> */}
                                                                 </div>
                                                                 <div className="form-check mb-4">
-                                                                    <input className="form-check-input" type="radio" {...register("credit_debit",{required:true})} id="Credit / Debit card" value={false}/> 
+                                                                    <input className="form-check-input" type="radio" {...register("paymentType",{required:true})} value="credit_card" /> 
                                                                     <label className="form-check-label">Credit / Debit card<img className="d-inline-block card-img-pay align-middle ms-2" src={cardmaster} alt="Credit card"/></label>
                                                                     <div className='text-errormsg'>{errors.credit_debit && "please select payment method"}</div>
                                                                 </div>
