@@ -3,6 +3,7 @@ import './Account_Orders_History.css';
 import { useForm } from "react-hook-form";
 import { Modal } from 'react-bootstrap';
 import { ModalFooter, ModalBody } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 function Support() {
     //useform for modal form
     const { register, handleSubmit,reset,formState:{errors} } = useForm();
@@ -26,7 +27,7 @@ function Support() {
                   <option>Open</option>
                   <option>Closed</option>
                 </select>
-              </div><a className="Button-Red-Border Button-Full-Red text-light me-2 mt-2 mb-0 btn-sm signoutbtn" href="#"><i className="fa fa-sign-out me-2"></i>Sign out</a>
+              </div><Link className="Button-Red-Border Button-Full-Red text-light me-2 mt-2 mb-0 btn-sm signoutbtn" to="#"><i className="fa fa-sign-out me-2"></i>Sign out</Link>
             </div>
             <hr></hr>
       <div className="table-responsive mb-4">
@@ -42,28 +43,28 @@ function Support() {
             </thead>
             <tbody>
             <tr>
-                <td className="py-3"><a className="nav-link-style text-dark fw-bold" href="#">My new ticket</a></td>
+                <td className="py-3"><Link className="nav-link-style text-dark fw-bold" to="#">My new ticket</Link></td>
                 <td className="py-3">09/27/2019 | 09/30/2019</td>
                 <td className="py-3">Website problem</td>
                 <td className="py-3"><span className="badge bg-warning m-0 px-2">High</span></td>
                 <td className="py-3"><span className="badge bg-success bg-lighten-xl m-0 px-2">Open</span></td>
             </tr>
             <tr>
-                <td className="py-3"><a className="nav-link-style text-dark fw-bold" href="#">Another ticket</a></td>
+                <td className="py-3"><Link className="nav-link-style text-dark fw-bold" to="#">Another ticket</Link></td>
                 <td className="py-3">08/21/2019 | 08/23/2019</td>
                 <td className="py-3">Partner request</td>
                 <td className="py-3"><span className="badge bg-info m-0 px-2">Medium</span></td>
                 <td className="py-3"><span className="badge bg-secondary m-0 px-2 text-dark">Closed</span></td>
             </tr>
             <tr>
-                <td className="py-3"><a className="nav-link-style text-dark fw-bold" href="#">Yet another ticket</a></td>
+                <td className="py-3"><Link className="nav-link-style text-dark fw-bold" to="#">Yet another ticket</Link></td>
                 <td className="py-3">11/19/2018 | 11/20/2018</td>
                 <td className="py-3">Complaint</td>
                 <td className="py-3"><span className="badge bg-danger m-0 px-2">Urgent</span></td>
                 <td className="py-3"><span className="badge bg-secondary m-0 px-2 text-dark">Closed</span></td>
             </tr>
             <tr>
-                <td className="py-3"><a className="nav-link-style text-dark fw-bold" href="#">My old ticket</a></td>
+                <td className="py-3"><Link className="nav-link-style text-dark fw-bold" to="#">My old ticket</Link></td>
                 <td className="py-3">06/19/2018 | 06/20/2018</td>
                 <td className="py-3">Info inquiry</td>
                 <td className="py-3"><span className="badge bg-success bg-lighten-xl m-0 px-2">Low</span></td>

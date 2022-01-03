@@ -20,24 +20,76 @@
 .Compare .compare-crite {
     width: 250px;
     border-color: #a6aab080;
-
 }
-
 .Compare .compare-crite:hover {
     border-color: #fe696a;
 }
-
 .Compare td {
     width: 250px;
 }
 /* skeleton */
 .skeleton-loader-background{
   display: block;
+  width:auto;
+  height:30px;
   background: lightgray; 
+  background-repeat: repeat-y;
+    background-position: 0 0;
+    animation: shine 1s infinite;
 }
 .skeleton-loader-background1{
     width:120px;
     height:120px;
     display: block;
     background: lightgray; 
+    animation: shine 1s infinite;
 }
+.skeleton-loader-background2{
+  background: lightgray; 
+  background-repeat: repeat-y;
+    background-position: 0 0;
+    animation: shine 1s infinite;
+}  
+  /*** The "shine" element */
+  
+   .skeleton-loader-background:after {
+    /* animation: shine 5s ease-in-out  infinite; */
+    /* animation-fill-mode: forwards;   */
+    content: "";
+    position: absolute;
+    top: -110%;
+    left: -210%;
+    opacity: 0;
+    transform: rotate(30deg); 
+    background: rgba(255, 255, 255, 0.13);
+    background: linear-gradient(
+      to right, 
+      rgba(255, 255, 255, 0.13) 0%,
+      rgba(255, 255, 255, 0.13) 77%,
+      rgba(255, 255, 255, 0.5) 92%,
+      rgba(255, 255, 255, 0.0) 100%
+    );
+  }
+
+  /* Active state */
+  
+  .skeleton-loader-background:active:after {
+    opacity: 0;
+  }
+  
+  @keyframes shine{
+    10% {
+      opacity: 1;
+      top: -30%;
+      left: -30%;
+      transition-property: left, top, opacity;
+      /* transition-duration: 0.7s, 0.7s, 0.15s; */
+      /* transition-timing-function: ease; */
+    }
+    100% {
+      opacity: 0;
+      top: -30%;
+      left: -30%;
+      transition-property: left, top, opacity;
+    }
+  }

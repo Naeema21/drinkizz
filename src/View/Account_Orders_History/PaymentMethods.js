@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import { Modal } from 'react-bootstrap';
 import { ModalFooter, ModalBody } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { Link } from 'react-router-dom';
 // images payment
 import cardvisa from '../../assets/images/AccountHistory/cardvisa.png';
 import cardpaypal from '../../assets/images/AccountHistory/cardpaypal.png';
@@ -19,7 +20,7 @@ function PaymentMethods() {
         <div>
              <div className="d-flex justify-content-between align-items-center px-4 mb-4">
                                                                 <h6 className="text-dark fs-base mb-0 ml-4 pt-4 mt-1 ListSort">Primary payment method is used by default:</h6>
-                                                                <a className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" href="#"><i className="fa fa-sign-out me-2"></i>Sign out</a>
+                                                                <Link className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" to="#"><i className="fa fa-sign-out me-2"></i>Sign out</Link>
                                                             </div>
                                                             <hr></hr>
             <div className="table-responsive fs-md mb-4">
@@ -43,10 +44,10 @@ function PaymentMethods() {
                                                                     <td className="py-3 align-middle">Susan Gardner</td>
                                                                     <td className="py-3 align-middle">08 / 2019</td>
                                                                     <td className="py-3 align-middle">
-                                                                        <a className="text-muted me-2" href="#"><div className="fa fa-edit"></div></a>
-                                                                        <a className="text-danger" href="#">
+                                                                        <Link className="text-muted me-2" to="#"><div className="fa fa-edit"></div></Link>
+                                                                        <Link className="text-danger" to="#">
                                                                             <div className="fa fa-trash"></div>
-                                                                        </a>
+                                                                        </Link>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -59,10 +60,10 @@ function PaymentMethods() {
                                                                     <td className="py-3 align-middle">Susan Gardner</td>
                                                                     <td className="py-3 align-middle">08 / 2019</td>
                                                                     <td className="py-3 align-middle">
-                                                                        <a className="text-muted me-2" href="#"><div className="fa fa-edit"></div></a>
-                                                                        <a className="text-danger" href="#">
+                                                                        <Link className="text-muted me-2" to="#"><div className="fa fa-edit"></div></Link>
+                                                                        <Link className="text-danger" to="#">
                                                                             <div className="fa fa-trash"></div>
-                                                                        </a>
+                                                                        </Link>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -75,10 +76,10 @@ function PaymentMethods() {
                                                                     <td className="py-3 align-middle">Susan Gardner</td>
                                                                     <td className="py-3 align-middle">08 / 2019</td>
                                                                     <td className="py-3 align-middle">
-                                                                        <a className="text-muted me-2" href="#"><div className="fa fa-edit"></div></a>
-                                                                        <a className="text-danger" href="#">
+                                                                        <Link className="text-muted me-2" to="#"><div className="fa fa-edit"></div></Link>
+                                                                        <Link className="text-danger" to="#">
                                                                             <div className="fa fa-trash"></div>
-                                                                        </a>
+                                                                        </Link>
                                                                     </td>
                                                                 </tr>
                                                     </tbody>
@@ -112,8 +113,8 @@ function PaymentMethods() {
                                                                     {errors?.cardname?.type === "maxLength" && (<p>Number cannot exceed 20 characters</p>)}
                                                                     </div>
                                                                     <div className="col-sm-6">
-                                                                    <input className="form-control" type="text" {...register("fullname",{required:true, maxLength: 20 })} placeholder="Full Name"/>
-                                                                    <div className='text-errormsg'>{errors.fullname && "Please fill Your FullName!"}</div>
+                                                                    <input className="form-control" type="text" {...register("fullname",{required:true, maxLength: 20, pattern: /^[A-Za-z]+$/i })} placeholder="Full Name"/>
+                                                                    <div className='text-errormsg'>{errors.fullname && "Please Fill Only Alphabets!"}</div>
                                                                     </div>
                                                                     <div className="col-sm-3">
                                                                     <input className="form-control" type="month" {...register("mm_yy",{required:true})} placeholder="MM/YY"/>

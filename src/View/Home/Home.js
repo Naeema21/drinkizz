@@ -61,8 +61,7 @@ const skeleton=
             <div className="skel1div"></div><br/>
             <h2></h2>
             <h3></h3>
-            <div style={{display:'flex'}}><h2></h2><h2 style={{marginLeft:'25%'}}></h2></div>   
-            <h1></h1>    
+            <div style={{display:'flex'}}><h2></h2><h2 style={{marginLeft:'25%'}}></h2></div>     
         </div>
         
     ))
@@ -123,7 +122,7 @@ items.slice(2,6).map((value, index) => {
 })
 const bestsellerskeleton =
     [0,1,2,3].map(() => (
-        <div className='Skeleton-bestseller'style={{display:'flex'}} key={Math.random()}>
+        <div className='Skeleton-bestseller'style={{display:'flex',marginBottom:'20px'}} key={Math.random()}>
             <div className="selskeldiv1 mb-2 mt-4"></div><br/>
             <div className="mt-4" style={{marginLeft:'20%'}}>
                <h3></h3>
@@ -131,8 +130,6 @@ const bestsellerskeleton =
             </div>           
         </div>
     ))
-
-
 
     return (       
         <div className='home'>

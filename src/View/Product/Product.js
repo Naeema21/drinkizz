@@ -8,6 +8,7 @@ import shoplistproimg1 from '../../assets/images/Product/shoplist-proimg1.jpg'
 import { Shoplist } from '../../assets/Data/data';
 import  axios  from "axios";
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb'
+import { PRODUCT_URL } from '../../endpoint';
 
 
 const Product = () => {
@@ -53,7 +54,7 @@ const [loader ,setLoader] = useState();
 useEffect(()=> {
     setLoader(true) 
    try{
-        axios.get(`https://daruwale.herokuapp.com/public/product`)
+        axios.get(PRODUCT_URL)
     .then(res => {
         console.log(res);
         console.log(res.data.data);
@@ -69,26 +70,25 @@ useEffect(()=> {
 //For Skeleton & Card data HTML here in 2 diff variables
 const carditemdata=
     items.slice(0, 6).map((productdata, i) => (
-        <div className='col-lg-3 col-md-4 col-sm-6 px-1' key={i}>
+        <div className='col-lg-4 col-md-6 col-sm-6 px-1' key={i}>
             <Card id={productdata._id} category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
         </div>
     ))
 const carditemdata2=
     items.slice(6, 12).map((productdata, i) => (
-        <div className='col-lg-3 col-md-4 col-sm-6 px-1' key={i}>
+        <div className='col-lg-4 col-md-6 col-sm-6 px-1' key={i}>
             <Card id={productdata._id} category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.image} star={productdata.rating} />
         </div>
     ))
 const skeleton=
     [0,1,2,3].map(() => (
-        <div className='col-lg-3 col-md-4 col-sm-6 px-1 Skeleton-products' key={Math.random()}>
+        <div className='col-lg-4 col-md-6 col-sm-6 px-1 Skeleton-products' key={Math.random()}>
             <div className="skel1div"></div><br/>
             <h2></h2>
             <h3></h3>
             <div style={{display:'flex'}}><h2></h2><h2 style={{marginLeft:'25%'}}></h2></div>   
             <h1></h1>    
-        </div>
-        
+        </div>      
     ))
 
 //For Get the Total lenght of product in API
@@ -282,7 +282,7 @@ const skeleton=
                                             {
                                                 Shoplist.map((b,i) =>{
                                                     return(
-                                                        <li><div to="#" className='shoplistitems d-flex justify-content-between align-items-center'>
+                                                        <li key={i}><div  className='shoplistitems d-flex justify-content-between align-items-center'>
                                                             <span><input className='form-check-input' type='checkbox' style={{marginRight:'10px'}}
                                                              value={b.brand} defaultValue={b.brand}
                                                              onChange={(e)=>handleBrand(e.target.value)} />{b.brand}</span></div>
@@ -307,7 +307,7 @@ const skeleton=
                                             {
                                                Shoplist.map((s,i)=>{
                                                    return(
-                                                        <li><div to="#" className='shoplistitems d-flex justify-content-between align-items-center'>
+                                                        <li key={i}><div to="#" className='shoplistitems d-flex justify-content-between align-items-center'>
                                                             <span><input className='form-check-input' type='checkbox' style={{marginRight:'10px'}} value={s.size} onChange={(e)=>handleSize(e.target.value)}/>{s.size}</span></div>
                                                         </li>
                                                    )}
@@ -384,23 +384,23 @@ const skeleton=
                                         <span className='provisually-hidden'>(current)</span>
                                     </li>
                                     <li className='propage-item d-none d-sm-block'>
-                                        <a className='propage-link'>2</a>
+                                        <Link className='propage-link'>2</Link>
                                     </li>
                                     <li className='propage-item d-none d-sm-block'>
-                                        <a className='propage-link'>3</a>
+                                        <Link className='propage-link'>3</Link>
                                     </li>
                                     <li className='propage-item d-none d-sm-block'>
-                                        <a className='propage-link'>4</a>
+                                        <Link className='propage-link'>4</Link>
                                     </li>
                                     <li className='propage-item d-none d-sm-block'>
-                                        <a className='propage-link'>5</a>
+                                        <Link className='propage-link'>5</Link>
                                     </li>
                                 </ul>
                                 <ul className='propagination'>
                                     <li className='propage-item'>
-                                        <a className='propage-link'>
+                                        <Link className='propage-link'>
                                         Next <i class="fa fa-angle-right mx-1"></i>
-                                        </a>                                     
+                                        </Link>                                     
                                     </li>
                                 </ul>
                             </div>

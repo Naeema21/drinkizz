@@ -15,7 +15,7 @@
     border-radius: 50%;
 }
 .Account-Order-History .profile-col-sidebar{
-    margin-top: -100px;
+    margin-top: -80px;
 }
 .Account-Order-History .sidebar-li{
     list-style: none;
@@ -253,39 +253,4 @@ transform: translateY(-50%);
     color:#fe696a !important;
     font-size: 12px;
     text-transform: capitalize;
-}
-
-/* checkbox */
-.form-check-input:checked {
-    background-color: #fe696a;
-    border-color: #fe696a;
-}
-.form-check-input[type=radio] {
-    border-radius: 50%;
-}
-.form-check .form-check-input {
-    float: left;
-    margin-left: -1.5em;
-}
-.form-check-input {
-    width: 1em;
-    height: 1em;
-    margin-top: 0.25em;
-    vertical-align: top;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    border: 1px solid #c1cdd7;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    -webkit-print-color-adjust: exact;
-    color-adjust: exact;
-}
-.form-check-input:active {
-    filter: none;
-}
-input[type="radio" i]:focus-visible {
-    outline-offset: 2px;
 }

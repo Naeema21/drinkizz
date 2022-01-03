@@ -7,7 +7,7 @@ import axios from 'axios'
 import { GET_CART_DATA } from "../../endpoint";
 import { useState, useEffect } from "react";
 import swal from 'sweetalert';
-
+import NoDataInCart from '../../Components/NoDataFound/NoDataInCart';
 const Cart = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
@@ -17,8 +17,17 @@ const Cart = () => {
     const [Data, setData] = useState([]);
     const [deleteId, setDeleteId] = useState();
     const [Loder, setLoader] = useState(false)
-    const[Empty , setEmptyData] = useState(false)
+    const [Empty, setEmptyData] = useState(false)
+    //Load more button
+    const [noOfElement, setnoOfElement] = useState(4);
+    const loadMore = () => {
+        setnoOfElement(noOfElement + noOfElement)
+    }
 
+    const slice = Data.slice(0, noOfElement)
+
+    //TotalPrice
+    var totalCartPrice = 0;
     //get data
     useEffect(() => {
         setLoader(true)
@@ -27,7 +36,7 @@ const Cart = () => {
                 if (res.status === 200) {
                     setData(res.data.data);
                     setLoader(false)
-                }else if(res.status === 204){
+                } else if (res.status === 204) {
                     setEmptyData(true)
                     setLoader(false)
                 }
@@ -49,6 +58,7 @@ const Cart = () => {
                     timer: 2000,
                 }).then(() => {
                     setDeleteId(ids)
+                    window.location.reload()
                 })
             } else {
                 swal({
@@ -59,9 +69,10 @@ const Cart = () => {
 
         })
     }
-    
+
     //card item
-    const CartItemCards = Data.slice(0, 4).map((v, i) => {
+    const CartItemCards = slice.map((v, i) => {
+        totalCartPrice += v.price * v.quantity
         if (deleteId === v._id) {
             return ("")
         } else {
@@ -84,7 +95,7 @@ const Cart = () => {
                         </a></div>
 
                         <div className='col-lg-2 col-md-2 col-sm-2 col-xs-3 Delete-Cart-Item'>
-                            <p className='text-quantity'>Quantity</p>
+                            <p className='text-quantity'>{v.quantity}</p>
                             <input type="number" defaultValue={v.quantity} className='quanity-bar' /><br />
                             <a className='text-red remove-link mt-2' onClick={() => Deletecart(v._id)}><i className='fa fa-close'></i>&nbsp;Remove
                             </a>
@@ -149,15 +160,23 @@ const Cart = () => {
                         {
                             !Loder ? CartItemCards : SkeletonCartItem
                         }
-                         {
-                            !Empty ? CartItemCards : <h1>no data</h1>
+                        {
+                            Empty ? <NoDataInCart /> : ""
                         }
                         
+
                         {/* ----------------------------------------------------------- */}
-                        <div className='row my-4'>
-                            <a href='/product' className='btn Button-Blue-Border d-block w-100'>
-                                <i className='fa fa-refresh'></i>&nbsp; &nbsp; Load More</a>
-                        </div>
+                        
+                        {
+                            Data.length > 0 && Data.length >= noOfElement ?
+                            <div className='row my-4'>
+                            <button className='btn Button-Blue-Border d-block w-100' onClick={() => loadMore()}>
+                                <i className='fa fa-refresh'></i>&nbsp; &nbsp; Load More</button>
+                            </div>
+                            : ""
+                        }
+                       
+                       
 
                     </div>
                     {/*------------------------- Additional Comments start------------- */}
@@ -165,7 +184,7 @@ const Cart = () => {
                         <div className='card rounded-3 shadow-lg p-4'>
                             <div className='card-head text-center'>
                                 <h5>Subtotal</h5>
-                                <h3>$265.00</h3>
+                                <h3>$ {totalCartPrice}</h3>
                                 <hr />
                             </div>
                             <div className="card-body">

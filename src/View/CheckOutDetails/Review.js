@@ -1,12 +1,25 @@
 import React from "react";
-import { products } from "../../assets/Data/product";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import axios from 'axios';
+import { GET_CART_DATA } from "../../endpoint";
 const Review = ({ setForm, formData, navigation }) => {
     const { previous, next } = navigation;
+    const [Data, setData] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0)
+        try {
+            axios.get(GET_CART_DATA).then(res => {
+                console.log(res)
+                setData(res.data.data);
+            })
+        } catch (error) {
+            console.warn(error)
+        }
     }, [])
     const { go } = navigation;
+    //TotalPrice
+    var totalCartPrice = 0;
+    
     const {
         firstName,
         lastName,
@@ -35,25 +48,27 @@ const Review = ({ setForm, formData, navigation }) => {
                             <h2 className="h5 pb-1">Review Your Order</h2>
                             <hr />
                             {
-                                products.slice(0, 4).map((v, i) => {
+                                Data.map((v, i) => {
                                     return (
                                         <div key={i}>
-                                            <div className='d-flex row Cart-list-item'>
+                                            <div className='d-flex row Cart-list-item align-items-center'>
                                                 <div className='d-flex align-items-center col-lg-3 col-md-3 col-sm-3 col-xs-3 Cart-list-item-img'>
                                                     <div className='p-3'>
-                                                        <img src={v.imgsrc} className='img-fluid'
+                                                        <img src={v.image} className='img-fluid'
                                                             width="150px" height="150px" />
                                                     </div>
                                                 </div>
                                                 <div className='product-desc col-lg-7 col-md-7 col-sm-7 col-xs-6'><a href='/product-details'>
                                                     <h6 className='title-text-color'>{v.name}</h6>
-                                                    <span className='text-muted'>Size: 8.5</span><br />
+                                                    {/* <span className='text-muted'>Size: 8.5</span> */}
+                                                    <span className='text-muted'>Category: {v.category}</span>
+                                                    <br />
                                                     <span className='text-muted'>Color: Black</span>
-                                                    <p className='text-indigo fs-lg'>{v.price}</p>
+                                                    <p className='text-indigo fs-lg'>${v.price}</p>
                                                 </a></div>
 
                                                 <div className='col-lg-2 col-md-2 col-sm-2 col-xs-3'>
-                                                    <p className='text-quantity text-muted'>Quantity : <span>1</span></p>
+                                                    <p className='text-quantity text-muted'>Quantity : <span>{v.quantity}</span></p>
                                                     <a className="text-red" href="/"><i class="fa fa-edit me-1"></i>Edit</a>
                                                 </div>
                                             </div>
@@ -100,13 +115,23 @@ const Review = ({ setForm, formData, navigation }) => {
                         <div className='card rounded-3 shadow-lg p-4'>
                             <div className='card-head text-center'>
                                 <h6 className="py-2">Order Summary</h6>
+                                <div>
+                                    {
+                                        Data.map((value, index) => {
+                                            totalCartPrice += value.price * value.quantity 
+                                            return (
+                                                <></>
+                                            );
+                                        })
+                                    }
+                                </div>
                                 <ul className="list-unstyled fs-sm pb-2 border-bottom mt-2">
-                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Subtotal:</span><span className="text-end">$265.<small>00</small></span></li>
+                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Subtotal:</span><span className="text-end">$ {totalCartPrice}</span></li>
                                     <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Shipping:</span><span className="text-end">—</span></li>
                                     <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Taxes:</span><span className="text-end">$9.<small>50</small></span></li>
                                     <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Discount:</span><span className="text-end">—</span></li>
                                 </ul>
-                                <h3 className="fw-normal text-center my-4">$274.<small>50</small></h3>
+                                <h3 className="fw-normal text-center my-4">$ {totalCartPrice}</h3>
                                 <form>
                                     <input type="text"
                                         className="form-control" autoComplete="off" placeholder="Promo code" />
