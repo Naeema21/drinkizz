@@ -277,7 +277,7 @@
   transition: color .25s ease-in-out, border-color .25s ease-in-out, background-color .25s ease-in-out;
 }
 
-.product-details .propage-link:hover {
+.product-details .propage-link:hover ,.product-details .propage-link.disabled {
   z-index: 2;
   color: #4b566b;
   background-color: #f3f5f9;

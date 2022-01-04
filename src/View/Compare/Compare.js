@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import './Compare.css';
 import i1 from '../../assets/images/Compare/01.jpg';
-//import i2 from '../../assets/images/Compare/02.jpg';
-//import i3 from '../../assets/images/Compare/03.jpg';
 import { Link } from 'react-router-dom';
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 const Compare = () => {
@@ -31,12 +29,13 @@ const Compare = () => {
                                 <thead>
                                     <tr>
                                         <td className="align-middle">
-                                            <select className="form-select compare-crite" id="compare-criteria">
+                                            <select className="form-select compare-crite" id="compare-criteria"
+                                            onChange={(e)=>setSummary(e.target.value)}>
                                                 <option value="all">Comparison criteria</option>
                                                 <option value="summary">Summary</option>
-                                                <option value="general" onClick={() => { general ? setGeneral(true) : setGeneral(false) }}>General</option>
-                                                <option value="multimedia" onClick={() => { multimedia ? setMultimedia(true) : setMultimedia(false) }}>Multimedia</option>
-                                                <option value="performance" onClick={() => { performance ? setPerformance(false) : setPerformance(true) }}>Performance</option>
+                                                <option value="general" >General</option>
+                                                <option value="multimedia" >Multimedia</option>
+                                                <option value="performance">Performance</option>
                                             </select>
                                             <div className="form-text"> Choose criteria to filter table below.</div>
                                             <div className="pt-3">

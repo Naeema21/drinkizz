@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import '../layout.css';
-import footer_logo_light from '../../assets/images/Footer/footer-logo-light.png';
 import en from '../../assets/images/Footer/en.png';
 import fr from '../../assets/images/Footer/fr.png';
 import de from '../../assets/images/Footer/de.png';

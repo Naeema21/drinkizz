@@ -3,8 +3,12 @@ import "./OrderTracking.css";
 import { products } from '../../assets/Data/product'
 import { Modal } from 'react-bootstrap';
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
+import { Link } from 'react-router-dom'
 
-const OrderTracking = (props) => {
+
+const OrderTracking = () => {
+  var totalCartPrice = 0;
+
   // modal display functionality
   const [lgShow, setLgShow] = useState(false);
   return (
@@ -16,18 +20,18 @@ const OrderTracking = (props) => {
           {/* -- Details-- */}
           <div className="row gx-4 mb-4">
             <div className="col-md-4 mb-2">
-              <div className="bg-light h-100 p-4 text-center rounded-3">
-                <span className="text-dark me-2">Shipped via:</span>UPS Ground
+              <div className="bg-light h-100 p-4 text-center rounded-3" style={{fontSize: "16px"}}>
+                <span className="text-dark me-2 fw-bold">Shipped via:</span>UPS Ground
               </div>
             </div>
             <div className="col-md-4 mb-2">
-              <div className="bg-light h-100 p-4 text-center rounded-3">
-                <span className="text-dark me-2">Status:</span>Processing order
+              <div className="bg-light h-100 p-4 text-center rounded-3" style={{fontSize: "16px"}}>
+                <span className="text-dark me-2 fw-bold">Status:</span>Processing order
               </div>
             </div>
             <div className="col-md-4 mb-2">
-              <div className="bg-light h-100 p-4 text-center rounded-3">
-                <span className="text-dark me-2">Expected date:</span>October 15,
+              <div className="bg-light h-100 p-4 text-center rounded-3" style={{fontSize: "16px"}}>
+                <span className="text-dark me-2 fw-bold">Expected date:</span>October 15,
                 2019
               </div>
             </div>
@@ -125,9 +129,12 @@ const OrderTracking = (props) => {
                 <div className='container' style={{"height": "360px","overflow": "auto"}}>
                     {
                        products.map((productdata,i)=>{
+                        totalCartPrice += productdata.price 
+
                          return(
-                           <>
-                              <div className='row' style={{"padding":"5px 10px 5px 10px"}}>
+                           <div key={i}>
+                              <Link to="/product-details/61bc5b0f5b239b3e833a0f14" className='row' 
+                              style={{"padding":"5px 10px 5px 10px",color:"#000" , textDecoration:"none"}}>
                                 <div className='col-lg-3 d-inline-block flex-shrink-0 mx-auto'>
                                     <div className='d-flex justify-content-center align-items-center'>
                                          <img className='product-img-ordertrack' src={productdata.imgsrc} alt=""></img>
@@ -139,7 +146,7 @@ const OrderTracking = (props) => {
                                           <h6 className="text-dark font-weight-bold fs-base text-sm-start fw-bold mb-2">{productdata.category}</h6>
                                           <div className="fs-sm"><span className="text-muted me-2">Brand:</span>Tommy Hilfiger</div>
                                           <div className="fs-sm"><span className="text-muted me-2">Color:</span>Khaki</div>
-                                          <div className="fs-lg text-accent pt-2 text-primary">{productdata.price}<small>50</small></div>
+                                          <div className="fs-lg text-accent pt-2 text-primary">${productdata.price}</div>
                                           </div></div>
                                 </div>
                                 <div className='col-lg-2'>
@@ -151,13 +158,13 @@ const OrderTracking = (props) => {
                                 <div className='col-lg-2'>
                                     <h6 className='text-muted d-flex justify-content-center align-items-center'>Subtotal</h6>
                                     <div className='d-flex justify-content-center align-items-center'>
-                                      <p>$154.00</p> 
+                                      <p>${productdata.price}</p> 
                                     </div>
                                 </div>
                                 
-                            </div> 
+                            </Link> 
                             <hr style={{"width":"100%","textalign":"left","marginleft":"0"}}></hr>
-                            </>
+                            </div>
                          )
                        })
                     } 
@@ -166,7 +173,7 @@ const OrderTracking = (props) => {
               <Modal.Footer> 
                   <div className='row bg-light py-3'>
                     <div className='col-lg-3'>
-                      <p className='foot-text'>Subtotal: $265.00</p>
+                      <p className='foot-text'>Subtotal: ${totalCartPrice}</p>
                     </div>
                     <div className='col-lg-3'>
                       <p className='foot-text'>Shipping: $22.50</p>
@@ -175,7 +182,7 @@ const OrderTracking = (props) => {
                       <p className='foot-text'>Tax: $9.50</p>
                     </div>
                     <div className='col-lg-3'>
-                      <p className='foot-text'>Total: $297.00</p>
+                      <p className='foot-text'>Total: ${totalCartPrice+22.50+9.50}</p>
                     </div> 
                 </div>
                 </Modal.Footer>
