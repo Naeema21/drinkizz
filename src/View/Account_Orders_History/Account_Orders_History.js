@@ -25,8 +25,8 @@ const Account_Orders_History =()=>{
              console.log(items);
          })    
   }, [])
- const Wishlist1 = ' Wishlist '+ items.length;
- console.log(Wishlist1);
+//  const Wishlist1 = ' Wishlist '+ items.length;
+//  console.log(Wishlist1);
 
 //  change the tab url'
 const [key,setKey]=useState({});
