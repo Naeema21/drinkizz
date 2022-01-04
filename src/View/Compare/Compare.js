@@ -17,6 +17,58 @@ const Compare = () => {
     const [price,setPrice]=useState(false);
     //toggle the table row
     const [showText, setShowText] = useState(false);
+    //   set option value
+    const getInitialState = () => {
+        const value = "All";
+        return value;
+      };
+      const [value, setValue] = useState(getInitialState);
+      // functionality for filter and search
+      const handleChange = (e) => {
+        setValue(e.target.value);
+        console.log(value);
+        if(value === 'summary')
+        {
+            setShowText(!showText);
+        }
+        if(value === 'general')
+        {
+            setGeneral(!general); 
+        }
+        if(value === 'multimedia')
+        {
+            setMultimedia(!multimedia);
+        }
+        if(value === 'performance')
+        {
+            setPerformance(!performance)
+        }
+        if(value === 'design')
+        {
+            setDesign(!design);
+        }
+        if(value === 'display')
+        {
+            setDisplay(!display);
+        }
+        if(value ==='storage')
+        {
+            setStorage(!storage);
+        }
+        if(value ==='camera')
+        {
+            setCamera(!camera);
+        }
+        if(value ==='battery')
+        {
+            setBattery(!battery);  
+        }
+        if(value === 'price')
+        {
+            setPrice(!price);
+        }
+      };
+       
     return (
         <>
         <BreadCrumb heading='Product comparison' BC1Link='/' breadcrumb1='Home' BC3Link='/compare' breadcrumb3='Comparison'/>
@@ -29,23 +81,24 @@ const Compare = () => {
                                 <thead>
                                     <tr>
                                         <td className="align-middle">
-                                            <select className="form-select compare-crite" id="compare-criteria"
-                                            onChange={(e)=>setSummary(e.target.value)}>
-                                                <option value="all">Comparison criteria</option>
+                                            <select className="form-select compare-crite" id="compare-criteria" value={value} onChange={handleChange} >
+                                                <option value="All">Comparison criteria</option>
                                                 <option value="summary">Summary</option>
                                                 <option value="general" >General</option>
                                                 <option value="multimedia" >Multimedia</option>
                                                 <option value="performance">Performance</option>
                                             </select>
+                                            {/* <span>{`${value}`}</span> */}
                                             <div className="form-text"> Choose criteria to filter table below.</div>
                                             <div className="pt-3">
                                                 <div className="form-check">
                                                     <input className="form-check-input" type="checkbox" id="differences" />
                                                     <label className="form-check-label" htmlFor="differences">Show differences only</label>
                                                 </div>
+                                                
                                             </div>
                                             <div className='m-2'>
-                                             <button className='btngeneral' onClick={() => setShowText(!showText)}>Summary</button>
+                                              <button className='btngeneral' onClick={() => setShowText(!showText)}>Summary</button>
                                              {/* <button className='btngeneral' onClick={() => setSummary(!summary)}>Show Summary</button> */}
                                              <button className='btngeneral pl-4' onClick={() => setGeneral(!general)}>General</button>
                                              <button className='btngeneral pl-4' onClick={() => setMultimedia(!multimedia)}>Multimedia</button>

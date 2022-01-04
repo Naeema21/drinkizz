@@ -151,11 +151,7 @@ const [key,setKey]=useState({});
                                                         <li className="sidebar-li">
                                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                                     <i className="fa fa-user-o me-2"></i>Profile info
-                                                                    <div className='px-4'>
-                                                                    <Link to="/profile">
-                                                                    <i className='fa fa-eye' aria-hidden="true"></i>
-                                                                    </Link>
-                                                                </div><span className="text-muted ms-auto"></span>
+                                                                <span className="text-muted ms-auto"></span>
                                                                 </div>
                                                         </li>
                                                     </Nav.Link>
@@ -165,11 +161,7 @@ const [key,setKey]=useState({});
                                                         <li className="sidebar-li">
                                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                                 <i className="fa fa-map-marker me-2"></i>Addresses
-                                                                <div className='px-4'>
-                                                                    <Link to="/address">
-                                                                    <i className='fa fa-eye' aria-hidden="true"></i>
-                                                                    </Link>
-                                                                </div><span className="text-muted ms-auto"></span>
+                                                                <span className="text-muted ms-auto"></span>
                                                                 </div>
                                                         </li>
                                                     </Nav.Link>
@@ -179,11 +171,7 @@ const [key,setKey]=useState({});
                                                         <li className="sidebar-li">
                                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                                 <i className="fa fa-credit-card me-2"></i>Payment methods
-                                                                <div className='px-4'>
-                                                                    <Link to="/paymentmethods">
-                                                                    <i className='fa fa-eye' aria-hidden="true"></i>
-                                                                    </Link>
-                                                                </div><span className="text-muted ms-auto"></span>
+                                                                <span className="text-muted ms-auto"></span>
                                                                 </div>
                                                         </li>
                                                     </Nav.Link>
