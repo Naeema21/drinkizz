@@ -79,14 +79,14 @@ const Header = () => {
                             <div>
                                 <span>
                                     <Link to="/cart" className='sub-header-link'>
-                                        <i className='fa fa-shopping-cart text-danger'> </i> &nbsp;My Cart
+                                        <i className='fa fa-shopping-cart text-danger'> </i> My Cart
                                     </Link>
                                 </span>
                             </div>
                             <div>
                                 <span>
                                     <Link to="/account-orders-history#account-wishlist" className='sub-header-link'>
-                                        <i className='fa fa-heart-o text-danger'> </i> &nbsp;Wishlist
+                                        <i className='fa fa-heart-o text-danger'> </i> Wishlist
                                     </Link>
                                 </span>
                             </div>
