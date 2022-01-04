@@ -73,6 +73,16 @@
   font-size: 36px;
   font-weight: 100;
 }
+@media (min-width: 500px){
+.sec-2-footer .footer-content-resp{
+    padding-bottom: 20px;
+}
+}
+@media (max-width: 1024px) {
+.links-footer-resp{
+  display: table-caption;
+}
+}
 
 /*--------------------------------------------------------------
 # Back to top button

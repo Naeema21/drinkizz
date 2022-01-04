@@ -6,10 +6,10 @@ import Cards from 'react-credit-cards'
 import 'react-credit-cards/es/styles-compiled.css'
 import './CheckOutDetails.css'
 import {useState, useEffect } from "react";
+import OrderSummary from "../../Components/CheckOutSidebar/OrderSummary";
 
-// import CheckoutProgressBar from "./CheckoutProgressBar";
 const Payment = ({ setForm, formData, navigation }) => {
-  const OrderSummary = React.lazy(() => import('../../Components/CheckOutSidebar/OrderSummary'))
+  // const OrderSummary = React.lazy(() => import('../../Components/CheckOutSidebar/OrderSummary'))
   const { phone, email } = formData;
 
   const { previous, next } = navigation;
@@ -26,7 +26,7 @@ const Payment = ({ setForm, formData, navigation }) => {
   const [name, setName] = useState('')
   const [expiry, setExpiry] = useState('')
   const [cvc, setCvc] = useState('')
-  const [focus, setFocus] = useState('')
+  // const [focus, setFocus] = useState('')
 
   const handleCardData = (e) => {
     // e.preventDefault();
@@ -70,7 +70,8 @@ const Payment = ({ setForm, formData, navigation }) => {
                         name={name}
                         expiry={expiry}
                         cvc={cvc}
-                        focused={focus} />
+                        // focused={focus} 
+                        />
                       <form onSubmit={handleCardData}>
                         <div className='row mt-4'>
                           <div className='col-lg-6'>
@@ -82,7 +83,7 @@ const Payment = ({ setForm, formData, navigation }) => {
                                 maxLength={16}
                                 value={number}
                                 onChange={e => setNumber(e.target.value)}
-                                onFocus={e => setFocus(e.target.name)}
+                                // onFocus={e => setFocus(e.target.name)}
                                 className="form-control" />
                             </div>
                           </div>
@@ -93,7 +94,7 @@ const Payment = ({ setForm, formData, navigation }) => {
                                 placeholder="Name"
                                 value={name}
                                 onChange={e => setName(e.target.value)}
-                                onFocus={e => setFocus(e.target.name)}
+                                // onFocus={e => setFocus(e.target.name)}
                                 className="form-control" />
 
                             </div>
@@ -111,7 +112,7 @@ const Payment = ({ setForm, formData, navigation }) => {
                                 maxLength={4}
                                 value={expiry}
                                 onChange={e => setExpiry(e.target.value)}
-                                onFocus={e => setFocus(e.target.name)}
+                                // onFocus={e => setFocus(e.target.name)}
                                 className="form-control" />
 
                             </div>
@@ -119,11 +120,11 @@ const Payment = ({ setForm, formData, navigation }) => {
                           <div className='col-lg-3'>
                             <input type="text"
                               name="cvc"
-                              placeholder="CVC"
+                              placeholder="CVV"
                               maxLength={3}
                               value={cvc}
                               onChange={e => setCvc(e.target.value)}
-                              onFocus={e => setFocus(e.target.name)}
+                              // onFocus={e => setFocus(e.target.name)}
                               className="form-control" />
                           </div>
                           <div className='col-lg-6'>

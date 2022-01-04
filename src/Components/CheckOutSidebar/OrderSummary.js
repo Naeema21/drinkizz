@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import axios from 'axios'
 import { GET_CART_DATA } from "../../endpoint";
 const OrderSummary = ({ subTotal,
-    discount,
+    
     tax,
     onEnterPromoCode,
     checkPromoCode }) => {
@@ -21,7 +21,9 @@ const OrderSummary = ({ subTotal,
     }, 0);
     const TAX = 5;
     const ShippingCharge = 5;
-    const total = SubTotal + TAX + ShippingCharge - discountPercent
+    const total = SubTotal + TAX + ShippingCharge - discountPercent;
+    const discount = discountPercent;
+    
 
     onEnterPromoCode = (event) => {
         setPromoCode(event.target.value);
@@ -84,7 +86,7 @@ const OrderSummary = ({ subTotal,
                     <div>
                         {
                             Data.map((value, index) => {
-                                totalCartPrice += value.price * value.quantity
+                                // totalCartPrice += value.price * value.quantity
                                 if (Empty === value._id) {
                                     return ("")
                                 } else {
@@ -122,10 +124,10 @@ const OrderSummary = ({ subTotal,
                             <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Subtotal:</span><span className="text-end">$ {SubTotal}</span></li>
                             <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Shipping:</span><span className="text-end">$ {ShippingCharge}</span></li>
                             <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Taxes:</span><span className="text-end">$ {TAX}</span></li>
-                            <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Discount:</span><span className="text-end">{discountPercent}</span></li>
+                            <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Discount:</span><span className="text-end">$ {discountPercent}</span></li>
                         </ul>
                         <h3 className="fw-normal text-center my-4">$ {total}</h3>
-                     
+                        
                         <input type="text" className="form-control" autoComplete="off" placeholder="Promo code" onChange={onEnterPromoCode} />
                         <button className='btn Button-Red-Border d-block w-100 mt-3' onClick={checkPromoCode}>Apply promo code</button>
                       

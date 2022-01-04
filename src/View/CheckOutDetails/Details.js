@@ -2,9 +2,10 @@ import React from "react";
 import { useForm } from 'react-hook-form';
 import checkoutProfile from '../../assets/images/checkout-details/checkout-profile.jpg'
 import { useEffect } from "react";
+import OrderSummary from "../../Components/CheckOutSidebar/OrderSummary";
 
 const Details = ({ setForm, formData, navigation }) => {
-    const OrderSummary = React.lazy(() => import('../../Components/CheckOutSidebar/OrderSummary'))
+    // const OrderSummary = React.lazy(() => import('../../Components/CheckOutSidebar/OrderSummary'))
     const ItemForm = React.lazy(() => import('./ItemForm'))
     const { previous, next } = navigation;
     const { firstName, lastName } = formData;
