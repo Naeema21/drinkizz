@@ -20,7 +20,7 @@ const Header = () => {
         window.scrollTo({ top: 0 });
     };
 
-   
+
 
     return (
         <div className='header fixed-top'>

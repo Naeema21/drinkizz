@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Modal, Tab, Tabs,NavDropdown } from 'react-bootstrap';
+import { Modal, Tab, Tabs, NavDropdown } from 'react-bootstrap';
 import './SignIn.css';
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
@@ -12,18 +12,18 @@ const SignIn = () => {
     const [name, setName] = useState("Hello , signIn")
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    //logout
     const LogOut = () => {
         localStorage.removeItem('name');
         localStorage.removeItem('token');
-        setName("Hello , signIn" )
+        setName("Hello , signIn")
     }
-    // for signinform
+
+    // submit sigin data
     const { register, handleSubmit, reset, formState: { errors } } = useForm({ mode: "onBlur" });
-    const { register: register2, formState: { errors: errors2 }, handleSubmit: handleSubmit2, reset: reset1 } = useForm({ mode: "onBlur", });
-    // const {handleForm}= useForm();
     const onSubmit = data => {
         axios.post(LOGIN, data).then(res => {
-            console.log(res)
             if (res.status === 201) {
                 swal({
                     title: res.data.message,
@@ -47,12 +47,16 @@ const SignIn = () => {
         })
         console.log(data);
     }
+
+    //submit register data
+    const { register: register2, formState: { errors: errors2 }, handleSubmit: handleSubmit2, reset: reset1 } = useForm({ mode: "onBlur", });
     const handleSignUp = (data) => {
         alert(JSON.stringify(data));
         console.log(data);
         reset1();
     }
 
+    //check login or not
     useEffect(() => {
         const n = localStorage.getItem('name')
         setName(n)
@@ -60,28 +64,32 @@ const SignIn = () => {
 
     return (
         <>
+            {/* if login show logout component else login component */}
             {
-                name ? <NavDropdown
-                className='text-dark'
-                    id="nav-dropdown-dark-example"
-                    title={"Hello, " + name}
-                    menuVariant="Danger"
-                >
-                    <NavDropdown.Item onClick={()=>LogOut()}>
-                        <i class="fa fa-sign-out me-2"></i>SignOut</NavDropdown.Item>
-                </NavDropdown>
+                name ?
+                    <NavDropdown
+                        className='text-dark'
+                        id="nav-dropdown-dark-example"
+                        title={"Hello, " + name}
+                        menuVariant="Danger">
+                        <NavDropdown.Item onClick={() => LogOut()}>
+                            <i class="fa fa-sign-out me-2"></i>SignOut</NavDropdown.Item>
+                    </NavDropdown>
                     :
-
                     <span style={{ cursor: "pointer" }}>
                         <span onClick={handleShow}>
                             <i className='fa fa-user-o text-danger'></i>&nbsp; {name ? name : "Hello ,Sign In"}</span>
-                    </span>}
+                    </span>
+            }
+
             {/* modal for signin signup */}
             <div className='Modal-signin-up' style={{ display: !show ? 'none' : '' }}>
                 <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" id="signin_modal" aria-hidden="true" tabIndex="-1" role="dialog" centered>
                     <div className='modalsingin-up-close'>
                         <button className="btn-close" type="button" onClick={() => handleClose(true)}></button>
                     </div>
+
+                    {/* //signin tab// */}
                     <Tabs defaultactivekey="Signin" id="uncontrolled-tab-example" className="mb-3 flex-row">
                         <Tab eventKey="Signin" title="Signin" className='signin-tab' defaultactivekey="Signin">
                             <div className='Sign-in-modal'>
@@ -110,6 +118,7 @@ const SignIn = () => {
                             </div>
                         </Tab>
 
+                        {/* //signout tab// */}
                         <Tab eventKey="Signup" title="Signup">
                             <div className='Sign-up-modal'>
                                 <div className="modal-body tab-content py-4">
@@ -151,6 +160,7 @@ const SignIn = () => {
                                 </div>
                             </div>
                         </Tab>
+                        {/* end signup tab */}
                     </Tabs>
                 </Modal>
             </div>
