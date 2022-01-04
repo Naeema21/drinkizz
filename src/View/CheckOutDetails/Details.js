@@ -60,34 +60,34 @@ const Details = ({ setForm, formData, navigation }) => {
                                     <div className='col-lg-6'>
                                         <div className="form-group mb-3">
                                             <label className='form-label'>First Name</label>
-                                            <ItemForm 
+                                            {/* <ItemForm 
                                                 name="firstName"
                                                 value={firstName}
-                                                onChange={setForm}
+                                                onSubmit={setForm}
                                                 required={true}
-                                            />
-                                            {/* <input type="text"
+                                            /> */}
+                                            <input type="text"
 
                                                 {...register("firstname", {
                                                     required: true, pattern: { value: "^[A-Za-z]$", message: "please enter valid name" },
                                                     minLength: 3, maxLength: 60
                                                 })}
-                                                className="form-control" autoComplete="off" placeholder="" /> */}
+                                                className="form-control" autoComplete="off" placeholder="" /> 
                                             <span className="error-msg" title="name required">{errors.firstname && "Please enter your name."}</span>
                                         </div>
                                     </div>
                                     <div className='col-lg-6'>
                                         <div className="form-group mb-3">
                                             <label className='form-label'>Last Name</label>
-                                            <ItemForm
+                                            {/* <ItemForm
                                                
                                                 name="lastName"
                                                 value={lastName}
                                                 onChange={setForm}
                                                 required={true}
                                                 
-                                            />
-                                            {/* <input type="text"
+                                            /> */}
+                                            <input type="text"
 
                                                 {...register("lastname", {
                                                     required: true, pattern:
@@ -95,7 +95,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                                     minLength: 3,
                                                     maxLength: 60
                                                 })}
-                                                className="form-control" autoComplete="off" placeholder="" /> */}
+                                                className="form-control" autoComplete="off" placeholder="" />
                                             <span className="error-msg" title="name required">{errors.lastname && "Please enter your name."}</span>
                                         </div>
                                     </div>
