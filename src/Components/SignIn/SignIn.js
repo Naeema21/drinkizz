@@ -73,7 +73,7 @@ const SignIn = () => {
                         title={"Hello, " + name}
                         menuVariant="Danger">
                         <NavDropdown.Item onClick={() => LogOut()}>
-                            <i class="fa fa-sign-out me-2"></i>SignOut</NavDropdown.Item>
+                            <i className="fa fa-sign-out me-2"></i>SignOut</NavDropdown.Item>
                     </NavDropdown>
                     :
                     <span style={{ cursor: "pointer" }}>
@@ -122,7 +122,7 @@ const SignIn = () => {
                         <Tab eventKey="Signup" title="Signup">
                             <div className='Sign-up-modal'>
                                 <div className="modal-body tab-content py-4">
-                                    <form autocomplete="off" key={2} onSubmit={handleSubmit2(handleSignUp)}>
+                                    <form autoComplete="off" key={2} onSubmit={handleSubmit2(handleSignUp)}>
                                         <div className="mb-3">
                                             <label className="form-label signup-form-label">Full Name</label>
                                             <input className="form-control signup-input" {...register2("name", { required: true, maxLength: 20, pattern: /^[A-Za-z]+$/i })} />
