@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './product.css'
 import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
-import { Link } from 'react-router-dom'
 import shoplistproimg1 from '../../assets/images/Product/shoplist-proimg1.jpg'
 import axios from "axios";
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb'
@@ -77,7 +76,7 @@ const Product = () => {
         ))
 
     const skeleton =
-        [0, 1, 2].map(() => (
+        [0, 1, 2 ,3,4,5].map(() => (
             <div className='col-lg-4 col-md-6 col-sm-6 px-1 Skeleton-products' key={Math.random()}>
                 <div className="skel1div"></div><br />
                 <h2></h2>
@@ -94,7 +93,7 @@ const Product = () => {
     const breadcrumbheading = ' Products ' + items.length;
     return (
         <div className='product-details'>
-            <BreadCrumb heading={breadcrumbheading} BC1Link='/' breadcrumb1='Home' BC2Link='/' breadcrumb2='Products' BC3Link='/' breadcrumb3='Products left sidebar' />
+            <BreadCrumb heading={breadcrumbheading} BC1Link='/' breadcrumb1='Home'  BC3Link='/' breadcrumb3='Products' />
             <div className='Heading-back-com3'>
                 <div className='row'>
                     <div className='col-lg-4 col-md-4 col-sm-4'></div>
@@ -145,7 +144,9 @@ const Product = () => {
                                 }
                             </div>
                             {/* pagination */}
-
+                            {
+                                items.length >=0 ?
+                            
                             <div className="d-flex justify-content-between pt-2">
                                 <ul className='propagination'>
                                     <li className='propage-item'>
@@ -182,6 +183,7 @@ const Product = () => {
                                     </li>
                                 </ul>
                             </div>
+                            :""}
 
 
                             <div className='row mb-5 mt-5'>

@@ -107,8 +107,10 @@
 }
 
 .BS-Heading {
-    font-size: 25px;
+    color: #fe4a4c;
+    font-size: 20px;
     font-weight: 600;
+    letter-spacing: 1px;
 }
 
 @media(max-width:768px) {

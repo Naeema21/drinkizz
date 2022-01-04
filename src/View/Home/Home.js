@@ -74,7 +74,7 @@ const skeleton=
 const bestsellerdata =
 items.slice(0, 4).map((value, index) => {
     return (
-        <Link to="/product-details" key={index}>
+        <Link to={"/product-details/" + value._id} key={index}>
             <div className='BS-Product-item d-flex align-items-center'>
                 <div className=''>
                     <img src={value.image} alt='product' width="70" className='img-fluid'></img>
@@ -92,7 +92,7 @@ items.slice(0, 4).map((value, index) => {
 const bestsellerdata2 =
 items.slice(3,7).map((value, index) => {
     return (
-        <Link to="/product-details" key={index}>
+        <Link to={"/product-details/" + value._id} key={index}>
             <div className='BS-Product-item d-flex align-items-center'>
                 <div className=''>
                     <img src={value.image} alt='product' width="70" className='img-fluid'></img>
@@ -110,7 +110,7 @@ items.slice(3,7).map((value, index) => {
 const bestsellerdata3 =
 items.slice(2,6).map((value, index) => {
     return (
-        <Link to="/product-details" key={index}>
+        <Link to={"/product-details/" + value._id} key={index}>
             <div className='BS-Product-item d-flex align-items-center'>
                 <div className=''>
                     <img src={value.image} alt='product' width="70" className='img-fluid'></img>
@@ -318,8 +318,7 @@ const bestsellerskeleton =
                                     !loader ? bestsellerdata3 : bestsellerskeleton 
                                 }                                
                                 <div className='mt-4 text-orange'>
-                                    <Link to="/product" className="text-orange">View More
-                                        <i className="fa fa-angle-right"></i></Link>
+                                    <Link to="/product" className="text-orange">View More <i className="fa fa-angle-right"></i></Link>
                                 </div>
                             </div>
                         </div>
