@@ -58,7 +58,7 @@ const Cart = () => {
                     timer: 2000,
                 }).then(() => {
                     setDeleteId(ids)
-                    window.location.reload()
+                    // window.location.reload()
                 })
             } else {
                 swal({

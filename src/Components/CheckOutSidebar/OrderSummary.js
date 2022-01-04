@@ -3,12 +3,64 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import axios from 'axios'
 import { GET_CART_DATA } from "../../endpoint";
-const OrderSummary = () => {
+const OrderSummary = ({ subTotal,
+    discount,
+    tax,
+    onEnterPromoCode,
+    checkPromoCode }) => {
     //TotalPrice
     var totalCartPrice = 0;
 
     const [Data, setData] = useState([]);
     const [Empty, setEmptyData] = useState(false)
+    //promocode
+    const [promoCode, setPromoCode] = useState("");
+    const [discountPercent, setDiscountPercent] = useState(0);
+    const SubTotal = Data.reduce((total, product) => {
+        return total + product.price * +product.quantity;
+    }, 0);
+    const TAX = 5;
+    const ShippingCharge = 5;
+    const total = SubTotal + TAX + ShippingCharge - discountPercent
+
+    onEnterPromoCode = (event) => {
+        setPromoCode(event.target.value);
+    };
+    const PROMOTIONS = [
+        {
+            code: "ONE",
+            discount: "40%"
+        },
+        {
+            code: "TWO",
+            discount: "20%"
+        },
+        {
+            code: "THREE",
+            discount: "10%"
+        },
+        {
+            code: "FOUR",
+            discount: "5%"
+        },
+        {
+            code: "FIVE",
+            discount: "15%"
+        },
+    ]
+
+    checkPromoCode = () => {
+        for (var i = 0; i < PROMOTIONS.length; i++) {
+            if (promoCode === PROMOTIONS[i].code) {
+                setDiscountPercent(parseFloat(PROMOTIONS[i].discount.replace("%", "")));
+
+                return;
+            }
+        }
+
+        alert("Sorry, the Promotional code you entered is not valid!");
+    };
+    //promocodeend
     useEffect(() => {
         window.scrollTo(0, 0)
         try {
@@ -67,17 +119,16 @@ const OrderSummary = () => {
                     </div>
                     <div style={{ display: Empty ? 'none' : '' }}>
                         <ul className="list-unstyled fs-sm pb-2 border-bottom mt-2">
-                            <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Subtotal:</span><span className="text-end">$ {totalCartPrice}</span></li>
-                            <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Shipping:</span><span className="text-end">—</span></li>
-                            <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Taxes:</span><span className="text-end">$9.<small>50</small></span></li>
-                            <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Discount:</span><span className="text-end">—</span></li>
+                            <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Subtotal:</span><span className="text-end">$ {SubTotal}</span></li>
+                            <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Shipping:</span><span className="text-end">$ {ShippingCharge}</span></li>
+                            <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Taxes:</span><span className="text-end">$ {TAX}</span></li>
+                            <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Discount:</span><span className="text-end">{discountPercent}</span></li>
                         </ul>
-                        <h3 className="fw-normal text-center my-4">$ {totalCartPrice}</h3>
-                        <form>
-                            <input type="text"
-                                className="form-control" autoComplete="off" placeholder="Promo code" />
-                            <button className='btn Button-Red-Border d-block w-100 mt-3'>Apply promo code</button>
-                        </form>
+                        <h3 className="fw-normal text-center my-4">$ {total}</h3>
+                     
+                        <input type="text" className="form-control" autoComplete="off" placeholder="Promo code" onChange={onEnterPromoCode} />
+                        <button className='btn Button-Red-Border d-block w-100 mt-3' onClick={checkPromoCode}>Apply promo code</button>
+                      
                     </div>
                 </div>
             </div>
