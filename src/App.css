@@ -9,7 +9,7 @@ body {
 }
 @media(max-width:768px){
   #main{
-    margin-top: 145px;
+    margin-top: 170px;
   }
 }
 #loader {
@@ -174,4 +174,9 @@ color: #000 !important;
 }
 .swal-overlay {
    background-color: transparent;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block !important;
+  margin-top: 0 !important; 
 }

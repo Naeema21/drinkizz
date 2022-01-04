@@ -27,7 +27,34 @@ const Product = () => {
             console.log(err)
             setLoader(true)
         }
+
+
+
     }, [])
+
+        //check filter
+
+    const selectFilter = (event) => {
+        console.log(event)
+
+        switch (event) {
+            case "Popularity":
+                console.log("a")
+                // code block
+            case "Low-High Price":
+                // code block
+            case "High-Low Price":
+                // code block
+            case "A-Z Order":
+                const a =items.sort((a, b) => a.name.localeCompare(b.name))
+                setItems(a.reverse())
+                console.log(a.reverse())
+            case "Z-A Order":
+                // code block
+            default:
+            // code block
+        }
+    }
 
     //pagination
 
@@ -60,7 +87,6 @@ const Product = () => {
         return new Array(pageLimit).fill().map((_, idx) => start + idx + 1);
     };
 
-    console.log(pages)
 
     //For Skeleton & Card data HTML here in 2 diff variables
     const carditemdata =
@@ -76,7 +102,7 @@ const Product = () => {
         ))
 
     const skeleton =
-        [0, 1, 2 ,3,4,5].map(() => (
+        [0, 1, 2, 3, 4, 5].map(() => (
             <div className='col-lg-4 col-md-6 col-sm-6 px-1 Skeleton-products' key={Math.random()}>
                 <div className="skel1div"></div><br />
                 <h2></h2>
@@ -87,13 +113,14 @@ const Product = () => {
             </div>
         ))
 
+ 
 
 
     //For Get the Total lenght of product in API
     const breadcrumbheading = ' Products ' + items.length;
     return (
         <div className='product-details'>
-            <BreadCrumb heading={breadcrumbheading} BC1Link='/' breadcrumb1='Home'  BC3Link='/' breadcrumb3='Products' />
+            <BreadCrumb heading={breadcrumbheading} BC1Link='/' breadcrumb1='Home' BC3Link='/' breadcrumb3='Products' />
             <div className='Heading-back-com3'>
                 <div className='row'>
                     <div className='col-lg-4 col-md-4 col-sm-4'></div>
@@ -101,11 +128,12 @@ const Product = () => {
                         <div className=' d-flex  flex-nowrap'>
                             <div className="d-flex justify-content-between align-items-center">
                                 <span className="text-light fs-base mb-0 ml-4 pt-7 py-2 px-2">Sort by</span>
-                                <select className="form-select compare-crite" id="compare-criteria">
-                                    <option value="all">Popularity</option>
+                                <select className="form-select compare-crite" id="compare-criteria"
+                                    onChange={(e) => selectFilter(e.target.value)}>
+                                    <option value="0">Select Filter</option>
+                                    <option value="Popularity">Popularity</option>
                                     <option value="Low-High Price" >Low-High Price</option>
                                     <option value="High-Low Price" >High-Low Price</option>
-                                    <option value="Average Rating" >Average Rating</option>
                                     <option value="A-Z Order" >A-Z Order</option>
                                     <option value="Z-A Order">Z-A Order</option>
                                 </select>
@@ -145,45 +173,45 @@ const Product = () => {
                             </div>
                             {/* pagination */}
                             {
-                                items.length >=0 ?
-                            
-                            <div className="d-flex justify-content-between pt-2">
-                                <ul className='propagination'>
-                                    <li className='propage-item'>
-                                        <button className={`propage-link ${currentPage === 1 ? "disabled" : ""}`}
-                                            onClick={goToPreviousPage}
-                                            disabled={currentPage === 1 ? true : false}
-                                        >
-                                            <i className="fa fa-angle-left mx-2"></i>
-                                            Prev
-                                        </button>
-                                    </li>
-                                </ul>
-                                <ul className='propagination'>
+                                items.length >= 0 ?
 
-                                    {getPaginationGroup().map((item, index) => (
-                                        <li
-                                            key={index}
-                                            onClick={changePage}
-                                            style={{ cursor: "pointer" }}
-                                            className={`propage-item d-none d-sm-block ${currentPage === item ? 'active' : null}`}
-                                        >
-                                            <span className='propage-link'>{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                                <ul className='propagination'>
-                                    <li className='propage-item'>
-                                        <button className={`propage-link ${currentPage === pageLimit ? "disabled" : ""}`}
-                                            onClick={goToNextPage}
-                                            disabled={currentPage === pageLimit ? true : false}
-                                        >
-                                            Next <i className="fa fa-angle-right mx-1"></i>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                            :""}
+                                    <div className="d-flex justify-content-between pt-2">
+                                        <ul className='propagination'>
+                                            <li className='propage-item'>
+                                                <button className={`propage-link ${currentPage === 1 ? "disabled" : ""}`}
+                                                    onClick={goToPreviousPage}
+                                                    disabled={currentPage === 1 ? true : false}
+                                                >
+                                                    <i className="fa fa-angle-left mx-2"></i>
+                                                    Prev
+                                                </button>
+                                            </li>
+                                        </ul>
+                                        <ul className='propagination'>
+
+                                            {getPaginationGroup().map((item, index) => (
+                                                <li
+                                                    key={index}
+                                                    onClick={changePage}
+                                                    style={{ cursor: "pointer" }}
+                                                    className={`propage-item d-none d-sm-block ${currentPage === item ? 'active' : null}`}
+                                                >
+                                                    <span className='propage-link'>{item}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <ul className='propagination'>
+                                            <li className='propage-item'>
+                                                <button className={`propage-link ${currentPage === pageLimit ? "disabled" : ""}`}
+                                                    onClick={goToNextPage}
+                                                    disabled={currentPage === pageLimit ? true : false}
+                                                >
+                                                    Next <i className="fa fa-angle-right mx-1"></i>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    : ""}
 
 
                             <div className='row mb-5 mt-5'>
