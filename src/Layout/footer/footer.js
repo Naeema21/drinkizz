@@ -156,10 +156,10 @@ const Footer = () => {
                     </div>
                 </section>
                 <section>
-                    <div className="pt-5 sec-2-footer">
+                    <div className="pt-3 sec-2-footer">
                         <div className="container">
-                            <div className="row pb-3">
-                                <div className="col-sm-6 col-md-3 col-lg-3 mb-4">
+                            <div className="row">
+                                <div className="col-sm-6 col-md-6 col-lg-3 footer-content-resp">
                                     <div className="d-flex align-items-center"><i className="fa fa-rocket text-orange"></i>
                                         <div className="ps-3">
                                             <h6 className="fs-base text-light mb-1">Fast and free delivery</h6>
@@ -167,7 +167,7 @@ const Footer = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-sm-6 col-md-3 col-lg-3 mb-4">
+                                <div className="col-sm-6 col-md-6 col-lg-3 footer-content-resp">
                                     <div className="d-flex align-items-center"><i className="fa fa-money text-orange"></i>
                                         <div className="ps-3">
                                             <h6 className="fs-base text-light mb-1">Money back guarantee</h6>
@@ -175,7 +175,7 @@ const Footer = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-sm-6 col-md-3 col-lg-3 mb-4">
+                                <div className="col-sm-6 col-md-6 col-lg-3 footer-content-resp">
                                     <div className="d-flex align-items-center"><i className="fa fa-headphones text-orange"></i>
                                         <div className="ps-3">
                                             <h6 className="fs-base text-light mb-1">24/7 customer support</h6>
@@ -183,7 +183,7 @@ const Footer = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-sm-6 col-md-3 col-lg-3 mb-4">
+                                <div className="col-sm-6 col-md-6 col-lg-3 ">
                                     <div className="d-flex align-items-center"><i className="fa fa-support text-orange"></i>
                                         <div className="ps-3">
                                             <h6 className="fs-base text-light mb-1">Fast and free delivery</h6>
@@ -192,33 +192,10 @@ const Footer = () => {
                                     </div>
                                 </div>
                             </div>
-                            <hr className="hr-light mb-5" style={{ "color": "#d1d6e0" }} />
-                            <div className="row pb-2">
-                                <div className="col-md-6 text-center text-md-start mb-4">
-                                    <div className="text-nowrap mb-4">
-                                        <a href="#home" className="navbar-brand d-inline-block align-middle mt-n1 me-3 text-orange"><span className="text-light fw-bolder">🍻</span>Daruwale</a>
-                                        <div className="btn-group dropdown disable-autohide">
-                                            <button className="btn btn-outline-light border-light btn-sm dropdown-toggle px-2" type="button" data-bs-toggle="dropdown" onClick={() => { list ? showList(false) : showList(true) }}>
-                                                <img className="me-2" src={en} width="20" alt="English" />Eng / $
-                                            </button>
-                                            <ul className="dropdown-menu my-1 show" data-popper-placement="top-start" style={{ display: list ? "block" : 'none', "inset": "auto auto 0px 0px", "transform": "translate(-1px, -38px)", "padding": "10px" }}>
-                                                <li className="dropdown-item-footer">
-                                                    <select className="form-select form-select-sm">
-                                                        <option value="usd">$ USD</option>
-                                                        <option value="eur">€ EUR</option>
-                                                        <option value="ukp">£ UKP</option>
-                                                        <option value="jpy">¥ JPY</option>
-                                                    </select>
-                                                </li>
-                                                <li><a className="dropdown-item-footer pb-1" href="#">
-                                                    <img className="me-2" src={fr} width="20" alt="Français" />Français</a></li>
-                                                <li><a className="dropdown-item-footer pb-1" href="#">
-                                                    <img className="me-2" src={de} width="20" alt="Deutsch" />Deutsch</a></li>
-                                                <li><a className="dropdown-item-footer" href="#">
-                                                    <img className="me-2" src={it} width="20" alt="Italiano" />Italiano</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                            <hr className="hr-light " style={{ "color": "#d1d6e0" }} />
+                            <div className="row">
+                                <div className="col-md-6 text-center text-md-start">
+                                   
                                     <div className="compare-sec-footer compare-links compare-light">
                                         <ul className="compare-list-ul-footer d-flex flex-wrap justify-content-center justify-content-md-start">
                                             <li className="compare-list-footer me-4"><a className="compare-list-link-footer" href="#">Outlets</a></li>
@@ -229,8 +206,8 @@ const Footer = () => {
                                         </ul>
                                     </div>
                                 </div>
-                                <div className="col-md-6 text-center text-md-end mb-4">
-                                    <div className="mb-3">
+                                <div className="col-md-6 text-center text-md-end mb-2">
+                                    <div className="">
                                         <a className="btn-social-icon-footer bs-light socialhover ms-2 mb-2" href="#">
                                             <i className="fa fa-twitter"></i>
                                         </a>

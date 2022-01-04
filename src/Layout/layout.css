@@ -63,6 +63,13 @@
   background-color: #fff;
 }
 
+.header .sigin button{
+  background: none !important;
+    color: #000 !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
 
 
@@ -72,6 +79,16 @@
 .footer-top i {
   font-size: 36px;
   font-weight: 100;
+}
+@media (min-width: 500px){
+.sec-2-footer .footer-content-resp{
+    padding-bottom: 20px;
+}
+}
+@media (max-width: 1024px) {
+.links-footer-resp{
+  display: table-caption;
+}
 }
 
 /*--------------------------------------------------------------
