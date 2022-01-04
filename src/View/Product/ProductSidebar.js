@@ -70,7 +70,8 @@ const ProductSidebar = () => {
                                     {
                                         Shoplist.map((b, i) => {
                                             return (
-                                                <li><Link to="#" className='shoplistitems d-flex justify-content-between align-items-center'><span>{b.bags}</span><span>{b.bags_total}</span></Link></li>
+                                                <li key={i}>
+                                                    <Link to="#" className='shoplistitems d-flex justify-content-between align-items-center'><span>{b.bags}</span><span>{b.bags_total}</span></Link></li>
                                             )
                                         })
                                     }
@@ -108,7 +109,7 @@ const ProductSidebar = () => {
                                     {
                                         Shoplist.map((a, i) => {
                                             return (
-                                                <li><Link to="#" className='shoplistitems d-flex justify-content-between align-items-center'><span>{a.accessories}</span><span>{a.accessories_total}</span></Link></li>
+                                                <li key={i}><Link to="#" className='shoplistitems d-flex justify-content-between align-items-center'><span>{a.accessories}</span><span>{a.accessories_total}</span></Link></li>
                                             )
                                         })
                                     }
@@ -241,15 +242,7 @@ const ProductSidebar = () => {
                     })
                 }
             </div>
-            {/* 
-
-                         
-                            <div className='row'>
-                                {/* Skeleton & Card data condition check here 
-                                {
-                                    !loader ? carditemdata2 : skeleton
-                                }
-                            </div> */}
+            
         </div>
     )
 }

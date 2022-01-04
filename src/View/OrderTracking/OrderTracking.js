@@ -20,18 +20,18 @@ const OrderTracking = () => {
           {/* -- Details-- */}
           <div className="row gx-4 mb-4">
             <div className="col-md-4 mb-2">
-              <div className="bg-light h-100 p-4 text-center rounded-3">
-                <span className="text-dark me-2">Shipped via:</span>UPS Ground
+              <div className="bg-light h-100 p-4 text-center rounded-3" style={{fontSize: "16px"}}>
+                <span className="text-dark me-2 fw-bold">Shipped via:</span>UPS Ground
               </div>
             </div>
             <div className="col-md-4 mb-2">
-              <div className="bg-light h-100 p-4 text-center rounded-3">
-                <span className="text-dark me-2">Status:</span>Processing order
+              <div className="bg-light h-100 p-4 text-center rounded-3" style={{fontSize: "16px"}}>
+                <span className="text-dark me-2 fw-bold">Status:</span>Processing order
               </div>
             </div>
             <div className="col-md-4 mb-2">
-              <div className="bg-light h-100 p-4 text-center rounded-3">
-                <span className="text-dark me-2">Expected date:</span>October 15,
+              <div className="bg-light h-100 p-4 text-center rounded-3" style={{fontSize: "16px"}}>
+                <span className="text-dark me-2 fw-bold">Expected date:</span>October 15,
                 2019
               </div>
             </div>
