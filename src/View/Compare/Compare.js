@@ -191,7 +191,7 @@ const Compare = () => {
                                 } */}
                                 {/* General Table */}
                                 {general &&
-                                <tbody id="general" data-filter-target="" style={{ display: general ? "block" : "none" }}>
+                                <tbody id="general" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">General</th>
                                         <th>Apple iPhone Xs Max</th>
@@ -241,7 +241,6 @@ const Compare = () => {
                                         <td><h6 className='skeleton-loader-background'></h6></td>
                                     </tr>
                                 </tbody>
-                               
                                 }
                                 {/* MultiMedia table */}
                                  {multimedia && 
