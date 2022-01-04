@@ -29,7 +29,7 @@ const Payment = ({ setForm, formData, navigation }) => {
   const [focus, setFocus] = useState('')
 
   const handleCardData = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const cardData = {
       "number": number,
       "name": name,
