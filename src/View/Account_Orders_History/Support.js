@@ -27,6 +27,8 @@ function Support() {
     return (
         <>
       {/*Support_Ticket*/}  
+      <div className='container'>
+          <div className='row'>
       <div className="d-flex justify-content-between align-items-center pt-lg-2 pb-4 pb-lg-5 mb-lg-3">
               <div className="d-flex align-items-center">
                 <label className="d-none d-lg-block fs-sm text-light text-nowrap opacity-75 me-2 text-dark">Sort tickets:</label>
@@ -142,7 +144,8 @@ function Support() {
                 </form>
                 </Modal.Body>
         </Modal>
- 
+        </div>
+      </div>
     </>
     )
 }

@@ -4,7 +4,19 @@ import i1 from '../../assets/images/Compare/01.jpg';
 import { Link } from 'react-router-dom';
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 const Compare = () => {
-    const [summary, setSummary] = useState();
+    //Summary
+    const [summary, setSummary] = useState(false);
+    const [general, setGeneral] = useState(false);
+    const [multimedia, setMultimedia] = useState(false);
+    const [performance, setPerformance] = useState(false);
+    const [design,setDesign]= useState(false);
+    const [display,setDisplay]=useState(false);
+    const [storage,setStorage]=useState(false);
+    const [camera,setCamera]=useState(false);
+    const [battery,setBattery]=useState(false);
+    const [price,setPrice]=useState(false);
+    //toggle the table row
+    const [showText, setShowText] = useState(false);
     return (
         <>
         <BreadCrumb heading='Product comparison' BC1Link='/' breadcrumb1='Home' BC3Link='/compare' breadcrumb3='Comparison'/>
@@ -32,6 +44,19 @@ const Compare = () => {
                                                     <label className="form-check-label" htmlFor="differences">Show differences only</label>
                                                 </div>
                                             </div>
+                                            <div className='m-2'>
+                                             <button className='btngeneral' onClick={() => setShowText(!showText)}>Summary</button>
+                                             {/* <button className='btngeneral' onClick={() => setSummary(!summary)}>Show Summary</button> */}
+                                             <button className='btngeneral pl-4' onClick={() => setGeneral(!general)}>General</button>
+                                             <button className='btngeneral pl-4' onClick={() => setMultimedia(!multimedia)}>Multimedia</button>
+                                            <button className='btngeneral' onClick={() => setPerformance(!performance)}>Performance</button>
+                                            <button className='btngeneral pl-4' onClick={() => setDesign(!design)}>Design</button>
+                                            <button className='btngeneral pl-4' onClick={() => setDisplay(!display)}>Display</button>
+                                            <button className='btngeneral pl-4' onClick={() => setStorage(!storage)}>Storage</button>
+                                            <button className='btngeneral pl-4' onClick={() => setCamera(!camera)}>Camera</button>
+                                            <button className='btngeneral pl-4' onClick={() => setBattery(!battery)}>Battery</button> 
+                                            <button className='btngeneral pl-4' onClick={() => setPrice(!price)}>Price</button>
+                                            </div>
                                         </td>
                                         <td className="text-center px-4 pb-4">
                                             <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
@@ -49,8 +74,7 @@ const Compare = () => {
                                             <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
                                             <h6 className='skeleton-loader-background4'>
                                                 {/* <i className="fa fa-trash-o me-1"></i> */}
-                                            </h6>
-                                                
+                                            </h6>    
                                             </Link>
                                             <Link className="d-inline-block mb-3" to="product-details">
                                                 {/* <img src={i2}  alt="Google Pixel 3 XL" className='skeleton-loader-background1' /> */}
@@ -83,6 +107,7 @@ const Compare = () => {
                                     </tr>
                                 </thead>
                                 {/* first Summary table */}
+                                {showText && 
                                 <tbody id="table-data-summary" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Summary</th>
@@ -121,7 +146,11 @@ const Compare = () => {
                                         <td><h6 className='skeleton-loader-background'></h6></td>
                                     </tr>
                                 </tbody>
-                                <tbody id="summary" className='showsummary' data-filter-target="" >
+                                }
+                                {/* show summary table */}
+                                {/* {summary&&
+                               
+                                <tbody id="summary" className='showsummary' data-filter-target="" style={{ display: summary ? "block" : 'none' }}>
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Summary</th>
                                         <th>Apple iPhone Xs Max</th>
@@ -159,8 +188,10 @@ const Compare = () => {
                                         <td><h6 className='skeleton-loader-background'></h6></td>
                                     </tr>
                                 </tbody>
+                                } */}
                                 {/* General Table */}
-                                <tbody id="general" data-filter-target="" >
+                                {general &&
+                                <tbody id="general" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">General</th>
                                         <th>Apple iPhone Xs Max</th>
@@ -210,7 +241,9 @@ const Compare = () => {
                                         <td><h6 className='skeleton-loader-background'></h6></td>
                                     </tr>
                                 </tbody>
+                                }
                                 {/* MultiMedia table */}
+                                 {multimedia && 
                                 <tbody id="multimedia" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Multimedia</th>
@@ -237,7 +270,9 @@ const Compare = () => {
                                         <td><h6 className='skeleton-loader-background'></h6></td>
                                     </tr>
                                 </tbody>
+                                }
                                 {/* Performance Table */}
+                                {performance &&
                                 <tbody id="performance" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Performance</th>
@@ -270,7 +305,9 @@ const Compare = () => {
                                         <td><h6 className='skeleton-loader-background'></h6></td>
                                     </tr>
                                 </tbody>
+                                }
                                 {/* Design Table */}
+                                {design &&
                                 <tbody id="design" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Design</th>
@@ -321,7 +358,9 @@ const Compare = () => {
                                         <td><h6 className='skeleton-loader-background'></h6></td>
                                     </tr>
                                 </tbody>
+                                }
                                 {/* Dispaly Table */}
+                                {display &&
                                 <tbody id="display" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Display</th>
@@ -366,7 +405,9 @@ const Compare = () => {
                                         <td><h6 className='skeleton-loader-background'></h6></td>
                                     </tr>
                                 </tbody>
+                                }
                                 {/* Storage Table */}
+                                {storage &&
                                 <tbody id="storage" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Storage</th>
@@ -387,7 +428,9 @@ const Compare = () => {
                                         <td><h6 className='skeleton-loader-background'></h6></td>
                                     </tr>
                                 </tbody>
+                                }
                                 {/* Camera Table */}
+                                {camera &&
                                 <tbody id="camera" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Camera</th>
@@ -450,7 +493,9 @@ const Compare = () => {
                                         <td><h6 className='skeleton-loader-background'></h6></td>
                                     </tr>
                                 </tbody>
+                                }
                                 {/* Battery Table */}
+                                {battery &&
                                 <tbody id="battery" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Battery</th>
@@ -489,7 +534,9 @@ const Compare = () => {
                                         <td><h6 className='skeleton-loader-background'></h6></td>
                                     </tr>
                                 </tbody>
+                                }
                                 {/* Price Table */}
+                                {price &&
                                 <tbody id="price" data-filter-target="">
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Price &amp; rating</th>
@@ -526,6 +573,7 @@ const Compare = () => {
                                         </td>
                                     </tr>
                                 </tbody>
+                                }
                             </table>
                         </div>
                     </div>
