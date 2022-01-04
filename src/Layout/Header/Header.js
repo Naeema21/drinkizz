@@ -1,26 +1,26 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import { Link, NavLink } from 'react-router-dom'
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import '../layout.css'
 const Header = () => {
     const SignIn = React.lazy(() => import('../../Components/SignIn/SignIn'))
     const [Navigation, setNavbar] = useState(false);
     const [expanded, setExpanded] = useState(false);
-
     //on scroll set hooks true
     useEffect(() => {
         window.addEventListener("scroll", () => {
-
             if (window.scrollY >= 20) {
                 setNavbar(true);
             }
-        });
-    });
+        })
+    }, []);
 
     const scrollgoTop = () => {
         window.scrollTo({ top: 0 });
     };
+
+   
 
     return (
         <div className='header fixed-top'>
@@ -31,7 +31,8 @@ const Header = () => {
                 }}>
 
                 <Container>
-                    <Navbar.Brand to="/"><i className='fa fa-phone'></i> <a href='tel:(00) 33 169 7720' className='text-white'> (00) 33 169 7720</a>
+                    <Navbar.Brand to="/">
+                        <i className='fa fa-phone'></i> <a href='tel:(00) 33 169 7720' className='text-white'> (00) 33 169 7720</a>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"
                         onClick={() => setExpanded(expanded ? false : "expanded")} />
@@ -70,12 +71,11 @@ const Header = () => {
 
                         <div className='col-lg-5'>
                             <input type="text" className='form-control search-bar'
-                            placeholder='Search For Product' />
+                                placeholder='Search For Product' />
                         </div>
-                        <div className='col-lg-4 d-flex justify-content-center justify-content-around'>
-                            <div>
-                                <SignIn />
-                            </div>
+                        <div className='col-lg-4 d-flex justify-content-center 
+                        align-items-center justify-content-around signin'>
+
                             <div>
                                 <span>
                                     <Link to="/cart" className='sub-header-link'>
@@ -90,6 +90,10 @@ const Header = () => {
                                     </Link>
                                 </span>
                             </div>
+                            <div>
+                                <SignIn />
+                            </div>
+
                         </div>
                     </div>
                 </div>
