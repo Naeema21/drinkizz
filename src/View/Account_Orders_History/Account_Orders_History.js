@@ -72,7 +72,7 @@ const [key,setKey]=useState({});
      <div className='Account-Order-History'>
            <div className='container pb-5 mb-2 mb-md-4'>
                     {/* sidebar  onSelect={handleSelect()} */}
-                    <Tab.Container id="left-tabs-example" defaultActiveKey="first" onSelect={handleSelect()}>
+                    <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                             <Row>
                                 <Col lg={4} className="pt-4 pt-lg-0 pe-xl-5 profile-col-sidebar">
                                     <div className="bg-white rounded-3 shadow-lg pt-1 mb-5 mb-lg-0">
@@ -92,7 +92,7 @@ const [key,setKey]=useState({});
                                         <div className="bg-light px-4 py-3">
                                            <h6 className="text-muted">Dashboard</h6>
                                         </div>
-                                        <Nav variant="pills" className="flex-column" activeKey="first">
+                                        <Nav variant="pills" className="flex-column" activeKey="first" onSelect={handleSelect()}>
                                             <ul>
                                                 <Nav.Item>
                                                     <Nav.Link eventKey="first" title="account-orders" to="#account-orders">
@@ -130,7 +130,13 @@ const [key,setKey]=useState({});
                                                     <Nav.Link eventKey="third" title='account-tickets' to="#account-tickets">
                                                         <li className="sidebar-li">
                                                         <div className="d-flex align-items-center px-2 py-1 fw-bold">
-                                                                <i className="fa fa-life-ring me-2"></i>Support tickets<span className="text-muted ms-auto"></span>
+                                                                <i className="fa fa-life-ring me-2"></i>Support tickets
+                                                                <div className='px-4'>
+                                                                    <Link to="/support">
+                                                                    <i className='fa fa-eye' aria-hidden="true"></i>
+                                                                    </Link>
+                                                                </div>
+                                                                <span className="text-muted ms-auto"></span>
                                                         </div>
                                                         </li>
                                                     </Nav.Link>
@@ -144,7 +150,12 @@ const [key,setKey]=useState({});
                                                     <Nav.Link eventKey="fourth" title='account-profile' to="#account-profile">
                                                         <li className="sidebar-li">
                                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
-                                                                    <i className="fa fa-user-o me-2"></i>Profile info<span className="text-muted ms-auto"></span>
+                                                                    <i className="fa fa-user-o me-2"></i>Profile info
+                                                                    <div className='px-4'>
+                                                                    <Link to="/profile">
+                                                                    <i className='fa fa-eye' aria-hidden="true"></i>
+                                                                    </Link>
+                                                                </div><span className="text-muted ms-auto"></span>
                                                                 </div>
                                                         </li>
                                                     </Nav.Link>
@@ -153,7 +164,12 @@ const [key,setKey]=useState({});
                                                     <Nav.Link eventKey="fifth" title='account-address' to="#account-address">
                                                         <li className="sidebar-li">
                                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
-                                                                <i className="fa fa-map-marker me-2"></i>Addresses<span className="text-muted ms-auto"></span>
+                                                                <i className="fa fa-map-marker me-2"></i>Addresses
+                                                                <div className='px-4'>
+                                                                    <Link to="/address">
+                                                                    <i className='fa fa-eye' aria-hidden="true"></i>
+                                                                    </Link>
+                                                                </div><span className="text-muted ms-auto"></span>
                                                                 </div>
                                                         </li>
                                                     </Nav.Link>
@@ -162,7 +178,12 @@ const [key,setKey]=useState({});
                                                     <Nav.Link eventKey="sixth" title='account-payment' to="#account-payment">
                                                         <li className="sidebar-li">
                                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
-                                                                <i className="fa fa-credit-card me-2"></i>Payment methods<span className="text-muted ms-auto"></span>
+                                                                <i className="fa fa-credit-card me-2"></i>Payment methods
+                                                                <div className='px-4'>
+                                                                    <Link to="/paymentmethods">
+                                                                    <i className='fa fa-eye' aria-hidden="true"></i>
+                                                                    </Link>
+                                                                </div><span className="text-muted ms-auto"></span>
                                                                 </div>
                                                         </li>
                                                     </Nav.Link>
