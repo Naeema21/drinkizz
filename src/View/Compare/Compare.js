@@ -87,6 +87,12 @@ const Compare = () => {
                                                 <option value="general" >General</option>
                                                 <option value="multimedia" >Multimedia</option>
                                                 <option value="performance">Performance</option>
+                                                <option value="design">Design</option>
+                                                <option value="display">Display</option>
+                                                <option value="storage">Storage</option>
+                                                <option value="camera">Camera</option>
+                                                <option value="battery">Battery</option>
+                                                <option value="price">Price</option>
                                             </select>
                                             {/* <span>{`${value}`}</span> */}
                                             <div className="form-text"> Choose criteria to filter table below.</div>
@@ -97,9 +103,8 @@ const Compare = () => {
                                                 </div>
                                                 
                                             </div>
-                                            <div className='m-2'>
+                                            {/* <div className='m-2'>
                                               <button className='btngeneral' onClick={() => setShowText(!showText)}>Summary</button>
-                                             {/* <button className='btngeneral' onClick={() => setSummary(!summary)}>Show Summary</button> */}
                                              <button className='btngeneral pl-4' onClick={() => setGeneral(!general)}>General</button>
                                              <button className='btngeneral pl-4' onClick={() => setMultimedia(!multimedia)}>Multimedia</button>
                                             <button className='btngeneral' onClick={() => setPerformance(!performance)}>Performance</button>
@@ -109,7 +114,7 @@ const Compare = () => {
                                             <button className='btngeneral pl-4' onClick={() => setCamera(!camera)}>Camera</button>
                                             <button className='btngeneral pl-4' onClick={() => setBattery(!battery)}>Battery</button> 
                                             <button className='btngeneral pl-4' onClick={() => setPrice(!price)}>Price</button>
-                                            </div>
+                                            </div> */}
                                         </td>
                                         <td className="text-center px-4 pb-4">
                                             <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
