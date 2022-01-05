@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import { Link, NavLink } from 'react-router-dom'
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, Container} from 'react-bootstrap';
 import '../layout.css'
 const Header = () => {
     const SignIn = React.lazy(() => import('../../Components/SignIn/SignIn'))
@@ -20,7 +20,7 @@ const Header = () => {
         window.scrollTo({ top: 0 });
     };
 
-   
+
 
     return (
         <div className='header fixed-top'>
@@ -79,14 +79,14 @@ const Header = () => {
                             <div>
                                 <span>
                                     <Link to="/cart" className='sub-header-link'>
-                                        <i className='fa fa-shopping-cart text-danger'> </i> &nbsp;My Cart
+                                        <i className='fa fa-shopping-cart text-danger'> </i> My Cart
                                     </Link>
                                 </span>
                             </div>
                             <div>
                                 <span>
                                     <Link to="/account-orders-history#account-wishlist" className='sub-header-link'>
-                                        <i className='fa fa-heart-o text-danger'> </i> &nbsp;Wishlist
+                                        <i className='fa fa-heart-o text-danger'> </i> Wishlist
                                     </Link>
                                 </span>
                             </div>

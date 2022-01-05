@@ -6,7 +6,7 @@ const NoDataInCart = React.memo(props => {
         <div className="mb-5">
             <div className=" row d-flex justify-content-center">
                 <div className="col-6">
-                    <img src={EmptyCart} className="" alt="empty-cart-image" height="300px" ></img>
+                    <img src={EmptyCart} className="" alt="empty-cart" height="300px" ></img>
                 </div>
             </div>
             <div className="row d-flex justify-content-center">

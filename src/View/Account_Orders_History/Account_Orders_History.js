@@ -25,8 +25,8 @@ const Account_Orders_History =()=>{
              console.log(items);
          })    
   }, [])
- const Wishlist1 = ' Wishlist '+ items.length;
- console.log(Wishlist1);
+//  const Wishlist1 = ' Wishlist '+ items.length;
+//  console.log(Wishlist1);
 
 //  change the tab url'
 const [key,setKey]=useState({});
@@ -99,11 +99,6 @@ const [key,setKey]=useState({});
                                                         <li className="sidebar-li">
                                                             <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                             <i className="fa fa-shopping-bag me-2"></i>Orders
-                                                                <div className='px-4'>
-                                                                    <Link to="/orders">
-                                                                    <i className='fa fa-eye' aria-hidden="true"></i>
-                                                                    </Link>
-                                                                </div>
                                                             <span className="text-muted ms-auto">1</span>
                                                             </div>
                                                         </li> 
@@ -114,11 +109,6 @@ const [key,setKey]=useState({});
                                                         <li className="sidebar-li">
                                                             <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                             <i className="fa fa-heart-o me-2"></i>Wishlist
-                                                                <div className='px-4'>
-                                                                    <Link to="/wishlist">
-                                                                    <i className='fa fa-eye' aria-hidden="true"></i>
-                                                                    </Link>
-                                                                </div>
                                                             <span className="text-muted ms-auto">
                                                                   {items} 
                                                                 </span>
@@ -131,11 +121,6 @@ const [key,setKey]=useState({});
                                                         <li className="sidebar-li">
                                                         <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                                 <i className="fa fa-life-ring me-2"></i>Support tickets
-                                                                <div className='px-4'>
-                                                                    <Link to="/support">
-                                                                    <i className='fa fa-eye' aria-hidden="true"></i>
-                                                                    </Link>
-                                                                </div>
                                                                 <span className="text-muted ms-auto"></span>
                                                         </div>
                                                         </li>
@@ -151,11 +136,7 @@ const [key,setKey]=useState({});
                                                         <li className="sidebar-li">
                                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                                     <i className="fa fa-user-o me-2"></i>Profile info
-                                                                    <div className='px-4'>
-                                                                    <Link to="/profile">
-                                                                    <i className='fa fa-eye' aria-hidden="true"></i>
-                                                                    </Link>
-                                                                </div><span className="text-muted ms-auto"></span>
+                                                                <span className="text-muted ms-auto"></span>
                                                                 </div>
                                                         </li>
                                                     </Nav.Link>
@@ -165,11 +146,7 @@ const [key,setKey]=useState({});
                                                         <li className="sidebar-li">
                                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                                 <i className="fa fa-map-marker me-2"></i>Addresses
-                                                                <div className='px-4'>
-                                                                    <Link to="/address">
-                                                                    <i className='fa fa-eye' aria-hidden="true"></i>
-                                                                    </Link>
-                                                                </div><span className="text-muted ms-auto"></span>
+                                                                <span className="text-muted ms-auto"></span>
                                                                 </div>
                                                         </li>
                                                     </Nav.Link>
@@ -179,11 +156,7 @@ const [key,setKey]=useState({});
                                                         <li className="sidebar-li">
                                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                                 <i className="fa fa-credit-card me-2"></i>Payment methods
-                                                                <div className='px-4'>
-                                                                    <Link to="/paymentmethods">
-                                                                    <i className='fa fa-eye' aria-hidden="true"></i>
-                                                                    </Link>
-                                                                </div><span className="text-muted ms-auto"></span>
+                                                                <span className="text-muted ms-auto"></span>
                                                                 </div>
                                                         </li>
                                                     </Nav.Link>

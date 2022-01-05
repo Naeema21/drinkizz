@@ -90,7 +90,8 @@ const ProductSidebar = () => {
                                     {
                                         Shoplist.map((w, i) => {
                                             return (
-                                                <li key={i}><Link to="#" className='shoplistitems d-flex justify-content-between align-items-center'><span>{w.watches}</span><span>{w.watches_total}</span></Link></li>
+                                                <li key={i}>
+                                                    <Link to="#" className='shoplistitems d-flex justify-content-between align-items-center'><span>{w.watches}</span><span>{w.watches_total}</span></Link></li>
                                             )
                                         })
                                     }
@@ -109,7 +110,8 @@ const ProductSidebar = () => {
                                     {
                                         Shoplist.map((a, i) => {
                                             return (
-                                                <li key={i}><Link to="#" className='shoplistitems d-flex justify-content-between align-items-center'><span>{a.accessories}</span><span>{a.accessories_total}</span></Link></li>
+                                                <li key={i}>
+                                                    <Link to="#" className='shoplistitems d-flex justify-content-between align-items-center'><span>{a.accessories}</span><span>{a.accessories_total}</span></Link></li>
                                             )
                                         })
                                     }
@@ -157,7 +159,7 @@ const ProductSidebar = () => {
                     <div className='w-50 pe-2 me-2'>
                         <div className='input-group input-group-sm'>
                             <span className='input-group-text' style={{ backgroundColor: '#fff' }}>$</span>
-                            <input className="form-control range-slider-value-min" value="0" />
+                            <input className="form-control range-slider-value-min" defaultValue="0" />
                         </div>
                     </div>
                     <div className='w-50 ps-2'>

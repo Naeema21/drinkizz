@@ -106,9 +106,9 @@ const OrderTracking = () => {
               className="form-check-input"
               type="checkbox"
               id="notify-me"
-              checked
+              defaultChecked
             />
-            <label className="form-check-label" for="notify-me">
+            <label className="form-check-label" htmlFor="notify-me">
               Notify me when order is delivered
             </label>
           </div>

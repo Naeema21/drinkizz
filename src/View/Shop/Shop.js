@@ -100,7 +100,7 @@ const Shop = (({ match },) => {
         autoplay: true,
         dots: false,
         nav: true,
-        navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+        navText: ["<i className='fa fa-chevron-left'></i>", "<i className='fa fa-chevron-right'></i>"],
         responsive: {
             0: {
                 items: 1
@@ -203,7 +203,7 @@ const Shop = (({ match },) => {
                                                 <div className="position-relative mb-5 pb-3">
                                                     <label className='color-circle-box'><input style={{ backgroundColor: '#f25540' }} name='color' type='radio' /></label>
                                                     <label className='color-circle-box'><input style={{ backgroundColor: '#65805b' }} name='color' type='radio' /></label>
-                                                    <label className='color-circle-box'><input checked style={{ backgroundColor: '#f5f5f5' }} name='color' type='radio' /></label>
+                                                    <label className='color-circle-box'><input  style={{ backgroundColor: '#f5f5f5' }} name='color' type='radio' /></label>
                                                     <label className='color-circle-box'><input style={{ backgroundColor: '#333' }} name='color' type='radio' /></label>
                                                     <div className="product-badge product-available mt-n1">Product available</div>
                                                 </div>
@@ -258,7 +258,7 @@ const Shop = (({ match },) => {
                                                         <Accordion.Item eventKey="1">
                                                             <Accordion.Header><i className="fa fa-map-marker-alt"></i>Find in local store</Accordion.Header>
                                                             <Accordion.Body>
-                                                                <select class="form-select">
+                                                                <select className="form-select">
                                                                     <option value="">Select your country</option>
                                                                     <option value="Argentina">Argentina</option>
                                                                     <option value="Belgium">Belgium</option>
@@ -435,7 +435,7 @@ const Shop = (({ match },) => {
                                     <div className='col-md-7'>
                                         <div className="d-flex justify-content-end pb-4">
                                             <div className="d-flex flex-nowrap align-items-center">
-                                                <label className="fs-sm text-muted text-nowrap me-2 d-none d-sm-block" for="sort-reviews">Sort by:</label>
+                                                <label className="fs-sm text-muted text-nowrap me-2 d-none d-sm-block" htmlFor="sort-reviews">Sort by:</label>
                                                 <select className="form-select form-select-sm" id="sort-reviews">
                                                     <option>Newest</option>
                                                     <option>Oldest</option>
@@ -576,10 +576,10 @@ const Shop = (({ match },) => {
                 </div>
 
             </section>
-            <hr class="mb-5"></hr>
+            <hr className="mb-5"></hr>
             <section className='You-May-Also-like-Product mb-5'>
                 <div className='container'>
-                    <h2 class="h3 text-center pb-4">You may also like</h2>
+                    <h2 className="h3 text-center pb-4">You may also like</h2>
                     <OwlCarousel options={options}>
                         {products.slice(0, 8).map((productdata, i) => (
                             <div key={i}>
@@ -590,9 +590,9 @@ const Shop = (({ match },) => {
                 </div>
             </section>
             <section className='Cheaper-Together'>
-                <div class="container pt-lg-1 pb-5 mb-md-3">
-                    <div class="card-CT card-body pt-5">
-                        <h2 class="h3 text-center pb-4">Cheaper together</h2>
+                <div className="container pt-lg-1 pb-5 mb-md-3">
+                    <div className="card-CT card-body pt-5">
+                        <h2 className="h3 text-center pb-4">Cheaper together</h2>
                         <OwlCarousel options={options3}>
                             <div className='row Cheap-To-item align-items-center justify-content-center d-flex'>
                                 <div className='col-md-3 col-sm-4'>
