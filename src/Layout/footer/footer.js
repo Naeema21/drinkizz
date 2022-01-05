@@ -1,13 +1,8 @@
 import React, { useState } from 'react'
 import '../layout.css';
-import en from '../../assets/images/Footer/en.png';
-import fr from '../../assets/images/Footer/fr.png';
-import de from '../../assets/images/Footer/de.png';
-import it from '../../assets/images/Footer/it.png';
 import cards_alt from '../../assets/images/Footer/cards-alt.png';
 import { Link } from 'react-router-dom';
 const Footer = () => {
-    const [list, showList] = useState(false);
     return (
         <div className="footer">
             <div className="footer-top">

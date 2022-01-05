@@ -29,7 +29,7 @@ const Payment = ({ setForm, formData, navigation }) => {
   // const [focus, setFocus] = useState('')
 
   const handleCardData = (e) => {
-    // e.preventDefault();
+     e.preventDefault();
     const cardData = {
       "number": number,
       "name": name,
@@ -107,7 +107,7 @@ const Payment = ({ setForm, formData, navigation }) => {
                                 name="expiry"
                                onkeyup="formatString(event);"
                                 placeholder="MM/YY"
-                                pattern={"\d*"}
+                                // pattern={"\d*"}
                                 minLength={4}
                                 maxLength={4}
                                 value={expiry}
@@ -120,7 +120,7 @@ const Payment = ({ setForm, formData, navigation }) => {
                           <div className='col-lg-3'>
                             <input type="text"
                               name="cvc"
-                              placeholder="CVV"
+                              placeholder="CVC"
                               maxLength={3}
                               value={cvc}
                               onChange={e => setCvc(e.target.value)}

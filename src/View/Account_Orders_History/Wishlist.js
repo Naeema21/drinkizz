@@ -137,7 +137,13 @@ function Wishlist() {
                     !Loder ? WishListItemCard : SkeletonWishListItem
                 }
                 {
-                    Empty ? <NoDataInCart /> : ""
+                    Empty ? <NoDataInCart 
+                    Message="Your Wishlist is Empty"
+                            suggestion="Add items now.."
+                            pagehref="/products"
+                            ButtonName="Shop Now"
+                    /> 
+                    : ""
                 }
                 {
                     items.length > 0 && items.length >= noOfElement ?
