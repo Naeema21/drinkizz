@@ -1,7 +1,7 @@
 import React from "react";
 import EmptyCart from '../../assets/images/checkout-details/empty_cart.jpeg'
 
-const NoDataInCart = () => {
+const NoDataInCart = React.memo(props => {
     return (
         <div className="mb-5">
             <div className=" row d-flex justify-content-center">
@@ -11,10 +11,10 @@ const NoDataInCart = () => {
             </div>
             <div className="row d-flex justify-content-center">
                 <div className="col-6 text-center">
-                <h4>Your Cart is Empty</h4>
-                <p>Add items to it now.</p>
+                <h4>{props.Message}</h4>
+                <p>{props.suggestion}</p>
                 <div className="mt-4">
-                <a className="Button-Full-Red block" href='/product'><i className="fa fa-shopping-cart me-2"></i>Shop Now</a>
+                <a className="Button-Full-Red block" href={props.pagehref}><i className="fa fa-shopping-cart me-2"></i>{props.ButtonName}</a>
                 </div>
                 </div>
                 
@@ -22,5 +22,5 @@ const NoDataInCart = () => {
 
         </div>
     )
-}
+})
 export default NoDataInCart;
