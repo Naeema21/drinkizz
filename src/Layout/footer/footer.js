@@ -1,13 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import '../layout.css';
-import en from '../../assets/images/Footer/en.png';
-import fr from '../../assets/images/Footer/fr.png';
-import de from '../../assets/images/Footer/de.png';
-import it from '../../assets/images/Footer/it.png';
 import cards_alt from '../../assets/images/Footer/cards-alt.png';
 import { Link } from 'react-router-dom';
 const Footer = () => {
-    const [list, showList] = useState(false);
     return (
         <div className="footer">
             <div className="footer-top">
@@ -36,49 +31,21 @@ const Footer = () => {
                 <section style={{ background: "#4b566b" }}>
                     <div className='container' >
                         <div className='row pb-2'>
-                            <div className='col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4'>
-                                <div className='compare-sec-footer pb-2 pt-4'>
-                                    <ul className='compare-list-ul-footer text-md-start'>
-                                        <h3 className="compare-heading-footer text-light pb-1">Shop departments</h3>
-                                        <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer ' to='#'>Sneakers & Athletic</Link>
-                                        </li>
-                                        <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer' to='#'>Athletic Apparel</Link>
-                                        </li>
-
-                                        <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer' to='#'>Sandals</Link>
-                                        </li>
-                                        <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>Jeans</Link>
-                                        </li>
-                                        <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>Shirts & Tops</Link>
-                                        </li>
-                                        <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>Shorts</Link>
-                                        </li>
-                                        <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>t-shirt</Link>
-                                        </li>
-                                        <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>Swimwear</Link>
-                                        </li>
-                                        <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>Watches</Link>
-                                        </li>
-                                        <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>Sunglasses</Link>
-                                        </li>
-                                        <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>Tops</Link>
-                                        </li>
-                                    </ul>
-
+                            <div className='col-md-6 col-lg-3'>
+                                <div className='pb-2 pt-4'>
+                                    <Link to="/" className='logo'>
+                                        <span className='text-dark'>&#127867;</span>Daruwale
+                                    </Link>
+                                    <p className=' text-justify' style={{color:"#ffffffa6"}}>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                        
+                                    </p>
                                 </div>
+
                             </div>
-                            <div className='col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4'>
+                            <div className='col-md-6 col-lg-3'>
                                 <div className='compare-sec-footer pb-2 pt-4'>
                                     <ul className='compare-list-ul-footer text-md-start'>
                                         <h3 className="compare-heading-footer text-light">Account & shipping info</h3>
@@ -102,6 +69,9 @@ const Footer = () => {
                                         </li>
                                     </ul>
                                 </div>
+                            </div>
+                            <div className='col-md-4 col-lg-2'>
+
                                 <div className='compare-sec-footer pb-2 pt-4'>
                                     <ul className='compare-list-ul-footer text-md-start'>
                                         <h3 className="compare-heading-footer text-light pb-1">About Us</h3>
@@ -117,33 +87,36 @@ const Footer = () => {
                                         <li className='compare-list-footer'>
                                             <Link className='compare-list-link-footer text-md-start' to='#'>News</Link>
                                         </li>
+                                        <li className='compare-list-footer'>
+                                            <Link className='compare-list-link-footer text-md-start' to='#'>FAQ</Link>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
-                            <div className='col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4'>
+                            <div className=' col-md-6 col-lg-4 '>
                                 <div className='subscription-form-antispam-footer pb-2 pt-4'>
                                     <h3 className="compare-heading-footer-stay text-light pb-1">Stay informed</h3>
-                                    <form className="subscription-form-footer validate-footer" method="post">
-                                        <div className="input-group flex-nowrap">
+                                    <div className="subscription-form-footer validate-footer">
+                                        <form className="input-group flex-nowrap">
                                             <input className="form-control email-input-footer" type="email" name="EMAIL" placeholder="Your email" required="" />
                                             <button className="btn btn-danger btn-subscribe-footer" type="submit" name="subscribe" style={{ "backgroundcolor": "#fe3638" }}>Subscribe</button>
-                                        </div>
-                                        <div className="compare-list-link-footer text-light opacity-50 mt-4">Subscribe to our newsletter to receive early discount offers, updates and new products info.</div>
+                                        </form>
+                                        <div className="compare-list-link-footer text-light opacity-50 mt-1">Subscribe to our newsletter to receive early discount offers, updates and new products info.</div>
                                         <div className="subscription-status"></div>
-                                    </form>
+                                    </div>
                                 </div>
-                                <div className="pb-2 mb-4">
+                                <div className="pb-2 mb-1">
                                     <h3 className="compare-heading-footer-Download text-light pb-1 mt-4 download-app text-md-start">Download our app</h3>
                                     <div className="d-flex flex-wrap">
                                         <div className="me-2 mb-2">
-                                            <a className="btn-market btn-download" href="#" role="button">
+                                            <a className="btn-market btn-download" href="https://www.facebook.com/" role="button">
                                                 <i className="fa fa-apple" aria-hidden="true"></i>
                                                 <span className="btn-market-subtitle">Download on the</span>
                                                 <span className="btn-market-title">App Store</span>
                                             </a>
                                         </div>
                                         <div className="mb-2">
-                                            <a className="btn-market btn-download" href="#" role="button">
+                                            <a className="btn-market btn-download" href="https://www.facebook.com/" role="button">
                                                 <i className="fa fa-caret-right"></i>
                                                 <span className="btn-market-subtitle">Download on the</span>
                                                 <span className="btn-market-title">Google Play</span>
@@ -158,7 +131,7 @@ const Footer = () => {
                 <section>
                     <div className="pt-3 sec-2-footer">
                         <div className="container">
-                            <div className="row">
+                            {/* <div className="row">
                                 <div className="col-sm-6 col-md-6 col-lg-3 footer-content-resp">
                                     <div className="d-flex align-items-center"><i className="fa fa-rocket text-orange"></i>
                                         <div className="ps-3">
@@ -192,7 +165,7 @@ const Footer = () => {
                                     </div>
                                 </div>
                             </div>
-                            <hr className="hr-light " style={{ "color": "#d1d6e0" }} />
+                            <hr className="hr-light " style={{ "color": "#d1d6e0" }} /> */}
                             <div className="row">
                                 <div className="col-md-6 text-center text-md-start">
 
@@ -206,25 +179,25 @@ const Footer = () => {
                                         </ul>
                                     </div>
                                 </div>
-                                <div className='col-md-2'>
+                                <div className='col-md-2 text-center mb-1'>
                                     <img className="d-inline-block" src={cards_alt} width="187" alt="Payment methods" />
 
                                 </div>
                                 <div className="col-md-4 text-center text-md-end mb-2">
                                     <div className="">
-                                        <a className="btn-social-icon-footer bs-light socialhover ms-2 mb-2" href="#">
+                                        <a className="btn-social-icon-footer bs-light socialhover ms-2 mb-2" href="https://www.facebook.com/">
                                             <i className="fa fa-twitter"></i>
                                         </a>
-                                        <a className="btn-social-icon-footer bs-light socialhover ms-2 mb-2" href="#">
+                                        <a className="btn-social-icon-footer bs-light socialhover ms-2 mb-2" href="https://www.facebook.com/">
                                             <i className="fa fa-facebook"></i>
                                         </a>
-                                        <a className="btn-social-icon-footer bs-light socialhover ms-2 mb-2" href="#">
+                                        <a className="btn-social-icon-footer bs-light socialhover ms-2 mb-2" href="https://www.facebook.com/">
                                             <i className="fa fa-instagram"></i>
                                         </a>
-                                        <a className="btn-social-icon-footer bs-light socialhover ms-2 mb-2" href="#">
+                                        <a className="btn-social-icon-footer bs-light socialhover ms-2 mb-2" href="https://www.facebook.com/">
                                             <i className="fa fa-pinterest"></i>
                                         </a>
-                                        <a className="btn-social-icon-footer bs-light socialhover ms-2 mb-2" href="#">
+                                        <a className="btn-social-icon-footer bs-light socialhover ms-2 mb-2" href="https://www.facebook.com/">
                                             <i className="fa fa-youtube"></i>
                                         </a>
                                     </div>

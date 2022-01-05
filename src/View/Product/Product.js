@@ -36,7 +36,6 @@ const Product = () => {
 
     const selectFilter = (event) => {
         console.log(event)
-
         switch (event) {
             case "Popularity":
                 console.log("a")

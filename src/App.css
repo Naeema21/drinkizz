@@ -8,7 +8,8 @@ body {
 #main{
   margin-top: 114px; 
 }
-@media(max-width:768px){
+
+@media(max-width:980px){
   #main{
     margin-top: 170px;
   }
