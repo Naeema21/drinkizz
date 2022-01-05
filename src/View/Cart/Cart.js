@@ -46,8 +46,6 @@ const Cart = () => {
             setLoader(true)
         }
     }, [])
-
-
     // card delete
     const Deletecart = (ids) => {
         axios.delete(GET_CART_DATA + "/" + ids).then(res => {
