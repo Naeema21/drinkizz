@@ -147,6 +147,7 @@
 }
 
 .compare-list-link-footer {
+  font-size: 15px;
   color: rgba(255, 255, 255, .65);
   text-decoration: none !important;
 }

@@ -57,8 +57,8 @@ const Cards = React.memo((props) => {
                 <button onClick={handleSubmit2} data-toggle="tooltip" data-placement="top" title="Hooray!" className='btn-wishlist btn-sm'><i className="fa fa-heart-o" aria-hidden="true"></i></button>
             </div>
             <div className='product-img'>
-                <Link to={`/product-details/` + props.id} className='card-img-top d-block overflow-hidden'>
-                    <img className='img-fluid' src={props.imgsrc} alt="productimg" />
+                <Link to={`/product-details/` + props.id} className='text-center card-img-top d-block overflow-hidden'>
+                    <img  src={props.imgsrc} alt="productimg" height="200px"/>
                 </Link>
                 <div className='px-3'>
                     <Link to={`/product-details/` + props.id} className='product-name d-block fs-xs'>{props.category}</Link>

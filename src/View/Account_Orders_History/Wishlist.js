@@ -70,7 +70,7 @@ function Wishlist() {
                     <div className="d-sm-flex justify-content-between mt-lg-4 mb-4 pb-3 pb-sm-2">
                         <div className='col-lg-4'>
                             <div className='d-block d-sm-flex align-items-start text-center text-sm-start'>
-                                <img className="wishlist-img" src={productdata.image} alt="Product" style={{"width":"200px"}}/>
+                                <img className="wishlist-img" src={productdata.image} alt="Product"/>
                             </div>
                         </div>
                         <div className='col-lg-6'>

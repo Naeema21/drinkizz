@@ -201,9 +201,9 @@ const Product = () => {
                                         </ul>
                                         <ul className='propagination'>
                                             <li className='propage-item'>
-                                                <button className={`propage-link ${currentPage === pageLimit ? "disabled" : ""}`}
+                                                <button className={`propage-link ${currentPage === pages ? "disabled" : ""}`}
                                                     onClick={goToNextPage}
-                                                    disabled={currentPage === pageLimit ? true : false}
+                                                    disabled={currentPage === pages ? true : false}
                                                 >
                                                     Next <i className="fa fa-angle-right mx-1"></i>
                                                 </button>

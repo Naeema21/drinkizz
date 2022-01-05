@@ -36,11 +36,11 @@ const Footer = () => {
                                     <Link to="/" className='logo'>
                                         <span className='text-dark'>&#127867;</span>Daruwale
                                     </Link>
-                                    <p className=' text-justify' style={{color:"#ffffffa6"}}>
+                                    <p  style={{color:"#ffffffa6" , textAlign:"justify"}}>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                                         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                        
+      
                                     </p>
                                 </div>
 
@@ -50,22 +50,22 @@ const Footer = () => {
                                     <ul className='compare-list-ul-footer text-md-start'>
                                         <h3 className="compare-heading-footer text-light">Account & shipping info</h3>
                                         <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>Your account</Link>
+                                            <Link className='compare-list-link-footer text-md-start' to='/'>Your account</Link>
                                         </li>
                                         <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>Shipping rates & policies</Link>
+                                            <Link className='compare-list-link-footer text-md-start' to='/'>Shipping rates & policies</Link>
                                         </li>
                                         <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>Refunds & replacements</Link>
+                                            <Link className='compare-list-link-footer text-md-start' to='/'>Refunds & replacements</Link>
                                         </li>
                                         <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>Order tracking</Link>
+                                            <Link className='compare-list-link-footer text-md-start' to='/'>Order tracking</Link>
                                         </li>
                                         <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>Delivery info</Link>
+                                            <Link className='compare-list-link-footer text-md-start' to='/'>Delivery info</Link>
                                         </li>
                                         <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>Taxes & Fees</Link>
+                                            <Link className='compare-list-link-footer text-md-start' to='/'>Taxes & Fees</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -76,19 +76,19 @@ const Footer = () => {
                                     <ul className='compare-list-ul-footer text-md-start'>
                                         <h3 className="compare-heading-footer text-light pb-1">About Us</h3>
                                         <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>About company</Link>
+                                            <Link className='compare-list-link-footer text-md-start' to='/'>About company</Link>
                                         </li>
                                         <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>Our team</Link>
+                                            <Link className='compare-list-link-footer text-md-start' to='/'>Our team</Link>
                                         </li>
                                         <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>Careers</Link>
+                                            <Link className='compare-list-link-footer text-md-start' to='/'>Careers</Link>
                                         </li>
                                         <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>News</Link>
+                                            <Link className='compare-list-link-footer text-md-start' to='/'>News</Link>
                                         </li>
                                         <li className='compare-list-footer'>
-                                            <Link className='compare-list-link-footer text-md-start' to='#'>FAQ</Link>
+                                            <Link className='compare-list-link-footer text-md-start' to='/'>FAQ</Link>
                                         </li>
                                     </ul>
                                 </div>
