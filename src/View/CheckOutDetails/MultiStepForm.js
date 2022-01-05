@@ -18,12 +18,13 @@ const defaultData = {
   firstName: "",
   lastName: "",
   nickName: "Jan",
-  address: "200 South Main St",
+  address: "",
   city: "Anytown",
   state: "CA",
   zip: "90505",
   email: "email@domain.com",
-  phone: "+61 4252 454 332"
+  phone: "",
+  number:""
 };
 
 const MultiStepForm = ({ images }) => {

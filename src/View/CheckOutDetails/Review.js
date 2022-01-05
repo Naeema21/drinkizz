@@ -21,15 +21,15 @@ const Review = ({ setForm, formData, navigation }) => {
     //TotalPrice
     var totalCartPrice = 0;
     
-    const {
+    const{
         firstName,
         lastName,
-        nickName,
         address,
         city,
-        state,
+        country,
         zip,
         phone,
+        cardnumber,
     } = formData;
     return (
         <div className="form CheckOut-Review">
@@ -87,18 +87,18 @@ const Review = ({ setForm, formData, navigation }) => {
                                         <li>
                                             <div className="text-muted">
                                                 {" "}
-                                                Name: {`${firstName}`} {`${lastName}`}
+                                                Name:<span style={{color:"black"}}> {`${firstName}`} {`${lastName}`}</span>
                                             </div>
                                         </li>
-                                        <li><span className="text-muted">Address:&nbsp;</span>44 Shirley Ave. West Chicago, IL 60185, USA</li>
-                                        <li><span className="text-muted">Phone:&nbsp;</span>+1 (808) 764 554 330</li>
+                                        <li><span className="text-muted">Address:&nbsp;</span>{`${address}`} {`${city}`}, {`${zip}`}, {`${country}`}</li>
+                                        <li><span className="text-muted">Phone:&nbsp;</span>{`${phone}`}</li>
                                     </ul>
                                     <button className="btn text-red" onClick={() => go("details")}><i class="fa fa-edit me-1"></i>Edit</button>
                                 </div>
                                 <div className="col-sm-6">
                                     <h4 className="h6">Payment method:</h4>
                                     <ul className="list-unstyled fs-sm">
-                                        <li><span className="text-muted">Credit Card:&nbsp;</span>**** **** **** 5300</li>
+                                        <li><span className="text-muted">Credit Card:&nbsp;</span>{`${cardnumber}`}</li>
                                     </ul>
                                 </div>
                             </div>
