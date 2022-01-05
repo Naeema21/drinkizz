@@ -17,11 +17,10 @@ const steps = [
 const defaultData = {
   firstName: "",
   lastName: "",
-  nickName: "Jan",
   address: "",
   city: "Anytown",
   state: "CA",
-  zip: "90505",
+  zip: "",
   email: "email@domain.com",
   phone: "",
   number:""
