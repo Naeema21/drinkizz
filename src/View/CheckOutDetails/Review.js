@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { GET_CART_DATA } from "../../endpoint";
+import OrderSummary from "../../Components/CheckOutSidebar/OrderSummary";
 const Review = ({ setForm, formData, navigation }) => {
     const { previous, next } = navigation;
     const [Data, setData] = useState([]);
@@ -112,33 +113,7 @@ const Review = ({ setForm, formData, navigation }) => {
                         </div>
                     </div>
                     <div className='col-lg-4 Minus-margin'>
-                        <div className='card rounded-3 shadow-lg p-4'>
-                            <div className='card-head text-center'>
-                                <h6 className="py-2">Order Summary</h6>
-                                <div>
-                                    {
-                                        Data.map((value, index) => {
-                                            totalCartPrice += value.price * value.quantity 
-                                            return (
-                                                <></>
-                                            );
-                                        })
-                                    }
-                                </div>
-                                <ul className="list-unstyled fs-sm pb-2 border-bottom mt-2">
-                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Subtotal:</span><span className="text-end">$ {totalCartPrice}</span></li>
-                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Shipping:</span><span className="text-end">—</span></li>
-                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Taxes:</span><span className="text-end">$9.<small>50</small></span></li>
-                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Discount:</span><span className="text-end">—</span></li>
-                                </ul>
-                                <h3 className="fw-normal text-center my-4">$ {totalCartPrice}</h3>
-                                <form>
-                                    <input type="text"
-                                        className="form-control" autoComplete="off" placeholder="Promo code" />
-                                    <button className='btn Button-Red-Border d-block w-100 mt-3'>Apply promo code</button>
-                                </form>
-                            </div>
-                        </div>
+                        <OrderSummary></OrderSummary>
                     </div>
                 </div>
             </div>

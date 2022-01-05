@@ -46,8 +46,6 @@ const Cart = () => {
             setLoader(true)
         }
     }, [])
-
-
     // card delete
     const Deletecart = (ids) => {
         axios.delete(GET_CART_DATA + "/" + ids).then(res => {
@@ -58,7 +56,7 @@ const Cart = () => {
                     timer: 2000,
                 }).then(() => {
                     setDeleteId(ids)
-                    // window.location.reload()
+                    window.location.reload()
                 })
             } else {
                 swal({
@@ -161,7 +159,13 @@ const Cart = () => {
                             !Loder ? CartItemCards : SkeletonCartItem
                         }
                         {
-                            Empty ? <NoDataInCart /> : ""
+                            Empty ? <NoDataInCart 
+                            Message="Your Cart is Empty"
+                            suggestion="Add items now.."
+                            pagehref="/products"
+                            ButtonName="Shop Now"
+                            /> 
+                            : ""
                         }
                         
                         {/* ----------------------------------------------------------- */}
@@ -180,7 +184,7 @@ const Cart = () => {
                     </div>
                     {/*------------------------- Additional Comments start------------- */}
                     <div className='col-lg-4'>
-                        <div className='card rounded-3 shadow-lg p-4'>
+                        <div className='card rounded-3 shadow-lg p-4' style={{display: Empty ? "none" : ""}}>
                             <div className='card-head text-center'>
                                 <h5>Subtotal</h5>
                                 <h3>$ {totalCartPrice}</h3>

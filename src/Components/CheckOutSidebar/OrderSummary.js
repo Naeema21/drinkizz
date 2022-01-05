@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import axios from 'axios'
 import { GET_CART_DATA } from "../../endpoint";
-const OrderSummary = ({ subTotal,
-    
-    tax,
+const OrderSummary = ({
+    // subTotal,
+    // tax,
     onEnterPromoCode,
     checkPromoCode }) => {
     //TotalPrice
@@ -21,13 +21,15 @@ const OrderSummary = ({ subTotal,
     }, 0);
     const TAX = 5;
     const ShippingCharge = 5;
-    const total = SubTotal + TAX + ShippingCharge - discountPercent;
-    const discount = discountPercent;
-    
+    const total = SubTotal + TAX + ShippingCharge - discountPercent;  
 
     onEnterPromoCode = (event) => {
         setPromoCode(event.target.value);
     };
+    const onSubmit = (e) => {
+    e.preventDefault();
+    console.log("refresh prevented");
+  };
     const PROMOTIONS = [
         {
             code: "ONE",
@@ -80,6 +82,7 @@ const OrderSummary = ({ subTotal,
     }, [])
     return (
         <div>
+            
             <div className='card rounded-3 shadow-lg p-4'>
                 <div className='card-head text-center'>
                     <h6>Order Summary</h6>
@@ -108,7 +111,7 @@ const OrderSummary = ({ subTotal,
                                 }
                             })
                         }
-                        {
+                        {/* {
                             Empty ? <div>
                                 <h4 className='mt-3'>Your Cart is Empty</h4>
                                 <p className='mt-3'>Add items to it now.</p>
@@ -117,7 +120,7 @@ const OrderSummary = ({ subTotal,
                                 </div>
                             </div>
                                 : ""
-                        }
+                        } */}
                     </div>
                     <div style={{ display: Empty ? 'none' : '' }}>
                         <ul className="list-unstyled fs-sm pb-2 border-bottom mt-2">
@@ -127,10 +130,10 @@ const OrderSummary = ({ subTotal,
                             <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Discount:</span><span className="text-end">$ {discountPercent}</span></li>
                         </ul>
                         <h3 className="fw-normal text-center my-4">$ {total}</h3>
-                        
+                        <form onSubmit={onSubmit}>
                         <input type="text" className="form-control" autoComplete="off" placeholder="Promo code" onChange={onEnterPromoCode} />
                         <button className='btn Button-Red-Border d-block w-100 mt-3' onClick={checkPromoCode}>Apply promo code</button>
-                      
+                        </form>
                     </div>
                 </div>
             </div>

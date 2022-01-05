@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Compare.css';
 import i1 from '../../assets/images/Compare/01.jpg';
 import { Link } from 'react-router-dom';
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
+import { GET_CART_DATA } from "../../endpoint";
+import { PRODUCT_URL } from '../../endpoint';
+import swal from 'sweetalert';
+import axios from 'axios';
 const Compare = () => {
     //Summary
-    const [summary, setSummary] = useState(false);
+    //toggle the table row
+    const [showText, setShowText] = useState(false);
+    //const [summary, setSummary] = useState(false);
     const [general, setGeneral] = useState(false);
     const [multimedia, setMultimedia] = useState(false);
     const [performance, setPerformance] = useState(false);
@@ -15,8 +21,7 @@ const Compare = () => {
     const [camera,setCamera]=useState(false);
     const [battery,setBattery]=useState(false);
     const [price,setPrice]=useState(false);
-    //toggle the table row
-    const [showText, setShowText] = useState(false);
+    
     //   set option value
     const getInitialState = () => {
         const value = "All";
@@ -68,9 +73,40 @@ const Compare = () => {
             setPrice(!price);
         }
       };
-       
+       //get data
+    const[items,setItems]=useState();
+    useEffect(()=> {   
+        axios.get(`https://daruwale.herokuapp.com/public/cart`)
+        .then(res => 
+            {
+            console.log(res.data.data);
+            setItems(res.data.data);   
+        })    
+    }, [])
+    console.log(items);
+    //delete cart
+    const [deleteId, setDeleteId] = useState();
+    const Deletecart = (ids) => {
+        axios.delete(GET_CART_DATA + "/" + ids).then(res => {
+            console.log(res.status)
+            if (res.status === 200) {
+                swal({
+                    title: "Removed From Cart!",
+                    timer: 2000,
+                }).then(() => {
+                    setDeleteId(ids)
+                })
+            } else {
+                swal({
+                    title: "Try Again!",
+                })
+
+            }
+
+        })
+    }
     return (
-        <>
+        <> 
         <BreadCrumb heading='Product comparison' BC1Link='/' breadcrumb1='Home' BC3Link='/compare' breadcrumb3='Comparison'/>
             {/* compare section start */}
             <div className='Compare'>
@@ -94,40 +130,37 @@ const Compare = () => {
                                                 <option value="battery">Battery</option>
                                                 <option value="price">Price</option>
                                             </select>
-                                            {/* <span>{`${value}`}</span> */}
                                             <div className="form-text"> Choose criteria to filter table below.</div>
                                             <div className="pt-3">
                                                 <div className="form-check">
                                                     <input className="form-check-input" type="checkbox" id="differences" />
                                                     <label className="form-check-label" htmlFor="differences">Show differences only</label>
                                                 </div>
-                                                
                                             </div>
-                                            {/* <div className='m-2'>
-                                              <button className='btngeneral' onClick={() => setShowText(!showText)}>Summary</button>
-                                             <button className='btngeneral pl-4' onClick={() => setGeneral(!general)}>General</button>
-                                             <button className='btngeneral pl-4' onClick={() => setMultimedia(!multimedia)}>Multimedia</button>
-                                            <button className='btngeneral' onClick={() => setPerformance(!performance)}>Performance</button>
-                                            <button className='btngeneral pl-4' onClick={() => setDesign(!design)}>Design</button>
-                                            <button className='btngeneral pl-4' onClick={() => setDisplay(!display)}>Display</button>
-                                            <button className='btngeneral pl-4' onClick={() => setStorage(!storage)}>Storage</button>
-                                            <button className='btngeneral pl-4' onClick={() => setCamera(!camera)}>Camera</button>
-                                            <button className='btngeneral pl-4' onClick={() => setBattery(!battery)}>Battery</button> 
-                                            <button className='btngeneral pl-4' onClick={() => setPrice(!price)}>Price</button>
-                                            </div> */}
                                         </td>
-                                        <td className="text-center px-4 pb-4">
-                                            <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
-                                                <i className="fa fa-trash-o me-1"></i>Remove
-                                            </Link>
-                                            <Link className="d-inline-block mb-3" to="product-details">
-                                                <img src={i1} width="80" alt="Apple iPhone Xs Max" />
-                                            </Link>
-                                            <h6 className="product-title">
-                                                <Link className='product-name' to="product-details">Apple iPhone Xs Max </Link>
-                                            </h6>
-                                            <Link to="/cart"><button className="Button-Full-Red" type="button">Add to Cart</button></Link>
-                                        </td>
+                                {items.map((cartdata)=>{
+                                        if (deleteId === cartdata._id) {
+                                        return("")
+                                        }else{
+                                        return(
+                                            <>
+                                           <td className="text-center px-4 pb-4">
+                                                    
+                                                    <span className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details"  onClick={() => Deletecart(cartdata._id)}>
+                                                        <i className="fa fa-trash-o me-1"></i>Remove 
+                                                    </span>
+                                                    <Link className="d-inline-block mb-3" to="product-details">
+                                                        <img src={cartdata.image} width="80" alt="Apple iPhone Xs Max" />
+                                                    </Link>
+                                                    <h6 className="product-title">
+                                                        <Link className='product-name' to="product-details">{cartdata.name}</Link>
+                                                    </h6>
+                                                    <Link to="/cart"><button className="Button-Full-Red" type="button">Add to Cart</button></Link>
+                                                </td>
+                                                </>
+                                                )
+                                            }
+                                            })}
                                         <td className="text-center px-4 pb-4">
                                             <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
                                             <h6 className='skeleton-loader-background4'>
@@ -162,7 +195,7 @@ const Compare = () => {
                                                 <span className='skeleton-loader-background3'></span>
                                             {/* </button> */}
                                         </td>
-                                    </tr>
+                                    </tr> 
                                 </thead>
                                 {/* first Summary table */}
                                 {showText && 

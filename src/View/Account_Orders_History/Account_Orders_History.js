@@ -18,15 +18,10 @@ const Account_Orders_History =()=>{
          axios.get(`https://daruwale.herokuapp.com/public/wishlist`)
          .then(res => 
              {
-             console.log(res);
-             console.log(res.data.data);
-             console.log(res.data.totalwishlist);
              setItems(res.data.totalwishlist); 
-             console.log(items);
+             //console.log(items);
          })    
   }, [])
-//  const Wishlist1 = ' Wishlist '+ items.length;
-//  console.log(Wishlist1);
 
 //  change the tab url'
 const [key,setKey]=useState({});
