@@ -187,7 +187,7 @@ const Cart = () => {
                                 <hr />
                             </div>
                             <div className="card-body">
-                                <span class="badge bg-info  me-2">Note</span>
+                                <span className="badge bg-info  me-2">Note</span>
                                 <label>Additional Comments</label>
                                 <textarea className='form-control mt-2'
                                     rows="5"></textarea>

@@ -1,15 +1,18 @@
 import React from "react";
 
 const states = [
-  ["NSW", "New South Wales"],
-  ["VIC", "Victoria"],
-  ["WA", "Western Australia"]
+  ["Australia", "Australia"],
+  ["Canada", "Canada"],
+  ["France", "France"],
+  ["Germany", "Germany"],
+  ["Switzerland", "Switzerland"],
+  ["USA", "USA"]
 ];
 
-const StateDrop = ({ label, ...others }) => (
+const StateDrop = ({ label, required, ...others }) => (
   <>
     <label>{label}</label>
-    <select {...others}>
+    <select {...others} className="form-select" id="checkout-country" required={required}>
       {states.map(([value, name]) => (
         <option value={value}>{name}</option>
       ))}

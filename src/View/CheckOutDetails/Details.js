@@ -3,12 +3,14 @@ import { useForm } from 'react-hook-form';
 import checkoutProfile from '../../assets/images/checkout-details/checkout-profile.jpg'
 import { useEffect } from "react";
 import OrderSummary from "../../Components/CheckOutSidebar/OrderSummary";
-
+import ItemForm from "./ItemForm";
+import StateDrop from "./StateDrop";
+import CityDrop from './CityDrop'
 const Details = ({ setForm, formData, navigation }) => {
     // const OrderSummary = React.lazy(() => import('../../Components/CheckOutSidebar/OrderSummary'))
-    const ItemForm = React.lazy(() => import('./ItemForm'))
     const { previous, next } = navigation;
-    const { firstName, lastName } = formData;
+    const { firstName, lastName, phone, address, city, country, zip } = formData;
+    
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
@@ -61,42 +63,46 @@ const Details = ({ setForm, formData, navigation }) => {
                                     <div className='col-lg-6'>
                                         <div className="form-group mb-3">
                                             <label className='form-label'>First Name</label>
-                                            {/* <ItemForm 
+                                            <ItemForm 
+                                            type="text"
                                                 name="firstName"
                                                 value={firstName}
-                                                onSubmit={setForm}
+                                                onChange={setForm}
                                                 required={true}
-                                            /> */}
-                                            <input type="text"
-
+                                                minLength={3}
+                                                maxLength={60}
+                                            /> 
+                                            {/* <input type="text"
+                                                name="lastName" onChange={setForm}
                                                 {...register("firstname", {
                                                     required: true, pattern: { value: "^[A-Za-z]$", message: "please enter valid name" },
                                                     minLength: 3, maxLength: 60
                                                 })}
-                                                className="form-control" autoComplete="off" placeholder="" /> 
+                                                className="form-control" autoComplete="off" placeholder="" />  */}
                                             <span className="error-msg" title="name required">{errors.firstname && "Please enter your name."}</span>
                                         </div>
                                     </div>
                                     <div className='col-lg-6'>
                                         <div className="form-group mb-3">
                                             <label className='form-label'>Last Name</label>
-                                            {/* <ItemForm
-                                               
+                                             <ItemForm
+                                               type="text"
                                                 name="lastName"
                                                 value={lastName}
                                                 onChange={setForm}
                                                 required={true}
-                                                
-                                            /> */}
-                                            <input type="text"
-
+                                                minLength={3}
+                                                maxLength={60}
+                                            /> 
+                                            {/* <input type="text"
+                                                name="lastName" onChange={setForm}
                                                 {...register("lastname", {
                                                     required: true, pattern:
                                                         { value: "^[A-Za-z]$", message: "please enter valid name" },
                                                     minLength: 3,
                                                     maxLength: 60
                                                 })}
-                                                className="form-control" autoComplete="off" placeholder="" />
+                                                className="form-control" autoComplete="off" placeholder="" /> */}
                                             <span className="error-msg" title="name required">{errors.lastname && "Please enter your name."}</span>
                                         </div>
                                     </div>
@@ -117,13 +123,24 @@ const Details = ({ setForm, formData, navigation }) => {
                                     <div className='col-lg-6'>
                                         <div className="form-group mb-3">
                                             <label className='form-label'>Phone Number</label>
-                                            <input type="text"
+                                            <ItemForm
+                                            
+                                               name="phone"
+                                               value={phone}
+                                               onChange={setForm}
+                                               required={true}
+                                               minLength={10}
+                                               maxLength={10}
+                                               type="text"
+                    
+                                           /> 
+                                            {/* <input type="text"
                                                 autoComplete="off"
                                                 {...register("phonenumber", {
                                                     required: true,
                                                     maxLength: 10
                                                 })}
-                                                className="form-control" />
+                                                className="form-control" /> */}
                                             <span className="error-msg" title="invalid email address">{errors.phonenumber && "please provide valid phone number."}</span>
                                         </div>
                                     </div>
@@ -142,7 +159,8 @@ const Details = ({ setForm, formData, navigation }) => {
                                     <div className='col-lg-6'>
                                         <div className="form-group mb-3">
                                             <label className='form-label'>Country</label>
-                                            <select className="form-select" id="checkout-country" {...register("country", {
+                                            <StateDrop name="country" value={country} onChange={setForm} />
+                                            {/* <select className="form-select" id="checkout-country" {...register("country", {
                                                 required: true
                                             })}>
                                                 <option value="">Choose country</option>
@@ -152,7 +170,8 @@ const Details = ({ setForm, formData, navigation }) => {
                                                 <option>Germany</option>
                                                 <option>Switzerland</option>
                                                 <option>USA</option>
-                                            </select><span className="error-msg" title="invlid country">{errors.country && "Please Choose Country"}</span>
+                                            </select> */}
+                                            <span className="error-msg" title="invlid country">{errors.country && "Please Choose Country"}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -160,7 +179,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                     <div className='col-lg-6'>
                                         <div className="form-group mb-3">
                                             <label className='form-label'>City</label>
-                                            <select className="form-select" id="checkout-city" {...register("city", {
+                                            {/* <select className="form-select" id="checkout-city" {...register("city", {
                                                 required: true
                                             })}>
                                                 <option value="">Choose city</option>
@@ -170,16 +189,27 @@ const Details = ({ setForm, formData, navigation }) => {
                                                 <option>Germany</option>
                                                 <option>Switzerland</option>
                                                 <option>USA</option>
-                                            </select><span className="error-msg" title="invlid city">{errors.city && "Please Choose City"}</span>
+                                            </select> */}
+                                            <CityDrop name="city" value={city} onChange={setForm}></CityDrop>
+                                            <span className="error-msg" title="invlid city">{errors.city && "Please Choose City"}</span>
                                         </div>
                                     </div>
                                     <div className='col-lg-6'>
                                         <div className="form-group mb-3">
                                             <label className='form-label'>Zip-code</label>
-                                            <input type="number"
+                                            <ItemForm
+                                            name="zip"
+                                            value={zip}
+                                            onChange={setForm}
+                                            required={true}
+                                            minLength={4}
+                                            maxLength={6}
+                                            type="text"
+                                            ></ItemForm>
+                                            {/* <input type="number"
                                                 autoComplete="off"
                                                 {...register("zipcode", { required: true })}
-                                                className="form-control" />
+                                                className="form-control" /> */}
                                             <span className="error-msg" title="invalid email zipcode">{errors.zipcode && "please provide valid zip code."}</span>
                                         </div>
                                     </div>
@@ -188,12 +218,21 @@ const Details = ({ setForm, formData, navigation }) => {
                                     <div className='col-lg-6'>
                                         <div className="form-group mb-3">
                                             <label className='form-label'>Address 1</label>
-                                            <input type="text"
+                                            <ItemForm
+                                               type="text"
+                                                name="address"
+                                                value={address}
+                                                onChange={setForm}
+                                                required={true}
+                                                minLength={5}
+                                                maxLength={60}
+                                            />
+                                            {/* <input type="text"
                                                 {...register("address1", {
                                                     required: true, pattern: { value: "^[A-Za-z]$", message: "please enter valid name" },
                                                     minLength: 3, maxLength: 60
                                                 })}
-                                                className="form-control" autoComplete="off" placeholder="" />
+                                                className="form-control" autoComplete="off" placeholder="" /> */}
                                             <span className="error-msg" title="address required">{errors.address1 && "Please enter your address."}</span>
                                         </div>
                                     </div>
@@ -212,7 +251,11 @@ const Details = ({ setForm, formData, navigation }) => {
                                 </div>
                                 <h2 className="h6 pt-3 pb-3 mb-3 border-bottom">Shipping address</h2>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" id="same-address" />
+                                    <input className="form-check-input" type="checkbox" 
+                                    {...register("sameaddress", {
+                                        required: false, pattern: { value: "sameaddress", message: "please select" },
+                                    })}
+                                    />
                                     <label className="form-check-label" for="same-address">Same as shipping address</label>
                                 </div>
                                 <div className='row my-5'>
