@@ -9,7 +9,7 @@ import ProductEarbuds from '../../assets/images/Home/banner-sm03.png'
 import BeerBG from '../../assets/images/Home/BeerBG.png';
 import WineBG from '../../assets/images/Home/WineBG.png';
 import LiquorBG from '../../assets/images/Home/LiquorBG.png'
-import OfferBanneripad from '../../assets/images/Home/offer-banner-1.jpg'
+
 import HomeBannerCaroucel1 from '../../assets/images/Home/Caroucel-1.jpg'
 import HomeBannerCaroucel2 from '../../assets/images/Home/caroucel-2.jpg'
 import HomeBannerCaroucel3 from '../../assets/images/Home/caroucel-3.jpg'
