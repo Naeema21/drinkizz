@@ -10,15 +10,15 @@ const Shipping = ({ setForm, navigation }) => {
   const { previous, next } = navigation;
   const { go } = navigation;
 
-///formdata start 
+  ///formdata start 
   const [Buttonvalue, setButtonvalue] = useState("Courier");
-  const handleShipping = (event) =>{
+  const handleShipping = (event) => {
     // event.preventDefault();
     console.log(Buttonvalue)
     next();
   }
- ////formdata end
- 
+  ////formdata end
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -54,22 +54,23 @@ const Shipping = ({ setForm, navigation }) => {
                       </tr>
                     </thead>
                     <tbody>
-                      {methods.map((v,i) => {
-                        return(
-                         <tr>
-                         <td className='p-3'>
-                           <div className="mb-4">
-                             <input className="form-check-input" type="radio" id="courier" value={v.type} name="shippingmethod" checked={Buttonvalue===v.type} onChange={(e)=>setButtonvalue(e.target.value)}/>
-                             <label className="form-check-label" for="courier"></label>
-                           </div>
-                         </td>
-                         <td className="align-middle"><span className="SM-table-heading">{v.type}</span><br /><span className="text-muted SM-Address-D">{v.Info}</span></td>
-                         <td className="align-middle text-muted SM-Address-D">{v.Time}</td>
-                         <td className="align-middle text-muted SM-Address-D">{v.Tax}</td>
-                       </tr>
+                      {methods.map((v, i) => {
+                        return (
+                          <tr>
+                            <td className='p-3'>
+                              <div className="mb-4">
+                                <input className="form-check-input" type="radio" id="courier" value={v.type} name="shippingmethod" checked={Buttonvalue === v.type} onChange={(e) => setButtonvalue(e.target.value)} />
+                                <label className="form-check-label" for="courier"></label>
+                              </div>
+                            </td>
+                            <td className="align-middle"><span className="SM-table-heading">{v.type}</span><br /><span className="text-muted SM-Address-D">{v.Info}</span></td>
+                            <td className="align-middle text-muted SM-Address-D">{v.Time}</td>
+                            <td className="align-middle text-muted SM-Address-D">$ {v.Tax}</td>
+                          </tr>
+                        )
+                      }
                       )}
-                       )}
-                     
+
                       {/* ///////////////////////////////////////////////////////// */}
                     </tbody>
                   </table>

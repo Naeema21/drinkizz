@@ -11,7 +11,9 @@ import ItemForm from "./ItemForm";
 
 const Payment = ({ setForm, formData, navigation }) => {
   // const OrderSummary = React.lazy(() => import('../../Components/CheckOutSidebar/OrderSummary'))
-  const { cardnumber } = formData;
+  const {cardnumber} = formData;
+
+  
 
   const { previous, next } = navigation;
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -28,6 +30,15 @@ const Payment = ({ setForm, formData, navigation }) => {
   const [expiry, setExpiry] = useState('')
   const [cvc, setCvc] = useState('')
   // const [focus, setFocus] = useState('')
+
+  // formData.append(cardnumber, number);
+  //try
+  var formData = new FormData();
+  formData.append(cardnumber,number);
+ 
+  for (var value of formData.values()) {
+    console.log(cardnumber);
+ }
 
   const handleCardData = (e) => {
     e.preventDefault();
@@ -90,11 +101,11 @@ const Payment = ({ setForm, formData, navigation }) => {
                                 type="text"
                                 name="number"
                                 value={number}
-                                value={cardnumber}
                                 onChange={setForm,e => setNumber(e.target.value)}
                                 required={true}
                                 minLength="16"
                                 maxLength="16"
+                                placeholder="Card Number"
                               />
                             </div>
                           </div>
