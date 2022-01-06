@@ -18,12 +18,12 @@ const defaultData = {
   firstName: "",
   lastName: "",
   address: "",
-  city: "Anytown",
-  state: "CA",
+  city: "",
+  country: "",
   zip: "",
-  email: "email@domain.com",
+  email: "",
   phone: "",
-  number:""
+  cardnumber:""
 };
 
 const MultiStepForm = ({ images }) => {

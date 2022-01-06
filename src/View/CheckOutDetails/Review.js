@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import { GET_CART_DATA } from "../../endpoint";
+import { CART_URL } from "../../endpoint";
 import OrderSummary from "../../Components/CheckOutSidebar/OrderSummary";
 const Review = ({ setForm, formData, navigation }) => {
     const { previous, next } = navigation;
@@ -9,7 +9,7 @@ const Review = ({ setForm, formData, navigation }) => {
     useEffect(() => {
         window.scrollTo(0, 0)
         try {
-            axios.get(GET_CART_DATA).then(res => {
+            axios.get(CART_URL).then(res => {
                 console.log(res)
                 setData(res.data.data);
             })
