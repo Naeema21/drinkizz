@@ -105,15 +105,3 @@
   background-position: 0 0;
   animation: shine 1s infinite;
 }
-/* button compare */
-.btngeneral{
-    border-radius: 8px;
-    margin: 5px;
-}
-.btngeneral:focus {
-    color: #4b566b !important;
-    background-color: #fff !important;
-    border-color: #ffb4b5 !important;
-    outline: 0 !important;
-    box-shadow: none !important;
-}

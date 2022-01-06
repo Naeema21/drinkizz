@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Compare.css';
 import i1 from '../../assets/images/Compare/01.jpg';
 import { Link } from 'react-router-dom';
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
-const Compare = () => {
+import { GET_CART_DATA } from "../../endpoint";
+import { PRODUCT_URL } from '../../endpoint';
+import swal from 'sweetalert';
+import Swal from "sweetalert2";
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+const Compare = (props) => {
     //Summary
-    const [summary, setSummary] = useState(false);
+    //toggle the table row
+    const [showText, setShowText] = useState(false);
+    //const [summary, setSummary] = useState(false);
     const [general, setGeneral] = useState(false);
     const [multimedia, setMultimedia] = useState(false);
     const [performance, setPerformance] = useState(false);
@@ -15,8 +23,7 @@ const Compare = () => {
     const [camera,setCamera]=useState(false);
     const [battery,setBattery]=useState(false);
     const [price,setPrice]=useState(false);
-    //toggle the table row
-    const [showText, setShowText] = useState(false);
+    
     //   set option value
     const getInitialState = () => {
         const value = "All";
@@ -68,19 +75,98 @@ const Compare = () => {
             setPrice(!price);
         }
       };
-       
+      //get data from Api product
+      const[items,setItems]=useState([]);
+      const { id } = useParams();
+      let tik = JSON.parse(localStorage.getItem('token'));
+      console.log(tik);
+      useEffect(()=> {   
+        axios.get(`https://daruwale.herokuapp.com/public/product/${id}`)
+        .then(res => 
+            {
+            console.log(res.data);
+             setItems(res.data);   
+        })    
+    }, [])
+    console.log(items);
+    //delete data from product
+    const [deleteId, setDeleteId] = useState();
+    const deleteproduct = (id)=> {
+        axios.delete(`https://daruwale.herokuapp.com/public/product/${id}`)
+         .then(res => {
+             console.log(res);
+             console.log(res.data.id);
+             Swal.fire({
+                position: 'centerd',
+                icon: 'success',
+                title: 'Your Data has been Deleted...',
+                showConfirmButton: false,
+                timer: 2000
+            })
+            //  if (res.status === 200) {
+            //     swal({
+            //         title: "Removed Product!",
+            //         timer: 2000,
+            //     }).then(() => {
+            //         setDeleteId(id)
+            //         window.location.reload()
+            //     })
+            // } else {
+            //     swal({
+            //         title: "Try Again!",
+            //     })
+
+            // }
+         })
+         }
+
+    //Add data from product
+    // const data = { name: props.name, category: props.category, price: props.price, size: 1, quantity: 1, image: props.imgsrc };
+    // const AddProduct = () => {
+    //     axios.post(`https://daruwale.herokuapp.com/public/cart/${props.id}`, data)
+    //         .then(response => {
+    //             console.log("Status: ", response.status);
+    //             console.log("Data: ", response.data);
+    //             if (response.status === 201) {
+    //                 swal({
+    //                     title: response.data.message,
+    //                     timer: 2000,
+    //                 })
+    //             } else {
+    //                 swal({
+    //                     title: "Try Again!",
+    //                 })
+    //             }
+
+    //         }).catch(error => {
+    //             console.error('Something went wrong!', error);
+    //         });
+    // }
+   //data post in cart 
+      const data1 = { name: props.name, category: props.category, price: props.price, size: 1, quantity: 1, image: props.imgsrc};
+      const AddToCart = () => {
+          axios.post(`https://daruwale.herokuapp.com/public/cart/${id}`, data1)
+              .then(res => {
+                  console.log(res.status);
+                  console.log(res.data); 
+                  //setItems(res.data.data)
+              }).catch(error => {
+                  console.error('Something went wrong!', error);
+              });
+      }
     return (
-        <>
+        <> 
         <BreadCrumb heading='Product comparison' BC1Link='/' breadcrumb1='Home' BC3Link='/compare' breadcrumb3='Comparison'/>
             {/* compare section start */}
             <div className='Compare'>
                 <div className='container py-5 mb-2'>
                     <div className='row'>
                         <div className='table-responsive'>
-                            <table className='table table-bordered table-layout-fixed fs-sm' style={{ "minwidth": "45rem" }}>
+                            <table className='table table-bordered table-layout-fixed fs-sm'>
+                                {/* style={{ "minwidth": "45rem" }} */}
                                 <thead>
                                     <tr>
-                                        <td className="align-middle">
+                                         <td className="align-middle">
                                             <select className="form-select compare-crite" id="compare-criteria" value={value} onChange={handleChange} >
                                                 <option value="All">Comparison criteria</option>
                                                 <option value="summary">Summary</option>
@@ -94,40 +180,51 @@ const Compare = () => {
                                                 <option value="battery">Battery</option>
                                                 <option value="price">Price</option>
                                             </select>
-                                            {/* <span>{`${value}`}</span> */}
                                             <div className="form-text"> Choose criteria to filter table below.</div>
                                             <div className="pt-3">
                                                 <div className="form-check">
                                                     <input className="form-check-input" type="checkbox" id="differences" />
                                                     <label className="form-check-label" htmlFor="differences">Show differences only</label>
                                                 </div>
-                                                
                                             </div>
-                                            {/* <div className='m-2'>
-                                              <button className='btngeneral' onClick={() => setShowText(!showText)}>Summary</button>
-                                             <button className='btngeneral pl-4' onClick={() => setGeneral(!general)}>General</button>
-                                             <button className='btngeneral pl-4' onClick={() => setMultimedia(!multimedia)}>Multimedia</button>
-                                            <button className='btngeneral' onClick={() => setPerformance(!performance)}>Performance</button>
-                                            <button className='btngeneral pl-4' onClick={() => setDesign(!design)}>Design</button>
-                                            <button className='btngeneral pl-4' onClick={() => setDisplay(!display)}>Display</button>
-                                            <button className='btngeneral pl-4' onClick={() => setStorage(!storage)}>Storage</button>
-                                            <button className='btngeneral pl-4' onClick={() => setCamera(!camera)}>Camera</button>
-                                            <button className='btngeneral pl-4' onClick={() => setBattery(!battery)}>Battery</button> 
-                                            <button className='btngeneral pl-4' onClick={() => setPrice(!price)}>Price</button>
-                                            </div> */}
-                                        </td>
-                                        <td className="text-center px-4 pb-4">
-                                            <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
-                                                <i className="fa fa-trash-o me-1"></i>Remove
-                                            </Link>
-                                            <Link className="d-inline-block mb-3" to="product-details">
-                                                <img src={i1} width="80" alt="Apple iPhone Xs Max" />
-                                            </Link>
-                                            <h6 className="product-title">
-                                                <Link className='product-name' to="product-details">Apple iPhone Xs Max </Link>
-                                            </h6>
-                                            <Link to="/cart"><button className="Button-Full-Red" type="button">Add to Cart</button></Link>
-                                        </td>
+                                        </td> 
+                                        {/* {items.map((productdata)=>{
+                                            if (deleteId === productdata._id) {
+                                                return ("")
+                                            } else {
+                                            return(
+                                                    <>    
+                                                <td className="text-center px-4 pb-4"> 
+                                                    <button className="btn btn-sm d-block w-100 text-danger mb-2" to="/product-details" onClick={() => deleteproduct(productdata._id)}>
+                                                        <i className="fa fa-trash-o me-1"></i>Remove 
+                                                    </button>
+                                                    {items._id}
+                                                    <Link className="d-inline-block mb-3" to="product-details">
+                                                        <img src={productdata.image} width="80" alt="Apple iPhone Xs Max" />
+                                                    </Link>
+                                                    <h6 className="product-title">
+                                                        <Link className='product-name' to="product-details">{productdata.name}</Link>
+                                                    </h6>
+                                                    <Link to="/cart"><button className="Button-Full-Red" type="button">Add to Product</button></Link>
+                                                </td>
+                                                    </>
+                                            )
+                                            }
+                                        })} */}
+                                                <td className="text-center px-4 pb-4"> 
+                                                    <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="/product" onClick={()=>deleteproduct(items._id)}>
+                                                        <i className="fa fa-trash-o me-1"></i>Remove 
+                                                    </Link>
+                                                    
+                                                    <Link className="d-inline-block mb-3" to="product-details">
+                                                        <img src={items.image} width="80" alt="Apple iPhone Xs Max" />
+                                                    </Link>
+                                                    <h6 className="product-title">
+                                                        <Link className='product-name' to="product-details">{items.name}</Link>
+                                                    </h6>
+                                                    <Link to="/cart"><button className="Button-Full-Red" type="button" onClick={AddToCart}>Add to Product</button></Link>
+                                                </td>
+                                       
                                         <td className="text-center px-4 pb-4">
                                             <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
                                             <h6 className='skeleton-loader-background4'>
@@ -162,7 +259,7 @@ const Compare = () => {
                                                 <span className='skeleton-loader-background3'></span>
                                             {/* </button> */}
                                         </td>
-                                    </tr>
+                                    </tr> 
                                 </thead>
                                 {/* first Summary table */}
                                 {showText && 
@@ -170,83 +267,41 @@ const Compare = () => {
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Summary</th>
                                         <th>Apple iPhone Xs Max</th>
-                                        <th>Google Pixel 3 XL</th>
-                                        <th>Samsung Galaxy S10+</th>
+                                        {/* <th>Google Pixel 3 XL</th>
+                                        <th>Samsung Galaxy S10+</th> */}
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Performance</th>
                                         <td>Hexa Core</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
+                                        {/* <td><h6 className='skeleton-loader-background'></h6></td>
+                                        <td><h6 className='skeleton-loader-background'></h6></td> */}
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Display</th>
                                         <td>6.5-inch</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
+                                        {/* <td><h6 className='skeleton-loader-background'></h6></td>
+                                        <td><h6 className='skeleton-loader-background'></h6></td> */}
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Storage</th>
                                         <td>64 GB</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
+                                        {/* <td><h6 className='skeleton-loader-background'></h6></td>
+                                        <td><h6 className='skeleton-loader-background'></h6></td> */}
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Camera</th>
                                         <td>Dual 12-megapixel</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
+                                        {/* <td><h6 className='skeleton-loader-background'></h6></td>
+                                        <td><h6 className='skeleton-loader-background'></h6></td> */}
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Battery</th>
                                         <td>3,174 mAh</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
+                                        {/* <td><h6 className='skeleton-loader-background'></h6></td>
+                                        <td><h6 className='skeleton-loader-background'></h6></td> */}
                                     </tr>
                                 </tbody>
                                 }
-                                {/* show summary table */}
-                                {/* {summary&&
-                               
-                                <tbody id="summary" className='showsummary' data-filter-target="" style={{ display: summary ? "block" : 'none' }}>
-                                    <tr className="heading-table-compare">
-                                        <th className="text-uppercase text-dark">Summary</th>
-                                        <th>Apple iPhone Xs Max</th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Performance</th>
-                                        <td>Hexa Core</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Display</th>
-                                        <td>6.5-inch</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Storage</th>
-                                        <td>64 GB</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Camera</th>
-                                        <td>Dual 12-megapixel</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Battery</th>
-                                        <td>3,174 mAh</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                </tbody>
-                                } */}
                                 {/* General Table */}
                                 {general &&
                                 <tbody id="general" data-filter-target="">

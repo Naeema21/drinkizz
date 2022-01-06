@@ -36,7 +36,6 @@ const Product = () => {
 
     const selectFilter = (event) => {
         console.log(event)
-
         switch (event) {
             case "Popularity":
                 console.log("a")
@@ -86,8 +85,6 @@ const Product = () => {
         let start = Math.floor((currentPage - 1) / pageLimit) * pageLimit;
         return new Array(pageLimit).fill().map((_, idx) => start + idx + 1);
     };
-
-
     //For Skeleton & Card data HTML here in 2 diff variables
     const carditemdata =
         getPaginatedData().map((productdata, i) => (
@@ -202,9 +199,9 @@ const Product = () => {
                                         </ul>
                                         <ul className='propagination'>
                                             <li className='propage-item'>
-                                                <button className={`propage-link ${currentPage === pageLimit ? "disabled" : ""}`}
+                                                <button className={`propage-link ${currentPage === pages ? "disabled" : ""}`}
                                                     onClick={goToNextPage}
-                                                    disabled={currentPage === pageLimit ? true : false}
+                                                    disabled={currentPage === pages ? true : false}
                                                 >
                                                     Next <i className="fa fa-angle-right mx-1"></i>
                                                 </button>
@@ -212,8 +209,6 @@ const Product = () => {
                                         </ul>
                                     </div>
                                     : ""}
-
-
                             <div className='row mb-5 mt-5'>
                                 <div className='col-lg-6 col-md-6 col-sm-12 py-4  px-4  text-center text-sm-start shoplist-box1'>
                                     <h4 className='fw-light mb-2' style={{ color: '#373F53' }}>Converse All Star</h4>

@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { GET_CART_DATA } from "../../endpoint";
+import OrderSummary from "../../Components/CheckOutSidebar/OrderSummary";
 const Review = ({ setForm, formData, navigation }) => {
     const { previous, next } = navigation;
     const [Data, setData] = useState([]);
@@ -20,15 +21,15 @@ const Review = ({ setForm, formData, navigation }) => {
     //TotalPrice
     var totalCartPrice = 0;
     
-    const {
+    const{
         firstName,
         lastName,
-        nickName,
         address,
         city,
-        state,
+        country,
         zip,
         phone,
+        cardnumber,
     } = formData;
     return (
         <div className="form CheckOut-Review">
@@ -86,18 +87,18 @@ const Review = ({ setForm, formData, navigation }) => {
                                         <li>
                                             <div className="text-muted">
                                                 {" "}
-                                                Name: {`${firstName}`} {`${lastName}`}
+                                                Name:<span style={{color:"black"}}> {`${firstName}`} {`${lastName}`}</span>
                                             </div>
                                         </li>
-                                        <li><span className="text-muted">Address:&nbsp;</span>44 Shirley Ave. West Chicago, IL 60185, USA</li>
-                                        <li><span className="text-muted">Phone:&nbsp;</span>+1 (808) 764 554 330</li>
+                                        <li><span className="text-muted">Address:&nbsp;</span>{`${address}`} {`${city}`}, {`${zip}`}, {`${country}`}</li>
+                                        <li><span className="text-muted">Phone:&nbsp;</span>{`${phone}`}</li>
                                     </ul>
                                     <button className="btn text-red" onClick={() => go("details")}><i class="fa fa-edit me-1"></i>Edit</button>
                                 </div>
                                 <div className="col-sm-6">
                                     <h4 className="h6">Payment method:</h4>
                                     <ul className="list-unstyled fs-sm">
-                                        <li><span className="text-muted">Credit Card:&nbsp;</span>**** **** **** 5300</li>
+                                        <li><span className="text-muted">Credit Card:&nbsp;</span>{`${cardnumber}`}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -112,33 +113,7 @@ const Review = ({ setForm, formData, navigation }) => {
                         </div>
                     </div>
                     <div className='col-lg-4 Minus-margin'>
-                        <div className='card rounded-3 shadow-lg p-4'>
-                            <div className='card-head text-center'>
-                                <h6 className="py-2">Order Summary</h6>
-                                <div>
-                                    {
-                                        Data.map((value, index) => {
-                                            totalCartPrice += value.price * value.quantity 
-                                            return (
-                                                <></>
-                                            );
-                                        })
-                                    }
-                                </div>
-                                <ul className="list-unstyled fs-sm pb-2 border-bottom mt-2">
-                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Subtotal:</span><span className="text-end">$ {totalCartPrice}</span></li>
-                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Shipping:</span><span className="text-end">—</span></li>
-                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Taxes:</span><span className="text-end">$9.<small>50</small></span></li>
-                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Discount:</span><span className="text-end">—</span></li>
-                                </ul>
-                                <h3 className="fw-normal text-center my-4">$ {totalCartPrice}</h3>
-                                <form>
-                                    <input type="text"
-                                        className="form-control" autoComplete="off" placeholder="Promo code" />
-                                    <button className='btn Button-Red-Border d-block w-100 mt-3'>Apply promo code</button>
-                                </form>
-                            </div>
-                        </div>
+                        <OrderSummary></OrderSummary>
                     </div>
                 </div>
             </div>

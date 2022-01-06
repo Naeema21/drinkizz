@@ -1,15 +1,38 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom';
 import './Account_Orders_History.css';
+//import { account } from '../../assets/Data/account';
 function Orders() {
+    //option value initialization
+    const [inProgress,setInProgress]=useState(false);
+    const [delayed,setDelayed]=useState(false);
+    const [canceled,setCanceled]=useState(false);
+    const [delivered,setDelivered]=useState(false);
     //sort orders
-const getInitialState = () => {
+  const getInitialState = () => {
     const value = "All";
     return value;
   };
   const [value, setValue] = useState(getInitialState);
   const handleChange = (e) => {
     setValue(e.target.value);
+    //filter for orders
+    if(value === "inProgress")
+    {
+        setInProgress(!inProgress);
+    }
+    if(value === "delayed")
+    {
+        setDelayed(!delayed);
+    }
+    if(value === "canceled")
+    {
+        setCanceled(!canceled);
+    }
+    if(value === "delivered")
+    {
+        setDelivered(!delivered);
+    }
   };
     return (
         <div>
@@ -21,14 +44,14 @@ const getInitialState = () => {
                                             <label className="d-lg-none fs-sm text-nowrap opacity-75 me-2 text-dark">Sort orders:</label>
                                             <select className="form-select" id="order-sort" value={value} onChange={handleChange}>
                                             <option value="All">All</option>
-                                            <option value="Delivered">Delivered</option>
-                                            <option value="In Progress">In Progress</option>
-                                            <option value="Delayed">Delayed</option>
-                                            <option value="Canceled">Canceled</option>
+                                            <option value="inProgress">In Progress</option>
+                                            <option value="delayed">Delayed</option>
+                                            <option value="canceled">Canceled</option>
+                                            <option value="delivered">Delivered</option>
                                             </select>
                                         </div><Link className="Button-Red-Border Button-Full-Red text-light me-2 mt-2 mb-0 btn-sm signoutbtn" to="/"><i className="fa fa-sign-out me-2"></i>Sign out</Link>
                                         </div>
-                                                       <hr style={{"width":"100%","textalign":"left","marginleft":"0","color":"black","height":"3px"}}></hr>
+                                            <hr style={{"width":"100%","textalign":"left","marginleft":"0","color":"black","height":"3px"}}></hr>
                                                  {/* Orders list */}
                                             <div className="table-responsive fs-md mb-4">
                                             <table className="table table-hover mb-0">
@@ -40,27 +63,43 @@ const getInitialState = () => {
                                                     <th className='px-4'>Total</th>
                                                 </tr>
                                                 </thead>
+                                                {`${value}`}
+                                                {/* table for In Progress */}
+                                                {inProgress &&
                                                 <tbody>
-                                                <tr>
-                                               
-                                                    <td className="py-3"><Link className="text-dark fw-bold" to="#">34VB5540K83</Link></td>
-                                                    <td className="py-3 px-4">May 21, 2019</td>
-                                                    <td className="py-3"><span className="badge bg-info bg-opacity-60 bg-lighten-xl m-0">{`${value}`}</span></td>
-                                                    <td className="py-3 px-4">$358.75</td>
-                                               
-                                                </tr>
+                                                    <tr>
+                                                        <td className="py-3"><Link className="text-dark fw-bold" to="#">34VB5540K83</Link></td>
+                                                        <td className="py-3 px-4">May 21, 2019</td>
+                                                        <td className="py-3"><span className="badge bg-info bg-opacity-60 bg-lighten-xl m-0">In Progress</span></td>
+                                                        <td className="py-3 px-4">$358.75</td>
+                                                    </tr>
+                                                </tbody>
+                                                }
+                                                {/* table for Canceled */}
+                                                {canceled && 
+                                                <tbody>
                                                 <tr>
                                                     <td className="py-3"><Link className="text-dark fw-bold" to="#">78A643CD409</Link></td>
                                                     <td className="py-3 px-4">December 09, 2018</td>
                                                     <td className="py-3"><span className="badge bg-danger bg-opacity-60 bg-lighten-xl m-0">Canceled</span></td>
                                                     <td className="py-3 px-4"><span>$760.50</span></td>
                                                 </tr>
+                                                </tbody>
+                                                }
+                                                {/* table for Delayed */}
+                                                {delayed &&
+                                                <tbody>
                                                 <tr>
                                                     <td className="py-3"><Link className="text-dark fw-bold" to="#">112P45A90V2</Link></td>
                                                     <td className="py-3 px-4">October 15, 2018</td>
                                                     <td className="py-3"><span className="badge bg-warning bg-opacity-60 bg-lighten-xl m-0">Delayed</span></td>
                                                     <td className="py-3 px-4">$1,264.00</td>
                                                 </tr>
+                                                </tbody>
+                                                }
+                                                {/* table for Delivered*/}
+                                                {delivered &&
+                                                <tbody>
                                                 <tr>
                                                     <td className="py-3"><Link className="text-dark fw-bold" to="#">28BA67U0981</Link></td>
                                                     <td className="py-3 px-4">July 19, 2018</td>
@@ -73,6 +112,7 @@ const getInitialState = () => {
                                                     <td className="py-3"><span className="badge bg-success bg-opacity-60 bg-lighten-xl m-0">Delivered</span></td>
                                                     <td className="py-3 px-4">$2,133.90</td>
                                                 </tr>
+                                                
                                                 <tr>
                                                     <td className="py-3"><Link className="text-dark fw-bold" to="#">47H76G09F33</Link></td>
                                                     <td className="py-3 px-4">March 30, 2018</td>
@@ -80,6 +120,21 @@ const getInitialState = () => {
                                                     <td className="py-3 px-4">$86.40</td>
                                                 </tr>
                                                 </tbody>
+                                                }  
+                                                {/* {account.accOrder.map((orders,i)=>{
+                                                    return(
+                                                        <>
+                                                              <tbody>
+                                                                    <tr>
+                                                                        <td className="py-3"><Link className="text-dark fw-bold" to="#">{orders.order}</Link></td>
+                                                                        <td className="py-3 px-4">{orders.Date_Purchased}</td>
+                                                                        <td className="py-3"><span className="badge bg-info bg-opacity-60 bg-lighten-xl m-0">{orders.Status}</span></td>
+                                                                        <td className="py-3 px-4">{orders.total}</td>
+                                                                    </tr>
+                                                              </tbody>
+                                                        </>
+                                                    )
+                                                })}     */}
                                             </table>
                                             </div> 
                                             {/* Pagination */}
@@ -101,8 +156,8 @@ const getInitialState = () => {
                                                     <li className="order-page"><Link  className="page-link text-dark" to="#" aria-label="Next">Next<i className="fa fa-angle-right ms-2"></i></Link></li>
                                                 </ul>
                                             </nav>
-                    </div>
-                    </div>
+                         </div>
+                      </div>
                     </div>
     )
 }

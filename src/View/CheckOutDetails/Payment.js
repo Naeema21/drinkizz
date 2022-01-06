@@ -5,12 +5,13 @@ import { Accordion } from 'react-bootstrap';
 import Cards from 'react-credit-cards'
 import 'react-credit-cards/es/styles-compiled.css'
 import './CheckOutDetails.css'
-import {useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import OrderSummary from "../../Components/CheckOutSidebar/OrderSummary";
+import ItemForm from "./ItemForm";
 
 const Payment = ({ setForm, formData, navigation }) => {
   // const OrderSummary = React.lazy(() => import('../../Components/CheckOutSidebar/OrderSummary'))
-  const { phone, email } = formData;
+  const { cardnumber } = formData;
 
   const { previous, next } = navigation;
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -20,7 +21,7 @@ const Payment = ({ setForm, formData, navigation }) => {
     reset();
   }
   useEffect(() => {
-      window.scrollTo(0, 0)
+    window.scrollTo(0, 0)
   }, [])
   const [number, setNumber] = useState('')
   const [name, setName] = useState('')
@@ -29,7 +30,7 @@ const Payment = ({ setForm, formData, navigation }) => {
   // const [focus, setFocus] = useState('')
 
   const handleCardData = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     const cardData = {
       "number": number,
       "name": name,
@@ -47,7 +48,7 @@ const Payment = ({ setForm, formData, navigation }) => {
         <div className="row">
           <div className="col-lg-8 Minus-margin-ProgressBar">
             <div className='mt-4'>
-               <div className="ProgressBardesign">
+              <div className="ProgressBardesign">
                 <ul id="progressbar" >
                   <li className="active"><a className="btn" href="cart"><div className="mt-2 ProgressBar-Text"><i className="fa fa-shopping-cart me-2"></i>Cart</div></a></li>
                   <li className="active"><button className="btn" onClick={() => go("details")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-user me-2" aria-hidden="true"></i>Details</div></button></li>
@@ -55,7 +56,7 @@ const Payment = ({ setForm, formData, navigation }) => {
                   <li className="active"><button className="btn" onClick={() => go("payment")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-credit-card me-2"></i>Payment</div></button></li>
                   <li><button className="btn" onClick={() => go("review")}><div className="mt-2 ProgressBar-Text"><i className="fa fa-check-square me-2"></i>Review</div></button></li>
                 </ul>
-              </div> 
+              </div>
               {/* <CheckoutProgressBar></CheckoutProgressBar> */}
               <h2 className="h5 pb-3 mb-2">Choose shipping method</h2>
               <Accordion defaultActiveKey='0'>
@@ -70,13 +71,13 @@ const Payment = ({ setForm, formData, navigation }) => {
                         name={name}
                         expiry={expiry}
                         cvc={cvc}
-                        // focused={focus} 
-                        />
+                      // focused={focus} 
+                      />
                       <form onSubmit={handleCardData}>
                         <div className='row mt-4'>
                           <div className='col-lg-6'>
                             <div className="form-group mb-3">
-                              <input type="text"
+                              {/* <input type="text"
                                 name="number"
                                 placeholder="Card Number"
                                 minLength={16}
@@ -84,7 +85,17 @@ const Payment = ({ setForm, formData, navigation }) => {
                                 value={number}
                                 onChange={e => setNumber(e.target.value)}
                                 // onFocus={e => setFocus(e.target.name)}
-                                className="form-control" />
+                                className="form-control" /> */}
+                              <ItemForm
+                                type="text"
+                                name="number"
+                                value={number}
+                                value={cardnumber}
+                                onChange={setForm,e => setNumber(e.target.value)}
+                                required={true}
+                                minLength="16"
+                                maxLength="16"
+                              />
                             </div>
                           </div>
                           <div className='col-lg-6'>
@@ -105,9 +116,9 @@ const Payment = ({ setForm, formData, navigation }) => {
                             <div className="form-group mb-3">
                               <input type="tel"
                                 name="expiry"
-                               onkeyup="formatString(event);"
+                                onkeyup="formatString(event);"
                                 placeholder="MM/YY"
-                                pattern={"\d*"}
+                                // pattern={"\d*"}
                                 minLength={4}
                                 maxLength={4}
                                 value={expiry}
@@ -120,7 +131,7 @@ const Payment = ({ setForm, formData, navigation }) => {
                           <div className='col-lg-3'>
                             <input type="text"
                               name="cvc"
-                              placeholder="CVV"
+                              placeholder="CVC"
                               maxLength={3}
                               value={cvc}
                               onChange={e => setCvc(e.target.value)}

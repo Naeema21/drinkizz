@@ -1,6 +1,14 @@
 /* =====================================
                     Header
 =========================================*/
+.logo{
+  font-family: cursive;
+    letter-spacing: 1.5px;
+    color: #fe4a4c;
+    font-weight: 800;
+    font-size: 30px;
+    text-decoration: none;
+}
 .header .navbar{
   padding: 5px 0px !important;
 }
@@ -139,6 +147,7 @@
 }
 
 .compare-list-link-footer {
+  font-size: 15px;
   color: rgba(255, 255, 255, .65);
   text-decoration: none !important;
 }
@@ -169,7 +178,7 @@
 }
 
 .compare-heading-footer-Download {
-  margin-bottom: 1.125rem;
+  /* margin-bottom: 1.125rem; */
   font-size: 1.0625rem;
   font-weight: 500;
 }

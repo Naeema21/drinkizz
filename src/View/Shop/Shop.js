@@ -23,6 +23,7 @@ import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
 import axios from 'axios'
 import { PRODUCT_URL } from '../../endpoint'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 const Shop = (({ match },) => {
     const BreadCrumb = React.lazy(() => import('../../Components/BreadCrumb/Breadcrumb'))
@@ -292,7 +293,7 @@ const Shop = (({ match },) => {
                                                 <div className="h3 C-Tprice">$124.<small>99</small></div>
                                             </div>
                                         </div>
-                                        <div className=" col-lg-4 col-sm-8 d-flex align-items-center pt-3">
+                                        <div className=" col-lg-5 col-sm-8 d-flex align-items-center pt-3">
                                             <select className="form-select me-2 w-50" >
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -300,12 +301,12 @@ const Shop = (({ match },) => {
                                                 <option value="4">4</option>
                                                 <option value="5">5</option>
                                             </select>
-                                            <a className="Button-Full-Red block w-100" href='/cart'><i className="fa fa-shopping-cart me-2"></i>Add to Cart</a>
+                                            <Link className="Button-Full-Red block w-100" to='/cart'><i className="fa fa-shopping-cart me-2"></i>Add to Cart</Link>
                                             <div className="me-2">
                                                 <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} ><i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
                                             </div>
                                             <div>
-                                                <a className="btn btn-small-desc" href='/compare'><i className="fa fa-refresh" style={{ color: "gray" }}></i></a>
+                                                <Link className="btn btn-small-desc" to='/compare'><i className="fa fa-refresh" style={{ color: "gray" }}></i></Link>
                                             </div>
                                         </div>
                                     </div>

@@ -74,7 +74,7 @@ const Header = () => {
                                 placeholder='Search For Product' />
                         </div>
                         <div className='col-lg-4 d-flex justify-content-center 
-                        align-items-center justify-content-around signin'>
+                        align-items-center justify-content-around signin flex-wrap'>
 
                             <div>
                                 <span>
