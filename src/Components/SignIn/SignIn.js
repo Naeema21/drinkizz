@@ -17,6 +17,8 @@ const SignIn = () => {
     const LogOut = () => {
         localStorage.removeItem('name');
         localStorage.removeItem('token');
+        localStorage.removeItem('id')
+        window.location.reload()
         setName("Hello , signIn")
     }
 
@@ -40,8 +42,9 @@ const SignIn = () => {
                 localStorage.setItem('token', res.data.token)
                 localStorage.setItem('name', res.data.data.name)
                 localStorage.setItem('id', res.data.data.userId)
-
                 setName(res.data.data.name)
+                window.location.reload()
+                
             } else {
                 swal({
                     title: "Something went wrong! Try again!"
