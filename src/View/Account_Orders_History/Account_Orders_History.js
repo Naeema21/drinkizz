@@ -12,16 +12,7 @@ import axios from 'axios';
 import Profile from './Profile';
 import { Link } from 'react-router-dom';
 const Account_Orders_History =()=>{
-     //get data from Api
-     const[items,setItems]=useState([]);
-     useEffect(()=> {   
-         axios.get(`https://daruwale.herokuapp.com/public/wishlist`)
-         .then(res => 
-             {
-             setItems(res.data.totalwishlist); 
-             //console.log(items);
-         })    
-  }, [])
+
 
 //  change the tab url'
 const [key,setKey]=useState({});
@@ -105,7 +96,6 @@ const [key,setKey]=useState({});
                                                             <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                             <i className="fa fa-heart-o me-2"></i>Wishlist
                                                             <span className="text-muted ms-auto">
-                                                                  {items} 
                                                                 </span>
                                                             </div>
                                                         </li>

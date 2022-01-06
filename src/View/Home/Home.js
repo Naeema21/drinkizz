@@ -57,7 +57,8 @@ const carditemdata=
             name={productdata.name} 
             price={productdata.price} 
             imgsrc={productdata.image} 
-            star={productdata.rating} />
+            star={productdata.rating}
+             />
         </div>
     ))
 const skeleton=
