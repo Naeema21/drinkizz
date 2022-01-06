@@ -16,7 +16,14 @@
     font-weight: 600;
     padding: 11px 10px;
 }
-
+.Compare .compare-img{
+    width:120px;
+    height:150px;
+}
+.compare-by-img{
+    height:300px;
+    width:auto;
+}
 .Compare .compare-crite {
     width: 250px;
     border-color: #a6aab080;
