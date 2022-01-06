@@ -82,32 +82,30 @@ const Compare = (props) => {
       const[datas,setDatas]=useState([]);
       const { id } = useParams();
       let prod=[];
-      const item =prod;
+
     //   prod.push(1);
     //   console.log(prod);
     //   prod.push(2);
     //   console.log(prod);
     //   prod.pop();
   
-    const reqOne = axios.get(`https://daruwale.herokuapp.com/public/product/61d6af401b54a6b256420eb4`);
+    const reqOne = axios.get(`https://daruwale.herokuapp.com/public/product/${id}`);
     const reqTwo = axios.get(`https://daruwale.herokuapp.com/public/product/61d59adba8e333a8f8db1b07`);
     
     axios.all([reqOne, reqTwo]).then(axios.spread((...responses) => {
       const responseOne = responses[0]
-      setItems(responseOne.data);
+      //setItems(responseOne.data);
       const responseTwo = responses[1]
-      setDatas(responseTwo.data);
+      //setDatas(responseTwo.data);
     })).catch(errors => {
       // react on errors.
     })
-
-
-        //  axios.get(`https://daruwale.herokuapp.com/public/product/${id}`)
-        // .then(res => 
-        //     {
-        //      prod.push(res.data); 
-        //      console.log(prod);
-        // })   
+    // const p= axios.prod.push(`https://daruwale.herokuapp.com/public/product/${id}`,prod)
+    //     .then(res => 
+    //         {
+    //          //prod.push(res.data);
+    //          console.log(p);
+    //     })   
 
         // axios.get(`https://daruwale.herokuapp.com/public/product/61d59adba8e333a8f8db1b07`)
         // .then(res => 
