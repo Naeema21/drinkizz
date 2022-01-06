@@ -190,6 +190,7 @@ const Compare = (props) => {
                                        </tbody>
                                         </div>
                                                  <div className='col-lg-3'> 
+                                                 <tbody>
                                                  <div className='compare-by-img'>
                                                         <td className="text-center px-4 pb-4"> 
                                                                 <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="/product">
@@ -205,7 +206,7 @@ const Compare = (props) => {
                                                         </td>
                                                     </div>
                                                         <hr></hr>
-                                                         <tbody id="table-data" data-filter-target="">
+                                                        
                                                             <tr className="heading-table-compare">
                                                                 <th className="text-uppercase text-dark">Summary</th>
                                                             </tr>
@@ -236,6 +237,7 @@ const Compare = (props) => {
                                                         </tbody>
                                                 </div>
                                             <div className='col-lg-3'>
+                                            <tbody>
                                                <div className='compare-by-img'> 
                                                 <td className="text-center px-4 pb-4"> 
                                                         <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="/product">
@@ -251,7 +253,7 @@ const Compare = (props) => {
                                                 </td> 
                                                 </div>
                                                 <hr></hr>
-                                                         <tbody id="table-data" data-filter-target="">
+                                                         
                                                             <tr className="heading-table-compare">
                                                                 <th className="text-uppercase text-dark">Summary</th>
                                                             </tr>
@@ -284,27 +286,28 @@ const Compare = (props) => {
                                            
                                         </div>
                                         <div className='col-lg-3'>
-                                        <div className='compare-by-img'> 
-                                            <td className="text-center px-4 pb-4">
-                                                <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
-                                                <h6 className='skeleton-loader-background4'>
-                                                    {/* <i className="fa fa-trash-o me-1"></i> */}
-                                                </h6>    
-                                                </Link>
-                                                <Link className="d-inline-block mb-3" to="product-details">
-                                                    {/* <img src={i2}  alt="Google Pixel 3 XL" className='skeleton-loader-background1' /> */}
-                                                    <div className='skeleton-loader-background1' />
-                                                </Link>
-                                                <h6 className="product-title">
-                                                    <Link className='product-name' to="product-details"><h6 className='skeleton-loader-background'></h6></Link>
-                                                </h6>
-                                                {/* <button className="Button-Full-Red" type="button"> */}
-                                                    <span className='skeleton-loader-background3'></span>
-                                                {/* </button> */}
-                                            </td>
-                                            </div>
-                                            <hr></hr>
-                                                         <tbody id="table-data" data-filter-target="">
+                                        <tbody>
+                                            <div className='compare-by-img'> 
+                                                <td className="text-center px-4 pb-4">
+                                                    <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
+                                                    <h6 className='skeleton-loader-background4'>
+                                                        {/* <i className="fa fa-trash-o me-1"></i> */}
+                                                    </h6>    
+                                                    </Link>
+                                                    <Link className="d-inline-block mb-3" to="product-details">
+                                                        {/* <img src={i2}  alt="Google Pixel 3 XL" className='skeleton-loader-background1' /> */}
+                                                        <div className='skeleton-loader-background1' />
+                                                    </Link>
+                                                    <h6 className="product-title">
+                                                        <Link className='product-name' to="product-details"><h6 className='skeleton-loader-background'></h6></Link>
+                                                    </h6>
+                                                    {/* <button className="Button-Full-Red" type="button"> */}
+                                                        <span className='skeleton-loader-background3'></span>
+                                                    {/* </button> */}
+                                                </td>
+                                                </div>
+                                                <hr></hr>
+                                                         
                                                             <tr className="heading-table-compare">
                                                                 <th className="text-uppercase text-dark">Summary</th>
                                                             </tr>
