@@ -6,7 +6,7 @@ import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 import { GET_CART_DATA } from "../../endpoint";
 import { PRODUCT_URL } from '../../endpoint';
 import swal from 'sweetalert';
-import Swal from "sweetalert2";
+
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 const Compare = (props) => {
@@ -96,13 +96,6 @@ const Compare = (props) => {
          .then(res => {
              console.log(res);
              console.log(res.data.id);
-             Swal.fire({
-                position: 'centerd',
-                icon: 'success',
-                title: 'Your Data has been Deleted...',
-                showConfirmButton: false,
-                timer: 2000
-            })
             //  if (res.status === 200) {
             //     swal({
             //         title: "Removed Product!",
@@ -166,6 +159,7 @@ const Compare = (props) => {
                                 {/* style={{ "minwidth": "45rem" }} */}
                                 <thead>
                                     <tr>
+                                        <div className='col-lg-3'>
                                          <td className="align-middle">
                                             <select className="form-select compare-crite" id="compare-criteria" value={value} onChange={handleChange} >
                                                 <option value="All">Comparison criteria</option>
@@ -188,6 +182,7 @@ const Compare = (props) => {
                                                 </div>
                                             </div>
                                         </td> 
+                                        </div>
                                         {/* {items.map((productdata)=>{
                                             if (deleteId === productdata._id) {
                                                 return ("")
@@ -211,7 +206,8 @@ const Compare = (props) => {
                                             )
                                             }
                                         })} */}
-                                                <td className="text-center px-4 pb-4"> 
+                                         <div className='col-lg-3'>
+                                            <td className="text-center px-4 pb-4"> 
                                                     <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="/product" onClick={()=>deleteproduct(items._id)}>
                                                         <i className="fa fa-trash-o me-1"></i>Remove 
                                                     </Link>
@@ -223,42 +219,46 @@ const Compare = (props) => {
                                                         <Link className='product-name' to="product-details">{items.name}</Link>
                                                     </h6>
                                                     <Link to="/cart"><button className="Button-Full-Red" type="button" onClick={AddToCart}>Add to Product</button></Link>
-                                                </td>
-                                       
-                                        <td className="text-center px-4 pb-4">
-                                            <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
-                                            <h6 className='skeleton-loader-background4'>
-                                                {/* <i className="fa fa-trash-o me-1"></i> */}
-                                            </h6>    
-                                            </Link>
-                                            <Link className="d-inline-block mb-3" to="product-details">
-                                                {/* <img src={i2}  alt="Google Pixel 3 XL" className='skeleton-loader-background1' /> */}
-                                                <div className='skeleton-loader-background1' />
-                                            </Link>
-                                            <h6 className="product-title">
-                                                <Link className='product-name' to="product-details"><h6 className='skeleton-loader-background'></h6></Link>
-                                            </h6>
-                                            {/* <button className="Button-Full-Red" type="button"> */}
-                                                <span className='skeleton-loader-background3'></span>
-                                            {/* </button> */}
-                                        </td>
-                                        <td className="text-center px-4 pb-4">
-                                            <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
-                                            <h6 className='skeleton-loader-background4'>
-                                                {/* <i className="fa fa-trash-o me-1"></i>Remove */}
-                                            </h6>
-                                            </Link>
-                                            <Link className="d-inline-block mb-3" to="product-details">
-                                                {/* <img src={i3} alt="Samsung Galaxy S10+" className='skeleton-loader-background1'/> */}
-                                                <div className='skeleton-loader-background1' />
-                                            </Link>
-                                            <h6 className="product-title">
-                                                <Link className='product-name' to="product-details"><h6 className='skeleton-loader-background'></h6></Link>
-                                            </h6>
-                                            {/* <button className="Button-Full-Red" type="button"> */}
-                                                <span className='skeleton-loader-background3'></span>
-                                            {/* </button> */}
-                                        </td>
+                                            </td>
+                                        </div>
+                                        <div className='col-lg-3'>
+                                            <td className="text-center px-4 pb-4">
+                                                <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
+                                                <h6 className='skeleton-loader-background4'>
+                                                    {/* <i className="fa fa-trash-o me-1"></i> */}
+                                                </h6>    
+                                                </Link>
+                                                <Link className="d-inline-block mb-3" to="product-details">
+                                                    {/* <img src={i2}  alt="Google Pixel 3 XL" className='skeleton-loader-background1' /> */}
+                                                    <div className='skeleton-loader-background1' />
+                                                </Link>
+                                                <h6 className="product-title">
+                                                    <Link className='product-name' to="product-details"><h6 className='skeleton-loader-background'></h6></Link>
+                                                </h6>
+                                                {/* <button className="Button-Full-Red" type="button"> */}
+                                                    <span className='skeleton-loader-background3'></span>
+                                                {/* </button> */}
+                                            </td>
+                                        </div>
+                                        <div className='col-lg-3'>
+                                            <td className="text-center px-4 pb-4">
+                                                <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
+                                                <h6 className='skeleton-loader-background4'>
+                                                    {/* <i className="fa fa-trash-o me-1"></i>Remove */}
+                                                </h6>
+                                                </Link>
+                                                <Link className="d-inline-block mb-3" to="product-details">
+                                                    {/* <img src={i3} alt="Samsung Galaxy S10+" className='skeleton-loader-background1'/> */}
+                                                    <div className='skeleton-loader-background1' />
+                                                </Link>
+                                                <h6 className="product-title">
+                                                    <Link className='product-name' to="product-details"><h6 className='skeleton-loader-background'></h6></Link>
+                                                </h6>
+                                                {/* <button className="Button-Full-Red" type="button"> */}
+                                                    <span className='skeleton-loader-background3'></span>
+                                                {/* </button> */}
+                                            </td>
+                                        </div>
                                     </tr> 
                                 </thead>
                                 {/* first Summary table */}
@@ -267,38 +267,38 @@ const Compare = (props) => {
                                     <tr className="heading-table-compare">
                                         <th className="text-uppercase text-dark">Summary</th>
                                         <th>Apple iPhone Xs Max</th>
-                                        {/* <th>Google Pixel 3 XL</th>
-                                        <th>Samsung Galaxy S10+</th> */}
+                                        <th>Google Pixel 3 XL</th>
+                                        <th>Samsung Galaxy S10+</th>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Performance</th>
                                         <td>Hexa Core</td>
-                                        {/* <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td> */}
+                                        <td><h6 className='skeleton-loader-background'></h6></td>
+                                        <td><h6 className='skeleton-loader-background'></h6></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Display</th>
                                         <td>6.5-inch</td>
-                                        {/* <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td> */}
+                                        <td><h6 className='skeleton-loader-background'></h6></td>
+                                        <td><h6 className='skeleton-loader-background'></h6></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Storage</th>
                                         <td>64 GB</td>
-                                        {/* <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td> */}
+                                         <td><h6 className='skeleton-loader-background'></h6></td>
+                                        <td><h6 className='skeleton-loader-background'></h6></td> 
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Camera</th>
                                         <td>Dual 12-megapixel</td>
-                                        {/* <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td> */}
+                                         <td><h6 className='skeleton-loader-background'></h6></td>
+                                        <td><h6 className='skeleton-loader-background'></h6></td>
                                     </tr>
                                     <tr>
                                         <th className="text-dark">Battery</th>
                                         <td>3,174 mAh</td>
-                                        {/* <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td> */}
+                                         <td><h6 className='skeleton-loader-background'></h6></td>
+                                        <td><h6 className='skeleton-loader-background'></h6></td>
                                     </tr>
                                 </tbody>
                                 }
