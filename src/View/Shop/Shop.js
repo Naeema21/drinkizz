@@ -39,23 +39,30 @@ const Shop = (({ match },) => {
             "userId": localStorage.getItem('id'),
             "productId": Data._id,
         };
-        axios.post(WISHLIST_URL, data2)
-            .then(response => {
-                console.log("Status: ", response.status);
-                console.log("Data: ", response.data);
-                if (response.status === 201) {
-                    swal({
-                        title: response.data.message,
-                        timer: 2000,
-                    })
-                } else {
-                    swal({
-                        title: "Try Again!",
-                    })
-                }
-            }).catch(error => {
-                console.error('Something went wrong!', error);
-            });
+        if (data2.userId === null) {
+            swal({
+                title: "login please",
+                timer: 2000
+            })
+        } else {
+            axios.post(WISHLIST_URL, data2)
+                .then(response => {
+                    console.log("Status: ", response.status);
+                    console.log("Data: ", response.data);
+                    if (response.status === 201) {
+                        swal({
+                            title: response.data.message,
+                            timer: 2000,
+                        })
+                    } else {
+                        swal({
+                            title: "Try Again!",
+                        })
+                    }
+                }).catch(error => {
+                    console.error('Something went wrong!', error);
+                });
+        }
     }
 
     const handleSubmitCart = () => {
@@ -64,23 +71,30 @@ const Shop = (({ match },) => {
             "productId": Data._id,
             "quantity": Data.quantity
         }
-        axios.post(CART_URL, DataToCart)
-            .then(response => {
-                console.log("Status: ", response.status);
-                console.log("Data: ", response.data);
-                if (response.status === 201) {
-                    swal({
-                        title: response.data.message,
-                        timer: 2000
-                    })
-                } else {
-                    swal({
-                        title: "Try Again"
-                    })
-                }
-            }).catch(error => {
-                console.error('Something went wrong !', error);
-            });
+        if (DataToCart.userId === null) {
+            swal({
+                title: "login please",
+                timer: 2000
+            })
+        } else {
+            axios.post(CART_URL, DataToCart)
+                .then(response => {
+                    console.log("Status: ", response.status);
+                    console.log("Data: ", response.data);
+                    if (response.status === 201) {
+                        swal({
+                            title: response.data.message,
+                            timer: 2000
+                        })
+                    } else {
+                        swal({
+                            title: "Try Again"
+                        })
+                    }
+                }).catch(error => {
+                    console.error('Something went wrong !', error);
+                });
+        }
     }
     const options = {
         items: 4,
