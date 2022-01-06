@@ -3,7 +3,7 @@ import './Cart.css'
 import { Accordion } from 'react-bootstrap'
 import { useForm } from 'react-hook-form';
 import axios from 'axios'
-import { GET_CART_DATA } from "../../endpoint";
+import { CART_URL } from "../../endpoint";
 import { useState, useEffect } from "react";
 import swal from 'sweetalert';
 const Cart = () => {
@@ -32,7 +32,7 @@ const Cart = () => {
     useEffect(() => {
         setLoader(true)
         try {
-            axios.get(GET_CART_DATA).then(res => {
+            axios.get(CART_URL + "/" + localStorage.getItem('id')).then(res => {
                 if (res.status === 200) {
                     setData(res.data.data);
                     setLoader(false)
@@ -48,9 +48,13 @@ const Cart = () => {
     }, [])
 
 
-    // card delete
+    // cart delete
     const Deletecart = (ids) => {
-        axios.delete(GET_CART_DATA + "/" + ids).then(res => {
+        const DeleteData ={
+            "userId" : localStorage.getItem('id'),
+            "id":ids
+        }
+        axios.delete(CART_URL , DeleteData).then(res => {
             console.log(res.status)
             if (res.status === 200) {
                 swal({
