@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Shop.css'
 import Smwatch1 from '../../assets/images/Product/Product-Desc/Smart-watch/1.jpg'
-import Smwatch2 from '../../assets/images/Product/Product-Desc/Smart-watch/2.jpg'
-import Smwatch3 from '../../assets/images/Product/Product-Desc/Smart-watch/3.jpg'
-import Smwatch4 from '../../assets/images/Product/Product-Desc/Smart-watch/4.jpg'
 import { Accordion } from 'react-bootstrap'
 import { Tab, Tabs, Nav, Col, Row } from 'react-bootstrap'
 import ProductDescImg from '../../assets/images/Product/Product-Desc/Smart-watch/prod-desc-text.jpg'
@@ -14,16 +11,13 @@ import { products } from '../../assets/Data/product'
 import BTearphones from '../../assets/images/Product/Product-Desc/Smart-watch/BT-Earphones.jpg'
 import CTSMwatch from '../../assets/images/Product/Product-Desc/Smart-watch/5.jpg'
 import SmWatchCharger from '../../assets/images/Product/Product-Desc/Smart-watch/Smartwatch-charger.jpg'
-import Smwatch1Large from '../../assets/images/Product/Product-Desc/Smart-watch/large1.jpg'
-import Smwatch2Large from '../../assets/images/Product/Product-Desc/Smart-watch/large2.jpg'
-import Smwatch3Large from '../../assets/images/Product/Product-Desc/Smart-watch/large3.jpg'
-import Smwatch4Large from '../../assets/images/Product/Product-Desc/Smart-watch/large4.jpg'
 import { ReviewComments } from '../../assets/Data/data'
 import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
 import axios from 'axios'
-import { PRODUCT_URL } from '../../endpoint'
+import { PRODUCT_URL, WISHLIST_URL } from '../../endpoint'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { CART_URL } from '../../endpoint'
 
 const Shop = (({ match },) => {
     const BreadCrumb = React.lazy(() => import('../../Components/BreadCrumb/Breadcrumb'))
@@ -39,18 +33,13 @@ const Shop = (({ match },) => {
         })
         reset();
     }
-    const data2 = {
-        "name": Data.name,
-        "category": Data.category,
-        "price": Data.price,
-        "size": 1,
-        "image": Data.image,
-        "rating": Data.rating,
-        // "quantity": Data.quantity
-    };
+
     const handleSubmitWsishlist = () => {
-        // console.log(data2)
-        axios.post(`https://daruwale.herokuapp.com/public/wishlist/${match.params.id}`, data2)
+        const data2 = {
+            "userId": localStorage.getItem('id'),
+            "productId": Data._id,
+        };
+        axios.post(WISHLIST_URL, data2)
             .then(response => {
                 console.log("Status: ", response.status);
                 console.log("Data: ", response.data);
@@ -68,32 +57,30 @@ const Shop = (({ match },) => {
                 console.error('Something went wrong!', error);
             });
     }
-    const DataToCart = {
-        "name": Data.name,
-        "category": Data.category,
-        "price": Data.price,
-        "size": 1,
-        "image": Data.image,
-        "quantity": 1
-    }
+
     const handleSubmitCart = () => {
-        axios.post(`https://daruwale.herokuapp.com/public/cart/${match.params.id}`,DataToCart)
-        .then(response => {
-            console.log("Status: ", response.status);
-            console.log("Data: ",response.data);
-            if(response.status === 201){
-                swal({
-                    title: response.data.message,
-                    timer:2000
-                })
-            }else{
-                swal({
-                    title: "Try Again"
-                })
-            }
-        }).catch(error => {
-            console.error('Something went wrong !',error);
-        });
+        const DataToCart = {
+            "userId": localStorage.getItem('id'),
+            "productId": Data._id,
+            "quantity": Data.quantity
+        }
+        axios.post(CART_URL, DataToCart)
+            .then(response => {
+                console.log("Status: ", response.status);
+                console.log("Data: ", response.data);
+                if (response.status === 201) {
+                    swal({
+                        title: response.data.message,
+                        timer: 2000
+                    })
+                } else {
+                    swal({
+                        title: "Try Again"
+                    })
+                }
+            }).catch(error => {
+                console.error('Something went wrong !', error);
+            });
     }
     const options = {
         items: 4,
@@ -144,54 +131,11 @@ const Shop = (({ match },) => {
                         <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="" defaultActiveKey="general">
                             {/* Tabfirst General Info start */}
                             <Tab eventKey="general" title=" General Info" className='py-4 px-sm-4'>
-                                <div className="tab-content px-lg-3 pt-4">
+                                <div className="tab-content px-lg-3">
                                     <div className="tab-pane fade active show" id="general" role="tabpanel">
                                         <div className="row">
                                             <div className="col-lg-7 pe-lg-0" >
-                                                <Tab.Container id="left-tabs-example" defaultActiveKey="first" className="product-gallery" >
-                                                    <Row >
-                                                        <Col sm={3} className='product-gallery-preview' className="flex-column">
-                                                            <Nav variant="pills" >
-                                                                <Nav.Item>
-                                                                    <Nav.Link eventKey="first" className="product-gallery-preview-item ">
-                                                                        <img className="image-zoom" src={Smwatch1} data-zoom={Smwatch1} alt="Product image" width='80px' />
-                                                                    </Nav.Link>
-                                                                </Nav.Item>
-                                                                <Nav.Item>
-                                                                    <Nav.Link eventKey="second" className="product-gallery-preview-item">
-                                                                        <img className="image-zoom" src={Smwatch2} data-zoom={Smwatch2} alt="Product image" width='80px' />
-                                                                    </Nav.Link>
-                                                                </Nav.Item>
-                                                                <Nav.Item>
-                                                                    <Nav.Link eventKey="third" className="product-gallery-preview-item">
-                                                                        <img className="image-zoom" src={Smwatch3} data-zoom={Smwatch3} alt="Product image" width='80px' />
-                                                                    </Nav.Link>
-                                                                </Nav.Item>
-                                                                <Nav.Item>
-                                                                    <Nav.Link eventKey="fourth" className="product-gallery-preview-item" >
-                                                                        <img className="image-zoom" src={Smwatch4} data-zoom={Smwatch4} alt="Product image" width='80px' />
-                                                                    </Nav.Link>
-                                                                </Nav.Item>
-                                                            </Nav>
-                                                        </Col>
-                                                        <Col sm={9}>
-                                                            <Tab.Content>
-                                                                <Tab.Pane eventKey="first">
-                                                                    <img src={Data.image} className='img-fluid' width="100%"></img>
-                                                                </Tab.Pane>
-                                                                <Tab.Pane eventKey="second">
-                                                                    <img src={Smwatch2Large} className='img-fluid' width="100%"></img>
-                                                                </Tab.Pane>
-                                                                <Tab.Pane eventKey="third">
-                                                                    <img src={Smwatch3Large} className='img-fluid' width="100%"></img>
-                                                                </Tab.Pane>
-                                                                <Tab.Pane eventKey="fourth">
-                                                                    <img src={Smwatch4Large} className='img-fluid' width="100%"></img>
-                                                                </Tab.Pane>
-                                                            </Tab.Content>
-                                                        </Col>
-                                                    </Row>
-                                                </Tab.Container>
+                                                <img src={Data.image} className='img-fluid' width="70%"></img>
                                             </div>
                                             <div className="col-lg-5 pt-4 pt-lg-0">
                                                 <div className="product-details ms-auto pb-3">
@@ -204,13 +148,13 @@ const Shop = (({ match },) => {
                                                 <div className="position-relative mb-5 pb-3">
                                                     <label className='color-circle-box'><input style={{ backgroundColor: '#f25540' }} name='color' type='radio' /></label>
                                                     <label className='color-circle-box'><input style={{ backgroundColor: '#65805b' }} name='color' type='radio' /></label>
-                                                    <label className='color-circle-box'><input  style={{ backgroundColor: '#f5f5f5' }} name='color' type='radio' /></label>
+                                                    <label className='color-circle-box'><input style={{ backgroundColor: '#f5f5f5' }} name='color' type='radio' /></label>
                                                     <label className='color-circle-box'><input style={{ backgroundColor: '#333' }} name='color' type='radio' /></label>
                                                     <div className="product-badge product-available mt-n1">Product available</div>
                                                 </div>
                                                 <div className="d-flex align-items-center pt-2 pb-4">
-                                                    <select className="form-select me-3" style={{ width: "5rem" }} 
-                                                    // onChange={Data.quantity}
+                                                    <select className="form-select me-3" style={{ width: "5rem" }}
+                                                        defaultValue={Data.quantity}
                                                     >
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
@@ -218,14 +162,14 @@ const Shop = (({ match },) => {
                                                         <option value="4">4</option>
                                                         <option value="5">5</option>
                                                     </select>
-                                                    <button className="Button-Full-Red d-block w-100"  data-toggle="tooltip" data-placement="top" onClick={handleSubmitCart}><i className="fa fa-shopping-cart me-2"></i>Add to Cart</button>
+                                                    <button className="Button-Full-Red d-block w-100" data-toggle="tooltip" data-placement="top" onClick={handleSubmitCart}><i className="fa fa-shopping-cart me-2"></i>Add to Cart</button>
                                                 </div>
                                                 <div className="d-flex mb-4">
                                                     <div className="w-100 me-3">
                                                         <button className="btn-Gray d-block w-100" data-toggle="tooltip" data-placement="top" title="Hooray!" onClick={handleSubmitWsishlist} type="button"><i className="fa fa-heart-o me-2" style={{ color: "gray" }}></i><span className="d-none d-sm-inline">Add to </span>Wishlist</button>
                                                     </div>
                                                     <div className="w-100">
-                                                        <a className="btn-Gray d-block w-100" type="button" href='/compare'><i className="fa fa-refresh me-2" style={{ color: "gray" }}></i>Compare</a>
+                                                        <Link className="btn-Gray d-block w-100" type="button" href='/compare'><i className="fa fa-refresh me-2" style={{ color: "gray" }}></i>Compare</Link>
                                                     </div>
                                                 </div>
                                                 <Accordion>
@@ -301,9 +245,9 @@ const Shop = (({ match },) => {
                                                 <option value="4">4</option>
                                                 <option value="5">5</option>
                                             </select>
-                                            <Link className="Button-Full-Red block w-100" to='/cart'><i className="fa fa-shopping-cart me-2"></i>Add to Cart</Link>
+                                            <button className="Button-Full-Red d-block w-100" data-toggle="tooltip" data-placement="top" onClick={handleSubmitCart}><i className="fa fa-shopping-cart me-2"></i>Add to Cart</button>
                                             <div className="me-2">
-                                                <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} ><i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
+                                                <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} onClick={handleSubmitWsishlist} type="button"><i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
                                             </div>
                                             <div>
                                                 <Link className="btn btn-small-desc" to='/compare'><i className="fa fa-refresh" style={{ color: "gray" }}></i></Link>
@@ -312,46 +256,19 @@ const Shop = (({ match },) => {
                                     </div>
 
                                     <div className="row pt-2">
-                                        <div className="col-lg-5 col-sm-6">
-                                            <h3 className="h6">General specs</h3>
+                                        <div className="col-lg-8 col-sm-6">
+                                            <h3 className="h6">Product Details</h3>
                                             <ul className="list-unstyled fs-sm pb-2">
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Model:</span><span>Amazfit Smartwatch</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Gender:</span><span>Unisex</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Smartphone app:</span><span className='Specs-text-align'>Amazfit Watch</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">OS campitibility:</span><span>Android / iOS</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Name:</span><span>{Data.name}</span></li>
+                                                <li className="d-flex justify-content-between pb-2"><span className="text-muted">Description:</span></li><div className='pb-2 border-bottom'>{Data.description}</div>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Category:</span><span>{Data.category}</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Sub Category:</span><span>{Data.subCategory}</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Price:</span><span>${Data.price}</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Size:</span><span>{Data.size}</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Food Pairing:</span><span>{Data.FoodPairing}</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">ABV:</span><span className='Specs-text-align'>{Data.ABV}</span></li>
                                             </ul>
-                                            <h3 className="h6">Physical specs</h3>
-                                            <ul className="list-unstyled fs-sm pb-2">
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Shape:</span><span>Rectangular</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Body material:</span><span className='Specs-text-align'>Plastics / Ceramics</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Band material:</span><span>Silicone</span></li>
-                                            </ul>
-                                            <h3 className="h6">Display</h3>
-                                            <ul className="list-unstyled fs-sm pb-2">
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Display type:</span><span>Color</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Display size:</span><span>1.28"</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Screen resolution:</span><span>176 x 176</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Touch screen:</span><span>No</span></li>
-                                            </ul>
-                                        </div>
-                                        <div className="col-lg-5 col-sm-6 offset-lg-1">
-                                            <h3 className="h6">Functions</h3>
-                                            <ul className="list-unstyled fs-sm pb-2">
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Phone calls:</span><span className='Specs-text-align'>Incoming call notification</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Monitoring:</span><span className='Specs-text-align'>Heart rate / Physical activity</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">GPS support:</span><span>Yes</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Sensors:</span><span className='Specs-text-align'>Heart rate, Gyroscope, Geomagnetic, Light sensor</span></li>
-                                            </ul>
-                                            <h3 className="h6">Battery</h3>
-                                            <ul className="list-unstyled fs-sm pb-2">
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Battery:</span><span>Li-Pol</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Battery capacity:</span><span>190 mAh</span></li>
-                                            </ul>
-                                            <h3 className="h6">Dimensions</h3>
-                                            <ul className="list-unstyled fs-sm pb-2">
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Dimensions:</span><span>195 x 20 mm</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Weight:</span><span>32 g</span></li>
-                                            </ul>
+
                                         </div>
                                     </div>
                                 </div>
@@ -366,7 +283,7 @@ const Shop = (({ match },) => {
                                             <div className="h3 C-Tprice">$124.<small>99</small></div>
                                         </div>
                                     </div>
-                                    <div className=" col-lg-6 col-sm-8 d-flex align-items-center pt-3">
+                                    <div className=" col-lg-5 col-sm-8 d-flex align-items-center pt-3">
                                         <select className="form-select me-2 w-50" >
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -374,9 +291,9 @@ const Shop = (({ match },) => {
                                             <option value="4">4</option>
                                             <option value="5">5</option>
                                         </select>
-                                        <a className="Button-Full-Red block w-100" href='/cart'><i className="fa fa-shopping-cart me-2"></i>Add to Cart</a>
+                                        <button className="Button-Full-Red d-block w-100" data-toggle="tooltip" data-placement="top" onClick={handleSubmitCart}><i className="fa fa-shopping-cart me-2"></i>Add to Cart</button>
                                         <div className="me-2">
-                                            <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} ><i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
+                                            <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} onClick={handleSubmitWsishlist} type="button"><i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
                                         </div>
                                         <div>
                                             <a className="btn btn-small-desc" href='/compare'><i className="fa fa-refresh" style={{ color: "gray" }}></i></a>
@@ -564,7 +481,7 @@ const Shop = (({ match },) => {
                     </div>
                 </div>
             </section>
-            <section className='Choose-Your-Style'>
+            {/* <section className='Choose-Your-Style'>
                 <div className="container pt-lg-3 pb-4 pb-sm-5">
                     <div className="row justify-content-center">
                         <div className="col-lg-8 ">
@@ -576,7 +493,7 @@ const Shop = (({ match },) => {
                     </div>
                 </div>
 
-            </section>
+            </section> */}
             <hr className="mb-5"></hr>
             <section className='You-May-Also-like-Product mb-5'>
                 <div className='container'>
