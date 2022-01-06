@@ -33,6 +33,7 @@ const Cart = () => {
         setLoader(true)
         try {
             axios.get(CART_URL + "/" + localStorage.getItem('id')).then(res => {
+                console.log(res.data.data)
                 if (res.status === 200) {
                     setData(res.data.data);
                     setLoader(false)
@@ -76,7 +77,7 @@ const Cart = () => {
 
     //card item
     const CartItemCards = slice.map((v, i) => {
-        totalCartPrice += v.price * v.quantity
+        totalCartPrice += v.product.price * v.quantity
         if (deleteId === v._id) {
             return ("")
         } else {
@@ -85,17 +86,19 @@ const Cart = () => {
                     <div className='d-flex row Cart-list-item align-items-center'>
                         <div className='d-flex align-items-center col-lg-3 col-md-3 col-sm-3 col-xs-3 Cart-list-item-img'>
                             <div className='p-3'>
-                                <img src={v.image} className='img-fluid'
+                                <img src={v.product.image} className='img-fluid'
                                     width="150px" height="150px" />
                             </div>
                         </div>
                         <div className='product-desc col-lg-7 col-md-7 col-sm-7 col-xs-6'><a href='/product-details'>
-                            <h6 className='title-text-color'>{v.name}</h6>
+                            <h6 className='title-text-color'>{v.product.name}</h6>
                             {/* <span className='text-muted'>Size: {v.size}</span> */}
-                            <span className='text-muted'>Category: {v.category}</span>
+                            <span className='text-muted'>Category: {v.product.category}</span>
                             <br />
-                            <span className='text-muted'>Color: Black</span>
-                            <p className='text-indigo fs-lg'>${v.price}</p>
+                            <span className='text-muted'>ABV: {v.product.ABV}</span>
+                            <br />
+                            <span className='text-muted mb-1'>size: {v.product.size}</span>
+                            <p className='text-indigo fs-lg'>${v.product.price}</p>
                         </a></div>
 
                         <div className='col-lg-2 col-md-2 col-sm-2 col-xs-3 Delete-Cart-Item'>
