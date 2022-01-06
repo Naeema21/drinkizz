@@ -3,7 +3,7 @@ import './Account_Orders_History.css';
 import axios from 'axios';
 import swal from 'sweetalert';
 import { Link } from 'react-router-dom';
-import { GET_WISHLIST_DATA } from "../../endpoint"
+import { WISHLIST_URL } from "../../endpoint"
 function Wishlist() {
     const NoDataInCart = React.lazy(() => import('../../Components/NoDataFound/NoDataInCart'))
     //skeleton
@@ -22,7 +22,7 @@ function Wishlist() {
     useEffect(() => {
         // setLoader(true)
         try {
-            axios.get(GET_WISHLIST_DATA)
+            axios.get(WISHLIST_URL)
                 .then(res => {
                     if (res.status === 200) {
                         setItems(res.data.data);
@@ -38,7 +38,7 @@ function Wishlist() {
         }
     }, [])
     const Deletecart = (ids) => {
-        axios.delete(GET_WISHLIST_DATA + "/" + ids).then(res => {
+        axios.delete(WISHLIST_URL + "/" + ids).then(res => {
             console.log(res.status)
             if (res.status === 200) {
                 swal({

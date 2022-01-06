@@ -24,6 +24,7 @@ const SignIn = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm({ mode: "onBlur" });
     const onSubmit = data => {
         axios.post(LOGIN, data).then(res => {
+            console.log(res)
             if (res.status === 201) {
                 swal({
                     title: res.data.message,
@@ -37,8 +38,10 @@ const SignIn = () => {
                 reset();
                 handleClose();
                 localStorage.setItem('token', res.data.token)
-                localStorage.setItem('name', res.data.data)
-                setName(res.data.data)
+                localStorage.setItem('name', res.data.data.name)
+                localStorage.setItem('id', res.data.data.userId)
+
+                setName(res.data.data.name)
             } else {
                 swal({
                     title: "Something went wrong! Try again!"

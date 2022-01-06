@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Shop.css'
 import Smwatch1 from '../../assets/images/Product/Product-Desc/Smart-watch/1.jpg'
-import Smwatch2 from '../../assets/images/Product/Product-Desc/Smart-watch/2.jpg'
-import Smwatch3 from '../../assets/images/Product/Product-Desc/Smart-watch/3.jpg'
-import Smwatch4 from '../../assets/images/Product/Product-Desc/Smart-watch/4.jpg'
 import { Accordion } from 'react-bootstrap'
 import { Tab, Tabs, Nav, Col, Row } from 'react-bootstrap'
 import ProductDescImg from '../../assets/images/Product/Product-Desc/Smart-watch/prod-desc-text.jpg'
@@ -18,8 +15,9 @@ import { ReviewComments } from '../../assets/Data/data'
 import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
 import axios from 'axios'
-import { PRODUCT_URL } from '../../endpoint'
+import { PRODUCT_URL, WISHLIST_URL } from '../../endpoint'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { CART_URL } from '../../endpoint'
 
 const Shop = (({ match },) => {
     const BreadCrumb = React.lazy(() => import('../../Components/BreadCrumb/Breadcrumb'))
@@ -35,18 +33,13 @@ const Shop = (({ match },) => {
         })
         reset();
     }
-    const data2 = {
-        "name": Data.name,
-        "category": Data.category,
-        "price": Data.price,
-        "size": 1,
-        "image": Data.image,
-        "rating": Data.rating,
-        // "quantity": Data.quantity
-    };
+
     const handleSubmitWsishlist = () => {
-        // console.log(data2)
-        axios.post(`https://daruwale.herokuapp.com/public/wishlist/${match.params.id}`, data2)
+        const data2 = {
+            "userId": localStorage.getItem('id'),
+            "productId": Data._id,
+        };
+        axios.post(WISHLIST_URL, data2)
             .then(response => {
                 console.log("Status: ", response.status);
                 console.log("Data: ", response.data);
@@ -64,16 +57,14 @@ const Shop = (({ match },) => {
                 console.error('Something went wrong!', error);
             });
     }
-    const DataToCart = {
-        "name": Data.name,
-        "category": Data.category,
-        "price": Data.price,
-        "size": 1,
-        "image": Data.image,
-        "quantity": 1
-    }
+
     const handleSubmitCart = () => {
-        axios.post(`https://daruwale.herokuapp.com/public/cart/${match.params.id}`, DataToCart)
+        const DataToCart = {
+            "userId": localStorage.getItem('id'),
+            "productId": Data._id,
+            "quantity": Data.quantity
+        }
+        axios.post(CART_URL, DataToCart)
             .then(response => {
                 console.log("Status: ", response.status);
                 console.log("Data: ", response.data);
@@ -163,7 +154,7 @@ const Shop = (({ match },) => {
                                                 </div>
                                                 <div className="d-flex align-items-center pt-2 pb-4">
                                                     <select className="form-select me-3" style={{ width: "5rem" }}
-                                                    // onChange={Data.quantity}
+                                                        defaultValue={Data.quantity}
                                                     >
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
@@ -256,7 +247,7 @@ const Shop = (({ match },) => {
                                             </select>
                                             <button className="Button-Full-Red d-block w-100" data-toggle="tooltip" data-placement="top" onClick={handleSubmitCart}><i className="fa fa-shopping-cart me-2"></i>Add to Cart</button>
                                             <div className="me-2">
-                                                <button className="btn btn-small-desc" style={{ marginLeft: '7px' }}  onClick={handleSubmitWsishlist} type="button"><i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
+                                                <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} onClick={handleSubmitWsishlist} type="button"><i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
                                             </div>
                                             <div>
                                                 <Link className="btn btn-small-desc" to='/compare'><i className="fa fa-refresh" style={{ color: "gray" }}></i></Link>
@@ -265,46 +256,19 @@ const Shop = (({ match },) => {
                                     </div>
 
                                     <div className="row pt-2">
-                                        <div className="col-lg-5 col-sm-6">
-                                            <h3 className="h6">General specs</h3>
+                                        <div className="col-lg-8 col-sm-6">
+                                            <h3 className="h6">Product Details</h3>
                                             <ul className="list-unstyled fs-sm pb-2">
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Model:</span><span>Amazfit Smartwatch</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Gender:</span><span>Unisex</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Smartphone app:</span><span className='Specs-text-align'>Amazfit Watch</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">OS campitibility:</span><span>Android / iOS</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Name:</span><span>{Data.name}</span></li>
+                                                <li className="d-flex justify-content-between pb-2"><span className="text-muted">Description:</span></li><div className='pb-2 border-bottom'>{Data.description}</div>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Category:</span><span>{Data.category}</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Sub Category:</span><span>{Data.subCategory}</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Price:</span><span>${Data.price}</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Size:</span><span>{Data.size}</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Food Pairing:</span><span>{Data.FoodPairing}</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">ABV:</span><span className='Specs-text-align'>{Data.ABV}</span></li>
                                             </ul>
-                                            <h3 className="h6">Physical specs</h3>
-                                            <ul className="list-unstyled fs-sm pb-2">
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Shape:</span><span>Rectangular</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Body material:</span><span className='Specs-text-align'>Plastics / Ceramics</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Band material:</span><span>Silicone</span></li>
-                                            </ul>
-                                            <h3 className="h6">Display</h3>
-                                            <ul className="list-unstyled fs-sm pb-2">
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Display type:</span><span>Color</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Display size:</span><span>1.28"</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Screen resolution:</span><span>176 x 176</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Touch screen:</span><span>No</span></li>
-                                            </ul>
-                                        </div>
-                                        <div className="col-lg-5 col-sm-6 offset-lg-1">
-                                            <h3 className="h6">Functions</h3>
-                                            <ul className="list-unstyled fs-sm pb-2">
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Phone calls:</span><span className='Specs-text-align'>Incoming call notification</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Monitoring:</span><span className='Specs-text-align'>Heart rate / Physical activity</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">GPS support:</span><span>Yes</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Sensors:</span><span className='Specs-text-align'>Heart rate, Gyroscope, Geomagnetic, Light sensor</span></li>
-                                            </ul>
-                                            <h3 className="h6">Battery</h3>
-                                            <ul className="list-unstyled fs-sm pb-2">
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Battery:</span><span>Li-Pol</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Battery capacity:</span><span>190 mAh</span></li>
-                                            </ul>
-                                            <h3 className="h6">Dimensions</h3>
-                                            <ul className="list-unstyled fs-sm pb-2">
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Dimensions:</span><span>195 x 20 mm</span></li>
-                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Weight:</span><span>32 g</span></li>
-                                            </ul>
+
                                         </div>
                                     </div>
                                 </div>
@@ -329,7 +293,7 @@ const Shop = (({ match },) => {
                                         </select>
                                         <button className="Button-Full-Red d-block w-100" data-toggle="tooltip" data-placement="top" onClick={handleSubmitCart}><i className="fa fa-shopping-cart me-2"></i>Add to Cart</button>
                                         <div className="me-2">
-                                        <button className="btn btn-small-desc" style={{ marginLeft: '7px' }}  onClick={handleSubmitWsishlist} type="button"><i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
+                                            <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} onClick={handleSubmitWsishlist} type="button"><i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
                                         </div>
                                         <div>
                                             <a className="btn btn-small-desc" href='/compare'><i className="fa fa-refresh" style={{ color: "gray" }}></i></a>
@@ -517,7 +481,7 @@ const Shop = (({ match },) => {
                     </div>
                 </div>
             </section>
-            <section className='Choose-Your-Style'>
+            {/* <section className='Choose-Your-Style'>
                 <div className="container pt-lg-3 pb-4 pb-sm-5">
                     <div className="row justify-content-center">
                         <div className="col-lg-8 ">
@@ -529,7 +493,7 @@ const Shop = (({ match },) => {
                     </div>
                 </div>
 
-            </section>
+            </section> */}
             <hr className="mb-5"></hr>
             <section className='You-May-Also-like-Product mb-5'>
                 <div className='container'>
