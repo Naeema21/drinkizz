@@ -33,7 +33,7 @@ function App() {
             <Route exact path="/support" component={Support}></Route>
             <Route exact path="/account-orders-history" component={Account_Orders_History}></Route>
             <Route exact path="/order-tracking" component={OrderTracking}></Route>
-            <Route exact path="/compare" component={Compare}></Route>
+            <Route exact path="/compare/:id" component={Compare}></Route>
             <Route exact path="/product" component={Product}></Route>
             <Route exact path="/cart" component={Cart}></Route>
             <Route exact path="/product-details/:id" component={Shop}></Route>

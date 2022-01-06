@@ -53,7 +53,7 @@ const Cards = React.memo((props) => {
 
         <div className='card product-card mt-3 mb-3'>
             <div className='pro-compare d-flex align-items-center'>
-                <Link to='/compare' className='btn-compare me-2'><i className="fa fa-refresh px-1"></i>Compare</Link>
+                <Link to={`/compare/` + props.id} className='btn-compare me-2'><i className="fa fa-refresh px-1"></i>Compare</Link>
                 <button onClick={handleSubmit2} data-toggle="tooltip" data-placement="top" title="Hooray!" className='btn-wishlist btn-sm'><i className="fa fa-heart-o" aria-hidden="true"></i></button>
             </div>
             <div className='product-img'>
