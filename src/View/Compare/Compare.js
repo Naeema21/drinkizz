@@ -78,12 +78,11 @@ const Compare = (props) => {
       };
       //get data from Api product
       
-      const[items,setItems]=useState('');
-      const[datas,setDatas]=useState('');
+      const[items,setItems]=useState([]);
+      const[datas,setDatas]=useState([]);
       const { id } = useParams();
       let prod=[];
       const item =prod;
-      console.log(item);
     //   prod.push(1);
     //   console.log(prod);
     //   prod.push(2);
@@ -118,7 +117,7 @@ const Compare = (props) => {
         //      //setData(prod);
         //      console.log();    
         // }) 
-        //61d6af401b54a6b256420eb4
+        
     return (
         <> 
     
