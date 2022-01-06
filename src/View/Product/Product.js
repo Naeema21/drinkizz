@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './product.css'
 import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
-import shoplistproimg1 from '../../assets/images/Product/shoplist-proimg1.jpg'
+import shoplistproimg1 from '../../assets/images/Home/offer-banner.png'
 import axios from "axios";
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb'
 import { PRODUCT_URL } from '../../endpoint';
@@ -209,8 +209,8 @@ const Product = () => {
                                         </ul>
                                     </div>
                                     : ""}
-                            <div className='row mb-5 mt-5'>
-                                <div className='col-lg-6 col-md-6 col-sm-12 py-4  px-4  text-center text-sm-start shoplist-box1'>
+                            <div className='row mb-5 mt-5 shoplist-box1 align-items-center'>
+                                <div className='col-lg-6 col-md-6 col-sm-12 py-4  px-4  text-center text-sm-start '>
                                     <h4 className='fw-light mb-2' style={{ color: '#373F53' }}>Converse All Star</h4>
                                     <h3 className='mb-4'>Make Your Day Comfortable</h3>
                                     <button className='btn btn btn-sm d-block mb-2 addto-cardbtn'>Shop Now <i className="fa fa-angle-right"></i></button>
