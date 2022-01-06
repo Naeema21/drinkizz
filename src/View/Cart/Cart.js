@@ -1,10 +1,10 @@
-import React from 'react'
+import React ,{ useState, useEffect } from "react";
 import './Cart.css'
 import { Accordion } from 'react-bootstrap'
 import { useForm } from 'react-hook-form';
 import axios from 'axios'
+import { Link } from "react-router-dom";
 import { CART_URL } from "../../endpoint";
-import { useState, useEffect } from "react";
 import swal from 'sweetalert';
 const Cart = () => {
     const BreadCrumb = React.lazy(() => import('../../Components/BreadCrumb/Breadcrumb'))
@@ -25,7 +25,6 @@ const Cart = () => {
     const loadMore = () => {
         setnoOfElement(noOfElement + noOfElement)
     }
-
 
     //TotalPrice
     var totalCartPrice = 0;
@@ -54,8 +53,7 @@ const Cart = () => {
     // cart delete
     const Deletecart = (ids) => {
         const DeleteData = {
-            "userId": localStorage.getItem('id'),
-            "id": ids
+            id: ids
         }
         axios.delete(CART_URL, DeleteData).then(res => {
             console.log(res.status)
@@ -148,21 +146,23 @@ const Cart = () => {
                                                                     width="150px" height="150px" />
                                                             </div>
                                                         </div>
-                                                        <div className='product-desc col-lg-7 col-md-7 col-sm-7 col-xs-6'><a href='/product-details'>
-                                                            <h6 className='title-text-color'>{v.product.name}</h6>
-                                                            {/* <span className='text-muted'>Size: {v.size}</span> */}
-                                                            <span className='text-muted'>Category: {v.product.category}</span>
-                                                            <br />
-                                                            <span className='text-muted'>ABV: {v.product.ABV}</span>
-                                                            <br />
-                                                            <span className='text-muted mb-1'>size: {v.product.size}</span>
-                                                            <p className='text-indigo fs-lg'>${v.product.price}</p>
-                                                        </a></div>
+                                                        <div className='product-desc col-lg-7 col-md-7 col-sm-7 col-xs-6'>
+                                                            <Link to={"/product-details/" + v.product._id }>
+                                                                <h6 className='title-text-color'>{v.product.name}</h6>
+                                                                {/* <span className='text-muted'>Size: {v.size}</span> */}
+                                                                <span className='text-muted'>Category: {v.product.category}</span>
+                                                                <br />
+                                                                <span className='text-muted'>ABV: {v.product.ABV}</span>
+                                                                <br />
+                                                                <span className='text-muted mb-1'>size: {v.product.size}</span>
+                                                                <p className='text-indigo fs-lg'>${v.product.price}</p>
+                                                            </Link></div>
 
                                                         <div className='col-lg-2 col-md-2 col-sm-2 col-xs-3 Delete-Cart-Item'>
                                                             <p className='text-quantity'>Quantity</p>
                                                             <input type="number" defaultValue={v.quantity} className='quanity-bar' /><br />
-                                                            <a className='text-red remove-link mt-2' onClick={() => Deletecart(v._id)}><i className='fa fa-close'></i>&nbsp;Remove
+                                                            <a className='text-red remove-link mt-2' onClick={() => Deletecart(v._id)}>
+                                                                <i className='fa fa-close'></i>&nbsp;Remove
                                                             </a>
                                                         </div>
                                                     </div>

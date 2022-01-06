@@ -9,7 +9,7 @@ import ProductEarbuds from '../../assets/images/Home/banner-sm03.png'
 import HomeBannerCaroucel1 from '../../assets/images/Home/Caroucel-1.jpg'
 import HomeBannerCaroucel2 from '../../assets/images/Home/caroucel-2.jpg'
 import HomeBannerCaroucel3 from '../../assets/images/Home/caroucel-3.jpg'
-import OfferBanneripad from '../../assets/images/Home/offer-banner-1.jpg'
+import OfferBanneripad from '../../assets/images/Home/offer-banner.png'
 import { clientCaroucel } from "../../assets/Data/data";
 import { Link } from "react-router-dom";
 import axios from 'axios'
@@ -251,14 +251,16 @@ const bestsellerskeleton =
                             <div className='col-md-5'>
                                 <div className='px-5'>
                                     <span className='Limited-Offer-tag bg-danger'>Limited Offer</span>
-                                    <h3 className='mt-4 mb-1 fw-light text-body'>All new</h3>
-                                    <h2 className='mb-1'>Last Gen iPad Pro</h2>
-                                    <p className='h5 fw-light text-body'>at discounted price. Hurry up!</p>
-                                    <button className='my-4 btn'>View Offers     <i className="fa fa-angle-right"></i></button>
+                                    <h3 className='mt-2 mb-1 fw-light text-body'>All new</h3>
+                                    <h2 className='mb-1'>You want it? We got it.</h2>
+                                    <p className='h5 fw-light text-body'>Rosé? Check. Tito's? Check. That one killer 
+                                    pale ale you tried the other day? Check. 
+                                    We have the biggest selection for on-demand alcohol in the history of ever.</p>
+                                    <button className='my-4 btn'>Check Out    <i className="fa fa-angle-right"></i></button>
                                 </div>
                             </div>
-                            <div className='col-md-7'>
-                                <img src={OfferBanneripad} alt="Offer On ipad" className='img-fluid'></img>
+                            <div className='col-md-7 px-5'>
+                                <img src={OfferBanneripad} alt="Offer On ipad" height="300px" width="100%"></img>
                             </div>
                         </div>
 
