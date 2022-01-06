@@ -6,10 +6,11 @@ import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 import { GET_CART_DATA } from "../../endpoint";
 import { PRODUCT_URL } from '../../endpoint';
 import swal from 'sweetalert';
-
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Product from '../Product/Product';
 const Compare = (props) => {
+    const { useState } = React;
     //Summary
     //toggle the table row
     const [showText, setShowText] = useState(false);
@@ -76,79 +77,51 @@ const Compare = (props) => {
         }
       };
       //get data from Api product
-      const[items,setItems]=useState([]);
+      
+      const[items,setItems]=useState('');
+      const[datas,setDatas]=useState('');
       const { id } = useParams();
-      let tik = JSON.parse(localStorage.getItem('token'));
-      console.log(tik);
-      useEffect(()=> {   
-        axios.get(`https://daruwale.herokuapp.com/public/product/${id}`)
-        .then(res => 
-            {
-            console.log(res.data);
-             setItems(res.data);   
-        })    
-    }, [])
-    console.log(items);
-    //delete data from product
-    const [deleteId, setDeleteId] = useState();
-    const deleteproduct = (id)=> {
-        axios.delete(`https://daruwale.herokuapp.com/public/product/${id}`)
-         .then(res => {
-             console.log(res);
-             console.log(res.data.id);
-            //  if (res.status === 200) {
-            //     swal({
-            //         title: "Removed Product!",
-            //         timer: 2000,
-            //     }).then(() => {
-            //         setDeleteId(id)
-            //         window.location.reload()
-            //     })
-            // } else {
-            //     swal({
-            //         title: "Try Again!",
-            //     })
+      let prod=[];
+      const item =prod;
+      console.log(item);
+    //   prod.push(1);
+    //   console.log(prod);
+    //   prod.push(2);
+    //   console.log(prod);
+    //   prod.pop();
+  
+    const reqOne = axios.get(`https://daruwale.herokuapp.com/public/product/61d6af401b54a6b256420eb4`);
+    const reqTwo = axios.get(`https://daruwale.herokuapp.com/public/product/61d59adba8e333a8f8db1b07`);
+    
+    axios.all([reqOne, reqTwo]).then(axios.spread((...responses) => {
+      const responseOne = responses[0]
+      setItems(responseOne.data);
+      const responseTwo = responses[1]
+      setDatas(responseTwo.data);
+    })).catch(errors => {
+      // react on errors.
+    })
 
-            // }
-         })
-         }
 
-    //Add data from product
-    // const data = { name: props.name, category: props.category, price: props.price, size: 1, quantity: 1, image: props.imgsrc };
-    // const AddProduct = () => {
-    //     axios.post(`https://daruwale.herokuapp.com/public/cart/${props.id}`, data)
-    //         .then(response => {
-    //             console.log("Status: ", response.status);
-    //             console.log("Data: ", response.data);
-    //             if (response.status === 201) {
-    //                 swal({
-    //                     title: response.data.message,
-    //                     timer: 2000,
-    //                 })
-    //             } else {
-    //                 swal({
-    //                     title: "Try Again!",
-    //                 })
-    //             }
+        //  axios.get(`https://daruwale.herokuapp.com/public/product/${id}`)
+        // .then(res => 
+        //     {
+        //      prod.push(res.data); 
+        //      console.log(prod);
+        // })   
 
-    //         }).catch(error => {
-    //             console.error('Something went wrong!', error);
-    //         });
-    // }
-   //data post in cart 
-      const data1 = { name: props.name, category: props.category, price: props.price, size: 1, quantity: 1, image: props.imgsrc};
-      const AddToCart = () => {
-          axios.post(`https://daruwale.herokuapp.com/public/cart/${id}`, data1)
-              .then(res => {
-                  console.log(res.status);
-                  console.log(res.data); 
-                  //setItems(res.data.data)
-              }).catch(error => {
-                  console.error('Something went wrong!', error);
-              });
-      }
+        // axios.get(`https://daruwale.herokuapp.com/public/product/61d59adba8e333a8f8db1b07`)
+        // .then(res => 
+        //     {
+        //      prod.push(res.data); 
+        //      console.log(prod);  
+        //      //setData(prod);
+        //      console.log();    
+        // }) 
+        //61d6af401b54a6b256420eb4
     return (
         <> 
+    
         <BreadCrumb heading='Product comparison' BC1Link='/' breadcrumb1='Home' BC3Link='/compare' breadcrumb3='Comparison'/>
             {/* compare section start */}
             <div className='Compare'>
@@ -159,8 +132,10 @@ const Compare = (props) => {
                                 {/* style={{ "minwidth": "45rem" }} */}
                                 <thead>
                                     <tr>
+                                        <div className='row'>
                                         <div className='col-lg-3'>
-                                         <td className="align-middle">
+                                        <div className='compare-by-img'> 
+                                          <td className="align-middle">
                                             <select className="form-select compare-crite" id="compare-criteria" value={value} onChange={handleChange} >
                                                 <option value="All">Comparison criteria</option>
                                                 <option value="summary">Summary</option>
@@ -181,47 +156,135 @@ const Compare = (props) => {
                                                     <label className="form-check-label" htmlFor="differences">Show differences only</label>
                                                 </div>
                                             </div>
-                                        </td> 
+                                        </td>
+                                        </div> 
+                                        <hr></hr>
+                                        <tbody>
+                                        <tr className="heading-table-compare">
+                                            <td><th className="text-uppercase text-dark">Summary</th></td>
+                                        </tr>
+                                        <tr>
+                                        <td className="text-uppercase text-dark">category</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="text-uppercase text-dark">price</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="text-uppercase text-dark">size</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="text-uppercase text-dark">rating</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="text-uppercase text-dark">FoodPairing</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="text-uppercase text-dark">ABV</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="text-uppercase text-dark">subCategory</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="text-uppercase text-dark">description</td>
+                                        </tr>
+                                       </tbody>
                                         </div>
-                                        {/* {items.map((productdata)=>{
-                                            if (deleteId === productdata._id) {
-                                                return ("")
-                                            } else {
-                                            return(
-                                                    <>    
+                                                 <div className='col-lg-3'> 
+                                                 <div className='compare-by-img'>
+                                                        <td className="text-center px-4 pb-4"> 
+                                                                <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="/product">
+                                                                    <i className="fa fa-trash-o me-1"></i>Remove 
+                                                                </Link>
+                                                                <Link className="d-inline-block mb-3" to="product-details">
+                                                                    <img className="compare-img" src={items.image} alt="Apple iPhone Xs Max"/>
+                                                                </Link>
+                                                                <h6 className="product-title">
+                                                                    <Link className='product-name' to="product-details">{items.name}</Link>
+                                                                </h6>
+                                                                <Link to="/cart"><button className="Button-Full-Red" type="button">Add to Product</button></Link>
+                                                        </td>
+                                                    </div>
+                                                        <hr></hr>
+                                                         <tbody id="table-data" data-filter-target="">
+                                                            <tr className="heading-table-compare">
+                                                                <th className="text-uppercase text-dark">Summary</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark">{items.category}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark">{items.price}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark">{items.size}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark">{items.rating}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark">{items.FoodPairing}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark">{items.ABV}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark">{items.subCategory}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark">{items.description}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                </div>
+                                            <div className='col-lg-3'>
+                                               <div className='compare-by-img'> 
                                                 <td className="text-center px-4 pb-4"> 
-                                                    <button className="btn btn-sm d-block w-100 text-danger mb-2" to="/product-details" onClick={() => deleteproduct(productdata._id)}>
-                                                        <i className="fa fa-trash-o me-1"></i>Remove 
-                                                    </button>
-                                                    {items._id}
-                                                    <Link className="d-inline-block mb-3" to="product-details">
-                                                        <img src={productdata.image} width="80" alt="Apple iPhone Xs Max" />
-                                                    </Link>
-                                                    <h6 className="product-title">
-                                                        <Link className='product-name' to="product-details">{productdata.name}</Link>
-                                                    </h6>
-                                                    <Link to="/cart"><button className="Button-Full-Red" type="button">Add to Product</button></Link>
-                                                </td>
-                                                    </>
-                                            )
-                                            }
-                                        })} */}
-                                         <div className='col-lg-3'>
-                                            <td className="text-center px-4 pb-4"> 
-                                                    <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="/product" onClick={()=>deleteproduct(items._id)}>
-                                                        <i className="fa fa-trash-o me-1"></i>Remove 
-                                                    </Link>
-                                                    
-                                                    <Link className="d-inline-block mb-3" to="product-details">
-                                                        <img src={items.image} width="80" alt="Apple iPhone Xs Max" />
-                                                    </Link>
-                                                    <h6 className="product-title">
-                                                        <Link className='product-name' to="product-details">{items.name}</Link>
-                                                    </h6>
-                                                    <Link to="/cart"><button className="Button-Full-Red" type="button" onClick={AddToCart}>Add to Product</button></Link>
-                                            </td>
+                                                        <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="/product">
+                                                                    <i className="fa fa-trash-o me-1"></i>Remove 
+                                                        </Link>
+                                                        <Link className="d-inline-block mb-3" to="product-details">
+                                                                    <img className="compare-img" src={datas.image} alt="Apple iPhone Xs Max"/>
+                                                        </Link>
+                                                        <h6 className="product-title">
+                                                        <Link className='product-name' to="product-details">{datas.name}</Link>
+                                                        </h6>
+                                                        <Link to="/cart"><button className="Button-Full-Red" type="button">Add to Product</button></Link>
+                                                </td> 
+                                                </div>
+                                                <hr></hr>
+                                                         <tbody id="table-data" data-filter-target="">
+                                                            <tr className="heading-table-compare">
+                                                                <th className="text-uppercase text-dark">Summary</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark">{items.category}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark">{datas.price}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark">{datas.size}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark">{datas.rating}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark">{datas.FoodPairing}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark">{datas.ABV}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark">{datas.subCategory}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark">{datas.description}</td>
+                                                            </tr>
+                                                        </tbody>
+
+                                           
                                         </div>
                                         <div className='col-lg-3'>
+                                        <div className='compare-by-img'> 
                                             <td className="text-center px-4 pb-4">
                                                 <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
                                                 <h6 className='skeleton-loader-background4'>
@@ -239,460 +302,48 @@ const Compare = (props) => {
                                                     <span className='skeleton-loader-background3'></span>
                                                 {/* </button> */}
                                             </td>
+                                            </div>
+                                            <hr></hr>
+                                                         <tbody id="table-data" data-filter-target="">
+                                                            <tr className="heading-table-compare">
+                                                                <th className="text-uppercase text-dark">Summary</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark"><h6 className='skeleton-loader-background'></h6></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td className="text-dark"></td>
+                                                            </tr>
+                                                        </tbody>
+                                         
                                         </div>
-                                        <div className='col-lg-3'>
-                                            <td className="text-center px-4 pb-4">
-                                                <Link className="btn btn-sm d-block w-100 text-danger mb-2" to="product-details">
-                                                <h6 className='skeleton-loader-background4'>
-                                                    {/* <i className="fa fa-trash-o me-1"></i>Remove */}
-                                                </h6>
-                                                </Link>
-                                                <Link className="d-inline-block mb-3" to="product-details">
-                                                    {/* <img src={i3} alt="Samsung Galaxy S10+" className='skeleton-loader-background1'/> */}
-                                                    <div className='skeleton-loader-background1' />
-                                                </Link>
-                                                <h6 className="product-title">
-                                                    <Link className='product-name' to="product-details"><h6 className='skeleton-loader-background'></h6></Link>
-                                                </h6>
-                                                {/* <button className="Button-Full-Red" type="button"> */}
-                                                    <span className='skeleton-loader-background3'></span>
-                                                {/* </button> */}
-                                            </td>
                                         </div>
                                     </tr> 
                                 </thead>
-                                {/* first Summary table */}
-                                {showText && 
-                                <tbody id="table-data-summary" data-filter-target="">
-                                    <tr className="heading-table-compare">
-                                        <th className="text-uppercase text-dark">Summary</th>
-                                        <th>Apple iPhone Xs Max</th>
-                                        <th>Google Pixel 3 XL</th>
-                                        <th>Samsung Galaxy S10+</th>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Performance</th>
-                                        <td>Hexa Core</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Display</th>
-                                        <td>6.5-inch</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Storage</th>
-                                        <td>64 GB</td>
-                                         <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td> 
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Camera</th>
-                                        <td>Dual 12-megapixel</td>
-                                         <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Battery</th>
-                                        <td>3,174 mAh</td>
-                                         <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                </tbody>
-                                }
-                                {/* General Table */}
-                                {general &&
-                                <tbody id="general" data-filter-target="">
-                                    <tr className="heading-table-compare">
-                                        <th className="text-uppercase text-dark">General</th>
-                                        <th>Apple iPhone Xs Max</th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Quick charging</th>
-                                        <td>Yes</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Operating system</th>
-                                        <td>iOS v12</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Sim slots</th>
-                                        <td>Single SIM, GSM</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Launch date</th>
-                                        <td>September 12, 2018 (Official)</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Sim size</th>
-                                        <td>SIM1: Nano</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Network</th>
-                                        <td>4G: Available (supports Indian bands) 3G: Available, 2G: Available</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Fingerprint sensor</th>
-                                        <td>None (Face ID)</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                </tbody>
-                                }
-                                {/* MultiMedia table */}
-                                 {multimedia && 
-                                <tbody id="multimedia" data-filter-target="">
-                                    <tr className="heading-table-compare">
-                                        <th className="text-uppercase text-dark">Multimedia</th>
-                                        <th>Apple iPhone Xs Max</th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Loudspeaker</th>
-                                        <td>Yes</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">FM radio</th>
-                                        <td>No</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Headphone jack</th>
-                                        <td>No</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                </tbody>
-                                }
-                                {/* Performance Table */}
-                                {performance &&
-                                <tbody id="performance" data-filter-target="">
-                                    <tr className="heading-table-compare">
-                                        <th className="text-uppercase text-dark">Performance</th>
-                                        <th>Apple iPhone Xs Max</th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Processor</th>
-                                        <td>Apple A12 Bionic</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Graphics</th>
-                                        <td>Apple GPU (4-core graphics)</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Architecture</th>
-                                        <td>64 bit</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">RAM</th>
-                                        <td>4 GB</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                </tbody>
-                                }
-                                {/* Design Table */}
-                                {design &&
-                                <tbody id="design" data-filter-target="">
-                                    <tr className="heading-table-compare">
-                                        <th className="text-uppercase text-dark">Design</th>
-                                        <th>Apple iPhone Xs Max</th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Build material</th>
-                                        <td>Case: AluminiumBack: Mineral Glass</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Thickness</th>
-                                        <td>7.7 mm</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Width</th>
-                                        <td>70.9 mm</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Height</th>
-                                        <td>143.6 mm</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Weight</th>
-                                        <td>174 grams</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Waterproof</th>
-                                        <td>Yes Water resistant (up to 30 minutes in a depth of 1 meter), IP67</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Colors</th>
-                                        <td>Silver, Space Grey</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                </tbody>
-                                }
-                                {/* Dispaly Table */}
-                                {display &&
-                                <tbody id="display" data-filter-target="">
-                                    <tr className="heading-table-compare">
-                                        <th className="text-uppercase text-dark">Display</th>
-                                        <th>Apple iPhone Xs Max</th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Display type</th>
-                                        <td>Super Retina OLED</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Pixel density</th>
-                                        <td>458 ppi</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Screen protection</th>
-                                        <td>Yes</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Screen size</th>
-                                        <td>6.5 inches</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Screen resolution</th>
-                                        <td>1125 x 2436 pixels</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Touch screen</th>
-                                        <td>Yes, 3D Touch Touchscreen, Multi-touch</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                </tbody>
-                                }
-                                {/* Storage Table */}
-                                {storage &&
-                                <tbody id="storage" data-filter-target="">
-                                    <tr className="heading-table-compare">
-                                        <th className="text-uppercase text-dark">Storage</th>
-                                        <th>Apple iPhone Xs Max</th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Internal memory</th>
-                                        <td>64 GB</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Expandable memory</th>
-                                        <td>No</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                </tbody>
-                                }
-                                {/* Camera Table */}
-                                {camera &&
-                                <tbody id="camera" data-filter-target="">
-                                    <tr className="heading-table-compare">
-                                        <th className="text-uppercase text-dark">Camera</th>
-                                        <th>Apple iPhone Xs Max</th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Settings</th>
-                                        <td>Exposure compensation, ISO control</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Aperture</th>
-                                        <td>F2.2</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Camera features</th>
-                                        <td>10 x Digital zoom, Optical zoom, Auto flash, Face detection, Touch to focus</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Image resolution</th>
-                                        <td>4000 x 3000 pixels</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Sensor</th>
-                                        <td>BSI sensor</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Autofocus</th>
-                                        <td>Yes</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Shooting modes</th>
-                                        <td>Continuos shooting, High dynamic range mode (HDR), Burst mode</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Optical image stabilisation</th>
-                                        <td>Yes, Dual optical image stabilization</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Flash</th>
-                                        <td>Yes, Retina flash</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                </tbody>
-                                }
-                                {/* Battery Table */}
-                                {battery &&
-                                <tbody id="battery" data-filter-target="">
-                                    <tr className="heading-table-compare">
-                                        <th className="text-uppercase text-dark">Battery</th>
-                                        <th>Apple iPhone Xs Max</th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Talktime</th>
-                                        <td>Up to 21 hours(4G)</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Quick charging</th>
-                                        <td>Yes, fast, 50 % in 30 minutes</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Wireless charging</th>
-                                        <td>Yes</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Type</th>
-                                        <td>Li-ion</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Capacity</th>
-                                        <td>3,174 mAh</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                </tbody>
-                                }
-                                {/* Price Table */}
-                                {price &&
-                                <tbody id="price" data-filter-target="">
-                                    <tr className="heading-table-compare">
-                                        <th className="text-uppercase text-dark">Price &amp; rating</th>
-                                        <th>Apple iPhone Xs Max</th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                        <th><h6 className='skeleton-loader-background'></h6></th>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Price</th>
-                                        <td>$1,099</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-dark">Rating</th>
-                                        <td>4.5/5</td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                        <td><h6 className='skeleton-loader-background'></h6></td>
-                                    </tr>
-                                    <tr className='text-center'>
-                                        <th></th>
-                                        <td>
-                                            <button className="Button-Full-Red " type="button">Add to Compare</button>
-                                        </td>
-                                        <td>
-                                            {/* <button className="Button-Full-Red " type="button">Add to Compare*/}
-                                                <span className='skeleton-loader-background3'></span>
-                                            {/* </button> */}
-                                        </td>
-                                        <td>
-                                            {/* <button className="Button-Full-Red " type="button">Add to Compare */}
-                                                <span className='skeleton-loader-background3'></span>
-                                            {/* </button> */}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                }
+                                
                             </table>
                         </div>
                     </div>
                 </div>
-
-            </div>
+                </div>
         </>
     )
 }
