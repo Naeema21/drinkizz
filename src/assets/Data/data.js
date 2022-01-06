@@ -237,54 +237,54 @@ export const methods = [
         type: "Courier",
         Info:"All addresses (default zone), United States & Canada",
         Time:"2 - 4 days",
-        Tax:"$26.50"
+        Tax:"26.50"
     },
     {
         type:"Local Shipping",
         Info:"All addresses (default zone), United States & Canada",
         Time:"2 - 4 days",
-        Tax:"$10.00"
+        Tax:"10.00"
     },
     {
         type:"Flat Rate",
         Info:"All addresses (default zone), United States & Canada",
         Time:"2 - 4 days",
-        Tax:"$33.85"
+        Tax:"33.85"
     },
     {
         type:"UPS Ground Shipping",
         Info:"All addresses (default zone), United States & Canada",
         Time:"2 - 4 days",
-        Tax:"$18.00"
+        Tax:"18.00"
     },
     {
         type:"Local pickup from Store",
         Info:"All addresses (default zone), United States & Canada",
         Time:"-",
-        Tax:"$0.00"
+        Tax:"0.00"
     },
     {
         type:"Pick Up at Cartzilla Locker",
         Info:"All addresses (default zone), United States & Canada",
         Time:"-",
-        Tax:"$99.90"
+        Tax:"99.90"
     },
     {
         type:"Cartzilla Global Export",
         Info:"All addresses (default zone), United States & Canada",
         Time:"2 - 4 days",
-        Tax:"$25.00"
+        Tax:"25.00"
     },
     {
         type:"Same-Day Delivery",
         Info:"All addresses (default zone), United States & Canada",
         Time:"2 - 4 days",
-        Tax:"$34.00"
+        Tax:"34.00"
     },
     {
         type:"International Shipping",
         Info:"All addresses (default zone), United States & Canada",
         Time:"2 - 4 days",
-        Tax:"$27.00"
+        Tax:"27.00"
     }
 ]
