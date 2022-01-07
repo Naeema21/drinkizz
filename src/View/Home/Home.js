@@ -42,7 +42,7 @@ const Home = () => {
     const options = {
         items: 1,
         rewind: true,
-        autoplay: true
+        autoplay: false
     };
     const options2 = {
         items: 4,
@@ -150,7 +150,7 @@ const Home = () => {
                             <div className="d-flex d-xl-block scroll-card">
                                 <Link to="/product-details">
                                     <div className="d-flex align-items-center bg-faded-indigo rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
-                                        <img src={ProductCamera} className='img-fluid' width="125" alt='Camera'></img>
+                                        <img src="http://assets.stickpng.com/thumbs/580b585b2edbce24c47b277d.png"className='img-fluid' width="125" alt='Camera'></img>
                                         <div className="py-4 px-2">
                                             <div className='card-align-pro'>
                                                 <span className="Banner-Caroucel-subHead">Next Gen <br /><b>Video</b> with <b>360 Cam</b></span>
@@ -161,7 +161,7 @@ const Home = () => {
                                 </Link>
                                 <Link to="/product-details">
                                     <div className="d-flex align-items-center bg-faded-orange rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
-                                        <img src={ProductGadget} className='img-fluid' width="125" alt='Gadget'></img>
+                                        <img src="https://www.kindpng.com/picc/m/47-475078_transparent-wine-bottle-and-glass-hd-png-download.png" className='img-fluid' width="125" alt='Gadget'></img>
                                         <div className="py-4 px-2">
                                             <div className='card-align-pro'>
                                                 <span className="Banner-Caroucel-subHead">Next Gen <br /><b>Video</b> with <b>360 Cam</b></span>
