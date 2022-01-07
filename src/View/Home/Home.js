@@ -151,7 +151,7 @@ const Home = () => {
                                 <Link to="/product-details">
                                     <div className="d-flex align-items-center bg-faded-indigo rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
                                         <img src="http://assets.stickpng.com/thumbs/580b585b2edbce24c47b277d.png"className='img-fluid' width="125" alt='Camera'></img>
-                                        <div className="py-4 px-2">
+                                        <div className="p-2">
                                             <div className='card-align-pro'>
                                                 <span className="Banner-Caroucel-subHead">Next Gen <br /><b>Video</b> with <b>360 Cam</b></span>
                                                 <h6 className="text-indigo">Shop Now <i className="fa fa-angle-right"></i></h6>
@@ -162,7 +162,7 @@ const Home = () => {
                                 <Link to="/product-details">
                                     <div className="d-flex align-items-center bg-faded-orange rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
                                         <img src="https://www.kindpng.com/picc/m/47-475078_transparent-wine-bottle-and-glass-hd-png-download.png" className='img-fluid' width="125" alt='Gadget'></img>
-                                        <div className="py-4 px-2">
+                                        <div className="p-2">
                                             <div className='card-align-pro'>
                                                 <span className="Banner-Caroucel-subHead">Next Gen <br /><b>Video</b> with <b>360 Cam</b></span>
                                                 <h6 className="text-orange">Shop Now <i className="fa fa-angle-right"></i></h6>
@@ -172,8 +172,8 @@ const Home = () => {
                                 </Link>
                                 <Link to="/product-details">
                                     <div className="d-flex align-items-center bg-faded-green rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
-                                        <img src={ProductEarbuds} className="img-fluid" width="125" alt="EarBuds"></img>
-                                        <div className="py-4 px-2">
+                                        <img src="http://assets.stickpng.com/thumbs/585fca61cb11b227491c35ae.png" className="img-fluid" width="125" alt="EarBuds"></img>
+                                        <div className="p-2">
                                             <div className="card-align-pro">
                                                 <span className="Banner-Caroucel-subHead">Next Gen <br /><b>Video</b> with <b>360 Cam</b></span>
                                                 <h6 className="text-green">Shop Now <i className="fa fa-angle-right"></i></h6>
@@ -195,7 +195,7 @@ const Home = () => {
                                         <a className="Button-Full-Red">Shop Now <i className="fa fa-angle-right"></i></a>
                                     </div>
                                     <div className="col-lg-6">
-                                        <img src={BeerBG} className="img-fluid" alt="HeadSet"></img>
+                                        <img src={OfferBanneripad} className="img-fluid" alt="HeadSet"></img>
                                     </div>
                                 </div>
                                 <div className="Home-banner-owl row display-flex align-items-center">

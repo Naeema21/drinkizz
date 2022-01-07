@@ -83,7 +83,7 @@ const Cards = React.memo((props) => {
                     <i className="fa fa-refresh px-1"></i>Compare</Link>
                 <button onClick={handleWishlist} data-toggle="tooltip" data-placement="top" title="Hooray!" className='btn-wishlist btn-sm'><i className="fa fa-heart-o" aria-hidden="true"></i></button>
             </div>
-            <div className='product-img'>
+            <div className='product-img mt-3'>
                 <Link to={`/product-details/` + props.id} className='text-center card-img-top d-block overflow-hidden'>
                     <img src={props.imgsrc} alt="productimg" height="200px" />
                 </Link>

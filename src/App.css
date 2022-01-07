@@ -149,20 +149,20 @@ color: #000 !important;
 }
 .swal-modal {
   color: white !important;
-  width: 400px;
+  width: 315px;
   height: 60px;
-  background-color: #282828 !important;
+  background-color: #fe4a4c !important;
   /* position: static; */
-  margin: 20px auto;
-     vertical-align: bottom;
+  margin: 20px auto 70px;
+  vertical-align: bottom;
 }
 .swal-title {
-  color: rgb(255 255 255 / 65%);
-  font-weight: 400;
+  color: #fff;
+  font-weight: 600;
   position: relative;
   display: block;
   padding: 0px 0px;
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 0;
 }
 .swal-title:first-child {
