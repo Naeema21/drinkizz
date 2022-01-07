@@ -23,6 +23,7 @@ const Shop = (({ match },) => {
     const BreadCrumb = React.lazy(() => import('../../Components/BreadCrumb/Breadcrumb'))
     const Card = React.lazy(() => import('../../Components/Cards/Cards'))
     const [Data, setData] = useState({})
+    const [selectedClient,setSelectedClient] = useState("1");
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data);
@@ -69,7 +70,7 @@ const Shop = (({ match },) => {
         const DataToCart = {
             "userId": localStorage.getItem('id'),
             "productId": Data._id,
-            "quantity": Data.quantity
+            "quantity": selectedClient
         }
         if (DataToCart.userId === null) {
             swal({
@@ -124,6 +125,9 @@ const Shop = (({ match },) => {
         autoplay: false,
         dots: true
     }
+    function handleSelectChange(event) {
+        setSelectedClient(event.target.value);
+    }
     useEffect(() => {
         axios.get(PRODUCT_URL + "/" + match.params.id).then((res) => {
             setData(res.data)
@@ -168,7 +172,8 @@ const Shop = (({ match },) => {
                                                 </div>
                                                 <div className="d-flex align-items-center pt-2 pb-4">
                                                     <select className="form-select me-3" style={{ width: "5rem" }}
-                                                        defaultValue={Data.quantity}
+                                                        // defaultValue={Data.quantity}
+                                                        onChange={handleSelectChange} value={selectedClient}
                                                     >
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
