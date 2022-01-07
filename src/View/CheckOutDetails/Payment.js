@@ -10,7 +10,7 @@ import OrderSummary from "../../Components/CheckOutSidebar/OrderSummary";
 import ItemForm from "./ItemForm";
 
 const Payment = ({ setForm, formData, navigation }) => {
-  // const OrderSummary = React.lazy(() => import('../../Components/CheckOutSidebar/OrderSummary'))
+ 
   const {cardnumber} = formData;
 
   
@@ -30,15 +30,6 @@ const Payment = ({ setForm, formData, navigation }) => {
   const [expiry, setExpiry] = useState('')
   const [cvc, setCvc] = useState('')
   // const [focus, setFocus] = useState('')
-
-  // formData.append(cardnumber, number);
-  //try
-  var formData = new FormData();
-  formData.append(cardnumber,number);
- 
-  for (var value of formData.values()) {
-    console.log(cardnumber);
- }
 
   const handleCardData = (e) => {
     e.preventDefault();

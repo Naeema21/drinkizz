@@ -6,18 +6,23 @@ import OrderSummary from "../../Components/CheckOutSidebar/OrderSummary";
 import ItemForm from "./ItemForm";
 import StateDrop from "./StateDrop";
 import CityDrop from './CityDrop'
-const Details = ({ setForm, formData, navigation }) => {
-    // const OrderSummary = React.lazy(() => import('../../Components/CheckOutSidebar/OrderSummary'))
-    const { previous, next } = navigation;
-    const { firstName, lastName, phone, address, city, country, zip } = formData;
-    
+const Details = ({setfieldForm, fields, navigation }) => {
 
-    const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    const onSubmit = (data) => {
-        console.log(data);
+    const { previous, next } = navigation;
+    const { firstName, lastName, phone, country, city,zip, address} = fields;
+    
+    const onSubmit = fields => {    
+        console.log(firstName, lastName);
         next()
         reset();
     }
+
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    // const onSubmit = (data) => {
+    //     console.log(data);
+    //     next()
+    //     reset();
+    // }
     const { go } = navigation;
 
     useEffect(() => {
@@ -67,7 +72,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                             type="text"
                                                 name="firstName"
                                                 value={firstName}
-                                                onChange={setForm}
+                                                onChange={setfieldForm}
                                                 required={true}
                                                 minLength={3}
                                                 maxLength={60}
@@ -89,7 +94,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                                type="text"
                                                 name="lastName"
                                                 value={lastName}
-                                                onChange={setForm}
+                                                onChange={setfieldForm}
                                                 required={true}
                                                 minLength={3}
                                                 maxLength={60}
@@ -127,7 +132,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                             
                                                name="phone"
                                                value={phone}
-                                               onChange={setForm}
+                                               onChange={setfieldForm}
                                                required={true}
                                                minLength={10}
                                                maxLength={10}
@@ -159,7 +164,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                     <div className='col-lg-6'>
                                         <div className="form-group mb-3">
                                             <label className='form-label'>Country</label>
-                                            <StateDrop name="country" value={country} onChange={setForm} />
+                                            <StateDrop name="country" value={country} onChange={setfieldForm} />
                                             {/* <select className="form-select" id="checkout-country" {...register("country", {
                                                 required: true
                                             })}>
@@ -190,7 +195,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                                 <option>Switzerland</option>
                                                 <option>USA</option>
                                             </select> */}
-                                            <CityDrop name="city" value={city} onChange={setForm}></CityDrop>
+                                            <CityDrop name="city" value={city} onChange={setfieldForm}></CityDrop>
                                             <span className="error-msg" title="invlid city">{errors.city && "Please Choose City"}</span>
                                         </div>
                                     </div>
@@ -200,7 +205,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                             <ItemForm
                                             name="zip"
                                             value={zip}
-                                            onChange={setForm}
+                                            onChange={setfieldForm}
                                             required={true}
                                             minLength={4}
                                             maxLength={6}
@@ -222,7 +227,7 @@ const Details = ({ setForm, formData, navigation }) => {
                                                type="text"
                                                 name="address"
                                                 value={address}
-                                                onChange={setForm}
+                                                onChange={setfieldForm}
                                                 required={true}
                                                 minLength={5}
                                                 maxLength={60}

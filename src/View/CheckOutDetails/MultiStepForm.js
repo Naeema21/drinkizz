@@ -27,11 +27,12 @@ const defaultData = {
 };
 
 const MultiStepForm = ({ images }) => {
-  const [formData, setForm] = useForm(defaultData);
+  const [fields, setfieldForm] = useForm(defaultData);
+  const [Paymentfields, setPaymentfields] = useForm(defaultData);
   const { step, navigation } = useStep({ initialStep: 0, steps });
   const { id } = step;
 
-  const props = { formData, setForm, navigation };
+  const props = { fields,  Paymentfields, setfieldForm, setPaymentfields, navigation };
 
   switch (id) {
     case "details":
