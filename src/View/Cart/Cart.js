@@ -19,6 +19,7 @@ const Cart = () => {
     const BreadCrumb = React.lazy(() => import('../../Components/BreadCrumb/Breadcrumb'))
     const NoDataInCart = React.lazy(() => import('../../Components/NoDataFound/NoDataInCart'))
     const SignInFirst = React.lazy(() => import('../../Components/SignInFirst/SignInFirst'))
+
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data);
@@ -43,7 +44,6 @@ const Cart = () => {
         try {
             setLoader(true)
             axios.get(CART_URL + "/" + userId).then(res => {
-                console.log(res.data.data)
                 if (res.status === 200) {
                     setData(res.data.data);
                     setLoader(false)
@@ -61,10 +61,9 @@ const Cart = () => {
     // cart delete
     const Deletecart = (ids) => {
         axios.delete(CART_URL + "/" + ids).then(res => {
-            console.log(res.status)
             if (res.status === 200) {
                 swal({
-                    title: "Removed From Wishlist!",
+                    title: "Removed From Cart!",
                     timer: 2000,
                 }).then(() => {
                     const newData = Data.filter(item => ids !== item._id)

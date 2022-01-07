@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import './Shop.css'
-import Smwatch1 from '../../assets/images/Product/Product-Desc/Smart-watch/1.jpg'
-import { Accordion } from 'react-bootstrap'
-import { Tab, Tabs, Nav, Col, Row } from 'react-bootstrap'
-import ProductDescImg from '../../assets/images/Product/Product-Desc/Smart-watch/prod-desc-text.jpg'
+import { Accordion, Tab, Tabs } from 'react-bootstrap'
 import OwlCarousel from 'react-owl-carousel2';
 import 'react-owl-carousel2/lib/styles.css';
 import 'react-owl-carousel2/src/owl.theme.default.css';
-import { products } from '../../assets/Data/product'
 import BTearphones from '../../assets/images/Product/Product-Desc/Smart-watch/BT-Earphones.jpg'
 import CTSMwatch from '../../assets/images/Product/Product-Desc/Smart-watch/5.jpg'
 import SmWatchCharger from '../../assets/images/Product/Product-Desc/Smart-watch/Smartwatch-charger.jpg'
@@ -15,15 +11,15 @@ import { ReviewComments } from '../../assets/Data/data'
 import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
 import axios from 'axios'
-import { PRODUCT_URL, WISHLIST_URL } from '../../endpoint'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
-import { CART_URL } from '../../endpoint'
+import { PRODUCT_URL, WISHLIST_URL, CART_URL } from '../../endpoint'
+import { Link } from 'react-router-dom'
 
 const Shop = (({ match },) => {
     const BreadCrumb = React.lazy(() => import('../../Components/BreadCrumb/Breadcrumb'))
     const Card = React.lazy(() => import('../../Components/Cards/Cards'))
     const [Data, setData] = useState({})
-    const [selectedClient,setSelectedClient] = useState("1");
+    const [CategoryData, setCategoryData] = useState([])
+    const [selectedClient, setSelectedClient] = useState("1");
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data);
@@ -130,11 +126,19 @@ const Shop = (({ match },) => {
     }
     useEffect(() => {
         axios.get(PRODUCT_URL + "/" + match.params.id).then((res) => {
-            setData(res.data)
+            if (res.status === 200) {
+                setData(res.data)
+            }
+            axios.get(PRODUCT_URL + "/category/" + res.data.category).then((response) => {
+                if (response.status === 200) {
+                    console.log(response.data)
+                    setCategoryData(response.data)
+                }
+            })
         })
     }, [match.params.id])
     return (
-        <div>
+        <div className='product-details'>
             {/* Header */}
             <BreadCrumb
                 heading={Data.name}
@@ -159,10 +163,10 @@ const Shop = (({ match },) => {
                                                 <div className="product-details ms-auto pb-3">
                                                     <div className='h3 product-desc-price'>$ {Data.price}</div>
                                                 </div>
-                                                <div className='mb-4'>
+                                                {/* <div className='mb-4'>
                                                     <span className='Desc-text-heading'>Color:</span>
                                                     <span className='text-muted'>Color Option</span>
-                                                </div>
+                                                </div> */}
                                                 {/* <div className="position-relative mb-5 pb-3">
                                                     <label className='color-circle-box'><input style={{ backgroundColor: '#f25540' }} name='color' type='radio' /></label>
                                                     <label className='color-circle-box'><input style={{ backgroundColor: '#65805b' }} name='color' type='radio' /></label>
@@ -237,9 +241,9 @@ const Shop = (({ match },) => {
                                                     </div>
                                                 </Accordion>
                                                 <label className="form-label d-inline-block align-middle my-4 me-3">Share:</label>
-                                                <a className="btn-share btn-twitter me-2 my-2" href="#"><i className="fa fa-twitter"></i>Twitter</a>
-                                                <a className="btn-share btn-instagram me-2 my-2" href="#"><i className="fa fa-instagram"></i>Instagram</a>
-                                                <a className="btn-share btn-facebook my-2" href="#"><i className="fa fa-facebook-f"></i>Facebook</a>
+                                                <Link className="btn-share btn-twitter me-2 my-2" to="/product"><i className="fa fa-twitter"></i>Twitter</Link>
+                                                <Link className="btn-share btn-instagram me-2 my-2" to="/product"><i className="fa fa-instagram"></i>Instagram</Link>
+                                                <Link className="btn-share btn-facebook my-2" to="/product"><i className="fa fa-facebook-f"></i>Facebook</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -274,8 +278,8 @@ const Shop = (({ match },) => {
                                         </div>
                                     </div>
                                     <div className='product-desc'>
-                                    <h3 className="h6">Product Descripton</h3>
-                                    <p>{Data.description}</p>
+                                        <h3 className="h6">Product Descripton</h3>
+                                        <p>{Data.description}</p>
 
                                     </div>
                                     <div className="row pt-2">
@@ -286,18 +290,18 @@ const Shop = (({ match },) => {
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Category:</span><span>{Data.category}</span></li>
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Sub Category:</span><span>{Data.subCategory}</span></li>
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Price:</span><span>${Data.price}</span></li>
-                                                
+
                                             </ul>
 
                                         </div>
                                         <div className="col-lg-2 col-sm-6">
-                                          
+
 
                                         </div>
                                         <div className="col-lg-5 col-sm-6">
                                             <h3 className="h6">Product Details</h3>
                                             <ul className="list-unstyled fs-sm pb-2">
-                        
+
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Price:</span><span>${Data.price}</span></li>
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Size:</span><span>{Data.size}</span></li>
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Food Pairing:</span><span>{Data.FoodPairing}</span></li>
@@ -331,7 +335,7 @@ const Shop = (({ match },) => {
                                             <button className="btn btn-small-desc" style={{ marginLeft: '7px' }} onClick={handleSubmitWsishlist} type="button"><i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
                                         </div>
                                         <div>
-                                            <a className="btn btn-small-desc" href='/compare'><i className="fa fa-refresh" style={{ color: "gray" }}></i></a>
+                                            <Link className="btn btn-small-desc" href='/compare'><i className="fa fa-refresh" style={{ color: "gray" }}></i></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -530,18 +534,29 @@ const Shop = (({ match },) => {
 
             </section> */}
             <hr className="mb-5"></hr>
-            <section className='You-May-Also-like-Product mb-5'>
-                <div className='container'>
-                    <h2 className="h3 text-center pb-4">You may also like</h2>
-                    <OwlCarousel options={options}>
-                        {products.slice(0, 8).map((productdata, i) => (
-                            <div key={i}>
-                                <Card category={productdata.category} name={productdata.name} price={productdata.price} imgsrc={productdata.imgsrc} star={productdata.star} />
-                            </div>
-                        ))}
-                    </OwlCarousel>
-                </div>
-            </section>
+            {
+                CategoryData.length > 2 &&
+                <section className='You-May-Also-like-Product mb-5'>
+                    <div className='container'>
+                        <h2 className="h3 text-center pb-4">You may also like</h2>
+                        {/* <OwlCarousel options={options}> */}
+                        <div className='row'>
+                            {CategoryData.map((productdata, i) => (
+                                <div key={i} className='col-lg-3'>
+                                    <Card
+                                        id={productdata._id}
+                                        category={productdata.category}
+                                        name={productdata.name}
+                                        price={productdata.price}
+                                        imgsrc={productdata.image}
+                                        star={productdata.star} />
+                                </div>
+                            ))}
+                        </div>
+                        {/* </OwlCarousel> */}
+                    </div>
+                </section>
+            }
             <section className='Cheaper-Together'>
                 <div className="container pt-lg-1 pb-5 mb-md-3">
                     <div className="card-CT card-body pt-5">
@@ -550,10 +565,10 @@ const Shop = (({ match },) => {
                             <div className='row Cheap-To-item align-items-center justify-content-center d-flex'>
                                 <div className='col-md-3 col-sm-4'>
                                     <div className=" text-center mx-auto">
-                                        <a className="card-img-top d-block overflow-hidden" href="#">
-                                            <img src={CTSMwatch} alt="Product" className='img-fluid' /></a>
+                                        <Link className="card-img-top d-block overflow-hidden" to="/product">
+                                            <img src={CTSMwatch} alt="Product" className='img-fluid' /></Link>
                                         <div className="card-body py-2"><span className="d-inline-block CT_bg rounded-1 py-1 px-2 mb-3">Your product</span>
-                                            <h3 className="product-title fs-sm"><a href="#">Smartwatch Youth Edition</a></h3>
+                                            <h3 className="product-title fs-sm"><Link to="/product">Smartwatch Youth Edition</Link></h3>
                                             <div className="C-Tprice">$124.<small>99</small></div>
                                         </div>
                                     </div>
@@ -563,11 +578,13 @@ const Shop = (({ match },) => {
                                 </div>
                                 <div className='col-md-3 col-sm-4'>
                                     <div className=" text-center mx-auto">
-                                        <a className="card-img-top d-block overflow-hidden" href="#">
+                                        <Link className="card-img-top d-block overflow-hidden" to="/product">
                                             <img src={BTearphones} alt="Product" className='img-fluid' />
-                                        </a>
+                                        </Link>
                                         <div className="card-body py-2"><span className="d-inline-block bg-danger fs-ms text-white rounded-1 py-1 px-2 mb-3">-15%</span>
-                                            <h3 className="product-title fs-sm"><a href="#">Bluetooth Headset Air (White)</a></h3>
+                                            <h3 className="product-title fs-sm">
+                                                <Link to="/product">Bluetooth Headset Air (White)</Link>
+                                            </h3>
                                             <div className="C-Tprice"><span className="text-accent">$59.<small>00  </small></span>
                                                 <del className="fs-sm C-Tprice text-muted">  $69.<small>00</small></del>
                                             </div>
@@ -588,10 +605,10 @@ const Shop = (({ match },) => {
                             <div className='row Cheap-To-item align-items-center justify-content-center d-flex'>
                                 <div className='col-md-3 col-sm-4'>
                                     <div className=" text-center mx-auto">
-                                        <a className="card-img-top d-block overflow-hidden" href="#">
-                                            <img src={CTSMwatch} alt="Product" className='img-fluid' /></a>
+                                        <Link className="card-img-top d-block overflow-hidden" to="/product">
+                                            <img src={CTSMwatch} alt="Product" className='img-fluid' /></Link>
                                         <div className="card-body py-2"><span className="d-inline-block CT_bg rounded-1 py-1 px-2 mb-3">Your product</span>
-                                            <h3 className="product-title fs-sm"><a href="#">Smartwatch Youth Edition</a></h3>
+                                            <h3 className="product-title fs-sm"><Link to="/product">Smartwatch Youth Edition</Link></h3>
                                             <div className="C-Tprice">$124.<small>99</small></div>
                                         </div>
                                     </div>
@@ -601,11 +618,11 @@ const Shop = (({ match },) => {
                                 </div>
                                 <div className='col-md-3 col-sm-4'>
                                     <div className=" text-center mx-auto">
-                                        <a className="card-img-top d-block overflow-hidden" href="#">
+                                        <Link className="card-img-top d-block overflow-hidden" to="/product">
                                             <img src={SmWatchCharger} alt="Product" className='img-fluid' />
-                                        </a>
+                                        </Link>
                                         <div className="card-body py-2"><span className="d-inline-block bg-danger fs-ms text-white rounded-1 py-1 px-2 mb-3">-20%</span>
-                                            <h3 className="product-title fs-sm"><a href="#">Smart Watch Wireless Charger</a></h3>
+                                            <h3 className="product-title fs-sm"><Link to="/product">Smart Watch Wireless Charger</Link></h3>
                                             <div className="C-Tprice"><span className="text-accent">$16.<small>00  </small></span>
                                                 <del className="fs-sm C-Tprice text-muted">  $20.<small>00</small></del>
                                             </div>
