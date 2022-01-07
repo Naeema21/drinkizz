@@ -31,7 +31,7 @@ const MultiStepForm = ({ images }) => {
   const [Paymentfields, setPaymentfields] = useForm(defaultData);
   const { step, navigation } = useStep({ initialStep: 0, steps });
   const { id } = step;
-
+  
   const props = { fields,  Paymentfields, setfieldForm, setPaymentfields, navigation };
 
   switch (id) {
