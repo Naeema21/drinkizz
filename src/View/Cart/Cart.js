@@ -1,3 +1,12 @@
+// code flow
+// 1. check user is signin or not by localStorage id 
+// 2.if user signin show data else signin component 
+// 3.if user is sign in check loader condition if loading then skeleton else data
+//4.check data is empty or not if empty show add to cart UI else none
+//5.after deleting component filter the deleted product id and Data id if not match then assign new flitered Data 
+//if new data is empty show empty else remove selected id
+
+
 import React ,{ useState, useEffect } from "react";
 import './Cart.css'
 import { Accordion } from 'react-bootstrap'
@@ -16,7 +25,6 @@ const Cart = () => {
         reset();
     }
     const [Data, setData] = useState([]);
-    const [deleteId, setDeleteId] = useState();
     const [Loder, setLoader] = useState(false)
     const [Empty, setEmptyData] = useState(false)
 
@@ -52,22 +60,25 @@ const Cart = () => {
 
     // cart delete
     const Deletecart = (ids) => {
-        const DeleteData = {
-            id: ids
-        }
-        axios.delete(CART_URL, DeleteData).then(res => {
+        axios.delete(CART_URL + "/" + ids).then(res => {
             console.log(res.status)
             if (res.status === 200) {
                 swal({
                     title: "Removed From Wishlist!",
                     timer: 2000,
                 }).then(() => {
-                    setDeleteId(ids)
-                    // window.location.reload()
+                    const newData = Data.filter(item => ids !== item._id)
+                    if(newData.length===0){
+                        setEmptyData(true);
+                        setData([])
+                    }else{
+                        setData(newData)
+                    }
                 })
             } else {
                 swal({
                     title: "Try Again!",
+                    timer:2000
                 })
 
             }
@@ -134,9 +145,6 @@ const Cart = () => {
                                 !Loder ?
                                     Data.slice(0, noOfElement).map((v, i) => {
                                         totalCartPrice += v.product.price * v.quantity
-                                        if (deleteId === v._id) {
-                                            return ("")
-                                        } else {
                                             return (
                                                 <div key={i}>
                                                     <div className='d-flex row Cart-list-item align-items-center'>
@@ -169,7 +177,7 @@ const Cart = () => {
                                                     <hr />
                                                 </div>
                                             )
-                                        }
+                                        
                                     }) : SkeletonCartItem
                             }
                             {/* ---------if empty show no data in cart ---------- */}
@@ -178,16 +186,14 @@ const Cart = () => {
                             }
 
                             {/* ------------------------load more button----------------------------------- */}
-
                             {
-                                Data.length > 0 && Data.length >= noOfElement ?
+                                Data.length >= 4 && Data.length >= noOfElement ?
                                     <div className='row my-4'>
                                         <button className='btn Button-Blue-Border d-block w-100' onClick={() => loadMore()}>
                                             <i className='fa fa-refresh'></i>&nbsp; &nbsp; Load More</button>
                                     </div>
                                     : ""
                             }
-
                         </div>
                         {/*------------------------- Additional Comments start------------- */}
                         <div className='col-lg-4'>
