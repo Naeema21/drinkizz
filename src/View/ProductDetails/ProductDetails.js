@@ -3,7 +3,7 @@ import './ProductDetail.css'
 import {  Tab, Tabs } from 'react-bootstrap'
 import swal from 'sweetalert';
 import axios from 'axios'
-import { PRODUCT_URL, WISHLIST_URL, CART_URL } from '../../endpoint'
+import { PRODUCT_URL, WISHLIST_URL, CART_URL, COMPARE_URL } from '../../endpoint'
 import CheaperTogether from './CheaperTogether';
 
 const Shop = (({ match },) => {
@@ -18,6 +18,7 @@ const Shop = (({ match },) => {
     const [selectedClient, setSelectedClient] = useState("1");
   
 
+    //wishlist data handle
     const handleSubmitWsishlist = () => {
         const data2 = {
             "userId": localStorage.getItem('id'),
@@ -47,6 +48,7 @@ const Shop = (({ match },) => {
         }
     }
 
+    // cart data handle
     const handleSubmitCart = () => {
         const DataToCart = {
             "userId": localStorage.getItem('id'),
@@ -76,6 +78,38 @@ const Shop = (({ match },) => {
                 });
         }
     }
+
+
+    //handle compare data 
+
+    const handleSubmitCompare = () => {
+        const data2 = {
+            "userId": localStorage.getItem('id'),
+            "productId": Data._id,
+        };
+        if (data2.userId === null) {
+            swal({
+                title: "login please",
+                timer: 2000
+            })
+        } else {
+            axios.post(COMPARE_URL, data2)
+                .then(response => {
+                    if (response.status === 201) {
+                        swal({
+                            title: response.data.message,
+                            timer: 2000,
+                        })
+                    } else {
+                        swal({
+                            title: "Try Again!",
+                        })
+                    }
+                }).catch(error => {
+                    console.error('Something went wrong!', error);
+                });
+        }
+    }
     const options = {
         items: 4,
         rewind: true,
@@ -99,11 +133,13 @@ const Shop = (({ match },) => {
         }
     };
 
- 
+  //options data
     function handleSelectChange(event) {
-        setSelectedClient(event.target.value);
+        console.log(event)
+        setSelectedClient(event);
     }
 
+    //getdata
     useEffect(() => {
         axios.get(PRODUCT_URL + "/" + match.params.id).then((res) => {
             if (res.status === 200) {
@@ -135,9 +171,11 @@ const Shop = (({ match },) => {
                             {/* Tabfirst General Info start */}
                             <Tab eventKey="general" title=" General Info" className='py-4 px-sm-4'>
                                 <GeneralInfo
+                                selectedClients={selectedClient}
+                                handleSelectChanges={handleSelectChange}
+                                handleSubmitCompares={handleSubmitCompare}
                                     image={Data.image}
                                     price={Data.price}
-                                    handleSubmitWsishlists={handleSubmitWsishlist}
                                     handleSubmitCarts={handleSubmitCart} />
                             </Tab>
                             {/* Tab Tech Specs start */}
@@ -151,8 +189,11 @@ const Shop = (({ match },) => {
                                     image={Data.image}
                                     price={Data.price}
                                     ABV={Data.ABV}
+                                    selectedClients={selectedClient}
+                                    handleSelectChanges={handleSelectChange}
                                     handleSubmitWsishlists={handleSubmitWsishlist}
                                     handleSubmitCarts={handleSubmitCart}
+                                    handleSubmitCompares={handleSubmitCompare}
                                 />
                             </Tab>
                             {/* Tab Reviews Start */}
@@ -161,7 +202,10 @@ const Shop = (({ match },) => {
                                 name={Data.name}
                                 image={Data.image}
                                 price={Data.price}
+                                selectedClients={selectedClient}
+                                handleSelectChanges={handleSelectChange}
                                 handleSubmitWsishlists={handleSubmitWsishlist}
+                                handleSubmitCompares={handleSubmitCompare}
                                 handleSubmitCarts={handleSubmitCart}/>
                             </Tab>
                         </Tabs>

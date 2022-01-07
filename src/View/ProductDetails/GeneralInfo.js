@@ -18,7 +18,7 @@ const GeneralInfo = React.memo((props) => {
                         <div className="d-flex align-items-center pt-2 pb-4">
                             <select className="form-select me-3" style={{ width: "5rem" }}
                             // defaultValue={props.quantity}
-                            // onChange={handleSelectChange} value={selectedClient}
+                             onChange={(e)=>props.handleSelectChanges(e.target.value)} value={props.selectedClients}
                             >
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -40,9 +40,9 @@ const GeneralInfo = React.memo((props) => {
                                 </button>
                             </div>
                             <div className="w-100">
-                                <Link className="btn-Gray d-block w-100" type="button" href='/compare'>
+                                <button className="btn-Gray d-block w-100" type="button" onClick={props.handleSubmitCompares}>
                                     <i className="fa fa-refresh me-2" style={{ color: "gray" }}></i>Compare
-                                </Link>
+                                </button>
                             </div>
                         </div>
                         <Accordion>

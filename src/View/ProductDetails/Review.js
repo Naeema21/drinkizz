@@ -2,7 +2,6 @@ import React from 'react'
 import { ReviewComments } from '../../assets/Data/data'
 import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
-import { Link } from 'react-router-dom';
 
 const Review = React.memo((props) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -25,7 +24,8 @@ const Review = React.memo((props) => {
                     </div>
                 </div>
                 <div className=" col-lg-5 col-sm-8 d-flex align-items-center pt-3">
-                    <select className="form-select me-2 w-50" >
+                    <select className="form-select me-2 w-50"
+                        onChange={(e) => props.handleSelectChanges(e.target.value)} value={props.selectedClients}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -41,7 +41,9 @@ const Review = React.memo((props) => {
                         </button>
                     </div>
                     <div>
-                        <Link className="btn btn-small-desc" href='/compare'><i className="fa fa-refresh" style={{ color: "gray" }}></i></Link>
+                        <button className="btn btn-small-desc" onClick={props.handleSubmitCompares}>
+                            <i className="fa fa-refresh" style={{ color: "gray" }}></i>
+                        </button>
                     </div>
                 </div>
             </div>
