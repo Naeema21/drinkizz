@@ -12,7 +12,7 @@ function App() {
   const Home = React.lazy(() => import('./View/Home/Home'))
   const Product = React.lazy(() => import('./View/Product/Product'))
   const Compare = React.lazy(() => import('./View/Compare/Compare'))
-  const Shop = React.lazy(() => import('./View/Shop/Shop'))
+  const ProductDetail = React.lazy(() => import('./View/ProductDetails/ProductDetails'))
   const Cart = React.lazy(()=>import('./View/Cart/Cart'))
   const OrderTracking = React.lazy(()=>import('./View/OrderTracking/OrderTracking'))
   const CheckOutDetails = React.lazy(()=>import('./View/CheckOutDetails/CheckOutDetails'))
@@ -36,7 +36,7 @@ function App() {
             <Route exact path="/compare/:id" component={Compare}></Route>
             <Route exact path="/product" component={Product}></Route>
             <Route exact path="/cart" component={Cart}></Route>
-            <Route exact path="/product-details/:id" component={Shop}></Route>
+            <Route exact path="/product-details/:id" component={ProductDetail}></Route>
             <Route exact path="/checkout-details" component={CheckOutDetails}></Route>
             <Route exact path="/" component={Home}></Route>
             <Route exact component={Home}></Route>
