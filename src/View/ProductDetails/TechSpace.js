@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 const TechSpace = React.memo((props) => {
     return (
@@ -12,7 +11,8 @@ const TechSpace = React.memo((props) => {
                     </div>
                 </div>
                 <div className=" col-lg-5 col-sm-8 d-flex align-items-center pt-3">
-                    <select className="form-select me-2 w-50" >
+                    <select className="form-select me-2 w-50" 
+                    onChange={(e)=>props.handleSelectChanges(e.target.value)} value={props.selectedClients}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -26,7 +26,9 @@ const TechSpace = React.memo((props) => {
                             <i className="fa fa-heart-o" style={{ color: "gray" }}></i></button>
                     </div>
                     <div>
-                        <Link className="btn btn-small-desc" to='/compare'><i className="fa fa-refresh" style={{ color: "gray" }}></i></Link>
+                        <button className="btn btn-small-desc" onClick={props.handleSubmitCompares}>
+                            <i className="fa fa-refresh" style={{ color: "gray" }}></i>
+                        </button>
                     </div>
                 </div>
             </div>
