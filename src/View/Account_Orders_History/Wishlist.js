@@ -4,17 +4,14 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import { Link } from 'react-router-dom';
 import { WISHLIST_URL } from "../../endpoint"
-function Wishlist() {
+const Wishlist =()=> {
     const NoDataInCart = React.lazy(() => import('../../Components/NoDataFound/NoDataInCart'))
-    const SignInFirst =React.lazy(()=>import('../../Components/SignInFirst/SignInFirst'))
-    //skeleton
+    const SignInFirst = React.lazy(() => import('../../Components/SignInFirst/SignInFirst'))
     const [Loder, setLoader] = useState(false)
-    //get data from Api
     const [items, setItems] = useState([]);
-    const [deleteId, setDeleteId] = useState();
     const [Empty, setEmptyData] = useState(false)
     //Load more button
-    const [noOfElement, setnoOfElement] = useState(4);
+    const [noOfElement, setnoOfElement] = useState(3);
     const loadMore = () => {
         setnoOfElement(noOfElement + noOfElement)
     }
@@ -23,7 +20,7 @@ function Wishlist() {
 
     //get data from Api
     useEffect(() => {
-        // setLoader(true)
+        setLoader(true)
         try {
             axios.get(WISHLIST_URL + "/" + userId)
                 .then(res => {
@@ -41,22 +38,26 @@ function Wishlist() {
         }
     }, [])
 
+    // delete data
     const Deletecart = (ids) => {
-        const deleteData = {
-            id: ids,
-        }
-        axios.delete(WISHLIST_URL, deleteData).then(res => {
-            console.log(res.status)
+        axios.delete(WISHLIST_URL + "/" + ids).then(res => {
             if (res.status === 200) {
                 swal({
                     title: "Removed From Wishlist!",
                     timer: 2000,
                 }).then(() => {
-                    setDeleteId(ids)
+                    const newData = items.filter(item => ids !== item._id)
+                    if (newData.length === 0) {
+                        setEmptyData(true);
+                        setItems([])
+                    } else {
+                        setItems(newData)
+                    }
                 })
             } else {
                 swal({
                     title: "Try Again!",
+                    timer:2000
                 })
             }
         })
@@ -77,7 +78,6 @@ function Wishlist() {
                             <span><p> </p></span>
                             <span><p> </p></span>
                             <span><p> </p></span>
-
                             <h4> </h4>
                         </Link>
                     </div>
@@ -92,8 +92,8 @@ function Wishlist() {
         )
     })
     return (
+        // check user login
         userId ?
-
             <div>
                 <div className='container'>
                     <div className="d-flex justify-content-between align-items-center px-4 mb-4">
@@ -101,56 +101,55 @@ function Wishlist() {
                         <Link className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" to="/"><i className="fa fa-sign-out me-2"></i>Sign out</Link>
                     </div>
                     <hr style={{ "width": "100%", "textalign": "left", "marginleft": "0", "color": "black", "height": "3px" }}></hr>
+                    {/* //check loading codition */}
                     {
                         !Loder ? items.slice(0, noOfElement).map((productdata, i) => {
-                            if (deleteId === productdata._id) {
-                                return ("")
-                            } else {
-                                return (
-                                    <div className='container' key={i}>
-                                        <div className='row' >
-                                            <div className="d-sm-flex justify-content-between mt-lg-4 mb-4 pb-3 pb-sm-2">
-                                                <div className='col-lg-4'>
-                                                    <div className='d-block d-sm-flex align-items-start text-center text-sm-start'>
-                                                        <img className="wishlist-img" src={productdata.product.image} alt="Product" />
-                                                    </div>
+                            return (
+                                <div className='container' key={i}>
+                                    <div className='row' >
+                                        <div className="d-sm-flex justify-content-between mt-lg-4 mb-4 pb-3 pb-sm-2">
+                                            <div className='col-lg-4'>
+                                                <div className='d-block d-sm-flex align-items-start text-center text-sm-start'>
+                                                    <img className="wishlist-img" src={productdata.product.image} alt="Product" />
                                                 </div>
-                                                <div className='col-lg-6'>
-                                                    <div className='d-block d-sm-flex align-items-start text-center text-sm-start'>
-                                                        <div className="pt-2 product-order-wishlist">
-                                                            <h3 className="text-dark font-weight-bold fs-base text-sm-start mb-2">{productdata.product.name}</h3>
-                                                            <div className="fs-sm"><span className="text-muted me-2">Category:</span>{productdata.product.category}</div>
-                                                            <div className="fs-sm"><span className="text-muted me-2">ABV:</span>{productdata.product.ABV}</div>
-                                                            <div className="fs-sm"><span className="text-muted me-2">Size:</span>{productdata.product.size}</div>
-                                                            <div className="fs-lg text-accent pt-2 mb-4 text-primary fw-bold">${productdata.product.price}</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className='col-lg-2'>
-                                                    <div className='d-block d-sm-flex align-items-start text-center text-sm-start trash-wishlist'>
-                                                        <button className="btn btn-outline-danger btn-sm" type="button" onClick={() => Deletecart(productdata._id)}><i className="fa fa-trash me-2"></i>Remove</button>
+                                            </div>
+                                            <div className='col-lg-6'>
+                                                <div className='d-block d-sm-flex align-items-start text-center text-sm-start'>
+                                                    <div className="pt-2 product-order-wishlist">
+                                                        <h3 className="text-dark font-weight-bold fs-base text-sm-start mb-2">{productdata.product.name}</h3>
+                                                        <div className="fs-sm"><span className="text-muted me-2">Category:</span>{productdata.product.category}</div>
+                                                        <div className="fs-sm"><span className="text-muted me-2">ABV:</span>{productdata.product.ABV}</div>
+                                                        <div className="fs-sm"><span className="text-muted me-2">Size:</span>{productdata.product.size}</div>
+                                                        <div className="fs-lg text-accent pt-2 mb-4 text-primary fw-bold">${productdata.product.price}</div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <hr style={{ "width": "100%", "textalign": "left", "marginleft": "0" }}></hr>
+                                            <div className='col-lg-2'>
+                                                <div className='d-block d-sm-flex align-items-start text-center text-sm-start trash-wishlist'>
+                                                    <button className="btn btn-outline-danger btn-sm" type="button" onClick={() => Deletecart(productdata._id)}><i className="fa fa-trash me-2"></i>Remove</button>
+                                                </div>
+                                            </div>
                                         </div>
+                                        <hr style={{ "width": "100%", "textalign": "left", "marginleft": "0" }}></hr>
                                     </div>
-                                )
-                            }
-
+                                </div>
+                            )
                         }) : SkeletonWishListItem
                     }
+                    {/* check empty condition */}
                     {
-                        Empty ? <NoDataInCart
-                            Message="Your Wishlist is Empty"
-                            suggestion="Add items now.."
-                            pagehref="/products"
-                            ButtonName="Shop Now"
-                        />
+                        Empty ?
+                            <NoDataInCart
+                                Message="Your Wishlist is Empty"
+                                suggestion="Add items now.."
+                                pagehref="/products"
+                                ButtonName="Shop Now"
+                            />
                             : ""
                     }
+                    {/* loader button */}
                     {
-                        items.length > 0 && items.length >= noOfElement ?
+                        items.length >= 3 && items.length >= noOfElement ?
                             <div className='row my-4'>
                                 <button className='btn Button-Blue-Border d-block w-100' onClick={() => loadMore()}>
                                     <i className='fa fa-refresh'></i>&nbsp; &nbsp; Load More</button>

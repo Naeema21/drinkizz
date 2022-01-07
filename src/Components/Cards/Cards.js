@@ -3,7 +3,7 @@ import './Cards.css'
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import swal from 'sweetalert';
-import { CART_URL } from '../../endpoint'
+import { CART_URL, COMPARE_URL, WISHLIST_URL } from '../../endpoint'
 
 const Cards = React.memo((props) => {
     //POST data for Add to cart
@@ -53,7 +53,40 @@ const Cards = React.memo((props) => {
                 timer:2000
             })
         } else {
-        axios.post(`https://daruwale.herokuapp.com/public/wishlist`, wishlistData)
+        axios.post(WISHLIST_URL, wishlistData)
+            .then(response => {
+                console.log("Status: ", response.status);
+                console.log("Data: ", response.data);
+                if (response.status === 201) {
+                    swal({
+                        title: response.data.message,
+                        timer: 2000,
+                    })
+                } else {
+                    swal({
+                        title: "Try Again!",
+                        timer:2000
+                    })
+                }
+            }).catch(error => {
+                console.error('Something went wrong!', error);
+            });
+        }
+    }
+
+    //handle compare
+    const handleCompare = () => {
+        const compareData = {
+            userId: localStorage.getItem('id'),
+            productId: props.id
+        }
+        if (compareData.userId === null) {
+            swal({
+                title: "login please",
+                timer:2000
+            })
+        } else {
+        axios.post( COMPARE_URL, compareData)
             .then(response => {
                 console.log("Status: ", response.status);
                 console.log("Data: ", response.data);
@@ -79,11 +112,11 @@ const Cards = React.memo((props) => {
 
         <div className='card product-card mt-3 mb-3'>
             <div className='pro-compare d-flex align-items-center'>
-                <Link to={`/compare/` + props.id} className='btn-compare me-2'>
-                    <i className="fa fa-refresh px-1"></i>Compare</Link>
+                <span className='btn-compare me-2' onClick={handleCompare}>
+                    <i className="fa fa-refresh px-1"></i>Compare</span>
                 <button onClick={handleWishlist} data-toggle="tooltip" data-placement="top" title="Hooray!" className='btn-wishlist btn-sm'><i className="fa fa-heart-o" aria-hidden="true"></i></button>
             </div>
-            <div className='product-img'>
+            <div className='product-img mt-3'>
                 <Link to={`/product-details/` + props.id} className='text-center card-img-top d-block overflow-hidden'>
                     <img src={props.imgsrc} alt="productimg" height="200px" />
                 </Link>

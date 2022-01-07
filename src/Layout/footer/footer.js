@@ -22,7 +22,7 @@ const Footer = () => {
                                 <div className="card-body text-center">
                                     <i className="text-indigo fa fa-instagram mb-2"></i>
                                     <h3 className="h5 mb-1 text-dark">Follow on Instagram</h3>
-                                    <p className="text-muted fs-sm">#ShopWithCartzilla</p>
+                                    <p className="text-muted fs-sm">#ShopWithDaruwale</p>
                                 </div>
                             </Link>
                         </div>

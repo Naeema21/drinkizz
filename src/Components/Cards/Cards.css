@@ -42,10 +42,10 @@
 .product-actionadd a:hover {
     color: #fe696a;
 }
-.productcard-sec .row {
+/* .productcard-sec .row {
     --bs-gutter-x: 0;
     --bs-gutter-y: 0;
-}
+} */
 /* Hover text css End */
 .product-name {
     color: #7d879c;
@@ -79,7 +79,7 @@
 
 .pro-compare {
     position: absolute;
-    top: 0.75rem;
+    top: 0.1rem;
     right: 0.75rem;
     z-index: 5;
 }
@@ -90,7 +90,11 @@
     padding-bottom: 7px;
     color: #4b566b;
 }
-
+.pro-compare .btn-compare{
+    cursor: pointer;
+    font-size: 13px;
+    color: #4b566b;
+}
 .pro-compare a:hover {
     color: #fe696a;
 }
@@ -111,12 +115,18 @@
     text-align: center;
 }
 
+.product-actionadd ,.pro-compare .btn-compare{
+    display: none;
+}
+
+.product-card:hover .product-actionadd , .product-card:hover .pro-compare .btn-compare {
+    display: block;
+}
+
+
 /* Card Media Query */
-@media screen and (min-width: 320px)and (max-width: 992px) {
-    .product-card .product-actionadd {
-        display: block;
-    }
-    .product-card .pro-compare a {
+@media (max-width: 992px) {
+    .product-card .product-actionadd ,.product-card .pro-compare .btn-compare {
         display: block;
     }
     .product-card{
@@ -126,22 +136,8 @@
 
 }
 
-@media screen and (min-width: 992px)and (max-width: 2000px) {
-    .product-actionadd {
-        display: none;
-    }
-
-    .product-card:hover .product-actionadd {
-        display: block;
-    }
-
-    .pro-compare a {
-        display: none;
-    }
-
-    .product-card:hover .pro-compare a {
-        display: block;
-    }
+@media screen and (min-width: 992px) {
+ 
 
 }
 

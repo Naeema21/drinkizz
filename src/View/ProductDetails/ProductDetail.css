@@ -368,3 +368,9 @@ input[type='radio'] {
   .color-circle{
       border: solid 2px white;
   }
+
+  .product-details .product-title a{
+    color: #000;
+    font-size: 17px;
+    text-decoration: none;
+  }

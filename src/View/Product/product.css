@@ -320,6 +320,7 @@
 @media screen and (min-width:320px) and (max-width:767px) {
   .product-details .shoplistbox {
     margin-top: 0px;
+    display: none;
   }
   .product-details .pro-5page {
     margin-left: 2%;
