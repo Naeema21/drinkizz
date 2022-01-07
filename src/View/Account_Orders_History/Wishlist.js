@@ -41,10 +41,9 @@ function Wishlist() {
         }
     }, [])
 
-    const Deletecart = (ids, user) => {
+    const Deletecart = (ids) => {
         const deleteData = {
-            "id": ids,
-            "userId": user
+            id: ids,
         }
         axios.delete(WISHLIST_URL, deleteData).then(res => {
             console.log(res.status)
@@ -108,8 +107,8 @@ function Wishlist() {
                                 return ("")
                             } else {
                                 return (
-                                    <div className='container'>
-                                        <div className='row' key={i}>
+                                    <div className='container' key={i}>
+                                        <div className='row' >
                                             <div className="d-sm-flex justify-content-between mt-lg-4 mb-4 pb-3 pb-sm-2">
                                                 <div className='col-lg-4'>
                                                     <div className='d-block d-sm-flex align-items-start text-center text-sm-start'>
@@ -129,7 +128,7 @@ function Wishlist() {
                                                 </div>
                                                 <div className='col-lg-2'>
                                                     <div className='d-block d-sm-flex align-items-start text-center text-sm-start trash-wishlist'>
-                                                        <button className="btn btn-outline-danger btn-sm" type="button" onClick={() => Deletecart(productdata._id, productdata.user)}><i className="fa fa-trash me-2"></i>Remove</button>
+                                                        <button className="btn btn-outline-danger btn-sm" type="button" onClick={() => Deletecart(productdata._id)}><i className="fa fa-trash me-2"></i>Remove</button>
                                                     </div>
                                                 </div>
                                             </div>

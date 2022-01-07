@@ -23,6 +23,7 @@ const Shop = (({ match },) => {
     const BreadCrumb = React.lazy(() => import('../../Components/BreadCrumb/Breadcrumb'))
     const Card = React.lazy(() => import('../../Components/Cards/Cards'))
     const [Data, setData] = useState({})
+    const [selectedClient,setSelectedClient] = useState("1");
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data);
@@ -39,48 +40,62 @@ const Shop = (({ match },) => {
             "userId": localStorage.getItem('id'),
             "productId": Data._id,
         };
-        axios.post(WISHLIST_URL, data2)
-            .then(response => {
-                console.log("Status: ", response.status);
-                console.log("Data: ", response.data);
-                if (response.status === 201) {
-                    swal({
-                        title: response.data.message,
-                        timer: 2000,
-                    })
-                } else {
-                    swal({
-                        title: "Try Again!",
-                    })
-                }
-            }).catch(error => {
-                console.error('Something went wrong!', error);
-            });
+        if (data2.userId === null) {
+            swal({
+                title: "login please",
+                timer: 2000
+            })
+        } else {
+            axios.post(WISHLIST_URL, data2)
+                .then(response => {
+                    console.log("Status: ", response.status);
+                    console.log("Data: ", response.data);
+                    if (response.status === 201) {
+                        swal({
+                            title: response.data.message,
+                            timer: 2000,
+                        })
+                    } else {
+                        swal({
+                            title: "Try Again!",
+                        })
+                    }
+                }).catch(error => {
+                    console.error('Something went wrong!', error);
+                });
+        }
     }
 
     const handleSubmitCart = () => {
         const DataToCart = {
             "userId": localStorage.getItem('id'),
             "productId": Data._id,
-            "quantity": Data.quantity
+            "quantity": selectedClient
         }
-        axios.post(CART_URL, DataToCart)
-            .then(response => {
-                console.log("Status: ", response.status);
-                console.log("Data: ", response.data);
-                if (response.status === 201) {
-                    swal({
-                        title: response.data.message,
-                        timer: 2000
-                    })
-                } else {
-                    swal({
-                        title: "Try Again"
-                    })
-                }
-            }).catch(error => {
-                console.error('Something went wrong !', error);
-            });
+        if (DataToCart.userId === null) {
+            swal({
+                title: "login please",
+                timer: 2000
+            })
+        } else {
+            axios.post(CART_URL, DataToCart)
+                .then(response => {
+                    console.log("Status: ", response.status);
+                    console.log("Data: ", response.data);
+                    if (response.status === 201) {
+                        swal({
+                            title: response.data.message,
+                            timer: 2000
+                        })
+                    } else {
+                        swal({
+                            title: "Try Again"
+                        })
+                    }
+                }).catch(error => {
+                    console.error('Something went wrong !', error);
+                });
+        }
     }
     const options = {
         items: 4,
@@ -110,6 +125,9 @@ const Shop = (({ match },) => {
         autoplay: false,
         dots: true
     }
+    function handleSelectChange(event) {
+        setSelectedClient(event.target.value);
+    }
     useEffect(() => {
         axios.get(PRODUCT_URL + "/" + match.params.id).then((res) => {
             setData(res.data)
@@ -133,11 +151,11 @@ const Shop = (({ match },) => {
                             <Tab eventKey="general" title=" General Info" className='py-4 px-sm-4'>
                                 <div className="tab-content px-lg-3">
                                     <div className="tab-pane fade active show" id="general" role="tabpanel">
-                                        <div className="row">
-                                            <div className="col-lg-7 pe-lg-0" >
+                                        <div className="row align-items-center justify-content-center">
+                                            <div className="col-lg-5 pe-lg-0 " >
                                                 <img src={Data.image} className='img-fluid' width="70%"></img>
                                             </div>
-                                            <div className="col-lg-5 pt-4 pt-lg-0">
+                                            <div className="col-lg-6 pt-4 pt-lg-0">
                                                 <div className="product-details ms-auto pb-3">
                                                     <div className='h3 product-desc-price'>$ {Data.price}</div>
                                                 </div>
@@ -145,16 +163,17 @@ const Shop = (({ match },) => {
                                                     <span className='Desc-text-heading'>Color:</span>
                                                     <span className='text-muted'>Color Option</span>
                                                 </div>
-                                                <div className="position-relative mb-5 pb-3">
+                                                {/* <div className="position-relative mb-5 pb-3">
                                                     <label className='color-circle-box'><input style={{ backgroundColor: '#f25540' }} name='color' type='radio' /></label>
                                                     <label className='color-circle-box'><input style={{ backgroundColor: '#65805b' }} name='color' type='radio' /></label>
                                                     <label className='color-circle-box'><input style={{ backgroundColor: '#f5f5f5' }} name='color' type='radio' /></label>
                                                     <label className='color-circle-box'><input style={{ backgroundColor: '#333' }} name='color' type='radio' /></label>
                                                     <div className="product-badge product-available mt-n1">Product available</div>
-                                                </div>
+                                                </div> */}
                                                 <div className="d-flex align-items-center pt-2 pb-4">
                                                     <select className="form-select me-3" style={{ width: "5rem" }}
-                                                        defaultValue={Data.quantity}
+                                                        // defaultValue={Data.quantity}
+                                                        onChange={handleSelectChange} value={selectedClient}
                                                     >
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
@@ -231,10 +250,10 @@ const Shop = (({ match },) => {
                             <Tab eventKey="specs" title="Tech Specs" className='py-4 px-sm-4'>
                                 <div className="tab-pane fade active show" id="specs" role="tabpanel">
                                     <div className="row d-md-flex justify-content-between align-items-start pb-4 mb-4 border-bottom">
-                                        <div className="col-lg-4 col-sm-8 d-flex align-items-center me-md-3"><img src={Smwatch1} width="90" alt="Product thumb" />
+                                        <div className="col-lg-4 col-sm-8 d-flex align-items-center me-md-3"><img src={Data.image} width="90" alt="Product thumb" />
                                             <div className="ps-3">
-                                                <h6 className="fs-base mb-2">Smartwatch Youth Edition</h6>
-                                                <div className="h3 C-Tprice">$124.<small>99</small></div>
+                                                <h6 className="fs-base mb-2">{Data.name}</h6>
+                                                <div className="h3 C-Tprice">${Data.price}<small>99</small></div>
                                             </div>
                                         </div>
                                         <div className=" col-lg-5 col-sm-8 d-flex align-items-center pt-3">
@@ -254,15 +273,31 @@ const Shop = (({ match },) => {
                                             </div>
                                         </div>
                                     </div>
+                                    <div className='product-desc'>
+                                    <h3 className="h6">Product Descripton</h3>
+                                    <p>{Data.description}</p>
 
+                                    </div>
                                     <div className="row pt-2">
-                                        <div className="col-lg-8 col-sm-6">
+                                        <div className="col-lg-5 col-sm-6">
                                             <h3 className="h6">Product Details</h3>
                                             <ul className="list-unstyled fs-sm pb-2">
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Name:</span><span>{Data.name}</span></li>
-                                                <li className="d-flex justify-content-between pb-2"><span className="text-muted">Description:</span></li><div className='pb-2 border-bottom'>{Data.description}</div>
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Category:</span><span>{Data.category}</span></li>
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Sub Category:</span><span>{Data.subCategory}</span></li>
+                                                <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Price:</span><span>${Data.price}</span></li>
+                                                
+                                            </ul>
+
+                                        </div>
+                                        <div className="col-lg-2 col-sm-6">
+                                          
+
+                                        </div>
+                                        <div className="col-lg-5 col-sm-6">
+                                            <h3 className="h6">Product Details</h3>
+                                            <ul className="list-unstyled fs-sm pb-2">
+                        
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Price:</span><span>${Data.price}</span></li>
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Size:</span><span>{Data.size}</span></li>
                                                 <li className="d-flex justify-content-between pb-2 border-bottom"><span className="text-muted">Food Pairing:</span><span>{Data.FoodPairing}</span></li>
@@ -277,10 +312,10 @@ const Shop = (({ match },) => {
                             {/* Tab Reviews Start */}
                             <Tab eventKey="reviews" title="Reviews" className='py-4 px-sm-4'>
                                 <div className="row d-md-flex justify-content-between align-items-start pb-4 mb-4 border-bottom">
-                                    <div className="col-lg-4 col-sm-8 d-flex align-items-center me-md-3"><img src={Smwatch1} width="90" alt="Product thumb" />
+                                    <div className="col-lg-4 col-sm-8 d-flex align-items-center me-md-3"><img src={Data.image} width="90" alt="Product thumb" />
                                         <div className="ps-3">
-                                            <h6 className="fs-base mb-2">Smartwatch Youth Edition</h6>
-                                            <div className="h3 C-Tprice">$124.<small>99</small></div>
+                                            <h6 className="fs-base mb-2">{Data.name}</h6>
+                                            <div className="h3 C-Tprice">${Data.price}<small>99</small></div>
                                         </div>
                                     </div>
                                     <div className=" col-lg-5 col-sm-8 d-flex align-items-center pt-3">
