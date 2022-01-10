@@ -17,9 +17,7 @@
     font-size: 9px;
 }
 
-.cart .Cart-list{
-    margin-top: -80px;
-}
+
 .cart .form-control:focus {
     border-color: #fe696a;
     box-shadow: none;

@@ -4,15 +4,10 @@ body {
   font-family: "Rubik", sans-serif;
   letter-spacing: 0.7px;
 }
-
-#main{
-  margin-top: 114px; 
-}
-
-@media(max-width:980px){
-  #main{
-    margin-top: 170px;
-  }
+.nav-container{
+  margin-top: 60px;
+  background-color: #537895;
+  background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
 }
 #loader {
   overflow-y: hidden;
@@ -116,31 +111,9 @@ color: #000 !important;
 }
 .form-select:focus , .form-check-input:focus ,.form-control:focus{
   outline: 0;
-  border-color: #fe3638 !important;
+  border-color: #274462 !important;
   box-shadow: none !important;
 }
-
-/* Breadcrumb */
-.Heading-back-com{
-  --bs-bg-opacity: 1;
-  background-color: #363e4e;
-  padding-top: 2.5rem !important;
-  padding-bottom: 2.5rem !important;
-}
-.Heading-back-com2{
-  background-color: #363e4e;
-  padding-top: 2rem !important;
-  padding-bottom: 2.5rem !important;
-  margin-top: -2px;
-}
-.breadcrumb a{
-  text-decoration: none;
-}
-/* @media (max-width:768px){
-  .Heading-back-com ol{
-    display: block;
-  }
-} */
 
 /* Alert */
 .swal-overlay--show-modal .swal-modal {

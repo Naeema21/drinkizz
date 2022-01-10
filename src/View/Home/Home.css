@@ -1,14 +1,22 @@
 /* Banner CSS Start */
-.banner-home a {
-    text-decoration: none;
+.search-bar {
+    padding: 9px 10px 9px 32px;
+    /* width: 55px; */
+    background: #c7c0c066 url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 10px center;
+    border: solid 2px #ccc;
+    border-radius: 7px;
+    transition: all .5s;
+    /* background: #b9b1b138; */
 }
 
-.banner-home {
-    background-color: #f4f9fb;
+.search-bar:focus {
+  box-shadow: none !important;
+  background-color: #fff;
 }
-
-.cardbox {
-    background-color: #0089ff0d;
+.Offers-Banner {
+    background-color: #537895;
+    background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+    padding: 6rem 0;
 }
 
 .banner-home .card-align-pro {
@@ -19,59 +27,6 @@
     background-color: #fbe9e78a;
 }
 
-.Home-Banner-Caroucel-Text {
-    text-align: left;
-    padding-left: 40px !important;
-}
-
-.Home-Banner-Caroucel-Text .Banner-Carousel-Heading {
-    font-size: 29px !important;
-    line-height: 24px !important;
-}
-
-.Home-Banner-Caroucel-Text .Banner-Carousel-Bold {
-    font-size: 50px;
-}
-
-.Banner-Caroucel-text {
-    font-size: 20px !important;
-    font-weight: 300 !important;
-}
-
-.Banner-Caroucel-subHead {
-    color: black;
-}
-
-.Banner-Caroucel-subHead {
-    font-size: 18px !important;
-    font-weight: 300 !important;
-}
-
-.Home-banner-owl a:hover {
-    color: white !important;
-    cursor: pointer;
-}
-
-.banner-home .owl-theme .owl-dots .owl-dot.active span {
-    background: #ff5722 !important;
-    width: 15px !important;
-    height: 4px !important;
-}
-
-.banner-home .owl-theme .owl-dots .owl-dot span {
-    width: 6px !important;
-    height: 6px !important;
-}
-
-@media(max-width:992px) {
-    .banner-home .cardbox {
-        min-width: 18em;
-    }
-
-    .banner-home .scroll-card {
-        overflow: scroll;
-    }
-}
 
 /* Banner CSS Completed */
 .Offers-Banner .Limited-Offer-tag {
@@ -88,8 +43,8 @@
 }
 
 .Offers-Banner button {
-    color: #fff;
-    background-color: #4e54c8;
+    color: #09203f;
+    background-color: #f2f2f2;
     border-color: #4e54c8;
     box-shadow: unset;
 }
@@ -98,95 +53,30 @@
     font-size: 23px;
 }
 
-/* Best Seller */
-.best-seller-product-title {
-    margin-bottom: 0.25rem;
-    font-size: .875rem;
-    font-weight: 500;
-    color: black !important;
-}
 
-.BS-Heading {
-    color: #fe4a4c;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-@media(max-width:768px) {
-    .BS-Heading {
-        margin-top: 15px;
-    }
-}
-
-.best-seller-product-price {
-    font-size: .875rem;
-    color: #4e54c8 !important;
-}
-
-.best-sellers-products a {
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 15px;
-}
-
-.best-seller-product-title:hover {
-    color: #ff5722 !important;
-}
-
-.BS-Product-item {
-    border-bottom: 1px solid #dbd9d9;
-}
-
-.BS-Product:last-child {
-    border-bottom: none;
-}
-
-/* Client Caroucel */
-.client-caroucel .owl-carousel .owl-item img {
-    width: 65%;
-}
-
-.owl-carousel .owl-item img {
-    width: 100%;
-}
-
-/* Product cards heading button css */
-.cards-moreproduct-btn {
-    border-color: rgba(78, 84, 200, .35);
-    color: #4e54c8;
-    font-size: 0.8125rem;
-    padding: 0.425rem 1rem;
-    border-radius: 0.25rem;
-    font-weight: 400;
-}
-
-.cards-moreproduct-btn:hover {
-    color: #fff;
-    background-color: #4e54c8;
-    border-color: #4e54c8;
-}
 
 /* Skleton css of product cards */
-.Skeleton-products .skel1div ,.Skeleton-products h2,.Skeleton-products h3,
-.Skeleton-products h1,.Skeleton-bestseller .selskeldiv1 ,.Skeleton-bestseller h2,.Skeleton-bestseller h3  {
+.Skeleton-products .skel1div, .Skeleton-products h2, .Skeleton-products h3,
+.Skeleton-products h1, .Skeleton-bestseller .selskeldiv1, .Skeleton-bestseller h2, .Skeleton-bestseller h3 {
     background: linear-gradient(to right, #ffffff00, #ffffff80 50%, #ffffff00 80%), #efecec;
     background-repeat: repeat-y;
     background-size: 50px 500px;
     background-position: 0 0;
     animation: shine 1s infinite;
 }
+
 @keyframes shine {
     to {
         background-position: 100% 0;
     }
 }
+
 .Skeleton-products .skel1div {
     height: 150px;
     width: 100%;
 }
 
-.Skeleton-products h2,.Skeleton-products h3  {
+.Skeleton-products h2, .Skeleton-products h3 {
     height: 15px;
     width: 190px;
 }
@@ -203,8 +93,7 @@
     width: 20%;
 }
 
-.Skeleton-bestseller h2,.Skeleton-bestseller h3 {
+.Skeleton-bestseller h2, .Skeleton-bestseller h3 {
     height: 15px;
     width: 100px;
 }
-

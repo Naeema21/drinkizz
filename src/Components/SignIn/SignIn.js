@@ -74,15 +74,15 @@ const SignIn = () => {
             {
                 name ?
                     <NavDropdown
-                        className='text-dark'
-                        id="nav-dropdown-dark-example"
+                        className='text-white'
+                        id="nav-dropdown-dark-example nav-link"
                         title={"Hello, " + name}
                         menuVariant="Danger">
-                        <NavDropdown.Item onClick={() => LogOut()}>
+                        <NavDropdown.Item onClick={() => LogOut()} className='text-white'>
                             <i className="fa fa-sign-out me-2"></i>SignOut</NavDropdown.Item>
                     </NavDropdown>
                     :
-                    <span style={{ cursor: "pointer" }}>
+                    <span style={{ cursor: "pointer" }} className='nav-link'>
                         <span onClick={handleShow}>
                             <i className='fa fa-user-o text-danger'></i>&nbsp; {name ? name : "Hello ,Sign In"}</span>
                     </span>

@@ -93,20 +93,6 @@ const Shipping = ({ setForm, navigation }) => {
           </div>
         </div>
       </div>
-      {/* <h3>Address</h3>
-      <ItemForm
-        label="Address"
-        name="address"
-        value={address}
-        onChange={setForm}
-      />
-      <ItemForm label="City" name="city" value={city} onChange={setForm} />
-      <StateDrop label="State" name="state" value={state} onChange={setForm} />
-      <ItemForm label="Zip" name="zip" value={zip} onChange={setForm} />
-      <div>
-        <button onClick={previous}>Previous</button>
-        <button onClick={next}>Next</button>
-      </div> */}
     </div>
   );
 };
