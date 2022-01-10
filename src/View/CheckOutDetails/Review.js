@@ -20,7 +20,7 @@ const Review = ({Paymentfields, fields, navigation }) => {
     const { go } = navigation;
     //TotalPrice
     var totalCartPrice = 0;
-    const {cardnumber} = Paymentfields
+    const {cardnumber} = Paymentfields;
     const { firstName, lastName, phone, country, city,zip, address } = fields;
     return (
         <div className="form CheckOut-Review">
