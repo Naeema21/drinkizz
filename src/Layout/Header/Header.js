@@ -51,7 +51,7 @@ const Header = () => {
                                 Order Tracking
                             </NavLink>
                             <NavLink className="nav-link "
-                                to="/account-orders-history" onClick={() => { scrollgoTop(); setExpanded(false); }}>
+                                to="/profile" onClick={() => { scrollgoTop(); setExpanded(false); }}>
                                 Account
                             </NavLink>
 
@@ -85,7 +85,7 @@ const Header = () => {
                             </div>
                             <div>
                                 <span>
-                                    <Link to="/account-orders-history#account-wishlist" className='sub-header-link'>
+                                    <Link to="/wishlist" className='sub-header-link'>
                                         <i className='fa fa-heart-o text-danger'> </i> Wishlist
                                     </Link>
                                 </span>

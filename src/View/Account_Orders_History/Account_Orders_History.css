@@ -1,23 +1,23 @@
-.Account-Order-History{
+.account{
     cursor: pointer;
 }
-.Account-Order-History a{
+ a{
     text-decoration: none;
 }
-.Account-Order-History .img-boreder-profile{
+.account .img-boreder-profile{
     border-radius: 50%;
     border:1px solid black;
 }
-/* .Account-Order-History dashbord*/
-.Account-Order-History .profile-orderhistory{
+/* .account dashbord*/
+.account .profile-orderhistory{
     width: 100px;
     height: 100px;
     border-radius: 50%;
 }
-.Account-Order-History .profile-col-sidebar{
+.account .profile-col-sidebar{
     margin-top: -80px;
 }
-.Account-Order-History .sidebar-li{
+.account .sidebar-li{
     list-style: none;
     margin-left:-30px !important;
 }
@@ -33,75 +33,70 @@
         vertical-align: baseline;
         border-radius: 0.175rem;
 }
-.Account-Order-History .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+.account .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color:#fe696a !important;
     background-color: #fff !important;
 }
 /* badge */
-.Account-Order-History .bg-info{
+.account .bg-info{
     background-color: #0dcaf0 !important;
 }
-.Account-Order-History .bg-danger{
+.account .bg-danger{
     background-color: #f34770 !important;
 }
-.Account-Order-History .bg-warning{
+.account .bg-warning{
     background-color:  #fea569 !important;
 }
-.Account-Order-History .bg-success{
+.account .bg-success{
     background-color: #42d697 !important;
 }
-.Account-Order-History .bg-secondary{
+.account .bg-secondary{
     background-color: #f3f5f9 !important;
 }
 /* paggination */
-.Account-Order-History .order-page.active .page-link {
+.account .order-page.active .page-link {
     background-color:#fe696a !important;
     border-color: #fe696a !important;
     border-radius: 8px;
 }
-.Account-Order-History .order-page:not(:first-child) .page-link {
+.account .order-page:not(:first-child) .page-link {
     margin-left: -1px;
 }
-.Account-Order-History .pagination .page-link {
+.account .pagination .page-link {
     border-radius: 0.3125rem;
     font-size: .9375rem;
     margin-left: 5px;
 }
-.Account-Order-History .page-link {
+.account .page-link {
     position: relative;
     transition: color .25s ease-in-out,border-color .25s ease-in-out,background-color .25s ease-in-out;
 }
-.Account-Order-History .page-link {
+.account .page-link {
     padding: 0.3125rem 0.75rem;
     border: none !important;
     box-shadow: none !important;
 }
-.Account-Order-History .page-link:hover{
+.account .page-link:hover{
     color:#fff;
 }
 /* wishlist */
-.Account-Order-History .wishlist-img{
-    height:190px;
-}
-.Account-Order-History .product-order-wishlist h3{
+
+.account .product-order-wishlist h3{
     font-size: 17px;
 }
-.Account-Order-History .product-order-wishlist span{
+.account .product-order-wishlist span{
     font-size: 14px;
 }
-.Account-Order-History .profiletab-img{
+.account .profiletab-img{
     width:100px;
     height:100px;
 }
-.Account-Order-History .profiletab-img-card{
-    width:50px;
-    height:30px;
-}
+
 .card-img-pay{
     width: 30px;
     height: 20px;
 }
-.Account-Order-History .trash-wishlist{
+.account .trash-wishlist{
 position: relative;
 top: 50%;
 -webkit-transform: translateY(-50%);
@@ -117,14 +112,14 @@ transform: translateY(-50%);
     padding: 10px 25px;
     border-radius: 7px;
 }
-.Account-Order-History,.form-control:focus {
+.account,.form-control:focus {
     color: #4b566b !important;
     background-color: #fff !important;
     border-color: #ffb4b5 !important;
     outline: 0 !important;
     box-shadow: none !important;
 }
-.Account-Order-History, .form-label {
+.account, .form-label {
     margin-bottom: 0.375rem;
     font-size: 0.875rem;
     font-weight: 500;
