@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Account_Orders_History.css';
 import { Nav } from "react-bootstrap";
 import profile from '../../assets/images/AccountHistory/profile.png';
@@ -28,17 +28,17 @@ const Account_Orders_History = React.memo((props) => {
                             <Nav variant="pills" className="flex-column">
                                 <ul>
                                     <Nav.Item>
-                                        <Link to="/orders" className='nav-link'>
+                                        <NavLink to="/orders" className='nav-link'>
                                             <li className="sidebar-li">
                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                     <i className="fa fa-shopping-bag me-2"></i>Orders
                                                     <span className="text-muted ms-auto">1</span>
                                                 </div>
                                             </li>
-                                        </Link>
+                                        </NavLink>
                                     </Nav.Item>
                                     <Nav.Item>
-                                        <Link to="/wishlist" className='nav-link'>
+                                        <NavLink to="/wishlist" className='nav-link'>
                                             <li className="sidebar-li">
                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                     <i className="fa fa-heart-o me-2"></i>Wishlist
@@ -46,17 +46,17 @@ const Account_Orders_History = React.memo((props) => {
                                                     </span>
                                                 </div>
                                             </li>
-                                        </Link>
+                                        </NavLink>
                                     </Nav.Item>
                                     <Nav.Item>
-                                        <Link to="/support-tickets" className='nav-link'>
+                                        <NavLink to="/support-tickets" className='nav-link'>
                                             <li className="sidebar-li">
                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                     <i className="fa fa-life-ring me-2"></i>Support tickets
                                                     <span className="text-muted ms-auto"></span>
                                                 </div>
                                             </li>
-                                        </Link>
+                                        </NavLink>
                                     </Nav.Item>
                                 </ul>
                                 <div className="bg-light px-4 py-3">
@@ -64,34 +64,34 @@ const Account_Orders_History = React.memo((props) => {
                                 </div>
                                 <ul>
                                     <Nav.Item>
-                                        <Link to="/profile" className='nav-link'>
+                                        <NavLink to="/profile" className='nav-link'>
                                             <li className="sidebar-li">
                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                     <i className="fa fa-user-o me-2"></i>Profile info
                                                     <span className="text-muted ms-auto"></span>
                                                 </div>
                                             </li>
-                                        </Link>
+                                        </NavLink>
                                     </Nav.Item>
                                     <Nav.Item>
-                                        <Link to="/addresses" className='nav-link'>
+                                        <NavLink to="/addresses" className='nav-link'>
                                             <li className="sidebar-li">
                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                     <i className="fa fa-map-marker me-2"></i>Addresses
                                                     <span className="text-muted ms-auto"></span>
                                                 </div>
                                             </li>
-                                        </Link>
+                                        </NavLink>
                                     </Nav.Item>
                                     <Nav.Item>
-                                        <Link to="/payment-methods" className='nav-link'>
+                                        <NavLink to="/payment-methods" className='nav-link'>
                                             <li className="sidebar-li">
                                                 <div className="d-flex align-items-center px-2 py-1 fw-bold">
                                                     <i className="fa fa-credit-card me-2"></i>Payment methods
                                                     <span className="text-muted ms-auto"></span>
                                                 </div>
                                             </li>
-                                        </Link>
+                                        </NavLink>
                                     </Nav.Item>
                                 </ul>
                             </Nav>

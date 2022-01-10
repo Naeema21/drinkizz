@@ -29,7 +29,7 @@ const PaymentMethods =()=> {
                         <div className='col-lg-4'></div>
                         <div className='col-lg-8'></div>
                     </div>
-                    <div className='container pb-5 mb-2 mb-md-4'>
+                    <div className='container mb-4'>
                         {/* sidebar  onSelect={handleSelect()} */}
                         <Row>
                             <Col lg={4} className="pt-4 pt-lg-0 pe-xl-5 profile-col-sidebar">

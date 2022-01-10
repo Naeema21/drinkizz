@@ -54,7 +54,6 @@ const Header = () => {
                                 to="/profile" onClick={() => { scrollgoTop(); setExpanded(false); }}>
                                 Account
                             </NavLink>
-
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
@@ -66,7 +65,7 @@ const Header = () => {
                 <div className='container'>
                     <div className='row align-items-center'>
                         <div className='col-lg-3'>
-                            <Link to="/" className='logo'><span className='text-dark'>&#127867;</span>Daruwale</Link>
+                            <NavLink to="/" className='logo'><span className='text-dark'>&#127867;</span>Daruwale</NavLink>
                         </div>
 
                         <div className='col-lg-5'>
@@ -78,16 +77,16 @@ const Header = () => {
 
                             <div>
                                 <span>
-                                    <Link to="/cart" className='sub-header-link'>
+                                    <NavLink to="/cart" className='sub-header-link'>
                                         <i className='fa fa-shopping-cart text-danger'> </i> My Cart
-                                    </Link>
+                                    </NavLink>
                                 </span>
                             </div>
                             <div>
                                 <span>
-                                    <Link to="/wishlist" className='sub-header-link'>
+                                    <NavLink to="/wishlist" className='sub-header-link'>
                                         <i className='fa fa-heart-o text-danger'> </i> Wishlist
-                                    </Link>
+                                    </NavLink>
                                 </span>
                             </div>
                             <div>

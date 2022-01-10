@@ -4,7 +4,7 @@ import './Account_Orders_History.css';
 import { Row, Col } from "react-bootstrap";
 import BreadCrumb from '../../Components/BreadCrumb/Breadcrumb';
 const Orders = () => {
-    const  Account_Orders_History = React.lazy(() => import('./Account_Orders_History'))
+    const Account_Orders_History = React.lazy(() => import('./Account_Orders_History'))
     const SignInFirst = React.lazy(() => import('../../Components/SignInFirst/SignInFirst'))
     const userId = localStorage.getItem('id')
     //option value initialization
@@ -43,7 +43,7 @@ const Orders = () => {
                         <div className='col-lg-4'></div>
                         <div className='col-lg-8'></div>
                     </div>
-                    <div className='container pb-5 mb-2 mb-md-4'>
+                    <div className='container mb-4'>
                         {/* sidebar  onSelect={handleSelect()} */}
                         <Row>
                             <Col lg={4} className="pt-4 pt-lg-0 pe-xl-5 profile-col-sidebar">
@@ -77,64 +77,62 @@ const Orders = () => {
                                                         <th className='px-4'>Total</th>
                                                     </tr>
                                                 </thead>
-                                                {`${value}`}
+                                                {/* {`${value}`} */}
                                                 {/* table for In Progress */}
-                                                {inProgress &&
-                                                    <tbody>
-                                                        <tr>
-                                                            <td className="py-3"><Link className="text-dark fw-bold" to="#">34VB5540K83</Link></td>
-                                                            <td className="py-3 px-4">May 21, 2019</td>
-                                                            <td className="py-3"><span className="badge bg-info bg-opacity-60 bg-lighten-xl m-0">In Progress</span></td>
-                                                            <td className="py-3 px-4">$358.75</td>
-                                                        </tr>
-                                                    </tbody>
-                                                }
-                                                {/* table for Canceled */}
-                                                {canceled &&
-                                                    <tbody>
-                                                        <tr>
-                                                            <td className="py-3"><Link className="text-dark fw-bold" to="#">78A643CD409</Link></td>
-                                                            <td className="py-3 px-4">December 09, 2018</td>
-                                                            <td className="py-3"><span className="badge bg-danger bg-opacity-60 bg-lighten-xl m-0">Canceled</span></td>
-                                                            <td className="py-3 px-4"><span>$760.50</span></td>
-                                                        </tr>
-                                                    </tbody>
-                                                }
-                                                {/* table for Delayed */}
-                                                {delayed &&
-                                                    <tbody>
-                                                        <tr>
-                                                            <td className="py-3"><Link className="text-dark fw-bold" to="#">112P45A90V2</Link></td>
-                                                            <td className="py-3 px-4">October 15, 2018</td>
-                                                            <td className="py-3"><span className="badge bg-warning bg-opacity-60 bg-lighten-xl m-0">Delayed</span></td>
-                                                            <td className="py-3 px-4">$1,264.00</td>
-                                                        </tr>
-                                                    </tbody>
-                                                }
-                                                {/* table for Delivered*/}
-                                                {delivered &&
-                                                    <tbody>
-                                                        <tr>
-                                                            <td className="py-3"><Link className="text-dark fw-bold" to="#">28BA67U0981</Link></td>
-                                                            <td className="py-3 px-4">July 19, 2018</td>
-                                                            <td className="py-3"><span className="badge bg-success bg-opacity-60 bg-lighten-xl m-0">Delivered</span></td>
-                                                            <td className="py-3 px-4">$198.35</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td className="py-3"><Link className="text-dark fw-bold" to="#">502TR872W2</Link></td>
-                                                            <td className="py-3 px-4">April 04, 2018</td>
-                                                            <td className="py-3"><span className="badge bg-success bg-opacity-60 bg-lighten-xl m-0">Delivered</span></td>
-                                                            <td className="py-3 px-4">$2,133.90</td>
-                                                        </tr>
+                                                <tbody>
+                                                    <tr>
+                                                        <td className="py-3"><Link className="text-dark fw-bold" to="#">34VB5540K83</Link></td>
+                                                        <td className="py-3 px-4">May 21, 2019</td>
+                                                        <td className="py-3"><span className="badge bg-info bg-opacity-60 bg-lighten-xl m-0">In Progress</span></td>
+                                                        <td className="py-3 px-4">$358.75</td>
+                                                    </tr>
 
-                                                        <tr>
-                                                            <td className="py-3"><Link className="text-dark fw-bold" to="#">47H76G09F33</Link></td>
-                                                            <td className="py-3 px-4">March 30, 2018</td>
-                                                            <td className="py-3"><span className="badge bg-success bg-opacity-60 bg-lighten-xl m-0">Delivered</span></td>
-                                                            <td className="py-3 px-4">$86.40</td>
-                                                        </tr>
-                                                    </tbody>
-                                                }
+
+                                                    {/* table for Canceled */}
+
+
+                                                    <tr>
+                                                        <td className="py-3"><Link className="text-dark fw-bold" to="#">78A643CD409</Link></td>
+                                                        <td className="py-3 px-4">December 09, 2018</td>
+                                                        <td className="py-3"><span className="badge bg-danger bg-opacity-60 bg-lighten-xl m-0">Canceled</span></td>
+                                                        <td className="py-3 px-4"><span>$760.50</span></td>
+                                                    </tr>
+
+
+                                                    {/* table for Delayed */}
+
+
+                                                    <tr>
+                                                        <td className="py-3"><Link className="text-dark fw-bold" to="#">112P45A90V2</Link></td>
+                                                        <td className="py-3 px-4">October 15, 2018</td>
+                                                        <td className="py-3"><span className="badge bg-warning bg-opacity-60 bg-lighten-xl m-0">Delayed</span></td>
+                                                        <td className="py-3 px-4">$1,264.00</td>
+                                                    </tr>
+
+
+                                                    {/* table for Delivered*/}
+
+                                                    <tr>
+                                                        <td className="py-3"><Link className="text-dark fw-bold" to="#">28BA67U0981</Link></td>
+                                                        <td className="py-3 px-4">July 19, 2018</td>
+                                                        <td className="py-3"><span className="badge bg-success bg-opacity-60 bg-lighten-xl m-0">Delivered</span></td>
+                                                        <td className="py-3 px-4">$198.35</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className="py-3"><Link className="text-dark fw-bold" to="#">502TR872W2</Link></td>
+                                                        <td className="py-3 px-4">April 04, 2018</td>
+                                                        <td className="py-3"><span className="badge bg-success bg-opacity-60 bg-lighten-xl m-0">Delivered</span></td>
+                                                        <td className="py-3 px-4">$2,133.90</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td className="py-3"><Link className="text-dark fw-bold" to="#">47H76G09F33</Link></td>
+                                                        <td className="py-3 px-4">March 30, 2018</td>
+                                                        <td className="py-3"><span className="badge bg-success bg-opacity-60 bg-lighten-xl m-0">Delivered</span></td>
+                                                        <td className="py-3 px-4">$86.40</td>
+                                                    </tr>
+                                                </tbody>
+
                                             </table>
                                         </div>
                                         {/* Pagination */}
