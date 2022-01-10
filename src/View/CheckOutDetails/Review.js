@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import { CART_URL } from "../../endpoint";
 import OrderSummary from "../../Components/CheckOutSidebar/OrderSummary";
-const Review = ({ setForm, formData, navigation }) => {
+const Review = ({Paymentfields, fields, navigation }) => {
     const { previous, next } = navigation;
     const [Data, setData] = useState([]);
     useEffect(() => {
@@ -20,17 +20,8 @@ const Review = ({ setForm, formData, navigation }) => {
     const { go } = navigation;
     //TotalPrice
     var totalCartPrice = 0;
-    
-    const{
-        firstName,
-        lastName,
-        address,
-        city,
-        country,
-        zip,
-        phone,
-        cardnumber,
-    } = formData;
+    const {cardnumber} = Paymentfields
+    const { firstName, lastName, phone, country, city,zip, address } = fields;
     return (
         <div className="form CheckOut-Review">
             <div className="container">

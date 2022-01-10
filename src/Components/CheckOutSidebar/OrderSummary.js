@@ -61,18 +61,16 @@ const OrderSummary = ({
         for (var i = 0; i < PROMOTIONS.length; i++) {
             if (promoCode === PROMOTIONS[i].code) {
                 setDiscountPercent(parseFloat(PROMOTIONS[i].discount.replace("%", "")));
-
                 return;
             }
         }
-
         alert("Sorry, the Promotional code you entered is not valid!");
     };
     //promocodeend
     useEffect(() => {
         window.scrollTo(0, 0)
         try {
-            axios.get(CART_URL).then(res => {
+            axios.get(CART_URL + "/" + localStorage.getItem('id')).then(res => {
                 console.log(res)
                 if (res.status === 200) {
                     setData(res.data.data);
@@ -93,7 +91,7 @@ const OrderSummary = ({
                     <div>
                         {
                             Data.map((value, index) => {
-                                // totalCartPrice += value.price * value.quantity
+                                totalCartPrice += value.product.price * value.product.quantity
                                 if (Empty === value._id) {
                                     return ("")
                                 } else {
@@ -101,12 +99,12 @@ const OrderSummary = ({
                                         <Link to="/product-details" key={index}>
                                             <div className='d-flex align-items-center border-bottom'>
                                                 <div className=''>
-                                                    <img src={value.image} alt='product' width="70" className='img-fluid'></img>
+                                                    <img src={value.product.image} alt='product' width="70" className='img-fluid'></img>
                                                 </div>
                                                 <div className='d-flex align-items-center'>
                                                     <div className='mt-4 Check-out-product-body'>
-                                                        <h6 className='Check-out-product-title'>{value.name}</h6>
-                                                        <p className='Check-out-product-price'>${value.price}</p>
+                                                        <h6 className='Check-out-product-title'>{value.product.name}</h6>
+                                                        <p className='Check-out-product-price'>${value.product.price}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -128,12 +126,20 @@ const OrderSummary = ({
                     </div>
                     {
                         methods.map((charge, index) => {
-                            <div >
+                            <div key={index}>
                                 <ul className="list-unstyled fs-sm pb-2 border-bottom mt-2">
-                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Subtotal:</span><span className="text-end">$ {SubTotal}</span></li>
-                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Shipping:</span><span className="text-end">$ {charge.tax}</span></li>
-                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Taxes:</span><span className="text-end">$ {TAX}</span></li>
-                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD"><span className="me-2">Discount:</span><span className="text-end">$ {discountPercent}</span></li>
+                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD">
+                                        <span className="me-2">Subtotal:</span><span className="text-end">$ {SubTotal}</span>
+                                    </li>
+                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD">
+                                        <span className="me-2">Shipping:</span><span className="text-end">$ {charge.tax}</span>
+                                    </li>
+                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD">
+                                        <span className="me-2">Taxes:</span><span className="text-end">$ {TAX}</span>
+                                    </li>
+                                    <li className="d-flex justify-content-between align-items-center text-muted fs-text-COD">
+                                        <span className="me-2">Discount:</span><span className="text-end">$ {discountPercent}</span>
+                                    </li>
                                 </ul>
                                 <h3 className="fw-normal text-center my-4">$ {total}</h3>
                                 <form onSubmit={onSubmit}>

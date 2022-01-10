@@ -4,7 +4,7 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import { Link } from 'react-router-dom';
 import { WISHLIST_URL } from "../../endpoint"
-const Wishlist =()=> {
+const Wishlist = () => {
     const NoDataInCart = React.lazy(() => import('../../Components/NoDataFound/NoDataInCart'))
     const SignInFirst = React.lazy(() => import('../../Components/SignInFirst/SignInFirst'))
     const [Loder, setLoader] = useState(false)
@@ -57,7 +57,7 @@ const Wishlist =()=> {
             } else {
                 swal({
                     title: "Try Again!",
-                    timer:2000
+                    timer: 2000
                 })
             }
         })

@@ -3,15 +3,10 @@ import './Home.css'
 import OwlCarousel from 'react-owl-carousel2';
 import 'react-owl-carousel2/lib/styles.css';
 import 'react-owl-carousel2/src/owl.theme.default.css';
-import ProductCamera from '../../assets/images/Home/BeerVertical.jpg'
-import ProductGadget from '../../assets/images/Home/WineVertical.jpeg'
-import ProductEarbuds from '../../assets/images/Home/LiquorVertical.jpeg'
-import BeerBG from '../../assets/images/Home/BeerBG.png';
+import beer1 from '../../assets/images/Home/banner-sm01.png'
+import beer2 from '../../assets/images/Home/banner-sm02.png'
 import WineBG from '../../assets/images/Home/WineBG.png';
 import LiquorBG from '../../assets/images/Home/LiquorBG.png'
-import HomeBannerCaroucel1 from '../../assets/images/Home/Caroucel-1.jpg'
-import HomeBannerCaroucel2 from '../../assets/images/Home/caroucel-2.jpg'
-import HomeBannerCaroucel3 from '../../assets/images/Home/caroucel-3.jpg'
 import OfferBanneripad from '../../assets/images/Home/offer-banner.png'
 import { clientCaroucel } from "../../assets/Data/data";
 import { Link } from "react-router-dom";
@@ -150,7 +145,7 @@ const Home = () => {
                             <div className="d-flex d-xl-block scroll-card">
                                 <Link to="/product-details">
                                     <div className="d-flex align-items-center bg-faded-indigo rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
-                                        <img src="http://assets.stickpng.com/thumbs/580b585b2edbce24c47b277d.png"className='img-fluid' width="125" alt='Camera'></img>
+                                        <img src={beer1 }className='img-fluid' width="125" alt='Camera'></img>
                                         <div className="p-2">
                                             <div className='card-align-pro'>
                                                 <span className="Banner-Caroucel-subHead">Next Gen <br /><b>Video</b> with <b>360 Cam</b></span>
@@ -172,7 +167,7 @@ const Home = () => {
                                 </Link>
                                 <Link to="/product-details">
                                     <div className="d-flex align-items-center bg-faded-green rounded-3 pt-2 ps-2 mb-4 me-4 me-xl-0 cardbox" >
-                                        <img src="http://assets.stickpng.com/thumbs/585fca61cb11b227491c35ae.png" className="img-fluid" width="125" alt="EarBuds"></img>
+                                        <img src={beer2} className="img-fluid" width="125" alt="EarBuds"></img>
                                         <div className="p-2">
                                             <div className="card-align-pro">
                                                 <span className="Banner-Caroucel-subHead">Next Gen <br /><b>Video</b> with <b>360 Cam</b></span>
