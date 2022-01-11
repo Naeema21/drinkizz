@@ -13,9 +13,8 @@ function App() {
   const Compare = React.lazy(() => import('./View/Compare/Compare'))
   const ProductDetail = React.lazy(() => import('./View/ProductDetails/ProductDetails'))
   const Cart = React.lazy(() => import('./View/Cart/Cart'))
-  const CheckOutDetails = React.lazy(() => import('./View/CheckOutDetails/CheckOutDetails'))
   const Wishlist = React.lazy(() => import('./View/Wishlist/Wishlist'))
-
+  const submit = React.lazy(()=>import('./View/Cart/Submit'))
 
   return (
     <div className="App">
@@ -27,8 +26,8 @@ function App() {
               <Route exact path="/wishlist" component={Wishlist}></Route>
               <Route exact path="/compare" component={Compare}></Route>
               <Route exact path="/cart" component={Cart}></Route>
+              <Route exact path="/submit" component={submit}></Route>
               <Route exact path="/product-details/:id" component={ProductDetail}></Route>
-              <Route exact path="/checkout-details" component={CheckOutDetails}></Route>
               <Route exact path="/" component={Home}></Route>
               <Route exact component={Home}></Route>
             </Switch>

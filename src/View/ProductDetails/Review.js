@@ -98,23 +98,12 @@ const Review = React.memo((props) => {
             </div>
             <div className='row py-4'>
                 <div className='col-md-7'>
-                    <div className="d-flex justify-content-end pb-4">
-                        <div className="d-flex flex-nowrap align-items-center">
-                            <label className="fs-sm text-muted text-nowrap me-2 d-none d-sm-block" htmlFor="sort-reviews">Sort by:</label>
-                            <select className="form-select form-select-sm" id="sort-reviews">
-                                <option>Newest</option>
-                                <option>Oldest</option>
-                                <option>Popular</option>
-                                <option>High rating</option>
-                                <option>Low rating</option>
-                            </select>
-                        </div>
-                    </div>
+                  
                     {
                         ReviewComments.map((value, index) => {
                             return (
                                 <div className="pb-4 mb-4 border-bottom" key={index}>
-                                    <div className="d-flex mb-3">
+                                    <div className="d-flex mb-3 justify-content-between">
                                         <div className="d-flex align-items-center me-4 pe-2"><img className="rounded-circle" src={value.profileimg} width="50" alt="Rafael Marquez" />
                                             <div className="ps-3">
                                                 <h6 className="mb-0">{value.Name}</h6><span className="Review-comment-date text-muted">{value.Date}</span>
@@ -122,18 +111,9 @@ const Review = React.memo((props) => {
                                         </div>
                                         <div>
                                             <div className="star-rating"><i className="fa fa-star "></i><i className="fa fa-star"></i><i className="fa fa-star"></i><i className="fa fa-star"></i><i className="fa fa-star "></i></div>
-                                            <div className="Review-comment-date text-muted">{value.UsefulReview}</div>
                                         </div>
                                     </div>
                                     <p className="mb-2">{value.Comment}</p>
-                                    <ul className="list-unstyled pt-1">
-                                        <li className="mb-1"><span className="fw-medium">Pros:&nbsp;</span><span className='Review-comment-ProCons'>{value.Pros}</span></li>
-                                        <li className="mb-1"><span className="fw-medium">Cons:&nbsp;</span><span className='Review-comment-ProCons'>{value.Cons}</span></li>
-                                    </ul>
-                                    <div className="Like-Dislike">
-                                        <button className="btn Like-btn"><i className="fa fa-thumbs-up"></i>&nbsp;{value.Like}</button>
-                                        <button className="btn DisLike-btn" ><i className="fa fa-thumbs-down"></i>&nbsp;{value.Dislike}</button>
-                                    </div>
                                 </div>
                             );
                         })
@@ -192,26 +172,6 @@ const Review = React.memo((props) => {
                                     })}
                                     className="form-control" rows="4"  ></textarea>
                                 <span className="error-msg" title="invlid subject">{errors.comment && "Please write a review."}</span>
-                            </div>
-                            <div className="form-group mb-4">
-                                <label className='form-label'>Pros</label>
-                                <input type="text"
-                                    {...register("Pros", {
-                                        minLength: 3, maxLength: 60
-                                    })}
-                                    className="form-control" autoComplete="off"
-                                // placeholder="Seperated by comma" 
-                                />
-                            </div>
-                            <div className="form-group mb-4">
-                                <label className='form-label'>Cons</label>
-                                <input type="text"
-                                    {...register("cons", {
-                                        minLength: 3, maxLength: 60
-                                    })}
-                                    className="form-control" autoComplete="off"
-                                // placeholder="Seperated by comma" 
-                                />
                             </div>
                             <div className="form-group ">
                                 <button className="Button-Full-Red w-100" type="submit">

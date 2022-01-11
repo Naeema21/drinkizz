@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import EmptyCart from '../../assets/images/checkout-details/empty_cart.jpeg'
 
 const NoDataInCart = React.memo(props => {
@@ -14,7 +15,7 @@ const NoDataInCart = React.memo(props => {
                 <h4>{props.Message}</h4>
                 <p>{props.suggestion}</p>
                 <div className="mt-4">
-                <a className="Button-Full-Red block" href={props.pagehref}><i className="fa fa-shopping-cart me-2"></i>{props.ButtonName}</a>
+                <Link className="Button-Full-Red block" to="/products"><i className="fa fa-shopping-cart me-2"></i>{props.ButtonName}</Link>
                 </div>
                 </div>
                 

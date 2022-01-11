@@ -1,7 +1,6 @@
 .Product-desc-back{
-    margin-top: -80px;
     background-color: white;
-    box-shadow: 0 0.3rem 1.525rem -0.375rem rgb(0 0 0 / 10%) !important;
+    box-shadow: 0px 0px 14px #222222f7;
 }
 .Product-Description .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
     color: #fe696a;

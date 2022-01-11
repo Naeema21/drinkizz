@@ -12,8 +12,6 @@ const Header = () => {
 
     return (
         <>
-
-
             <Navbar collapseOnSelect expand="lg" expanded={expanded}
                 className="fixed-top bg-theme" style={{
                     backgroundImage: "linear-gradient(315deg, #537895 0%, #09203f 74%)" ,
@@ -23,7 +21,7 @@ const Header = () => {
 
                 <Container>
                     <Navbar.Brand className='logo' href='/'>
-                        <span className='text-white'>&#127867;</span>Daruwale
+                        <span className='text-white'>&#127867;</span>Dream Tank
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"
                         onClick={() => setExpanded(expanded ? false : "expanded")} />

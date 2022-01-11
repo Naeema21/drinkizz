@@ -116,7 +116,6 @@ const Cart = () => {
     return (
         <>
             <div className='nav-container'></div>
-            <br /><br />
             {
                 userId ?
                     <div className='cart'>
@@ -130,31 +129,31 @@ const Cart = () => {
                                     {
                                         !Loder ?
                                             Data.slice(0, noOfElement).map((v, i) => {
-                                                totalCartPrice += v.price * v.quantity
+                                                totalCartPrice += v.product.price * v.quantity
                                                 return (
                                                     <div key={i}>
                                                         <div className='d-flex row Cart-list-item align-items-center'>
                                                             <div className='d-flex align-items-center col-lg-3 col-md-3 col-sm-3 col-xs-3 Cart-list-item-img'>
                                                                 <div className='p-3'>
-                                                                    <img src={v.image} className='img-fluid'
+                                                                    <img src={v.product.image} className='img-fluid'
                                                                         width="150px" height="150px" />
                                                                 </div>
                                                             </div>
                                                             <div className='product-desc col-lg-7 col-md-7 col-sm-7 col-xs-6'>
-                                                                <Link to={"/product-details/" + v._id}>
-                                                                    <h6 className='title-text-color'>{v.name}</h6>
+                                                                <Link to={"/product-details/" + v.product._id}>
+                                                                    <h6 className='title-text-color'>{v.product.name}</h6>
                                                                     {/* <span className='text-muted'>Size: {v.size}</span> */}
-                                                                    <span className='text-muted'>Category: {v.category}</span>
+                                                                    <span className='text-muted'>Category: {v.product.category}</span>
                                                                     <br />
-                                                                    <span className='text-muted'>ABV: {v.ABV}</span>
+                                                                    <span className='text-muted'>ABV: {v.product.ABV}</span>
                                                                     <br />
-                                                                    <span className='text-muted mb-1'>size: {v.size}</span>
-                                                                    <p className='text-indigo fs-lg'>${v.price}</p>
+                                                                    <span className='text-muted mb-1'>size: {v.product.size}</span>
+                                                                    <p className='text-indigo fs-lg'>${v.product.price}</p>
                                                                 </Link></div>
 
                                                             <div className='col-lg-2 col-md-2 col-sm-2 col-xs-3 Delete-Cart-Item'>
-                                                                <p className='text-quantity'>Quantity</p>
-                                                                <input type="number" defaultValue={v.quantity} className='quanity-bar' /><br />
+                                                                <p className='text-quantity'>Quantity : {v.quantity}</p>
+                                                                {/* <input type="number" defaultValue={v.quantity} className='quanity-bar' /><br /> */}
                                                                 <a className='text-red remove-link mt-2' onClick={() => Deletecart(v._id)}>
                                                                     <i className='fa fa-close'></i>&nbsp;Remove
                                                                 </a>
@@ -168,7 +167,7 @@ const Cart = () => {
                                     }
                                     {/* ---------if empty show no data in cart ---------- */}
                                     {
-                                        Empty ? <NoDataInCart /> : ""
+                                        Empty ? <NoDataInCart ButtonName="Shop Now" /> : ""
                                     }
 
                                     {/* ------------------------load more button----------------------------------- */}
@@ -182,83 +181,109 @@ const Cart = () => {
                                     }
                                 </div>
                                 {/*------------------------- Additional Comments start------------- */}
-                                <div className='col-lg-4'>
-                                    <div className='card rounded-3 shadow-lg p-4'>
-                                        <div className='card-head text-center'>
-                                            <h5>Subtotal</h5>
-                                            <h3>$ {totalCartPrice}</h3>
-                                            <hr />
-                                        </div>
-                                        <div className="card-body">
-                                            <span className="badge bg-info  me-2">Note</span>
-                                            <label>Additional Comments</label>
-                                            <textarea className='form-control mt-2'
-                                                rows="5"></textarea>
-                                        </div>
-                                        <Accordion>
-                                            <div>
-                                                <Accordion.Item eventKey="0">
-                                                    <Accordion.Header>Apply Promo Code</Accordion.Header>
-                                                    <Accordion.Body>
-                                                        <form>
-                                                            <div className="form-group mb-3">
-                                                                <input type="text"
-                                                                    className="form-control" autoComplete="off" placeholder="promo code" />
-                                                            </div>
-                                                            <button className='btn Button-Red-Border w-100'>Apply promo code</button>
-                                                        </form>
-                                                    </Accordion.Body>
-                                                </Accordion.Item>
-                                                <Accordion.Item eventKey="1">
-                                                    <Accordion.Header>Shipping Estimates</Accordion.Header>
-                                                    <Accordion.Body>
-                                                        <form onSubmit={handleSubmit(onSubmit)} >
-                                                            <div className="mb-3">
-                                                                <select className="form-select" required="" {...register("country", {
-                                                                    required: true,
-                                                                })}>
-                                                                    <option value="">Choose your country</option>
-                                                                    <option value="Australia">Australia</option>
-                                                                    <option value="Belgium">Belgium</option>
-                                                                    <option value="Canada">Canada</option>
-                                                                    <option value="Finland">Finland</option>
-                                                                    <option value="Mexico">Mexico</option>
-                                                                    <option value="New Zealand">New Zealand</option>
-                                                                    <option value="Switzerland">Switzerland</option>
-                                                                    <option value="United States">United States</option>
-                                                                </select><span className="error-msg" title="invlid subject">{errors.country && "Please Choose Country"}</span>
 
-                                                            </div>
-                                                            <div className="mb-3">
-                                                                <select className="form-select" required="" {...register("city", {
-                                                                    required: true,
-                                                                })}>
-                                                                    <option value="">Choose your city</option>
-                                                                    <option value="Bern">Bern</option>
-                                                                    <option value="Brussels">Brussels</option>
-                                                                    <option value="Canberra">Canberra</option>
-                                                                    <option value="Helsinki">Helsinki</option>
-                                                                    <option value="Mexico City">Mexico City</option>
-                                                                    <option value="Ottawa">Ottawa</option>
-                                                                    <option value="Washington D.C.">Washington D.C.</option>
-                                                                    <option value="Wellington">Wellington</option>
-                                                                </select><span className="error-msg" title="invlid subject">{errors.city && "Please Choose City"}</span>
-                                                            </div>
-                                                            <div className="mb-3">
-                                                                <input className="form-control" type="text" placeholder="ZIP / Postal code" required="" {...register("code", {
-                                                                    required: true,
-                                                                })} /><span className="error-msg" title="invlid subject">{errors.code && "Please provide valid code"}</span>
-                                                            </div>
-                                                            <button className="btn Button-Red-Border d-block w-100" type="submit">Calculate shipping</button>
-                                                        </form>
-                                                    </Accordion.Body>
-                                                </Accordion.Item>
-                                            </div>
-                                        </Accordion>
-                                        <br />
-                                        <a className='Button-Full-Red' href='/checkout-details'>Proceed to Checkout</a>
-                                    </div>
-                                </div>
+                                {!Empty ?
+                                    <div className='col-lg-4'>
+                                        <div className='card rounded-3 shadow-lg p-4'>
+                                            <form onSubmit={handleSubmit(onSubmit)} >
+                                                <div className='card-head text-center'>
+                                                    <h5>Subtotal</h5>
+                                                    <h3>$ {totalCartPrice}</h3>
+                                                    <hr />
+                                                </div>
+                                                <div className="card-body">
+                                                    <span className="badge bg-info  me-2">Note</span>
+                                                    <label>Additional Comments</label>
+                                                    <textarea className='form-control'
+                                                        rows="2"></textarea>
+                                                </div>
+                                                <Accordion>
+                                                    <div>
+
+                                                        <Accordion.Item eventKey="0">
+                                                            <Accordion.Header>Apply Promo Code</Accordion.Header>
+                                                            <Accordion.Body>
+                                                                <div className="form-group mb-3">
+                                                                    <input type="text"
+                                                                        className="form-control" autoComplete="off" placeholder="promo code" />
+                                                                </div>
+                                                                <button className='btn Button-Red-Border w-100'>Apply promo code</button>
+                                                            </Accordion.Body>
+                                                        </Accordion.Item>
+                                                        <Accordion.Item eventKey="1">
+                                                            <Accordion.Header>Personal Details</Accordion.Header>
+                                                            <Accordion.Body>
+                                                                <div className="mb-2">
+                                                                    <input className="form-control" type="text" placeholder="Name"
+                                                                        required="" {...register("name", { required: true, })} />
+                                                                    <span className="error-msg" title="invlid subject">{errors.name && "Please provide valid name"}</span>
+                                                                </div>
+                                                                <div className="mb-2">
+                                                                    <input className="form-control" type="email" placeholder="Email "
+                                                                        required="" {...register("email", { required: true, })} />
+                                                                    <span className="error-msg" title="invlid subject">{errors.email && "Please provide valid email"}</span>
+                                                                </div>
+                                                                <div className="mb-2">
+                                                                    <input className="form-control" type="number" placeholder="Number"
+                                                                        required="" {...register("phone", { required: true, })} />
+                                                                    <span className="error-msg" title="invlid subject">{errors.phone && "Please provide valid number"}</span>
+                                                                </div>
+                                                            </Accordion.Body>
+                                                        </Accordion.Item>
+                                                        <Accordion.Item eventKey="2">
+                                                            <Accordion.Header>Shipping Estimates</Accordion.Header>
+                                                            <Accordion.Body>
+                                                                <div className="mb-3">
+                                                                    <select className="form-select" required="" {...register("country", {
+                                                                        required: true,
+                                                                    })}>
+                                                                        <option value="">Choose your country</option>
+                                                                        <option value="Australia">Australia</option>
+                                                                        <option value="Belgium">Belgium</option>
+                                                                        <option value="Canada">Canada</option>
+                                                                        <option value="Finland">Finland</option>
+                                                                        <option value="Mexico">Mexico</option>
+                                                                        <option value="New Zealand">New Zealand</option>
+                                                                        <option value="Switzerland">Switzerland</option>
+                                                                        <option value="United States">United States</option>
+                                                                    </select><span className="error-msg" title="invlid subject">{errors.country && "Please Choose Country"}</span>
+
+                                                                </div>
+                                                                <div className="mb-3">
+                                                                    <select className="form-select" required="" {...register("city", {
+                                                                        required: true,
+                                                                    })}>
+                                                                        <option value="">Choose your city</option>
+                                                                        <option value="Bern">Bern</option>
+                                                                        <option value="Brussels">Brussels</option>
+                                                                        <option value="Canberra">Canberra</option>
+                                                                        <option value="Helsinki">Helsinki</option>
+                                                                        <option value="Mexico City">Mexico City</option>
+                                                                        <option value="Ottawa">Ottawa</option>
+                                                                        <option value="Washington D.C.">Washington D.C.</option>
+                                                                        <option value="Wellington">Wellington</option>
+                                                                    </select><span className="error-msg" title="invlid subject">{errors.city && "Please Choose City"}</span>
+                                                                </div>
+                                                                <div className="mb-3">
+                                                                    <input className="form-control" type="text" placeholder="ZIP / Postal code"
+                                                                        required="" {...register("zip", { required: true, })} />
+                                                                    <span className="error-msg" title="invlid subject">{errors.zip && "Please provide valid code"}</span>
+                                                                </div>
+                                                                <div className="mb-3">
+                                                                    <textarea className="form-control" type="text" placeholder="Address"
+                                                                        required="" {...register("address", { required: true })} />
+                                                                    <span className="error-msg" title="invlid subject">{errors.address && "Please provide valid address"}</span>
+                                                                </div>
+                                                            </Accordion.Body>
+                                                        </Accordion.Item>
+                                                    </div>
+                                                </Accordion>
+                                                <br />
+                                                <button className='Button-Full-Red' type="submit">Proceed to Checkout</button>
+                                            </form>
+
+                                        </div>
+                                    </div> : ""}
                             </div>
                             {/* Additional Comments end */}
                         </div>
