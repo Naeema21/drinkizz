@@ -103,7 +103,9 @@ const Wishlist = () => {
                         <div>
                             <div className="d-flex justify-content-between align-items-center px-4 mb-4">
                                 <h6 className="text-dark fs-base mb-0 ml-4 pt-4 mt-1 ListSort">List of your registered addresses:</h6>
-                                <Link className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn" to="/"><i className="fa fa-sign-out me-2"></i>Sign out</Link>
+                                <button className="Button-Red-Border Button-Full-Red text-light me-2 mt-4 mb-0 btn-sm signoutbtn">
+                                    <i className="fa fa-sign-out me-2"></i>Sign out
+                                </button>
                             </div>
                             <hr style={{ "width": "100%", "textalign": "left", "marginleft": "0", "color": "black", "height": "3px" }}></hr>
                             {/* //check loading codition */}

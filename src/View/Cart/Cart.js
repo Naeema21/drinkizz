@@ -191,12 +191,6 @@ const Cart = () => {
                                                     <h3>$ {totalCartPrice}</h3>
                                                     <hr />
                                                 </div>
-                                                <div className="card-body">
-                                                    <span className="badge bg-info  me-2">Note</span>
-                                                    <label>Additional Comments</label>
-                                                    <textarea className='form-control'
-                                                        rows="2"></textarea>
-                                                </div>
                                                 <Accordion>
                                                     <div>
 

@@ -78,7 +78,7 @@ const SignIn = () => {
                         id="nav-dropdown-dark-example nav-link"
                         title={"Hello, " + name}
                         menuVariant="Danger">
-                        <NavDropdown.Item onClick={() => LogOut()} className='text-white'>
+                        <NavDropdown.Item onClick={() => LogOut()}>
                             <i className="fa fa-sign-out me-2"></i>SignOut</NavDropdown.Item>
                     </NavDropdown>
                     :
