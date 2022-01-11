@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import { NavLink, Link } from 'react-router-dom'
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import logo from '../../assets/images/logo.png'
 import '../layout.css'
 const Header = () => {
     const SignIn = React.lazy(() => import('../../Components/SignIn/SignIn'))
@@ -21,7 +22,7 @@ const Header = () => {
 
                 <Container>
                     <Navbar.Brand className='logo' href='/'>
-                        <span className='text-white'>&#127867;</span>Dream Tank
+                        <span className='text-white'><img src={logo} style={{width:"50px"}}/></span>Drinkizz
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"
                         onClick={() => setExpanded(expanded ? false : "expanded")} />

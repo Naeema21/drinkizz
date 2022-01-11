@@ -22,6 +22,10 @@ const Cart = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data);
+        swal({
+            title: "Thanks! Order is on the way",
+            timer: 2000,
+        })
         reset();
     }
     const [Data, setData] = useState([]);
@@ -83,8 +87,6 @@ const Cart = () => {
 
         })
     }
-
-
 
     //skeleton
     const SkeletonCartItem = [0, 1, 2].map(() => {
@@ -191,15 +193,15 @@ const Cart = () => {
                                                     <h3>$ {totalCartPrice}</h3>
                                                     <hr />
                                                 </div>
-                                                <Accordion>
+                                                <Accordion defaultActiveKey="1">
                                                     <div>
-
                                                         <Accordion.Item eventKey="0">
                                                             <Accordion.Header>Apply Promo Code</Accordion.Header>
                                                             <Accordion.Body>
                                                                 <div className="form-group mb-3">
                                                                     <input type="text"
                                                                         className="form-control" autoComplete="off" placeholder="promo code" />
+                                                                        <input type="hidden" value={totalCartPrice} {...register("totalprice", { required: true, })}/>
                                                                 </div>
                                                                 <button className='btn Button-Red-Border w-100'>Apply promo code</button>
                                                             </Accordion.Body>
@@ -224,56 +226,11 @@ const Cart = () => {
                                                                 </div>
                                                             </Accordion.Body>
                                                         </Accordion.Item>
-                                                        <Accordion.Item eventKey="2">
-                                                            <Accordion.Header>Shipping Estimates</Accordion.Header>
-                                                            <Accordion.Body>
-                                                                <div className="mb-3">
-                                                                    <select className="form-select" required="" {...register("country", {
-                                                                        required: true,
-                                                                    })}>
-                                                                        <option value="">Choose your country</option>
-                                                                        <option value="Australia">Australia</option>
-                                                                        <option value="Belgium">Belgium</option>
-                                                                        <option value="Canada">Canada</option>
-                                                                        <option value="Finland">Finland</option>
-                                                                        <option value="Mexico">Mexico</option>
-                                                                        <option value="New Zealand">New Zealand</option>
-                                                                        <option value="Switzerland">Switzerland</option>
-                                                                        <option value="United States">United States</option>
-                                                                    </select><span className="error-msg" title="invlid subject">{errors.country && "Please Choose Country"}</span>
-
-                                                                </div>
-                                                                <div className="mb-3">
-                                                                    <select className="form-select" required="" {...register("city", {
-                                                                        required: true,
-                                                                    })}>
-                                                                        <option value="">Choose your city</option>
-                                                                        <option value="Bern">Bern</option>
-                                                                        <option value="Brussels">Brussels</option>
-                                                                        <option value="Canberra">Canberra</option>
-                                                                        <option value="Helsinki">Helsinki</option>
-                                                                        <option value="Mexico City">Mexico City</option>
-                                                                        <option value="Ottawa">Ottawa</option>
-                                                                        <option value="Washington D.C.">Washington D.C.</option>
-                                                                        <option value="Wellington">Wellington</option>
-                                                                    </select><span className="error-msg" title="invlid subject">{errors.city && "Please Choose City"}</span>
-                                                                </div>
-                                                                <div className="mb-3">
-                                                                    <input className="form-control" type="text" placeholder="ZIP / Postal code"
-                                                                        required="" {...register("zip", { required: true, })} />
-                                                                    <span className="error-msg" title="invlid subject">{errors.zip && "Please provide valid code"}</span>
-                                                                </div>
-                                                                <div className="mb-3">
-                                                                    <textarea className="form-control" type="text" placeholder="Address"
-                                                                        required="" {...register("address", { required: true })} />
-                                                                    <span className="error-msg" title="invlid subject">{errors.address && "Please provide valid address"}</span>
-                                                                </div>
-                                                            </Accordion.Body>
-                                                        </Accordion.Item>
+                                                      
                                                     </div>
                                                 </Accordion>
                                                 <br />
-                                                <button className='Button-Full-Red' type="submit">Proceed to Checkout</button>
+                                                <button className='Button-Full-Red' type="submit">Place Order</button>
                                             </form>
 
                                         </div>
